@@ -21,29 +21,37 @@ A daily briefing for software engineers covering AI, languages and frameworks, c
 
 ### 本機開發
 
-需要 Node.js 18.20.8、20.3.0 或 22 以上版本。
+需要 Node.js 20.3.0 或 22 以上版本。
 
 ```bash
 npm install
 npm run dev
 ```
 
-### 部署到 GitHub Pages
+第一次執行 `npm install` 會產生 `package-lock.json`，**請把它一起提交到 repo**，部署流程會依照它安裝固定版本的套件。
 
-1. `astro.config.mjs` 已設定為 `wantingpan` 帳號與 `dev-intel-hub` repo；若改了 repo 名稱，請同步修改 `base`。
-2. 推送到 GitHub 的 `main` 分支。
-3. 在 repo 的 **Settings → Pages**，將 **Source** 設為 **GitHub Actions**。
-4. 之後每次推送到 `main`，`.github/workflows/deploy.yml` 會自動建置並部署。
+修改資料檔後，可以先執行 `npm run check:data` 檢查格式與網址。
 
-網址：`https://wantingpan.github.io/dev-intel-hub/`
+### 部署到 Netlify
+
+網站透過 Netlify 直接連結這個 GitHub repo 部署，設定都在 `netlify.toml`：
+
+- 推送到 `main`：Netlify 自動建置並上線。
+- 發 Pull Request：Netlify 自動產生預覽網址，GitHub Actions 同時執行 CI 檢查。
+- 建置前會自動執行資料檢查，資料有誤時建置失敗、不會上線。
+- 資安標頭（CSP、防點擊劫持等）由 `netlify.toml` 以 HTTP 標頭提供。
+
+首次設定：登入 Netlify → 新增網站 → 從 GitHub 匯入現有專案 → 授權並選擇此 repo → 確認建置設定（會自動讀取 `netlify.toml`）→ 部署。
+
+若要改回 GitHub Pages，建置時設定環境變數 `DEPLOY_TARGET=github-pages`，網址路徑會自動切換為 `/dev-intel-hub/`。
 
 ### 資料格式
 
 內容放在 `src/data/`：
 
-- `news.json`：新聞。`title` 與 `summary` 各有 `zh-TW` 與 `en` 兩種語言；`category` 為 `industry`、`ai`、`lang`、`cloud`、`security` 其中之一。
+- `news.json`：新聞。`title` 與 `summary` 各有 `zh-TW` 與 `en` 兩種語言；`category` 為 `industry`、`ai`、`lang`、`cloud`、`security` 其中之一；`sourceType` 為 `official`、`media` 或 `secondary`；`corroboration` 列出其他確認來源（只列實際查到並附連結的來源）；`dispute` 記錄說法分歧（選填，至少兩方說法）。
 - `cves.json`：漏洞。`severity` 為 `exploited`、`critical` 或 `high`；`cvss` 沒有分數時為 `null`。
-- `events.json`：事件影響卡片。市場資料需註明時間點（收盤或盤中）與來源；資安內容分為「已報導」與「常見模式」。
+- `events.json`：事件影響卡片。`status` 為 `ongoing`、`monitoring`、`patched` 或 `resolved`；`updates` 是後續追蹤時間軸，每筆都要附出處；`disputes` 記錄說法分歧；`postmortem` 為事後檢討報告連結（未發布時為 `null`）。市場資料需註明時間點（收盤或盤中）與來源；資安內容分為「已報導」與「常見模式」。
 - `meta.json`：查證日期。
 
 介面文字放在 `src/i18n/ui.ts`。
@@ -52,13 +60,24 @@ npm run dev
 
 - 每則消息都要有可查證的原始出處。
 - 摘要以自己的文字改寫並附原始連結，不轉載全文。
-- 來源說法互相矛盾時，標註或不收錄。
+- 來源說法互相矛盾時，並列各方說法並說明本站判斷依據；無法判斷時不收錄。
+- 來源數量只計算實際查到並附上連結的來源，不虛報。
 - 來自週報或彙整網站的項目，在摘要中註明。
 - 事件影響頁：只在媒體明確報導時指出事件與股價的關聯，並列出其他可能影響股價的因素；不提供買賣建議或股價預測。
+
+### 資安
+
+防護措施與回報方式請見 [SECURITY.md](SECURITY.md)。建議在 GitHub 上完成以下設定：
+
+1. 帳號開啟兩步驟驗證：頭像 → **Settings → Password and authentication**。
+2. 保護 `main` 分支：repo **Settings → Rules → Rulesets**（或 **Branches**），禁止強制推送與刪除分支，並要求 CI 檢查通過才能合併。
+3. 開啟安全通知：repo **Settings → Advanced Security**（部分帳號顯示為 **Code security**），啟用 Dependabot alerts 與 security updates。
+4. 開啟私下回報：同一頁啟用 **Private vulnerability reporting**。
 
 ### 發展規劃
 
 - [x] 第一階段：雙語靜態網站（目前版本，資料手動更新）
+- [x] Netlify 自動部署與 GitHub Actions CI 檢查
 - [ ] 第二階段：以 GitHub Actions 排程，自動抓取公開資料來源（各來源須先確認使用條款）
 - [ ] 第二階段：選用 AI 產生摘要與翻譯草稿，經人工審核後發布
 - [ ] 第二階段：串接股價資料來源（須確認市場資料的轉載與展示授權）
@@ -83,29 +102,37 @@ npm run dev
 
 ### Local development
 
-Requires Node.js 18.20.8, 20.3.0, or 22 and later.
+Requires Node.js 20.3.0, or 22 and later.
 
 ```bash
 npm install
 npm run dev
 ```
 
-### Deploy to GitHub Pages
+The first `npm install` creates `package-lock.json`. **Commit it**: the deploy workflow installs the exact versions it lists.
 
-1. `astro.config.mjs` is set up for the `wantingpan` account and the `dev-intel-hub` repo; if you rename the repo, update `base` too.
-2. Push to the `main` branch.
-3. In **Settings → Pages**, set **Source** to **GitHub Actions**.
-4. Every push to `main` then builds and deploys through `.github/workflows/deploy.yml`.
+After editing data files, run `npm run check:data` to validate them.
 
-Site URL: `https://wantingpan.github.io/dev-intel-hub/`
+### Deploy to Netlify
+
+The site deploys through Netlify's direct link to this GitHub repo; settings live in `netlify.toml`:
+
+- Push to `main`: Netlify builds and publishes automatically.
+- Open a pull request: Netlify creates a preview URL while GitHub Actions runs CI checks.
+- The data check runs before every build; bad data fails the build and never goes live.
+- Security headers (CSP, anti-clickjacking and more) are sent as HTTP headers from `netlify.toml`.
+
+First-time setup: sign in to Netlify → add a new site → import an existing project from GitHub → authorize and pick this repo → confirm the build settings (read from `netlify.toml`) → deploy.
+
+To build for GitHub Pages instead, set `DEPLOY_TARGET=github-pages`; the base path switches to `/dev-intel-hub/` automatically.
 
 ### Data
 
 Content lives in `src/data/`:
 
-- `news.json`: stories. `title` and `summary` each have `zh-TW` and `en`; `category` is one of `industry`, `ai`, `lang`, `cloud`, `security`.
+- `news.json`: stories. `title` and `summary` each have `zh-TW` and `en`; `category` is one of `industry`, `ai`, `lang`, `cloud`, `security`; `sourceType` is `official`, `media` or `secondary`; `corroboration` lists other confirming sources (only ones actually found and linked); `dispute` records conflicting reports (optional, at least two claims).
 - `cves.json`: vulnerabilities. `severity` is `exploited`, `critical` or `high`; `cvss` is `null` when no score was given.
-- `events.json`: event impact cards. Market rows must state their timing (close or intraday) and source; security items are split into "reported" and "common pattern".
+- `events.json`: event impact cards. `status` is `ongoing`, `monitoring`, `patched` or `resolved`; `updates` is a follow-up timeline, each entry sourced; `disputes` records conflicting reports; `postmortem` links the post-incident review (`null` until published). Market rows must state their timing (close or intraday) and source; security items are split into "reported" and "common pattern".
 - `meta.json`: the verification date.
 
 UI strings live in `src/i18n/ui.ts`.
@@ -114,13 +141,24 @@ UI strings live in `src/i18n/ui.ts`.
 
 - Every item needs a verifiable original source.
 - Summaries are written in our own words and link to the original; full articles are never reproduced.
-- Conflicting reports are flagged or left out.
+- Conflicting reports are shown side by side with the data we relied on; if we can't tell, we leave the item out.
+- Source counts include only sources we actually found and linked.
 - Items from weekly roundups or aggregators are marked as such.
 - Event impact: an event is linked to a price move only when the media reports that link, alongside other factors that may have moved the price. No buy or sell advice, no price predictions.
+
+### Security
+
+See [SECURITY.md](SECURITY.md) for protections and how to report issues. Recommended GitHub settings:
+
+1. Turn on two-factor authentication: avatar → **Settings → Password and authentication**.
+2. Protect `main`: repo **Settings → Rules → Rulesets** (or **Branches**); block force pushes and deletion, and require the CI check to pass before merging.
+3. Turn on security alerts: repo **Settings → Advanced Security** (shown as **Code security** on some accounts); enable Dependabot alerts and security updates.
+4. Turn on private reporting: enable **Private vulnerability reporting** on the same page.
 
 ### Roadmap
 
 - [x] Phase 1: bilingual static site (current; data updated by hand)
+- [x] Netlify auto-deploys with GitHub Actions CI checks
 - [ ] Phase 2: scheduled GitHub Actions that pull from public sources (each source's terms checked first)
 - [ ] Phase 2: optional AI-drafted summaries and translations, published after human review
 - [ ] Phase 2: connect a market data source (licensing for redisplay must be checked first)

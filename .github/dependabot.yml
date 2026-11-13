@@ -1,0 +1,12 @@
+# 每週檢查套件與 GitHub Actions 的更新，有安全更新時會自動開 Pull Request
+# Weekly checks for npm and GitHub Actions updates; opens pull requests for them
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"

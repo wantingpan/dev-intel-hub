@@ -254,7 +254,59 @@
         "name": "中央社",
         "url": "https://www.cna.com.tw/news/afe/202611130036.aspx"
       }
-    ]
+    ],
+    "status": "monitoring",
+    "verifiedOn": "2026-11-13",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "time": null,
+        "text": {
+          "zh-TW": "黃仁勳宣布辭去總裁、執行長及董事職務，Colette Kress 出任臨時執行長。",
+          "en": "Huang resigned as president, CEO and director; Colette Kress named interim CEO."
+        },
+        "source": {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/12/nvidias-jensen-huang-resigns-chipmaker-names-cfo-colette-kress-as-interim-ceo/"
+        }
+      },
+      {
+        "date": "2026-11-12",
+        "time": {
+          "zh-TW": "美東收盤",
+          "en": "US close"
+        },
+        "text": {
+          "zh-TW": "Nvidia 收跌 4.34%。",
+          "en": "Nvidia closed down 4.34%."
+        },
+        "source": {
+          "name": "CNBC",
+          "url": "https://www.cnbc.com/2026/11/12/nvidia-nvda-jensen-huang-second-affair.html"
+        }
+      },
+      {
+        "date": "2026-11-13",
+        "time": {
+          "zh-TW": "台股早盤",
+          "en": "Taiwan early trade"
+        },
+        "text": {
+          "zh-TW": "加權指數早盤漲逾 1,200 點。",
+          "en": "TAIEX rose more than 1,200 points in early trade."
+        },
+        "source": {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611130036.aspx"
+        }
+      }
+    ],
+    "nextWatch": {
+      "zh-TW": "新任執行長人選，以及產品路線圖是否延續。",
+      "en": "Who becomes the next CEO, and whether the product roadmap holds."
+    },
+    "postmortem": null,
+    "disputes": []
   },
   {
     "id": "outlook-zero-day-2026-11",
@@ -361,6 +413,312 @@
       {
         "name": "SOCRadar",
         "url": "https://socradar.io/blog/november-2026-patch-tuesday-zero-day/"
+      }
+    ],
+    "status": "patched",
+    "verifiedOn": "2026-11-13",
+    "updates": [
+      {
+        "date": "2026-11-10",
+        "time": null,
+        "text": {
+          "zh-TW": "微軟例行更新修補 CVE-2026-124194，確認已遭利用。",
+          "en": "Microsoft's monthly update fixed CVE-2026-124194, confirmed as exploited."
+        },
+        "source": {
+          "name": "Tenable",
+          "url": "https://www.tenable.com/blog/microsoft-november-2026-patch-tuesday-addresses-1093-cves-cve-2026-124194"
+        }
+      },
+      {
+        "date": "2026-11-10",
+        "time": null,
+        "text": {
+          "zh-TW": "CISA 列入已遭利用漏洞清單。",
+          "en": "CISA added it to its known-exploited list."
+        },
+        "source": {
+          "name": "SOCRadar",
+          "url": "https://socradar.io/blog/november-2026-patch-tuesday-zero-day/"
+        }
+      },
+      {
+        "date": "2026-11-24",
+        "time": null,
+        "upcoming": true,
+        "text": {
+          "zh-TW": "美國聯邦機構修補期限。",
+          "en": "Deadline for US federal agencies to patch."
+        },
+        "source": {
+          "name": "SOCRadar",
+          "url": "https://socradar.io/blog/november-2026-patch-tuesday-zero-day/"
+        }
+      }
+    ],
+    "nextWatch": {
+      "zh-TW": "是否出現更多攻擊報告，以及企業的修補進度。",
+      "en": "Whether more attack reports surface, and how quickly organizations patch."
+    },
+    "postmortem": null,
+    "disputes": []
+  },
+  {
+    "id": "m365-outage-2026-11",
+    "date": "2026-11-12",
+    "title": {
+      "zh-TW": "Microsoft 365 大規模斷線：Outlook、Teams、Copilot 受影響",
+      "en": "Major Microsoft 365 outage hits Outlook, Teams and Copilot"
+    },
+    "summary": {
+      "zh-TW": "美東時間 11/12 下午（台灣時間 11/13 凌晨）起，全球大量用戶無法收發信件。這正是軟體人最常遇到的情境：一個雲端服務停擺，連帶影響工作、資安與依賴它的 AI 整合。",
+      "en": "From the afternoon of Nov 12 US Eastern time, users worldwide couldn't send or receive email. It's the scenario engineers know best: one cloud service goes down and work, security and the AI integrations built on it go down with it."
+    },
+    "facts": [
+      {
+        "zh-TW": "美東時間 11/12 下午 1 點過後，Downdetector 上回報 Outlook 問題的美國用戶一度接近 13 萬人。",
+        "en": "Shortly after 1 p.m. ET on Nov 12, nearly 130,000 US users reported Outlook problems on Downdetector."
+      },
+      {
+        "zh-TW": "微軟起初表示問題出現在美洲，之後確認全球任何地區的 Microsoft 365 連線都可能受影響；Downdetector 統計波及 74 個國家和地區。",
+        "en": "Microsoft first pointed to the Americas, then confirmed Microsoft 365 connectivity could be affected in any region; Downdetector counted 74 countries and territories."
+      },
+      {
+        "zh-TW": "微軟表示，部分基礎設施在多個區域出現負載過高，可能是連線錯誤的原因；已暫停所有部署、轉移流量並重新啟動受影響的伺服器。",
+        "en": "Microsoft said elevated load on part of its infrastructure across regions was likely behind the errors; it paused all deployments, moved traffic and restarted affected servers."
+      },
+      {
+        "zh-TW": "部分伺服器恢復後，一旦流量回流又會再度無回應；截至查證時（台灣時間 11/13），微軟尚未宣布完全恢復。",
+        "en": "Some servers became unresponsive again once traffic returned. As of our check (Nov 13, Taiwan time), Microsoft hadn't declared full recovery."
+      }
+    ],
+    "work": [
+      {
+        "zh-TW": "受影響的服務包括 Exchange Online、Teams、SharePoint Online、Copilot 365、Defender XDR、Planner、To Do 與 Intune，等於企業日常協作工具大多停擺。",
+        "en": "Affected services included Exchange Online, Teams, SharePoint Online, Copilot 365, Defender XDR, Planner, To Do and Intune: most of a company's daily collaboration stack."
+      },
+      {
+        "zh-TW": "路透社報導，OpenAI 與 Anthropic 的 AI 服務所使用的 Microsoft 365 連接器也受到波及。依賴 M365 的自動化流程與 AI 整合，可能在你沒察覺的情況下中斷。",
+        "en": "Reuters reported the outage also hit Microsoft 365 connectors used by OpenAI's and Anthropic's AI services. Automations and AI integrations that depend on M365 may fail without you noticing."
+      },
+      {
+        "zh-TW": "實務上可以先查看 Microsoft 365 服務狀態頁或系統管理中心的事件公告、改用備用溝通管道，並在服務恢復後確認是否有漏收的信件與排程。",
+        "en": "In practice: check the Microsoft 365 status page or admin center incident notice, switch to a backup channel, and once service returns, check for missed mail and scheduled jobs."
+      }
+    ],
+    "securityFacts": [
+      {
+        "zh-TW": "澳洲內政部長表示，微軟告知他們不認為這次斷線是網路攻擊造成的。",
+        "en": "Australia's home affairs minister said Microsoft told him it didn't believe the outage was caused by a cyberattack."
+      }
+    ],
+    "securityPatterns": [
+      {
+        "zh-TW": "大型服務中斷期間，常出現假冒「帳號異常，請重新登入」或「服務已恢復，請驗證身分」的釣魚信。",
+        "en": "During major outages, phishing posing as \"unusual account activity, sign in again\" or \"service restored, verify your identity\" is common."
+      },
+      {
+        "zh-TW": "員工可能改用個人信箱或未經核准的工具傳送公司資料，造成資料外洩風險。",
+        "en": "Staff may switch to personal email or unapproved tools to send company data, creating leak risks."
+      },
+      {
+        "zh-TW": "同一週 Outlook 才剛修補一個已遭利用的零時差漏洞（見下方卡片），IT 部門應確認修補沒有因這次斷線而延誤。",
+        "en": "The same week, Outlook had just been patched for an exploited zero-day (see the card below); IT should make sure that patching wasn't delayed by the outage."
+      }
+    ],
+    "market": {
+      "us": [
+        {
+          "label": {
+            "zh-TW": "Microsoft（MSFT）",
+            "en": "Microsoft (MSFT)"
+          },
+          "move": {
+            "zh-TW": "+0.36%（收 523.00 美元）",
+            "en": "+0.36% (closed $523.00)"
+          },
+          "basis": {
+            "zh-TW": "11/12 收盤，斷線發生於盤中",
+            "en": "Nov 12 close; outage began during trading"
+          },
+          "source": {
+            "name": "MarketScreener",
+            "url": "https://www.marketscreener.com/news/microsoft-365-outlook-down-for-thousands-of-us-users-downdetector-shows-ce785ed8d08df520"
+          }
+        },
+        {
+          "label": {
+            "zh-TW": "Microsoft 盤後",
+            "en": "Microsoft, after hours"
+          },
+          "move": {
+            "zh-TW": "-0.30%（521.42 美元）",
+            "en": "-0.30% ($521.42)"
+          },
+          "basis": {
+            "zh-TW": "11/12 盤後，非正式收盤",
+            "en": "Nov 12 after hours, not a regular close"
+          },
+          "source": {
+            "name": "MarketScreener",
+            "url": "https://www.marketscreener.com/news/microsoft-365-outlook-down-for-thousands-of-us-users-downdetector-shows-ce785ed8d08df520"
+          }
+        }
+      ],
+      "tw": [],
+      "views": [],
+      "caveats": [
+        {
+          "zh-TW": "同一天 Nvidia 宣布執行長辭任，牽動整個 AI 類股，也會影響微軟等大型科技股的走勢。",
+          "en": "Nvidia announced its CEO's resignation the same day, moving the whole AI sector, including large tech stocks like Microsoft."
+        },
+        {
+          "zh-TW": "斷線在收盤後仍未完全排除，後續股價反應有待觀察，本卡片會在下次更新時補上。",
+          "en": "The outage wasn't fully resolved after the close; any later price reaction remains to be seen, and this card will be updated."
+        },
+        {
+          "zh-TW": "台股方面沒有直接相關的上市公司，因此不列出。",
+          "en": "No directly related company is listed in Taiwan, so none is shown."
+        }
+      ]
+    },
+    "sources": [
+      {
+        "name": "AP（OPB 轉載）",
+        "url": "https://www.opb.org/article/2026/11/12/is-outlook-down-widespread-outage-hits-microsoft-email-and-other-apps/"
+      },
+      {
+        "name": "AFP（The Sen Times 轉載）",
+        "url": "https://thesentimes.com/global-outage-hits-microsoft-outlook/"
+      },
+      {
+        "name": "Reuters（Investing.com 轉載）",
+        "url": "https://www.investing.com/news/stock-market-news/microsoft-365-outlook-down-for-thousands-of-us-users-downdetector-shows-5023037"
+      },
+      {
+        "name": "ABC News",
+        "url": "https://abcnews.com/US/outlook-down-microsoft-outage-reported-mail/story?id=138088203"
+      },
+      {
+        "name": "ABC7 即時更新",
+        "url": "https://abc7.com/live-updates/microsoft-outage-live-updates-what-know-outlook-365-other-apps-remain-down/20036817/"
+      },
+      {
+        "name": "ABC（澳洲）",
+        "url": "https://www.abc.net.au/news/2026-11-13/microsoft-outlook-outage/107380958"
+      },
+      {
+        "name": "Deadline",
+        "url": "https://deadline.com/2026/11/microsoft-outlook-is-down-email-365-1237221945/"
+      },
+      {
+        "name": "FX Leaders",
+        "url": "https://www.fxleaders.com/news/2026/11/12/msft-stock-reverses-heading-to-500-after-microsoft-365-services-impacted-by-outlook-outage/"
+      }
+    ],
+    "status": "ongoing",
+    "verifiedOn": "2026-11-13",
+    "updates": [
+      {
+        "date": "2026-11-12",
+        "time": {
+          "zh-TW": "美東約 13:00",
+          "en": "about 1 p.m. ET"
+        },
+        "text": {
+          "zh-TW": "用戶回報量急升，Downdetector 上回報 Outlook 問題的美國用戶接近 13 萬人。",
+          "en": "Reports spiked; nearly 130,000 US users reported Outlook problems on Downdetector."
+        },
+        "source": {
+          "name": "AP（OPB 轉載）",
+          "url": "https://www.opb.org/article/2026/11/12/is-outlook-down-widespread-outage-hits-microsoft-email-and-other-apps/"
+        }
+      },
+      {
+        "date": "2026-11-12",
+        "time": {
+          "zh-TW": "美東約 18:00",
+          "en": "about 6 p.m. ET"
+        },
+        "text": {
+          "zh-TW": "微軟讓部分伺服器恢復服務，但表示伺服器在流量回流後可能再次無回應。",
+          "en": "Microsoft returned some servers to service but said they could become unresponsive again once traffic returned."
+        },
+        "source": {
+          "name": "ABC News",
+          "url": "https://abcnews.com/US/outlook-down-microsoft-outage-reported-mail/story?id=138088203"
+        }
+      },
+      {
+        "date": "2026-11-12",
+        "time": {
+          "zh-TW": "美東約 19:05",
+          "en": "about 7:05 p.m. ET"
+        },
+        "text": {
+          "zh-TW": "微軟表示部分伺服器再度無回應，之後開始擴充容量以承接回流的流量。",
+          "en": "Microsoft said some servers were unresponsive again, then began adding capacity for returning traffic."
+        },
+        "source": {
+          "name": "Yahoo Finance",
+          "url": "https://finance.yahoo.com/markets/article/microsoft-outage-disrupts-outlook-teams-and-copilot-for-users-in-any-region-212333470.html"
+        }
+      },
+      {
+        "date": "2026-11-13",
+        "time": {
+          "zh-TW": "美東週五早上",
+          "en": "Friday morning ET"
+        },
+        "text": {
+          "zh-TW": "斷線延續到週五早上，微軟仍在修復中。",
+          "en": "The outage stretched into Friday morning as Microsoft kept working on a fix."
+        },
+        "source": {
+          "name": "ABC News",
+          "url": "https://abcnews.com/US/outlook-down-microsoft-outage-reported-mail/story?id=138088203"
+        }
+      }
+    ],
+    "nextWatch": {
+      "zh-TW": "完全恢復的時間，以及微軟是否發布事後檢討報告說明根本原因。",
+      "en": "When service fully recovers, and whether Microsoft publishes a post-incident review with the root cause."
+    },
+    "postmortem": null,
+    "disputes": [
+      {
+        "topic": {
+          "zh-TW": "斷線對微軟股價的影響",
+          "en": "How the outage affected Microsoft's stock"
+        },
+        "claims": [
+          {
+            "who": "Deadline",
+            "claim": {
+              "zh-TW": "股價未受影響，當天小幅收高。",
+              "en": "Shares weren't affected and closed slightly higher."
+            },
+            "source": {
+              "name": "Deadline",
+              "url": "https://deadline.com/2026/11/microsoft-outlook-is-down-email-365-1237221945/"
+            }
+          },
+          {
+            "who": "FX Leaders",
+            "claim": {
+              "zh-TW": "斷線使股價跌勢加速。",
+              "en": "The outage accelerated a decline."
+            },
+            "source": {
+              "name": "FX Leaders",
+              "url": "https://www.fxleaders.com/news/2026/11/12/msft-stock-reverses-heading-to-500-after-microsoft-365-services-impacted-by-outlook-outage/"
+            }
+          }
+        ],
+        "verdict": {
+          "zh-TW": "以收盤數據為準：微軟 11/12 收漲 0.36%（523.00 美元），沒有證據顯示斷線造成股價下跌。FX Leaders 的說法與數據不符。",
+          "en": "We go by the close: Microsoft rose 0.36% to $523.00 on Nov 12, with no evidence the outage pushed it down. FX Leaders' claim doesn't match the data."
+        }
       }
     ]
   }

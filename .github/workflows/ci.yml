@@ -1,0 +1,25 @@
+name: CI
+
+# 每次推送與 Pull Request 都會執行資料檢查與建置；部署由 Netlify 負責
+# Runs the data check and build on every push and pull request; Netlify handles deployment
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check:data
+      - run: npm run build

@@ -1,0 +1,35 @@
+---
+import { t, type Lang } from '../i18n/ui';
+import { safeUrl } from '../lib/url';
+import type { Dispute } from '../types';
+interface Props { lang: Lang; dispute: Dispute; compact?: boolean }
+const { lang, dispute: d, compact = false } = Astro.props;
+const s = t(lang);
+---
+<div class:list={['dispute', { compact }]} role="note">
+  <p class="head"><span class="flag">{s.disputed}</span>{d.topic[lang]}</p>
+  <ul>
+    {d.claims.map((c) => (
+      <li>
+        <span class="who">
+          {safeUrl(c.source.url)
+            ? <a href={safeUrl(c.source.url)} target="_blank" rel="noopener noreferrer">{c.who}</a>
+            : c.who}
+        </span>
+        <span>{c.claim[lang]}</span>
+      </li>
+    ))}
+  </ul>
+  <p class="verdict"><strong>{s.ourCall}</strong>{d.verdict[lang]}</p>
+</div>
+
+<style>
+  .dispute { border: 1px solid var(--warn-line); background: var(--warn-bg); border-radius: var(--radius-sm); padding: .7rem .9rem; margin: .6rem 0; max-width: 72ch; }
+  .compact { padding: .5rem .75rem; font-size: .9rem; }
+  .head { margin: 0 0 .35rem; font-weight: 600; display: flex; flex-wrap: wrap; gap: .45rem; align-items: center; }
+  .flag { font-size: .75rem; color: var(--warn); border: 1px solid var(--warn); border-radius: 4px; padding: 0 .4rem; }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .25rem; }
+  li { display: grid; grid-template-columns: minmax(6.5rem, max-content) 1fr; gap: .6rem; font-size: .92rem; }
+  .who { font-weight: 600; }
+  .verdict { margin: .5rem 0 0; font-size: .92rem; }
+</style>

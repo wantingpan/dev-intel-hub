@@ -1,14 +1,20 @@
 {
   "name": "dev-intel-hub",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
+  "engines": {
+    "node": ">=20.3.0"
+  },
   "scripts": {
     "dev": "astro dev",
+    "check:data": "node scripts/validate-data.mjs",
+    "prebuild": "node scripts/validate-data.mjs",
     "build": "astro build",
     "preview": "astro preview"
   },
   "dependencies": {
+    "@fontsource/ibm-plex-sans": "^5.0.0",
     "astro": "^5.0.0"
   }
 }

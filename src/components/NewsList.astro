@@ -1,6 +1,10 @@
 ---
 import news from '../data/news.json';
-import { t, categories, formatDate, type Lang } from '../i18n/ui';
+import { t, categories, formatDate, href, type Lang } from '../i18n/ui';
+import { safeUrl } from '../lib/url';
+import DisputeBox from './DisputeBox.astro';
+import Legend from './Legend.astro';
+import type { Dispute, SourceType } from '../types';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -10,6 +14,7 @@ const sorted = [...news].sort((a, b) => Number(b.hot) - Number(a.hot) || b.date.
 <section class="panel" aria-labelledby="news-title">
   <h2 id="news-title">{s.newsTitle}</h2>
   <p class="lede">{s.newsLede}</p>
+  <Legend lang={lang} />
   <div class="tabs" role="group" aria-label={s.newsTitle}>
     <button type="button" class="tab" data-cat="" aria-pressed="true">{s.all}</button>
     {categories.map((c) => (
@@ -25,36 +30,33 @@ const sorted = [...news].sort((a, b) => Number(b.hot) - Number(a.hot) || b.date.
           <span class="tag" title={n.sourceLang}>{s.srcLang[n.sourceLang as keyof typeof s.srcLang]}</span>
           {n.hot && <span class="tag hot">{s.hot}</span>}
           <span>{n.source}</span>
+          <span class:list={['tag', 'stype', n.sourceType]}>{s.srcType[n.sourceType as SourceType]}</span>
+          <span class:list={['tag', 'count', { single: n.corroboration.length === 0 }]}>{s.sourcesCount(1 + n.corroboration.length)}</span>
+          {n.dispute && <span class="tag disputed">{s.disputed}</span>}
         </div>
-        <a class="title" href={n.url} target="_blank" rel="noopener noreferrer" lang={lang}>{n.title[lang]}</a>
+        {safeUrl(n.url)
+          ? <a class="title" href={safeUrl(n.url)} target="_blank" rel="noopener noreferrer">{n.title[lang]}</a>
+          : <span class="title">{n.title[lang]}</span>}
         <p class="summary">{n.summary[lang]}</p>
+        {n.corroboration.length > 0 && (
+          <p class="also">
+            {s.alsoReported}
+            {n.corroboration.map((c, i) => (
+              <>
+                {i > 0 && s.listSep}
+                {safeUrl(c.url) ? <a href={safeUrl(c.url)} target="_blank" rel="noopener noreferrer">{c.name}</a> : c.name}
+              </>
+            ))}
+          </p>
+        )}
+        {n.dispute && <DisputeBox lang={lang} dispute={n.dispute as Dispute} compact />}
       </li>
     ))}
   </ul>
   <p class="empty" data-empty hidden>{s.empty}</p>
 </section>
 
-<script>
-  document.querySelectorAll<HTMLElement>('[data-news-list]').forEach((list) => {
-    const panel = list.closest('section');
-    if (!panel) return;
-    const tabs = panel.querySelectorAll<HTMLButtonElement>('.tab');
-    const empty = panel.querySelector<HTMLElement>('[data-empty]');
-    tabs.forEach((tab) =>
-      tab.addEventListener('click', () => {
-        const cat = tab.dataset.cat ?? '';
-        tabs.forEach((x) => x.setAttribute('aria-pressed', String(x === tab)));
-        let shown = 0;
-        list.querySelectorAll<HTMLElement>('.item').forEach((item) => {
-          const match = !cat || item.dataset.cat === cat;
-          item.hidden = !match;
-          if (match) shown++;
-        });
-        if (empty) empty.hidden = shown > 0;
-      }),
-    );
-  });
-</script>
+<script is:inline src={href('js/news-filter.js')} defer></script>
 
 <style>
   .tabs { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .5rem; }
@@ -66,6 +68,10 @@ const sorted = [...news].sort((a, b) => Number(b.hot) - Number(a.hot) || b.date.
   .meta { display: flex; flex-wrap: wrap; gap: .45rem; align-items: center; font-size: .8rem; color: var(--muted); }
   .tag { border: 1px solid var(--line); border-radius: 4px; padding: 0 .4rem; }
   .hot { color: var(--alert); border-color: var(--alert); }
+  .stype.official { color: var(--accent); border-color: var(--accent); }
+  .count.single { border-style: dashed; }
+  .disputed { color: var(--warn); border-color: var(--warn); }
+  .also { margin: .3rem 0 0; font-size: .84rem; color: var(--muted); }
   .title { display: block; margin: .35rem 0 .2rem; font-weight: 600; font-size: 1.05rem; color: var(--ink); text-decoration: none; line-height: 1.4; }
   .title:hover { text-decoration: underline; text-decoration-color: var(--accent); }
   .summary { margin: 0; color: var(--muted); font-size: .94rem; }

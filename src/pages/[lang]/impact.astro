@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import EventCard from '../../components/EventCard.astro';
+import Legend from '../../components/Legend.astro';
 import type { ImpactEvent } from '../../types';
 import events from '../../data/events.json';
 import { langs, t, type Lang } from '../../i18n/ui';
@@ -19,6 +20,7 @@ const list = [...(events as ImpactEvent[])].sort((a, b) => b.date.localeCompare(
     <p class="lede-lg">{s.impactLede}</p>
     <p class="disclaimer" role="note">{s.disclaimer} {s.moveNote}</p>
   </header>
+  <Legend lang={lang} />
   {list.map((e) => <EventCard lang={lang} event={e} />)}
 </Base>
 

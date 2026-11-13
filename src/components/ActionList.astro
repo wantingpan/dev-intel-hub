@@ -1,6 +1,7 @@
 ---
 import cves from '../data/cves.json';
-import { t, href, type Lang } from '../i18n/ui';
+import { t, type Lang } from '../i18n/ui';
+import { safeUrl } from '../lib/url';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -19,7 +20,9 @@ const top = [...cves]
         <span class="sev">{s.sev[c.severity as keyof typeof s.sev]}</span>
         <span class="what">{c.product[lang]}</span>
         <span class="do">{c.action[lang]}</span>
-        <a class="cve num" href={c.url} target="_blank" rel="noopener noreferrer">{c.cve}</a>
+        {safeUrl(c.url)
+          ? <a class="cve num" href={safeUrl(c.url)} target="_blank" rel="noopener noreferrer">{c.cve}</a>
+          : <span class="cve num">{c.cve}</span>}
       </li>
     ))}
   </ol>

@@ -14,7 +14,18 @@
     },
     "source": "TechCrunch",
     "sourceLang": "en",
-    "url": "https://techcrunch.com/2026/11/12/nvidias-jensen-huang-resigns-chipmaker-names-cfo-colette-kress-as-interim-ceo/"
+    "url": "https://techcrunch.com/2026/11/12/nvidias-jensen-huang-resigns-chipmaker-names-cfo-colette-kress-as-interim-ceo/",
+    "sourceType": "media",
+    "corroboration": [
+      {
+        "name": "CNBC",
+        "url": "https://www.cnbc.com/2026/11/12/nvidia-nvda-jensen-huang-second-affair.html"
+      },
+      {
+        "name": "Quartz",
+        "url": "https://qz.com/jensen-huang-resigns-nvidia-ceo-affairs-stock-sinks-111226"
+      }
+    ]
   },
   {
     "id": "n02",
@@ -31,7 +42,9 @@
     },
     "source": "iThome",
     "sourceLang": "zh",
-    "url": "https://www.ithome.com.tw/ai"
+    "url": "https://www.ithome.com.tw/ai",
+    "sourceType": "media",
+    "corroboration": []
   },
   {
     "id": "n03",
@@ -48,7 +61,9 @@
     },
     "source": "iThome",
     "sourceLang": "zh",
-    "url": "https://www.ithome.com.tw/"
+    "url": "https://www.ithome.com.tw/",
+    "sourceType": "media",
+    "corroboration": []
   },
   {
     "id": "n04",
@@ -65,7 +80,9 @@
     },
     "source": "iThome",
     "sourceLang": "zh",
-    "url": "https://www.ithome.com.tw/"
+    "url": "https://www.ithome.com.tw/",
+    "sourceType": "media",
+    "corroboration": []
   },
   {
     "id": "n05",
@@ -82,7 +99,9 @@
     },
     "source": "iThome",
     "sourceLang": "zh",
-    "url": "https://www.ithome.com.tw/ai"
+    "url": "https://www.ithome.com.tw/ai",
+    "sourceType": "media",
+    "corroboration": []
   },
   {
     "id": "n06",
@@ -99,7 +118,9 @@
     },
     "source": "LLM Stats",
     "sourceLang": "en",
-    "url": "https://llm-stats.com/ai-news"
+    "url": "https://llm-stats.com/ai-news",
+    "sourceType": "secondary",
+    "corroboration": []
   },
   {
     "id": "n07",
@@ -116,7 +137,9 @@
     },
     "source": "AI Agents News 週報",
     "sourceLang": "en",
-    "url": "https://aiagentstore.ai/ai-agent-news/this-week"
+    "url": "https://aiagentstore.ai/ai-agent-news/this-week",
+    "sourceType": "secondary",
+    "corroboration": []
   },
   {
     "id": "n08",
@@ -133,7 +156,9 @@
     },
     "source": "iThome",
     "sourceLang": "zh",
-    "url": "https://www.ithome.com.tw/index.php?articleId=21374&blogId=1325&op=ViewArticle"
+    "url": "https://www.ithome.com.tw/index.php?articleId=21374&blogId=1325&op=ViewArticle",
+    "sourceType": "media",
+    "corroboration": []
   },
   {
     "id": "n09",
@@ -150,7 +175,9 @@
     },
     "source": "iThome",
     "sourceLang": "zh",
-    "url": "https://www.ithome.com.tw/latest"
+    "url": "https://www.ithome.com.tw/latest",
+    "sourceType": "media",
+    "corroboration": []
   },
   {
     "id": "n10",
@@ -167,7 +194,9 @@
     },
     "source": "iThome",
     "sourceLang": "zh",
-    "url": "https://www.ithome.com.tw/news/168194&gsessionid=Yw_UgXhTMBq4v2T5Kf_q7fRs1xhrvCn91xnbTT_Q0pp_Srypblanag"
+    "url": "https://www.ithome.com.tw/news/168194&gsessionid=Yw_UgXhTMBq4v2T5Kf_q7fRs1xhrvCn91xnbTT_Q0pp_Srypblanag",
+    "sourceType": "media",
+    "corroboration": []
   },
   {
     "id": "n11",
@@ -184,7 +213,9 @@
     },
     "source": "Node.js 官方部落格",
     "sourceLang": "en",
-    "url": "https://nodejs.org/en/blog/vulnerability/november-2026-security-releases"
+    "url": "https://nodejs.org/en/blog/vulnerability/november-2026-security-releases",
+    "sourceType": "official",
+    "corroboration": []
   },
   {
     "id": "n12",
@@ -201,7 +232,9 @@
     },
     "source": "InfoQ",
     "sourceLang": "en",
-    "url": "https://www.infoq.com/news/2026/11/typescript-7-1-beta/"
+    "url": "https://www.infoq.com/news/2026/11/typescript-7-1-beta/",
+    "sourceType": "media",
+    "corroboration": []
   },
   {
     "id": "n13",
@@ -218,7 +251,9 @@
     },
     "source": "Releasebot",
     "sourceLang": "en",
-    "url": "https://releasebot.io/updates/vercel/next-js"
+    "url": "https://releasebot.io/updates/vercel/next-js",
+    "sourceType": "secondary",
+    "corroboration": []
   },
   {
     "id": "n14",
@@ -235,7 +270,9 @@
     },
     "source": "iThome",
     "sourceLang": "zh",
-    "url": "https://www.ithome.com.tw/news/180065&gsessionid=rA8DJOo1PLq-mNIuUfxsdtczt0sxtZWXHW-ecrswQaQE4Kvkhig3uw"
+    "url": "https://www.ithome.com.tw/news/180065&gsessionid=rA8DJOo1PLq-mNIuUfxsdtczt0sxtZWXHW-ecrswQaQE4Kvkhig3uw",
+    "sourceType": "media",
+    "corroboration": []
   },
   {
     "id": "n15",
@@ -252,7 +289,9 @@
     },
     "source": "PR Newswire（CNCF）",
     "sourceLang": "en",
-    "url": "https://prnewswire.com/news-releases/cloud-native-computing-foundation-announces-kubevirt-graduation-302934697.html"
+    "url": "https://prnewswire.com/news-releases/cloud-native-computing-foundation-announces-kubevirt-graduation-302934697.html",
+    "sourceType": "official",
+    "corroboration": []
   },
   {
     "id": "n16",
@@ -269,7 +308,9 @@
     },
     "source": "iThome",
     "sourceLang": "zh",
-    "url": "https://www.ithome.com.tw/latest"
+    "url": "https://www.ithome.com.tw/latest",
+    "sourceType": "media",
+    "corroboration": []
   },
   {
     "id": "n17",
@@ -286,7 +327,9 @@
     },
     "source": "Qovery Blog",
     "sourceLang": "en",
-    "url": "https://www.qovery.com/blog/aks-lts-kubernetes-1-37-forced-upgrade-plan"
+    "url": "https://www.qovery.com/blog/aks-lts-kubernetes-1-37-forced-upgrade-plan",
+    "sourceType": "secondary",
+    "corroboration": []
   },
   {
     "id": "n18",
@@ -303,7 +346,9 @@
     },
     "source": "AI Agents News 週報",
     "sourceLang": "en",
-    "url": "https://aiagentstore.ai/ai-agent-news/this-week"
+    "url": "https://aiagentstore.ai/ai-agent-news/this-week",
+    "sourceType": "secondary",
+    "corroboration": []
   },
   {
     "id": "n19",
@@ -320,7 +365,9 @@
     },
     "source": "InfoQ",
     "sourceLang": "en",
-    "url": "https://www.infoq.com/Devops/news/"
+    "url": "https://www.infoq.com/Devops/news/",
+    "sourceType": "media",
+    "corroboration": []
   },
   {
     "id": "n20",
@@ -337,7 +384,9 @@
     },
     "source": "iThome",
     "sourceLang": "zh",
-    "url": "https://www.ithome.com.tw/latest/%E2%80%9D"
+    "url": "https://www.ithome.com.tw/latest/%E2%80%9D",
+    "sourceType": "media",
+    "corroboration": []
   },
   {
     "id": "n21",
@@ -354,7 +403,9 @@
     },
     "source": "iThome",
     "sourceLang": "zh",
-    "url": "https://www.ithome.com.tw/news"
+    "url": "https://www.ithome.com.tw/news",
+    "sourceType": "media",
+    "corroboration": []
   },
   {
     "id": "n22",
@@ -371,7 +422,67 @@
     },
     "source": "Tenable",
     "sourceLang": "en",
-    "url": "https://www.tenable.com/blog/microsoft-november-2026-patch-tuesday-addresses-1093-cves-cve-2026-124194"
+    "url": "https://www.tenable.com/blog/microsoft-november-2026-patch-tuesday-addresses-1093-cves-cve-2026-124194",
+    "sourceType": "secondary",
+    "corroboration": [
+      {
+        "name": "CCB Belgium",
+        "url": "https://ccb.belgium.be/advisories/warning-microsoft-patch-tuesday-november-2026-patches-1093-vulnerabilities-63-critical"
+      },
+      {
+        "name": "SOCRadar",
+        "url": "https://socradar.io/blog/november-2026-patch-tuesday-zero-day/"
+      },
+      {
+        "name": "CSO Online",
+        "url": "https://www.csoonline.com/article/4247015/november-2026-patch-tuesday-63-critical-microsoft-fixes-plus-an-outlook-zero-day-that-allows-theft-of-hashed-credentials.html"
+      }
+    ],
+    "dispute": {
+      "topic": {
+        "zh-TW": "漏洞總數",
+        "en": "Total number of flaws"
+      },
+      "claims": [
+        {
+          "who": "Tenable",
+          "claim": {
+            "zh-TW": "1,093 個",
+            "en": "1,093"
+          },
+          "source": {
+            "name": "Tenable",
+            "url": "https://www.tenable.com/blog/microsoft-november-2026-patch-tuesday-addresses-1093-cves-cve-2026-124194"
+          }
+        },
+        {
+          "who": "SOCRadar",
+          "claim": {
+            "zh-TW": "1,094 個",
+            "en": "1,094"
+          },
+          "source": {
+            "name": "SOCRadar",
+            "url": "https://socradar.io/blog/november-2026-patch-tuesday-zero-day/"
+          }
+        },
+        {
+          "who": "Trinetri",
+          "claim": {
+            "zh-TW": "1,095 個",
+            "en": "1,095"
+          },
+          "source": {
+            "name": "Trinetri",
+            "url": "https://trinetriops.com/resources/patch-tuesday/november-2026"
+          }
+        }
+      ],
+      "verdict": {
+        "zh-TW": "各家統計結果不同，來源未說明原因。本站以區間（1,093～1,095）呈現，不採用單一數字。",
+        "en": "Counts differ across sources, which don't explain why. We show a range (1,093–1,095) rather than pick one."
+      }
+    }
   },
   {
     "id": "n23",
@@ -388,7 +499,9 @@
     },
     "source": "SecurityWeek",
     "sourceLang": "en",
-    "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/"
+    "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/",
+    "sourceType": "media",
+    "corroboration": []
   },
   {
     "id": "n24",
@@ -405,7 +518,9 @@
     },
     "source": "CSO Online",
     "sourceLang": "en",
-    "url": "https://www.csoonline.com/article/4247015/november-2026-patch-tuesday-63-critical-microsoft-fixes-plus-an-outlook-zero-day-that-allows-theft-of-hashed-credentials.html"
+    "url": "https://www.csoonline.com/article/4247015/november-2026-patch-tuesday-63-critical-microsoft-fixes-plus-an-outlook-zero-day-that-allows-theft-of-hashed-credentials.html",
+    "sourceType": "media",
+    "corroboration": []
   },
   {
     "id": "n25",
@@ -422,7 +537,9 @@
     },
     "source": "The Hacker News",
     "sourceLang": "en",
-    "url": "https://thehackernews.com/2026/11/google-patches-critical-android-flaw.html"
+    "url": "https://thehackernews.com/2026/11/google-patches-critical-android-flaw.html",
+    "sourceType": "media",
+    "corroboration": []
   },
   {
     "id": "n26",
@@ -439,7 +556,9 @@
     },
     "source": "iThome",
     "sourceLang": "zh",
-    "url": "https://www.ithome.com.tw/news"
+    "url": "https://www.ithome.com.tw/news",
+    "sourceType": "media",
+    "corroboration": []
   },
   {
     "id": "n27",
@@ -456,6 +575,8 @@
     },
     "source": "iThome",
     "sourceLang": "zh",
-    "url": "https://www.ithome.com.tw/index.php?articleId=21374&blogId=1325&op=ViewArticle"
+    "url": "https://www.ithome.com.tw/index.php?articleId=21374&blogId=1325&op=ViewArticle",
+    "sourceType": "media",
+    "corroboration": []
   }
 ]
