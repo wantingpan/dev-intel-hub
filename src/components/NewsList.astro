@@ -5,6 +5,7 @@ import { safeUrl } from '../lib/url';
 import DisputeBox from './DisputeBox.astro';
 import Legend from './Legend.astro';
 import CategoryIcon from './CategoryIcon.astro';
+import TermLinks from './TermLinks.astro';
 import type { Category } from '../i18n/ui';
 import type { Dispute, SourceType } from '../types';
 
@@ -29,7 +30,7 @@ const sorted = [...news].sort((a, b) => Number(b.hot) - Number(a.hot) || b.date.
       const url = safeUrl(n.url);
       const count = 1 + n.corroboration.length;
       return (
-        <li class="item" data-cat={n.category}>
+        <li class="item" id={`news-${n.id}`} data-cat={n.category}>
           <details class="disc">
             <summary>
               <CategoryIcon category={n.category as Category} size={40} label={s.cat[n.category as Category]} />
@@ -47,6 +48,7 @@ const sorted = [...news].sort((a, b) => Number(b.hot) - Number(a.hot) || b.date.
             <div class="body">
               <p class="summary">{n.summary[lang]}</p>
               {n.dispute && <DisputeBox lang={lang} dispute={n.dispute as Dispute} compact />}
+              <TermLinks lang={lang} ids={n.terms} />
               <p class="links">
                 {url && <a href={url} target="_blank" rel="noopener noreferrer">{s.readOriginal}</a>}
                 <span class="muted">{lang === 'en' ? `${n.source} (${s.srcType[n.sourceType as SourceType]})` : `${n.source}（${s.srcType[n.sourceType as SourceType]}）`}</span>
@@ -74,7 +76,7 @@ const sorted = [...news].sort((a, b) => Number(b.hot) - Number(a.hot) || b.date.
   .tab:first-child { padding-left: .9rem; }
   .tab[aria-pressed='true'] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
   .news { list-style: none; margin: 0; padding: 0; }
-  .item { border-bottom: 1px solid var(--line); }
+  .item { border-bottom: 1px solid var(--line); scroll-margin-top: 1rem; }
   .item:last-child { border-bottom: 0; }
   summary { display: grid; grid-template-columns: 40px 1fr; gap: .9rem; padding: .85rem 0; align-items: start; }
   summary::before { display: none !important; }
@@ -88,7 +90,8 @@ const sorted = [...news].sort((a, b) => Number(b.hot) - Number(a.hot) || b.date.
   .src { flex-basis: 100%; font-size: .88rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 0 .75rem; }
   details[open] .src { display: none; }
   .body { padding: 0 0 1rem calc(40px + .9rem); max-width: calc(var(--measure) + 40px + .9rem); }
-  .summary { margin: 0 0 .5rem; }
+  .summary { margin: 0; }
+  .links { margin-top: .5rem !important; }
   .links { margin: 0; display: flex; flex-wrap: wrap; gap: .25rem 1rem; font-size: .9rem; }
   .links a:first-child { font-weight: 600; }
   .muted { color: var(--muted); }

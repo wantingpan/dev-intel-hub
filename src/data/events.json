@@ -329,7 +329,8 @@
         "zh-TW": "留意新任執行長人選與產品路線圖。",
         "en": "Watch for the next CEO and the product roadmap."
       }
-    }
+    },
+    "terms": []
   },
   {
     "id": "outlook-zero-day-2026-11",
@@ -499,7 +500,13 @@
         "zh-TW": "確認 11 月的 Office 更新已安裝。",
         "en": "Make sure November's Office update is installed."
       }
-    }
+    },
+    "terms": [
+      "zero-day",
+      "kev",
+      "cvss",
+      "cve"
+    ]
   },
   {
     "id": "m365-outage-2026-11",
@@ -774,6 +781,9 @@
         "zh-TW": "查看服務狀態頁，留意假冒「重新登入」的釣魚信。",
         "en": "Check the status page and watch for fake \"sign in again\" phishing."
       }
-    }
+    },
+    "terms": [
+      "postmortem"
+    ]
   }
 ]

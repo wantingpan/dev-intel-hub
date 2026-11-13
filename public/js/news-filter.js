@@ -20,4 +20,14 @@
       });
     });
   });
+  // 從名詞小教室連過來時，自動展開對應的新聞 / Open the linked story when arriving from the glossary
+  function openFromHash() {
+    var id = location.hash.slice(1);
+    if (!/^news-[\w-]+$/.test(id)) return;
+    var item = document.getElementById(id);
+    var d = item && item.querySelector('details');
+    if (d) { d.open = true; item.scrollIntoView(); }
+  }
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
 })();

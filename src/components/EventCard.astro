@@ -4,6 +4,7 @@ import type { ImpactEvent } from '../types';
 import { safeUrl } from '../lib/url';
 import DisputeBox from './DisputeBox.astro';
 import MoveChart from './MoveChart.astro';
+import TermLinks from './TermLinks.astro';
 import meta from '../data/meta.json';
 
 interface Props { lang: Lang; event: ImpactEvent }
@@ -46,6 +47,7 @@ const charts = markets
     <div><dt>{s.briefImpact}</dt><dd>{e.brief.impact[lang]}</dd></div>
     <div><dt>{s.briefAction}</dt><dd>{e.brief.action[lang]}</dd></div>
   </dl>
+  {e.terms.length > 0 && <div class="terms"><TermLinks lang={lang} ids={e.terms} /></div>}
 
   {charts.length > 0 && (
     <div class="charts">
@@ -182,6 +184,7 @@ const charts = markets
   .brief dt { font-weight: 600; color: var(--accent); }
   .brief dd { margin: 0; }
 
+  .terms { margin: -.4rem 0 1rem; }
   .charts { margin: 0 0 1rem; }
   .charts .note { margin-top: -.4rem; }
   .sections { border-top: 1px solid var(--line); }

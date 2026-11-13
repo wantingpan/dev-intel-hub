@@ -24,7 +24,22 @@ export interface ImpactEvent {
   updates: Update[];
   nextWatch: T;
   brief: { what: T; impact: T; action: T };
+  terms: string[];
   postmortem: Src | null;
   sources: Src[];
 }
 export type SourceType = 'official' | 'media' | 'secondary';
+
+export interface GlossaryTerm {
+  id: string;
+  category: 'industry' | 'ai' | 'lang' | 'cloud' | 'security';
+  term: T;
+  oneLiner: T;
+  points: T[];
+  why: T;
+  related: { news: string[]; events: string[] };
+  seeAlso: string[];
+  sources: Src[];
+  further: Src[];
+  verifiedOn: string;
+}

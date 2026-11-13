@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import TermCard from '../../components/TermCard.astro';
+import { terms } from '../../lib/glossary';
+import { langs, t, type Lang } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return langs.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const s = t(lang);
+---
+<Base lang={lang} page="learn" title={s.learnTitle}>
+  <header class="head">
+    <h1>{s.learnTitle}</h1>
+    <p class="lede">{s.learnLede}</p>
+  </header>
+  <nav class="jump" aria-label={s.learnTitle}>
+    {terms.map((g) => <a href={`#${g.id}`}>{g.term[lang]}</a>)}
+  </nav>
+  {terms.map((g) => <TermCard lang={lang} term={g} />)}
+</Base>
+
+<style>
+  .head { margin: .5rem 0 1rem; }
+  h1 { font-size: clamp(1.7rem, 4.5vw, 2.3rem); font-weight: 600; letter-spacing: -0.01em; }
+  .jump { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 1.5rem; }
+  .jump a { font-size: .9rem; text-decoration: none; color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: .25rem .8rem; }
+  .jump a:hover { border-color: var(--accent); }
+</style>

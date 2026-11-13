@@ -1,0 +1,20 @@
+---
+// 「相關名詞」連結列 / A row of links to glossary terms
+import { t, href, type Lang } from '../i18n/ui';
+import { getTerm } from '../lib/glossary';
+interface Props { lang: Lang; ids: string[]; label?: string }
+const { lang, ids, label } = Astro.props;
+const s = t(lang);
+const items = ids.map((id) => getTerm(id)).filter((g) => g !== undefined);
+---
+{items.length > 0 && (
+  <p class="term-links">
+    <span class="lbl">{label ?? s.termsLabel}</span>
+    {items.map((g) => <a href={href(`${lang}/learn/#${g!.id}`)}>{g!.term[lang]}</a>)}
+  </p>
+)}
+
+<style>
+  .term-links { margin: .5rem 0 0; display: flex; flex-wrap: wrap; gap: .25rem .9rem; font-size: .9rem; align-items: baseline; }
+  .lbl { color: var(--muted); }
+</style>

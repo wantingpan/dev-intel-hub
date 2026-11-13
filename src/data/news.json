@@ -25,7 +25,8 @@
         "name": "Quartz",
         "url": "https://qz.com/jensen-huang-resigns-nvidia-ceo-affairs-stock-sinks-111226"
       }
-    ]
+    ],
+    "terms": []
   },
   {
     "id": "n02",
@@ -44,7 +45,8 @@
     "sourceLang": "zh",
     "url": "https://www.ithome.com.tw/ai",
     "sourceType": "media",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n03",
@@ -63,7 +65,8 @@
     "sourceLang": "zh",
     "url": "https://www.ithome.com.tw/",
     "sourceType": "media",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n04",
@@ -82,7 +85,10 @@
     "sourceLang": "zh",
     "url": "https://www.ithome.com.tw/",
     "sourceType": "media",
-    "corroboration": []
+    "corroboration": [],
+    "terms": [
+      "supply-chain"
+    ]
   },
   {
     "id": "n05",
@@ -101,7 +107,8 @@
     "sourceLang": "zh",
     "url": "https://www.ithome.com.tw/ai",
     "sourceType": "media",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n06",
@@ -120,7 +127,8 @@
     "sourceLang": "en",
     "url": "https://llm-stats.com/ai-news",
     "sourceType": "secondary",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n07",
@@ -139,7 +147,8 @@
     "sourceLang": "en",
     "url": "https://aiagentstore.ai/ai-agent-news/this-week",
     "sourceType": "secondary",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n08",
@@ -158,7 +167,8 @@
     "sourceLang": "zh",
     "url": "https://www.ithome.com.tw/index.php?articleId=21374&blogId=1325&op=ViewArticle",
     "sourceType": "media",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n09",
@@ -177,7 +187,8 @@
     "sourceLang": "zh",
     "url": "https://www.ithome.com.tw/latest",
     "sourceType": "media",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n10",
@@ -196,7 +207,8 @@
     "sourceLang": "zh",
     "url": "https://www.ithome.com.tw/news/168194&gsessionid=Yw_UgXhTMBq4v2T5Kf_q7fRs1xhrvCn91xnbTT_Q0pp_Srypblanag",
     "sourceType": "media",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n11",
@@ -215,7 +227,8 @@
     "sourceLang": "en",
     "url": "https://nodejs.org/en/blog/vulnerability/november-2026-security-releases",
     "sourceType": "official",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n12",
@@ -234,7 +247,8 @@
     "sourceLang": "en",
     "url": "https://www.infoq.com/news/2026/11/typescript-7-1-beta/",
     "sourceType": "media",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n13",
@@ -253,7 +267,8 @@
     "sourceLang": "en",
     "url": "https://releasebot.io/updates/vercel/next-js",
     "sourceType": "secondary",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n14",
@@ -272,7 +287,8 @@
     "sourceLang": "zh",
     "url": "https://www.ithome.com.tw/news/180065&gsessionid=rA8DJOo1PLq-mNIuUfxsdtczt0sxtZWXHW-ecrswQaQE4Kvkhig3uw",
     "sourceType": "media",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n15",
@@ -291,7 +307,8 @@
     "sourceLang": "en",
     "url": "https://prnewswire.com/news-releases/cloud-native-computing-foundation-announces-kubevirt-graduation-302934697.html",
     "sourceType": "official",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n16",
@@ -310,7 +327,8 @@
     "sourceLang": "zh",
     "url": "https://www.ithome.com.tw/latest",
     "sourceType": "media",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n17",
@@ -329,7 +347,8 @@
     "sourceLang": "en",
     "url": "https://www.qovery.com/blog/aks-lts-kubernetes-1-37-forced-upgrade-plan",
     "sourceType": "secondary",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n18",
@@ -348,7 +367,8 @@
     "sourceLang": "en",
     "url": "https://aiagentstore.ai/ai-agent-news/this-week",
     "sourceType": "secondary",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n19",
@@ -367,7 +387,8 @@
     "sourceLang": "en",
     "url": "https://www.infoq.com/Devops/news/",
     "sourceType": "media",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n20",
@@ -386,7 +407,8 @@
     "sourceLang": "zh",
     "url": "https://www.ithome.com.tw/latest/%E2%80%9D",
     "sourceType": "media",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n21",
@@ -405,7 +427,8 @@
     "sourceLang": "zh",
     "url": "https://www.ithome.com.tw/news",
     "sourceType": "media",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n22",
@@ -482,7 +505,12 @@
         "zh-TW": "各家統計結果不同，來源未說明原因。本站以區間（1,093～1,095）呈現，不採用單一數字。",
         "en": "Counts differ across sources, which don't explain why. We show a range (1,093–1,095) rather than pick one."
       }
-    }
+    },
+    "terms": [
+      "cve",
+      "cvss",
+      "zero-day"
+    ]
   },
   {
     "id": "n23",
@@ -501,7 +529,8 @@
     "sourceLang": "en",
     "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/",
     "sourceType": "media",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n24",
@@ -520,7 +549,11 @@
     "sourceLang": "en",
     "url": "https://www.csoonline.com/article/4247015/november-2026-patch-tuesday-63-critical-microsoft-fixes-plus-an-outlook-zero-day-that-allows-theft-of-hashed-credentials.html",
     "sourceType": "media",
-    "corroboration": []
+    "corroboration": [],
+    "terms": [
+      "zero-day",
+      "cve"
+    ]
   },
   {
     "id": "n25",
@@ -539,7 +572,8 @@
     "sourceLang": "en",
     "url": "https://thehackernews.com/2026/11/google-patches-critical-android-flaw.html",
     "sourceType": "media",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n26",
@@ -558,7 +592,8 @@
     "sourceLang": "zh",
     "url": "https://www.ithome.com.tw/news",
     "sourceType": "media",
-    "corroboration": []
+    "corroboration": [],
+    "terms": []
   },
   {
     "id": "n27",
@@ -577,6 +612,9 @@
     "sourceLang": "zh",
     "url": "https://www.ithome.com.tw/index.php?articleId=21374&blogId=1325&op=ViewArticle",
     "sourceType": "media",
-    "corroboration": []
+    "corroboration": [],
+    "terms": [
+      "cvss"
+    ]
   }
 ]

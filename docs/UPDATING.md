@@ -133,6 +133,35 @@
 
 **每次查證事件後**，都要把該事件的 `verifiedOn` 改成當天日期，即使內容沒有變化。這代表「我們確認過了，狀態仍是如此」。
 
+### 新增名詞（`glossary.json`）
+
+名詞小教室收錄軟體人應該知道的資安與工程名詞，寫法沿用「白話說明」原則：先講結論、一句只講一件事、術語第一次出現時附白話解釋。
+
+```json
+{
+  "id": "sbom",
+  "category": "security",
+  "term": { "zh-TW": "SBOM 軟體物料清單", "en": "SBOM (software bill of materials)" },
+  "oneLiner": { "zh-TW": "30 字內的一句話說明。", "en": "One-sentence explanation." },
+  "points": [
+    { "zh-TW": "重點一。", "en": "Point one." },
+    { "zh-TW": "重點二。", "en": "Point two." }
+  ],
+  "why": { "zh-TW": "為什麼軟體人需要知道。", "en": "Why engineers should care." },
+  "related": { "news": ["n22"], "events": ["outlook-zero-day-2026-11"] },
+  "seeAlso": ["cve"],
+  "sources": [{ "name": "權威來源", "url": "https://example.org/definition" }],
+  "further": [],
+  "verifiedOn": "2026-11-13"
+}
+```
+
+- `id`：小寫英文、數字與連字號，會成為網址錨點，例如 `/zh-TW/learn/#sbom`。
+- `points`：至少兩點，每點一兩句。
+- `sources`：至少一個權威來源，優先使用標準組織、政府機關或原始文件。
+- `related`、`seeAlso`：只能填已存在的新聞、事件或名詞 id，資料檢查會自動確認。
+- 在新聞或事件的 `terms` 欄位填入名詞 id，畫面上就會出現「相關名詞」連結。
+
 ### 更新查證日期（`meta.json`）
 
 完成一輪更新後，把 `verifiedOn` 改成當天日期（台灣時間）。這個日期決定網站頂端是否顯示過期提示。
@@ -194,5 +223,5 @@ git push -u origin content/2026-11-20
 
 - **Cadence**: news weekly at minimum; developing events (`ongoing`, `monitoring`) daily. The site shows a staleness notice after `staleAfterDays` (general) or `developingStaleAfterDays` (developing events) from `src/data/meta.json`.
 - **Verification rules**: every item needs an `https://` source; prefer official sources; top stories need at least two independent sources; count only sources actually found and linked; show conflicting claims side by side with our call; never repeat unverified allegations; summarize in our own words; label market data timing; no causal claims without reporting; no investment advice; fill in both languages with the same facts.
-- **Data files**: see the JSON templates above for `news.json`, `cves.json` and `events.json`. Update an event's `verifiedOn` every time it's checked, and `meta.json`'s `verifiedOn` after each update round.
+- **Data files**: see the JSON templates above for `news.json`, `cves.json`, `events.json` and `glossary.json` (at least two points and one authoritative source per term). Update an event's `verifiedOn` every time it's checked, and `meta.json`'s `verifiedOn` after each update round.
 - **Workflow**: branch → edit `src/data` → `npm run check:data` → `npm run build` and `npm run preview` → push → pull request → CI and Netlify preview → merge.

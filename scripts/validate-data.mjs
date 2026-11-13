@@ -95,6 +95,30 @@ for (const e of load('events.json')) {
   for (const [i, d] of (e.disputes ?? []).entries()) checkDispute(`${w}.disputes[${i}]`, d);
 }
 
+// 名詞小教室 / Glossary
+const glossary = load('glossary.json');
+const termIds = new Set();
+const newsIds = new Set(load('news.json').map((n) => n.id));
+const eventIds = new Set(load('events.json').map((e) => e.id));
+for (const g of glossary) {
+  const w = `glossary.json#${g.id}`;
+  if (!/^[a-z0-9-]+$/.test(g.id ?? '')) errors.push(`${w}: id must use lowercase letters, digits and hyphens`);
+  if (termIds.has(g.id)) errors.push(`${w}: duplicate id`);
+  termIds.add(g.id);
+  if (!categories.includes(g.category)) errors.push(`${w}: unknown category "${g.category}"`);
+  for (const k of ['term', 'oneLiner', 'why']) checkText(`${w}.${k}`, g[k]);
+  if (!Array.isArray(g.points) || g.points.length < 2) errors.push(`${w}: needs at least two points`);
+  for (const [i, p] of (g.points ?? []).entries()) checkText(`${w}.points[${i}]`, p);
+  if (!Array.isArray(g.sources) || g.sources.length < 1) errors.push(`${w}: needs at least one source`);
+  for (const [i, x] of [...(g.sources ?? []), ...(g.further ?? [])].entries()) checkUrl(`${w}.sources/further[${i}]`, x.url);
+  for (const id of g.related?.news ?? []) if (!newsIds.has(id)) errors.push(`${w}: related news "${id}" doesn't exist`);
+  for (const id of g.related?.events ?? []) if (!eventIds.has(id)) errors.push(`${w}: related event "${id}" doesn't exist`);
+  if (!isDate(g.verifiedOn)) errors.push(`${w}: verifiedOn must be YYYY-MM-DD`);
+}
+for (const g of glossary) for (const id of g.seeAlso ?? []) if (!termIds.has(id)) errors.push(`glossary.json#${g.id}: seeAlso "${id}" doesn't exist`);
+for (const n of load('news.json')) for (const id of n.terms ?? []) if (!termIds.has(id)) errors.push(`news.json#${n.id}: term "${id}" doesn't exist`);
+for (const e of load('events.json')) for (const id of e.terms ?? []) if (!termIds.has(id)) errors.push(`events.json#${e.id}: term "${id}" doesn't exist`);
+
 // 查證日期不可晚於今天（容許台灣與 UTC 的時差）/ Verification dates can't be in the future (allowing for Taiwan vs UTC)
 const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
 const meta = load('meta.json');

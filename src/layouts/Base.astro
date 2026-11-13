@@ -9,11 +9,12 @@ import '@fontsource/ibm-plex-sans/600.css';
 
 interface Props {
   lang: Lang;
-  page?: 'today' | 'impact';
+  page?: 'today' | 'impact' | 'learn';
   title?: string;
 }
 const { lang, page = 'today', title } = Astro.props;
 const s = t(lang);
+const pagePath = (l: string) => (page === 'impact' ? `${l}/impact/` : page === 'learn' ? `${l}/learn/` : `${l}/`);
 ---
 <!doctype html>
 <html lang={lang}>
@@ -25,7 +26,7 @@ const s = t(lang);
     <title>{title ? `${title}｜${s.siteName}` : s.siteName}</title>
     <meta name="description" content={s.tagline} />
     <link rel="icon" type="image/svg+xml" href={href('favicon.svg')} />
-    {langs.map((l) => <link rel="alternate" hreflang={l} href={href(page === 'impact' ? `${l}/impact/` : `${l}/`)} />)}
+    {langs.map((l) => <link rel="alternate" hreflang={l} href={href(pagePath(l))} />)}
   </head>
   <body>
     <a class="skip" href="#main">{lang === 'en' ? 'Skip to content' : '跳到主要內容'}</a>
@@ -37,11 +38,12 @@ const s = t(lang);
       <nav class="site-nav" aria-label={s.siteName}>
         <a href={href(`${lang}/`)} aria-current={page === 'today' ? 'page' : undefined}>{s.navToday}</a>
         <a href={href(`${lang}/impact/`)} aria-current={page === 'impact' ? 'page' : undefined}>{s.navImpact}</a>
+        <a href={href(`${lang}/learn/`)} aria-current={page === 'learn' ? 'page' : undefined}>{s.navLearn}</a>
       </nav>
       <nav class="lang-switch" aria-label={s.switchTo}>
         {
           langs.map((l) => (
-            <a href={href(page === 'impact' ? `${l}/impact/` : `${l}/`)} hreflang={l} lang={l} aria-current={l === lang ? 'page' : undefined}>
+            <a href={href(pagePath(l))} hreflang={l} lang={l} aria-current={l === lang ? 'page' : undefined}>
               {languages[l]}
             </a>
           ))

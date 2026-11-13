@@ -1,0 +1,441 @@
+[
+  {
+    "id": "sbom",
+    "category": "security",
+    "term": {
+      "zh-TW": "SBOM 軟體物料清單",
+      "en": "SBOM (software bill of materials)"
+    },
+    "oneLiner": {
+      "zh-TW": "軟體的成分表，列出產品用了哪些元件。",
+      "en": "An ingredients list for software: which components a product uses."
+    },
+    "points": [
+      {
+        "zh-TW": "記錄每個元件的名稱、版本、來源與相依關係。",
+        "en": "It records each component's name, version, source and dependencies."
+      },
+      {
+        "zh-TW": "必須是電腦能自動讀取的格式，手打的 Excel 清單嚴格來說不算。",
+        "en": "It must be machine-readable; a hand-typed spreadsheet doesn't strictly count."
+      },
+      {
+        "zh-TW": "軟體每次改版，都應該重新產生一份。",
+        "en": "It should be regenerated with every release."
+      }
+    ],
+    "why": {
+      "zh-TW": "某個元件爆出漏洞時，能快速找出哪些產品受影響。歐盟網路韌性法已要求產品製造商提供 SBOM。",
+      "en": "When a component turns out to be vulnerable, it shows which products are affected. The EU Cyber Resilience Act requires manufacturers to provide one."
+    },
+    "related": {
+      "news": [],
+      "events": []
+    },
+    "seeAlso": [
+      "supply-chain",
+      "cve"
+    ],
+    "sources": [
+      {
+        "name": "iThome（SBOM 是什麼）",
+        "url": "https://www.ithome.com.tw/pr/178881"
+      },
+      {
+        "name": "APPI News",
+        "url": "https://appi.news/articles/sbom-software-supply-chain/"
+      },
+      {
+        "name": "iThome（ENISA 技術指南）",
+        "url": "https://www.ithome.com.tw/news/179980"
+      }
+    ],
+    "further": [
+      {
+        "name": "iThome：CISA 聯合多國更新 SBOM 最低要素",
+        "url": "https://www.ithome.com.tw/news/177811"
+      }
+    ],
+    "verifiedOn": "2026-11-13"
+  },
+  {
+    "id": "cve",
+    "category": "security",
+    "term": {
+      "zh-TW": "CVE 漏洞編號",
+      "en": "CVE (Common Vulnerabilities and Exposures)"
+    },
+    "oneLiner": {
+      "zh-TW": "每個公開漏洞的「身分證字號」。",
+      "en": "The ID number for each publicly disclosed vulnerability."
+    },
+    "points": [
+      {
+        "zh-TW": "格式是「CVE-年份-流水號」，例如 CVE-2021-44228。",
+        "en": "The format is CVE-year-number, for example CVE-2021-44228."
+      },
+      {
+        "zh-TW": "由 MITRE 在 1999 年建立，現在由美國 CISA 贊助。",
+        "en": "MITRE launched the program in 1999; the US agency CISA now sponsors it."
+      },
+      {
+        "zh-TW": "CVE 只負責命名，不代表嚴重程度；嚴重程度要看 CVSS。",
+        "en": "A CVE only names a flaw; severity comes from CVSS."
+      }
+    ],
+    "why": {
+      "zh-TW": "廠商公告、掃描工具和新聞都用同一個編號，大家才能確定講的是同一個漏洞。",
+      "en": "Vendor advisories, scanners and news all use the same ID, so everyone knows they mean the same flaw."
+    },
+    "related": {
+      "news": [
+        "n22"
+      ],
+      "events": [
+        "outlook-zero-day-2026-11"
+      ]
+    },
+    "seeAlso": [
+      "cvss",
+      "kev"
+    ],
+    "sources": [
+      {
+        "name": "IBM",
+        "url": "https://www.ibm.com/think/topics/cve"
+      },
+      {
+        "name": "PDQ",
+        "url": "https://www.pdq.com/blog/what-is-cve-common-vulnerabilities-and-exposures/"
+      },
+      {
+        "name": "Vectra AI",
+        "url": "https://vectra.ai/topics/cve"
+      }
+    ],
+    "further": [],
+    "verifiedOn": "2026-11-13"
+  },
+  {
+    "id": "cvss",
+    "category": "security",
+    "term": {
+      "zh-TW": "CVSS 漏洞評分",
+      "en": "CVSS (Common Vulnerability Scoring System)"
+    },
+    "oneLiner": {
+      "zh-TW": "漏洞嚴重程度的分數，從 0 到 10 分。",
+      "en": "A severity score for vulnerabilities, from 0 to 10."
+    },
+    "points": [
+      {
+        "zh-TW": "分數越高越嚴重：9.0 以上是「重大」，7.0 到 8.9 是「高」。",
+        "en": "Higher is worse: 9.0 and up is critical, 7.0 to 8.9 is high."
+      },
+      {
+        "zh-TW": "由 FIRST 組織維護，目前版本是 2023 年 11 月發布的 4.0 版。",
+        "en": "FIRST maintains it; the current version, 4.0, came out in November 2023."
+      },
+      {
+        "zh-TW": "分數不考慮你的使用環境，也不一定反映漏洞是否已被利用。",
+        "en": "The score doesn't account for your environment and may not reflect whether a flaw is being exploited."
+      }
+    ],
+    "why": {
+      "zh-TW": "漏洞多到修不完時，分數是排定先後的參考之一。但已遭利用的漏洞，即使分數不高也該優先處理：本週的 Outlook 零時差漏洞只有 6.5 分，卻已遭實際攻擊。",
+      "en": "When there are too many flaws to fix at once, the score helps set priorities. But exploited flaws come first even with a modest score: this week's Outlook zero-day scored only 6.5 yet was already under attack."
+    },
+    "related": {
+      "news": [
+        "n27",
+        "n22"
+      ],
+      "events": [
+        "outlook-zero-day-2026-11"
+      ]
+    },
+    "seeAlso": [
+      "cve",
+      "kev"
+    ],
+    "sources": [
+      {
+        "name": "IBM",
+        "url": "https://www.ibm.com/think/topics/cve"
+      },
+      {
+        "name": "Aikido",
+        "url": "https://www.aikido.dev/blog/what-is-a-cve"
+      },
+      {
+        "name": "CyberDefenders",
+        "url": "https://cyberdefenders.org/cybersecurity-glossary/common-vulnerabilities-and-exposures-cve/"
+      },
+      {
+        "name": "Cymulate",
+        "url": "https://cymulate.com/?p=29686"
+      }
+    ],
+    "further": [],
+    "verifiedOn": "2026-11-13"
+  },
+  {
+    "id": "kev",
+    "category": "security",
+    "term": {
+      "zh-TW": "KEV 已知遭利用漏洞清單",
+      "en": "KEV (Known Exploited Vulnerabilities)"
+    },
+    "oneLiner": {
+      "zh-TW": "美國政府整理的「已確認遭實際攻擊」漏洞清單。",
+      "en": "The US government's list of vulnerabilities confirmed to be exploited in real attacks."
+    },
+    "points": [
+      {
+        "zh-TW": "由美國 CISA 維護，在 2021 年 11 月推出。",
+        "en": "CISA maintains it; it launched in November 2021."
+      },
+      {
+        "zh-TW": "只收錄有可靠證據顯示已遭利用的 CVE，並訂出美國聯邦機構的修補期限。",
+        "en": "It lists only CVEs with reliable evidence of exploitation and sets patch deadlines for US federal agencies."
+      },
+      {
+        "zh-TW": "清單偏保守：已被利用、但還沒通報或確認的漏洞不會出現在上面。",
+        "en": "It's conservative: flaws that are exploited but not yet reported or confirmed won't appear."
+      }
+    ],
+    "why": {
+      "zh-TW": "比起分數高低，「已經被攻擊」是更急迫的訊號，很適合用來決定先修哪一個。",
+      "en": "Being under attack is a more urgent signal than a high score, which makes it useful for deciding what to fix first."
+    },
+    "related": {
+      "news": [],
+      "events": [
+        "outlook-zero-day-2026-11"
+      ]
+    },
+    "seeAlso": [
+      "cvss",
+      "zero-day"
+    ],
+    "sources": [
+      {
+        "name": "CISA",
+        "url": "https://cisa.gov/news-events/news/kev-catalog-reaches-1000-what-does-mean-and-what-have-we-learned"
+      },
+      {
+        "name": "Socket",
+        "url": "https://socket.dev/glossary/cisa-kev"
+      },
+      {
+        "name": "Cogent",
+        "url": "https://www.cogent.com/academy/what-is-the-cisa-kev-catalog"
+      }
+    ],
+    "further": [],
+    "verifiedOn": "2026-11-13"
+  },
+  {
+    "id": "zero-day",
+    "category": "security",
+    "term": {
+      "zh-TW": "零時差漏洞（Zero-day）",
+      "en": "Zero-day vulnerability"
+    },
+    "oneLiner": {
+      "zh-TW": "廠商還來不及修補，就已經被攻擊者利用的漏洞。",
+      "en": "A flaw attackers exploit before the vendor can patch it."
+    },
+    "points": [
+      {
+        "zh-TW": "因為還沒有修補程式，防毒軟體等工具也可能認不出這種攻擊。",
+        "en": "With no patch yet, antivirus and similar tools may not recognize the attack."
+      },
+      {
+        "zh-TW": "漏洞公開並推出修補後，就稱為 n-day 漏洞；沒有更新的系統仍然有風險。",
+        "en": "Once disclosed and patched, it's called an n-day; unpatched systems remain at risk."
+      },
+      {
+        "zh-TW": "漏洞、攻擊程式、攻擊是三件事：漏洞是缺陷，攻擊程式是利用它的程式碼，攻擊是實際動手。",
+        "en": "Vulnerability, exploit and attack differ: the flaw, the code that uses it, and the act of using it."
+      }
+    ],
+    "why": {
+      "zh-TW": "修補程式一推出就要盡快安裝。本週 Outlook 和 Chrome 都出現已遭利用的零時差漏洞。",
+      "en": "Install patches as soon as they ship. This week both Outlook and Chrome had exploited zero-days."
+    },
+    "related": {
+      "news": [
+        "n24",
+        "n22"
+      ],
+      "events": [
+        "outlook-zero-day-2026-11"
+      ]
+    },
+    "seeAlso": [
+      "kev",
+      "cve"
+    ],
+    "sources": [
+      {
+        "name": "TechTarget",
+        "url": "https://www.techtarget.com/cybersecurity/definition/zero-day-vulnerability"
+      },
+      {
+        "name": "Bitsight",
+        "url": "https://www.bitsight.com/learn/tprm/zero-day-vulnerability"
+      }
+    ],
+    "further": [],
+    "verifiedOn": "2026-11-13"
+  },
+  {
+    "id": "supply-chain",
+    "category": "security",
+    "term": {
+      "zh-TW": "軟體供應鏈攻擊",
+      "en": "Software supply chain attack"
+    },
+    "oneLiner": {
+      "zh-TW": "不直接攻擊你，而是攻擊你使用的套件、工具或建置流程。",
+      "en": "Instead of attacking you directly, attackers compromise the libraries, tools or build processes you rely on."
+    },
+    "points": [
+      {
+        "zh-TW": "上游一個熱門套件被入侵，可能自動擴散到下游上千家企業。",
+        "en": "One compromised popular library upstream can spread automatically to thousands of organizations downstream."
+      },
+      {
+        "zh-TW": "它和廣義的第三方風險不同，是把軟體本身當成散布惡意程式的管道。",
+        "en": "Unlike broader third-party risk, it uses the software itself to deliver malware."
+      },
+      {
+        "zh-TW": "維持一份即時更新的 SBOM，是常見的防護基礎。",
+        "en": "Keeping an up-to-date SBOM is a common first line of defense."
+      }
+    ],
+    "why": {
+      "zh-TW": "現代軟體大量依賴外部套件。Linux 基金會的調查中，60% 受訪者表示 AI 程式工具增加了外部相依套件。",
+      "en": "Modern software leans heavily on outside packages. In a Linux Foundation survey, 60% said AI coding tools have added more external dependencies."
+    },
+    "related": {
+      "news": [
+        "n04"
+      ],
+      "events": []
+    },
+    "seeAlso": [
+      "sbom"
+    ],
+    "sources": [
+      {
+        "name": "Cloudsmith",
+        "url": "https://cloudsmith.com/resources/glossary/software-supply-chain-attack"
+      }
+    ],
+    "further": [],
+    "verifiedOn": "2026-11-13"
+  },
+  {
+    "id": "prompt-injection",
+    "category": "ai",
+    "term": {
+      "zh-TW": "提示注入（Prompt injection）",
+      "en": "Prompt injection"
+    },
+    "oneLiner": {
+      "zh-TW": "用特製的文字，讓 AI 不照原本的指示做事。",
+      "en": "Crafted text that makes an AI stop following its original instructions."
+    },
+    "points": [
+      {
+        "zh-TW": "可以直接輸入給 AI，也可以藏在 AI 讀取的網頁、郵件或文件裡。",
+        "en": "It can be typed straight into the AI, or hidden in web pages, emails or documents the AI reads."
+      },
+      {
+        "zh-TW": "一旦成功，AI 可能洩漏機密、外傳資料，或透過工具做出有害的動作。",
+        "en": "If it works, the AI may leak secrets, send data out, or take harmful actions through its tools."
+      },
+      {
+        "zh-TW": "它在 OWASP 2025 年版的 LLM 應用十大風險中排名第一，只靠系統提示的限制無法可靠阻擋。",
+        "en": "It's ranked first in OWASP's 2025 Top 10 for LLM applications, and system-prompt rules alone don't reliably stop it."
+      }
+    ],
+    "why": {
+      "zh-TW": "越來越多工具會讓 AI 讀外部內容並自動執行動作。本站若導入 AI 摘要，也會因此保留人工審核再發布。",
+      "en": "More tools let AI read outside content and act on it automatically. That's why, if this site adopts AI summaries, a human will still review them before publishing."
+    },
+    "related": {
+      "news": [],
+      "events": []
+    },
+    "seeAlso": [],
+    "sources": [
+      {
+        "name": "CrowdStrike",
+        "url": "https://www.crowdstrike.com/en-us/cybersecurity-101/artificial-intelligence/owasp-top-10-for-large-language-model-applications/"
+      },
+      {
+        "name": "Coralogix",
+        "url": "https://coralogix.com/ai-blog/owasp-top-10-for-llm-applications/"
+      },
+      {
+        "name": "S4E",
+        "url": "https://resources.s4e.io/blog/owasp-top-10-for-llms-and-prompt-injection"
+      }
+    ],
+    "further": [],
+    "verifiedOn": "2026-11-13"
+  },
+  {
+    "id": "postmortem",
+    "category": "cloud",
+    "term": {
+      "zh-TW": "事後檢討（Postmortem）",
+      "en": "Postmortem"
+    },
+    "oneLiner": {
+      "zh-TW": "事故結束後，整理發生經過與改善措施的報告。",
+      "en": "A write-up after an incident: what happened and what will change."
+    },
+    "points": [
+      {
+        "zh-TW": "重點是找出促成事故的原因，而不是追究個人或團隊，稱為「不究責」的檢討。",
+        "en": "The aim is to find what contributed to the incident without blaming any person or team; this is called a blameless postmortem."
+      },
+      {
+        "zh-TW": "這種文化源自醫療與航空業，把每次錯誤視為強化系統的機會。",
+        "en": "The culture comes from healthcare and aviation, where every mistake is a chance to strengthen the system."
+      },
+      {
+        "zh-TW": "Google 的 SRE 做法強調高階主管積極參與，帶頭示範。",
+        "en": "Google's SRE practice stresses active participation by senior management."
+      }
+    ],
+    "why": {
+      "zh-TW": "事後檢討通常會說明根本原因與預防措施，是判斷服務商可靠度的重要資料。本站的事件卡片會追蹤它是否發布。",
+      "en": "A postmortem usually explains the root cause and prevention steps, which helps judge a provider's reliability. Our event cards track whether one has been published."
+    },
+    "related": {
+      "news": [],
+      "events": [
+        "m365-outage-2026-11"
+      ]
+    },
+    "seeAlso": [],
+    "sources": [
+      {
+        "name": "Google SRE Book",
+        "url": "https://sre.google/sre-book/postmortem-culture/"
+      }
+    ],
+    "further": [
+      {
+        "name": "Google SRE Workbook：Postmortem Culture",
+        "url": "https://sre.google/workbook/postmortem-culture/"
+      }
+    ],
+    "verifiedOn": "2026-11-13"
+  }
+]
