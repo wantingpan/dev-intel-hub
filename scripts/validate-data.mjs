@@ -144,12 +144,28 @@ for (const g of glossary) for (const id of g.seeAlso ?? []) if (!termIds.has(id)
 for (const n of load('news.json')) for (const id of n.terms ?? []) if (!termIds.has(id)) errors.push(`news.json#${n.id}: term "${id}" doesn't exist`);
 for (const e of load('events.json')) for (const id of e.terms ?? []) if (!termIds.has(id)) errors.push(`events.json#${e.id}: term "${id}" doesn't exist`);
 
+// CISA KEV（由排程自動同步，外部資料）/ CISA KEV (synced on a schedule; external data)
+const kev = load('kev.json');
+checkUrl('kev.json.sourceUrl', kev.sourceUrl);
+if (!Array.isArray(kev.items)) errors.push('kev.json: items must be an array');
+if (kev.dateReleased !== null && Number.isNaN(Date.parse(kev.dateReleased))) errors.push('kev.json: dateReleased is not a date');
+for (const [i, v] of (kev.items ?? []).entries()) {
+  const w = `kev.json.items[${i}]`;
+  if (!/^CVE-\d{4}-\d{4,}$/.test(v.cve ?? '')) errors.push(`${w}: invalid CVE id`);
+  if (!isDate(v.dateAdded)) errors.push(`${w}: dateAdded must be YYYY-MM-DD`);
+  if (v.dueDate !== null && !isDate(v.dueDate)) errors.push(`${w}: dueDate must be YYYY-MM-DD or null`);
+  if (typeof v.ransomware !== 'boolean') errors.push(`${w}: ransomware must be true or false`);
+  for (const k of ['vendor', 'product', 'name', 'action']) {
+    if (typeof v[k] !== 'string' || v[k].length > 400) errors.push(`${w}: ${k} must be a string of at most 400 characters`);
+  }
+}
+
 // 查證日期不可晚於今天（容許台灣與 UTC 的時差）/ Verification dates can't be in the future (allowing for Taiwan vs UTC)
 const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
 const meta = load('meta.json');
 if (!isDate(meta.verifiedOn)) errors.push('meta.json: verifiedOn must be YYYY-MM-DD');
 else if (meta.verifiedOn > tomorrow) errors.push(`meta.json: verifiedOn ${meta.verifiedOn} is in the future`);
-for (const k of ['staleAfterDays', 'developingStaleAfterDays']) {
+for (const k of ['staleAfterDays', 'developingStaleAfterDays', 'kevStaleAfterDays']) {
   if (!Number.isInteger(meta[k]) || meta[k] < 1) errors.push(`meta.json: ${k} must be a positive integer`);
 }
 for (const e of load('events.json')) {

@@ -4,6 +4,7 @@ import ActionList from '../../components/ActionList.astro';
 import NewsList from '../../components/NewsList.astro';
 import Sidebar from '../../components/Sidebar.astro';
 import CveTable from '../../components/CveTable.astro';
+import KevList from '../../components/KevList.astro';
 import meta from '../../data/meta.json';
 import { langs, t, formatDate, type Lang } from '../../i18n/ui';
 
@@ -26,6 +27,8 @@ const s = t(lang);
     <NewsList lang={lang} />
     <Sidebar lang={lang} />
   </div>
+
+  <KevList lang={lang} />
 
   <CveTable lang={lang} />
 

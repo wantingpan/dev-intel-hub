@@ -13,6 +13,7 @@ If you find a security issue in this site or repo, please **don't** open a publi
 - 所有外部連結只接受 `https://` 網址，建置前自動檢查資料檔。 / External links accept `https://` only, and data files are checked before every build.
 - 依 `package-lock.json` 安裝固定版本套件，並由 Dependabot 追蹤更新。 / Dependencies install from `package-lock.json` and are tracked by Dependabot.
 - 每次推送與 Pull Request 都由 GitHub Actions 執行資料檢查與建置。 / GitHub Actions runs the data check and build on every push and pull request.
+- 自動同步的外部資料（CISA KEV）一律視為不可信：逐欄驗證格式並限制長度，格式不符時中止同步、保留舊資料。 / Automatically synced external data (CISA KEV) is treated as untrusted: every field is validated and length-capped, and the sync aborts and keeps the old data on an unexpected shape.
 - 字型放在網站本身，不向第三方傳送訪客資料。 / Fonts are self-hosted; no visitor data goes to third parties.
 - API 金鑰只能放在 GitHub Secrets，絕不放進前端程式碼。 / API keys live only in GitHub Secrets, never in front-end code.
 

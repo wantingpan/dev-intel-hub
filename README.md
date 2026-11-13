@@ -52,6 +52,7 @@ npm run dev
 - `news.json`：新聞。`title` 與 `summary` 各有 `zh-TW` 與 `en` 兩種語言；`category` 為 `industry`、`ai`、`lang`、`cloud`、`security` 其中之一；`sourceType` 為 `official`、`media` 或 `secondary`；`corroboration` 列出其他確認來源（只列實際查到並附連結的來源）；`dispute` 記錄說法分歧（選填，至少兩方說法）。
 - `cves.json`：漏洞。`severity` 為 `exploited`、`critical` 或 `high`；`cvss` 沒有分數時為 `null`。
 - `events.json`：事件影響卡片。`status` 為 `ongoing`、`monitoring`、`patched` 或 `resolved`；`updates` 是後續追蹤時間軸，每筆都要附出處；`disputes` 記錄說法分歧；`postmortem` 為事後檢討報告連結（未發布時為 `null`）。市場資料需註明時間點（收盤或盤中）與來源；資安內容分為「已報導」與「常見模式」。
+- `kev.json`：CISA 已遭利用漏洞清單，由 `.github/workflows/kev-sync.yml` 每小時自動同步，**請勿手動編輯**。本機可執行 `node scripts/fetch-kev.mjs` 立即更新。
 - `meta.json`：查證日期，以及過期提示的門檻天數（`staleAfterDays`、`developingStaleAfterDays`）。
 
 介面文字放在 `src/i18n/ui.ts`。
@@ -82,7 +83,8 @@ npm run dev
 
 - [x] 第一階段：雙語靜態網站（目前版本，資料手動更新）
 - [x] Netlify 自動部署與 GitHub Actions CI 檢查
-- [ ] 第二階段：以 GitHub Actions 排程，自動抓取公開資料來源（各來源須先確認使用條款）
+- [x] 第二階段（第一步）：每小時自動同步 CISA 已遭利用漏洞清單
+- [ ] 第二階段：以 GitHub Actions 排程，自動抓取更多公開資料來源（各來源須先確認使用條款）
 - [ ] 第二階段：選用 AI 產生摘要與翻譯草稿，經人工審核後發布
 - [ ] 第二階段：串接股價資料來源（須確認市場資料的轉載與展示授權）
 - [ ] 第三階段：網站 RSS 輸出、電子報、讀者互動
@@ -137,6 +139,7 @@ Content lives in `src/data/`:
 - `news.json`: stories. `title` and `summary` each have `zh-TW` and `en`; `category` is one of `industry`, `ai`, `lang`, `cloud`, `security`; `sourceType` is `official`, `media` or `secondary`; `corroboration` lists other confirming sources (only ones actually found and linked); `dispute` records conflicting reports (optional, at least two claims).
 - `cves.json`: vulnerabilities. `severity` is `exploited`, `critical` or `high`; `cvss` is `null` when no score was given.
 - `events.json`: event impact cards. `status` is `ongoing`, `monitoring`, `patched` or `resolved`; `updates` is a follow-up timeline, each entry sourced; `disputes` records conflicting reports; `postmortem` links the post-incident review (`null` until published). Market rows must state their timing (close or intraday) and source; security items are split into "reported" and "common pattern".
+- `kev.json`: CISA's KEV catalog, synced hourly by `.github/workflows/kev-sync.yml`. **Don't edit by hand.** Run `node scripts/fetch-kev.mjs` locally to refresh it now.
 - `meta.json`: the verification date and staleness thresholds (`staleAfterDays`, `developingStaleAfterDays`).
 
 UI strings live in `src/i18n/ui.ts`.
@@ -167,7 +170,8 @@ See [SECURITY.md](SECURITY.md) for protections and how to report issues. Recomme
 
 - [x] Phase 1: bilingual static site (current; data updated by hand)
 - [x] Netlify auto-deploys with GitHub Actions CI checks
-- [ ] Phase 2: scheduled GitHub Actions that pull from public sources (each source's terms checked first)
+- [x] Phase 2, step one: hourly sync of CISA's Known Exploited Vulnerabilities catalog
+- [ ] Phase 2: scheduled GitHub Actions that pull from more public sources (each source's terms checked first)
 - [ ] Phase 2: optional AI-drafted summaries and translations, published after human review
 - [ ] Phase 2: connect a market data source (licensing for redisplay must be checked first)
 - [ ] Phase 3: site RSS feed, newsletter, reader interaction

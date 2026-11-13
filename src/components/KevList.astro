@@ -1,0 +1,84 @@
+---
+// CISA 已遭利用漏洞清單：資料由 GitHub Actions 每小時同步（scripts/fetch-kev.mjs）
+// CISA KEV: data is synced hourly by GitHub Actions (scripts/fetch-kev.mjs)
+import kev from '../data/kev.json';
+import meta from '../data/meta.json';
+import { t, formatDate, type Lang } from '../i18n/ui';
+import { safeUrl } from '../lib/url';
+import TermLinks from './TermLinks.astro';
+
+interface Item { cve: string; vendor: string; product: string; name: string; action: string; dateAdded: string; dueDate: string | null; ransomware: boolean }
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const items = (kev.items ?? []) as Item[];
+const released = typeof kev.dateReleased === 'string' ? (kev.dateReleased as string).slice(0, 10) : null;
+const catalog = safeUrl(kev.sourceUrl);
+// CVE 編號已在同步時驗證過格式 / CVE ids are format-checked during sync
+const nvd = (cve: string) => (/^CVE-\d{4}-\d{4,}$/.test(cve) ? `https://nvd.nist.gov/vuln/detail/${cve}` : undefined);
+---
+<section class="panel kev" id="kev" aria-labelledby="kev-t">
+  <h2 id="kev-t">{s.kevTitle}</h2>
+  <p class="lede">{s.kevSub}</p>
+
+  {released && (
+    <p class="stale" role="status" data-stale-check data-verified={released} data-threshold={meta.kevStaleAfterDays} hidden>
+      {s.kevStaleA}<span class="num" data-stale-days></span>{s.kevStaleB}
+    </p>
+  )}
+
+  {items.length === 0 ? (
+    <p class="empty">{s.kevEmpty}</p>
+  ) : (
+    <>
+      <ul class="list">
+        {items.map((v) => (
+          <li>
+            <div class="when">
+              <time datetime={v.dateAdded} class="num">{formatDate(v.dateAdded, lang)}</time>
+              {v.ransomware && <span class="rw">{s.kevRansom}</span>}
+            </div>
+            <div class="what">
+              <p class="head">
+                {nvd(v.cve) ? <a class="num" href={nvd(v.cve)} target="_blank" rel="noopener noreferrer">{v.cve}</a> : <span class="num">{v.cve}</span>}
+                <span class="prod">{v.vendor} {v.product}</span>
+              </p>
+              <p class="name" lang="en">{v.name}</p>
+              {v.dueDate && (
+                <p class="due">
+                  {s.kevDue}{lang === 'en' ? ': ' : '：'}<time datetime={v.dueDate} class="num">{v.dueDate}</time>
+                  <span class="state" data-upcoming-date={v.dueDate} data-past-label={s.passed}>{s.upcoming}</span>
+                </p>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
+      <p class="foot">
+        {typeof kev.total === 'number' && <span>{s.kevTotal(kev.total)}</span>}
+        {kev.catalogVersion && <span>{s.kevVersion} <span class="num">{kev.catalogVersion}</span></span>}
+        {catalog && <a href={catalog} target="_blank" rel="noopener noreferrer">{s.kevCatalog}</a>}
+      </p>
+    </>
+  )}
+  <TermLinks lang={lang} ids={['kev', 'ransomware']} />
+</section>
+
+<style>
+  .kev { margin-bottom: 1.25rem; }
+  .stale { margin: 0 0 .75rem; padding: .45rem .75rem; font-size: .9rem; border-left: 3px solid var(--warn); background: var(--warn-bg); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; max-width: var(--measure); }
+  .empty { color: var(--muted); margin: 0; }
+  .list { list-style: none; margin: 0; padding: 0; }
+  li { display: grid; grid-template-columns: 6.5rem 1fr; gap: 1rem; padding: .8rem 0; border-top: 1px solid var(--line); }
+  .when { display: flex; flex-direction: column; gap: .3rem; align-items: flex-start; color: var(--muted); font-size: .9rem; }
+  .rw { font-size: .76rem; font-weight: 600; color: var(--surface); background: var(--alert); border-radius: 4px; padding: .05rem .4rem; line-height: 1.5; }
+  .head { margin: 0; display: flex; flex-wrap: wrap; gap: .2rem .75rem; align-items: baseline; }
+  .head a, .head > .num { font-weight: 600; }
+  .prod { font-weight: 600; }
+  .name { margin: .1rem 0 0; color: var(--muted); font-size: .94rem; max-width: 66ch; line-height: 1.5; }
+  .due { margin: .25rem 0 0; font-size: .88rem; display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+  .state { font-size: .76rem; font-weight: 600; color: var(--accent); border: 1px solid currentColor; border-radius: 4px; padding: 0 .35rem; }
+  .state:global(.past) { color: var(--muted); }
+  .foot { margin: .75rem 0 0; padding-top: .75rem; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; font-size: .88rem; color: var(--muted); }
+  @media (max-width: 560px) { li { grid-template-columns: 1fr; gap: .3rem; } .when { flex-direction: row; align-items: center; } }
+</style>

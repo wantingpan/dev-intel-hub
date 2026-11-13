@@ -1,0 +1,42 @@
+name: Sync CISA KEV
+
+# 每小時檢查一次 CISA 已遭利用漏洞清單，有變動才提交；Netlify 會因為這次提交自動重新部署。
+# Checks CISA's KEV catalog hourly and commits only when it changed; Netlify redeploys on that commit.
+on:
+  schedule:
+    - cron: '17 * * * *'   # 每小時第 17 分（避開整點尖峰）/ minute 17 of every hour, off the busy top of the hour
+  workflow_dispatch:
+
+# 只有這個流程需要寫入權限 / Only this workflow needs write access
+permissions:
+  contents: write
+
+concurrency:
+  group: kev-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Fetch KEV
+        run: node scripts/fetch-kev.mjs
+      - name: Validate data
+        run: node scripts/validate-data.mjs
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- src/data/kev.json; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/kev.json
+          git commit -m "Sync CISA KEV"
+          git pull --rebase
+          git push
