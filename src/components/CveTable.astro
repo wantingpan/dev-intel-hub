@@ -2,6 +2,7 @@
 import cves from '../data/cves.json';
 import { t, type Lang } from '../i18n/ui';
 import { safeUrl } from '../lib/url';
+import CvssMeter from './CvssMeter.astro';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -9,40 +10,47 @@ const s = t(lang);
 ---
 <section class="panel" id="patch-list" aria-labelledby="cve-title">
   <h2 id="cve-title">{s.cveTitle}</h2>
-  <p class="lede">{s.cveLede}</p>
   <div class="scroll">
     <table>
       <thead>
         <tr>
           <th scope="col">{s.thCve}</th>
           <th scope="col">{s.thProduct}</th>
-          <th scope="col">{s.thCvss}</th>
           <th scope="col">{s.thStatus}</th>
           <th scope="col">{s.thAction}</th>
-          <th scope="col">{s.thSource}</th>
+          <th scope="col" class="r">{s.thCvss}</th>
         </tr>
       </thead>
       <tbody>
-        {cves.map((c) => (
-          <tr>
-            <td class="num nowrap">{c.cve}</td>
-            <td>{c.product[lang]}</td>
-            <td class="num">{c.cvss ?? ''}</td>
-            <td class:list={['nowrap', { exploited: c.severity === 'exploited' }]}>{s.sev[c.severity as keyof typeof s.sev]}</td>
-            <td>{c.action[lang]}</td>
-            <td>{safeUrl(c.url) ? <a href={safeUrl(c.url)} target="_blank" rel="noopener noreferrer">{c.source}</a> : c.source}</td>
-          </tr>
-        ))}
+        {cves.map((c) => {
+          const u = safeUrl(c.url);
+          return (
+            <tr>
+              <td class="num nowrap">
+                {u ? <a href={u} target="_blank" rel="noopener noreferrer" title={c.source}>{c.cve}</a> : c.cve}
+              </td>
+              <td>{c.product[lang]}</td>
+              <td class="nowrap"><span class:list={['sev', c.severity]}>{s.sev[c.severity as keyof typeof s.sev]}</span></td>
+              <td>{c.action[lang]}</td>
+              <td class="r"><CvssMeter score={c.cvss} noneLabel={s.cvssNone} /></td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   </div>
 </section>
 
 <style>
+  h2 { margin-bottom: .75rem; }
   .scroll { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-size: .92rem; }
-  th, td { text-align: left; padding: .55rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { font-size: .8rem; color: var(--muted); font-weight: 500; }
+  table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+  th, td { text-align: left; padding: .6rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: .85rem; color: var(--muted); font-weight: 500; }
+  .r { text-align: right; }
   .nowrap { white-space: nowrap; }
-  .exploited { color: var(--alert); font-weight: 600; }
+  .sev { font-size: .82rem; font-weight: 600; border-radius: 4px; padding: .05rem .5rem; border: 1px solid currentColor; }
+  .sev.exploited { background: var(--alert); border-color: var(--alert); color: var(--surface); }
+  .sev.critical { color: var(--c-security); background: var(--c-security-bg); }
+  .sev.high { color: var(--warn); background: var(--warn-bg); }
 </style>

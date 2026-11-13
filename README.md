@@ -52,9 +52,13 @@ npm run dev
 - `news.json`：新聞。`title` 與 `summary` 各有 `zh-TW` 與 `en` 兩種語言；`category` 為 `industry`、`ai`、`lang`、`cloud`、`security` 其中之一；`sourceType` 為 `official`、`media` 或 `secondary`；`corroboration` 列出其他確認來源（只列實際查到並附連結的來源）；`dispute` 記錄說法分歧（選填，至少兩方說法）。
 - `cves.json`：漏洞。`severity` 為 `exploited`、`critical` 或 `high`；`cvss` 沒有分數時為 `null`。
 - `events.json`：事件影響卡片。`status` 為 `ongoing`、`monitoring`、`patched` 或 `resolved`；`updates` 是後續追蹤時間軸，每筆都要附出處；`disputes` 記錄說法分歧；`postmortem` 為事後檢討報告連結（未發布時為 `null`）。市場資料需註明時間點（收盤或盤中）與來源；資安內容分為「已報導」與「常見模式」。
-- `meta.json`：查證日期。
+- `meta.json`：查證日期，以及過期提示的門檻天數（`staleAfterDays`、`developingStaleAfterDays`）。
 
 介面文字放在 `src/i18n/ui.ts`。
+
+### 內容更新
+
+更新頻率、查證規則、資料範本與提交流程，請見 [docs/UPDATING.md](docs/UPDATING.md)。網站會在資料超過設定天數未查證時，自動顯示過期提示。
 
 ### 內容原則
 
@@ -133,9 +137,13 @@ Content lives in `src/data/`:
 - `news.json`: stories. `title` and `summary` each have `zh-TW` and `en`; `category` is one of `industry`, `ai`, `lang`, `cloud`, `security`; `sourceType` is `official`, `media` or `secondary`; `corroboration` lists other confirming sources (only ones actually found and linked); `dispute` records conflicting reports (optional, at least two claims).
 - `cves.json`: vulnerabilities. `severity` is `exploited`, `critical` or `high`; `cvss` is `null` when no score was given.
 - `events.json`: event impact cards. `status` is `ongoing`, `monitoring`, `patched` or `resolved`; `updates` is a follow-up timeline, each entry sourced; `disputes` records conflicting reports; `postmortem` links the post-incident review (`null` until published). Market rows must state their timing (close or intraday) and source; security items are split into "reported" and "common pattern".
-- `meta.json`: the verification date.
+- `meta.json`: the verification date and staleness thresholds (`staleAfterDays`, `developingStaleAfterDays`).
 
 UI strings live in `src/i18n/ui.ts`.
+
+### Updating content
+
+See [docs/UPDATING.md](docs/UPDATING.md) for cadence, verification rules, data templates and the update workflow. The site shows a staleness notice once data goes unverified past the configured number of days.
 
 ### Content principles
 

@@ -2,8 +2,8 @@
 import Base from '../../layouts/Base.astro';
 import EventCard from '../../components/EventCard.astro';
 import Legend from '../../components/Legend.astro';
-import type { ImpactEvent } from '../../types';
 import events from '../../data/events.json';
+import type { ImpactEvent } from '../../types';
 import { langs, t, type Lang } from '../../i18n/ui';
 
 export function getStaticPaths() {
@@ -17,16 +17,34 @@ const list = [...(events as ImpactEvent[])].sort((a, b) => b.date.localeCompare(
 <Base lang={lang} page="impact" title={s.impactTitle}>
   <header class="impact-head">
     <h1>{s.impactTitle}</h1>
-    <p class="lede-lg">{s.impactLede}</p>
-    <p class="disclaimer" role="note">{s.disclaimer} {s.moveNote}</p>
+    <p class="lede">{s.impactShort} {s.disclaimerShort}</p>
   </header>
-  <Legend lang={lang} />
+
+  <nav class="toc" aria-label={s.onThisPage}>
+    <ul>
+      {list.map((e) => (
+        <li>
+          <a href={`#${e.id}`}>{e.title[lang]}</a>
+          <span class:list={['st', e.status]}>{s.status[e.status]}</span>
+        </li>
+      ))}
+    </ul>
+    <Legend lang={lang} />
+  </nav>
+
   {list.map((e) => <EventCard lang={lang} event={e} />)}
 </Base>
 
 <style>
-  .impact-head { margin: .5rem 0 1.75rem; max-width: 72ch; }
+  .impact-head { margin: .5rem 0 1rem; }
   h1 { font-size: clamp(1.7rem, 4.5vw, 2.3rem); font-weight: 600; letter-spacing: -0.01em; }
-  .lede-lg { margin: .5rem 0 .75rem; font-size: 1.05rem; }
-  .disclaimer { font-size: .86rem; color: var(--muted); border-left: 3px solid var(--line); padding-left: .75rem; margin: 0; }
+  .toc { margin: 0 0 1.5rem; }
+  .toc ul { list-style: none; margin: 0 0 .5rem; padding: 0; display: grid; gap: .35rem; }
+  .toc li { display: flex; flex-wrap: wrap; gap: .3rem .6rem; align-items: baseline; }
+  .toc a { font-weight: 600; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--line); }
+  .toc a:hover { border-bottom-color: var(--accent); }
+  .st { font-size: .8rem; font-weight: 600; }
+  .st.ongoing { color: var(--alert); }
+  .st.monitoring { color: var(--warn); }
+  .st.patched, .st.resolved { color: var(--accent); }
 </style>

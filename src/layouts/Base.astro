@@ -1,6 +1,7 @@
 ---
 import { languages, langs, href, t, type Lang } from '../i18n/ui';
 import { CSP, useMetaCsp } from '../lib/security';
+import meta from '../data/meta.json';
 // 字型放在網站本身，不向第三方傳送訪客資料 / Self-hosted fonts: no visitor data sent to third parties
 import '@fontsource/ibm-plex-sans/400.css';
 import '@fontsource/ibm-plex-sans/500.css';
@@ -48,8 +49,12 @@ const s = t(lang);
       </nav>
     </header>
     <main id="main">
+      <p class="stale-banner" role="status" data-stale-check data-verified={meta.verifiedOn} data-threshold={meta.staleAfterDays} hidden>
+        {s.staleA}<time datetime={meta.verifiedOn} class="num">{meta.verifiedOn}</time>{s.staleB}<span class="num" data-stale-days></span>{s.staleC}
+      </p>
       <slot />
     </main>
+    <script is:inline src={href('js/freshness.js')} defer></script>
   </body>
 </html>
 
@@ -66,6 +71,11 @@ const s = t(lang);
     --warn: #9a5b00;
     --warn-bg: #fff6e5;
     --warn-line: #f1d9a6;
+    --c-ai: #5b45c4; --c-ai-bg: #efeafe;
+    --c-lang: #2459b8; --c-lang-bg: #e6eefb;
+    --c-cloud: #0e7c86; --c-cloud-bg: #e2f2f3;
+    --c-security: #b3364f; --c-security-bg: #fbe8ec;
+    --c-industry: #2f7a4c; --c-industry-bg: #e5f2ea;
     /* 中文使用系統內建字型（PingFang TC／微軟正黑體／Noto Sans TC），避免下載大型中文字型檔 */
     --font: 'IBM Plex Sans', 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
     --radius-lg: 14px;
@@ -85,19 +95,34 @@ const s = t(lang);
       --warn: #f5b84a;
       --warn-bg: #2d2416;
       --warn-line: #5a4520;
+      --c-ai: #b6a6ff; --c-ai-bg: #29234a;
+      --c-lang: #8fb4ff; --c-lang-bg: #1b2943;
+      --c-cloud: #5cc4cc; --c-cloud-bg: #14312f;
+      --c-security: #f08aa0; --c-security-bg: #3a1c26;
+      --c-industry: #7fd0a0; --c-industry-bg: #17311f;
       color-scheme: dark;
     }
   }
   *, *::before, *::after { box-sizing: border-box; }
+  [hidden] { display: none !important; }
   body {
     margin: 0;
     background: var(--bg);
     color: var(--ink);
     font-family: var(--font);
-    font-size: 1rem;
+    font-size: 1.0625rem;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
+  /* 中文需要較寬的行距，每行約 38 字 / CJK reads better with more leading and ~38 characters per line */
+  :root { --measure: 66ch; }
+  html:lang(zh-TW) body { line-height: 1.8; }
+  html:lang(zh-TW) { --measure: 38em; }
+  /* 展開元件的共用樣式 / Shared disclosure styling */
+  summary { cursor: pointer; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  .disc > summary::before { content: ''; display: inline-block; width: .45em; height: .45em; margin-right: .55em; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(-45deg); vertical-align: .12em; }
+  .disc[open] > summary::before { transform: rotate(45deg); vertical-align: .25em; }
   a { color: var(--accent); }
   a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
   .skip { position: absolute; left: -999px; }
@@ -113,9 +138,10 @@ const s = t(lang);
   .lang-switch a { padding: .25rem .75rem; border-radius: 999px; text-decoration: none; color: var(--muted); font-size: .9rem; }
   .lang-switch a[aria-current='page'] { background: var(--ink); color: var(--bg); }
   main { padding-bottom: 4rem; }
+  .stale-banner { margin: 0 0 1.25rem; padding: .7rem 1rem; border: 1px solid var(--warn-line); background: var(--warn-bg); color: var(--ink); border-radius: var(--radius-sm); font-size: .92rem; }
   h1, h2 { line-height: 1.25; margin: 0; }
   h2 { font-size: 1.25rem; font-weight: 600; }
-  .lede { color: var(--muted); margin: .35rem 0 1rem; font-size: .92rem; }
+  .lede { color: var(--muted); margin: .35rem 0 1rem; font-size: .95rem; max-width: var(--measure); }
   .panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: clamp(1rem, 3vw, 1.5rem); }
   .num { font-variant-numeric: tabular-nums; }
 </style>

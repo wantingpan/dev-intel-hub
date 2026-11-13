@@ -68,6 +68,12 @@ for (const e of load('events.json')) {
   for (const k of ['us', 'tw']) {
     for (const [i, r] of e.market[k].entries()) {
       checkText(`${w}.market.${k}[${i}].basis`, r.basis);
+      if (r.pct !== null && (typeof r.pct !== 'number' || Math.abs(r.pct) > 100))
+        errors.push(`${w}.market.${k}[${i}]: pct must be a number between -100 and 100, or null`);
+      // 圖表只畫收盤數據 / Only closing data goes into charts
+      const basisZh = r.basis?.['zh-TW'] ?? '';
+      if (typeof r.pct === 'number' && (!/收盤/.test(basisZh) || /非.{0,2}收盤/.test(basisZh)))
+        errors.push(`${w}.market.${k}[${i}]: pct is only allowed for closing data (basis must say 收盤)`);
       checkUrl(`${w}.market.${k}[${i}]`, r.source.url);
     }
   }
@@ -75,6 +81,7 @@ for (const e of load('events.json')) {
   if (!['ongoing', 'monitoring', 'patched', 'resolved'].includes(e.status)) errors.push(`${w}: unknown status "${e.status}"`);
   if (!isDate(e.verifiedOn)) errors.push(`${w}: verifiedOn must be YYYY-MM-DD`);
   checkText(`${w}.nextWatch`, e.nextWatch);
+  for (const k of ['what', 'impact', 'action']) checkText(`${w}.brief.${k}`, e.brief?.[k]);
   if (e.postmortem) checkUrl(`${w}.postmortem`, e.postmortem.url);
   if (!Array.isArray(e.updates) || e.updates.length === 0) errors.push(`${w}: needs at least one update`);
   for (const [i, u] of (e.updates ?? []).entries()) {
@@ -86,6 +93,18 @@ for (const e of load('events.json')) {
       errors.push(`${w}.updates[${i}]: marked upcoming but the date isn't after verifiedOn`);
   }
   for (const [i, d] of (e.disputes ?? []).entries()) checkDispute(`${w}.disputes[${i}]`, d);
+}
+
+// 查證日期不可晚於今天（容許台灣與 UTC 的時差）/ Verification dates can't be in the future (allowing for Taiwan vs UTC)
+const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
+const meta = load('meta.json');
+if (!isDate(meta.verifiedOn)) errors.push('meta.json: verifiedOn must be YYYY-MM-DD');
+else if (meta.verifiedOn > tomorrow) errors.push(`meta.json: verifiedOn ${meta.verifiedOn} is in the future`);
+for (const k of ['staleAfterDays', 'developingStaleAfterDays']) {
+  if (!Number.isInteger(meta[k]) || meta[k] < 1) errors.push(`meta.json: ${k} must be a positive integer`);
+}
+for (const e of load('events.json')) {
+  if (isDate(e.verifiedOn) && e.verifiedOn > tomorrow) errors.push(`events.json#${e.id}: verifiedOn ${e.verifiedOn} is in the future`);
 }
 
 if (errors.length) {

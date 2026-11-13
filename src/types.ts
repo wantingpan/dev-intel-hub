@@ -1,6 +1,6 @@
 export type T = { 'zh-TW': string; en: string };
 export type Src = { name: string; url: string };
-export type MarketRow = { label: T; move: T; basis: T; source: Src };
+export type MarketRow = { label: T; move: T; basis: T; source: Src; pct: number | null };
 export type Dispute = {
   topic: T;
   claims: { who: string; claim: T; source: Src }[];
@@ -23,6 +23,7 @@ export interface ImpactEvent {
   disputes: Dispute[];
   updates: Update[];
   nextWatch: T;
+  brief: { what: T; impact: T; action: T };
   postmortem: Src | null;
   sources: Src[];
 }

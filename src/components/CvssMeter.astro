@@ -1,0 +1,27 @@
+---
+// CVSS 分數條：0～10 分，顏色依分數區間 / CVSS bar from 0 to 10, colored by score band
+interface Props { score: number | null; noneLabel: string }
+const { score, noneLabel } = Astro.props;
+const band = score === null ? 'none' : score >= 9 ? 'crit' : score >= 7 ? 'high' : score >= 4 ? 'med' : 'low';
+---
+{score === null
+  ? <span class="none" aria-label={noneLabel} title={noneLabel}>—</span>
+  : (
+    <span class="meter">
+      <svg width="56" height="8" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true">
+        <rect class="track" width="100" height="8" rx="4" />
+        <rect class:list={['fill', band]} width={score * 10} height="8" rx="4" />
+      </svg>
+      <span class="num">{score.toFixed(1)}</span>
+    </span>
+  )}
+
+<style>
+  .meter { display: inline-flex; align-items: center; gap: .45rem; white-space: nowrap; }
+  .track { fill: var(--line); }
+  .fill.crit { fill: var(--alert); }
+  .fill.high { fill: var(--c-security); }
+  .fill.med { fill: var(--warn); }
+  .fill.low { fill: var(--muted); }
+  .none { color: var(--muted); }
+</style>

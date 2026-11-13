@@ -1,0 +1,53 @@
+---
+// 收盤漲跌幅長條圖：以位置（零軸左右）表示漲跌，不用紅綠色，避免台美慣例相反造成誤讀
+// Closing-move bar chart: direction is shown by position around zero, not red/green,
+// since the two colors mean opposite things in Taiwan and US markets.
+interface Row { label: string; pct: number }
+interface Props { rows: Row[]; caption: string }
+const { rows, caption } = Astro.props;
+
+const W = 560, rowH = 34, top = 6, labelW = 210, valuePad = 52;
+const plotL = labelW + valuePad, plotR = W - valuePad;
+const zero = (plotL + plotR) / 2;
+const maxAbs = Math.max(3, ...rows.map((r) => Math.abs(r.pct)));
+const half = (plotR - plotL) / 2;
+const x = (v: number) => zero + (v / maxAbs) * half;
+const H = top * 2 + rows.length * rowH;
+const fmt = (v: number) => `${v > 0 ? '+' : ''}${v.toFixed(2)}%`;
+const summary = `${caption}: ` + rows.map((r) => `${r.label} ${fmt(r.pct)}`).join(', ');
+---
+<figure class="move-chart">
+  <figcaption>{caption}</figcaption>
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={summary} preserveAspectRatio="xMinYMin meet">
+    <line class="axis" x1={zero} y1="0" x2={zero} y2={H} />
+    {rows.map((r, i) => {
+      const y = top + i * rowH;
+      const x1 = Math.min(zero, x(r.pct));
+      const w = Math.max(2, Math.abs(x(r.pct) - zero));
+      const up = r.pct >= 0;
+      return (
+        <g>
+          <text class="label" x={labelW} y={y + rowH / 2} text-anchor="end" dominant-baseline="middle">{r.label}</text>
+          <rect class="bar" x={x1} y={y + 8} width={w} height={rowH - 16} rx="3" />
+          <text
+            class="value"
+            x={up ? x1 + w + 6 : x1 - 6}
+            y={y + rowH / 2}
+            text-anchor={up ? 'start' : 'end'}
+            dominant-baseline="middle"
+          >{fmt(r.pct)}</text>
+        </g>
+      );
+    })}
+  </svg>
+</figure>
+
+<style>
+  .move-chart { margin: 0 0 1rem; max-width: 40rem; }
+  figcaption { font-size: .88rem; color: var(--muted); margin-bottom: .2rem; }
+  svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .axis { stroke: var(--line); stroke-width: 1.5; }
+  .bar { fill: var(--accent); }
+  .label { fill: var(--ink); font-size: 14px; }
+  .value { fill: var(--ink); font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+</style>

@@ -3,6 +3,8 @@ import { t, formatDate, type Lang } from '../i18n/ui';
 import type { ImpactEvent } from '../types';
 import { safeUrl } from '../lib/url';
 import DisputeBox from './DisputeBox.astro';
+import MoveChart from './MoveChart.astro';
+import meta from '../data/meta.json';
 
 interface Props { lang: Lang; event: ImpactEvent }
 const { lang, event: e } = Astro.props;
@@ -11,170 +13,208 @@ const markets = [
   { key: 'us', name: s.us, rows: e.market.us },
   { key: 'tw', name: s.tw, rows: e.market.tw },
 ].filter((m) => m.rows.length > 0);
-const link = (src: { name: string; url: string }) => ({ name: src.name, href: safeUrl(src.url) });
-const pm = e.postmortem ? link(e.postmortem) : null;
+const pm = e.postmortem ? { name: e.postmortem.name, href: safeUrl(e.postmortem.url) } : null;
+const developing = e.status === 'ongoing' || e.status === 'monitoring';
+const security = [
+  ...e.securityFacts.map((f) => ({ kind: 'reported', text: f })),
+  ...e.securityPatterns.map((f) => ({ kind: 'pattern', text: f })),
+];
+const count = (n: number) => (n > 0 ? ` (${n})` : '');
+const charts = markets
+  .map((m) => ({
+    name: m.name,
+    rows: m.rows.filter((r) => typeof r.pct === 'number').map((r) => ({ label: r.label[lang], pct: r.pct as number })),
+  }))
+  .filter((c) => c.rows.length > 0);
 ---
 <article class="event panel" id={e.id} aria-labelledby={`${e.id}-title`}>
-  <header class="event-head">
-    <div class="badges">
+  <header>
+    <p class="meta">
+      <span class:list={['status', e.status]}>{s.status[e.status]}</span>
       <time datetime={e.date} class="num">{formatDate(e.date, lang)}</time>
-      <span class:list={['badge', 'status', e.status]}>{s.status[e.status]}</span>
-      <span class="badge">{s.sourcesCount(e.sources.length)}</span>
-      {e.disputes.length > 0 && <span class="badge disputed">{s.disputed}</span>}
-      <span class="verified">{s.verifiedOn} <time datetime={e.verifiedOn} class="num">{e.verifiedOn}</time></span>
-    </div>
+    </p>
     <h2 id={`${e.id}-title`}>{e.title[lang]}</h2>
-    <p class="summary">{e.summary[lang]}</p>
+    {developing && (
+      <p class="card-stale" role="status" data-stale-check data-verified={e.verifiedOn} data-threshold={meta.developingStaleAfterDays} hidden>
+        {s.cardStaleA}<span class="num" data-stale-days></span>{s.cardStaleB}
+      </p>
+    )}
   </header>
 
-  <div class="blocks">
-    <section class="block">
-      <h3>{s.hWhat}</h3>
-      <ul>{e.facts.map((f) => <li>{f[lang]}</li>)}</ul>
-    </section>
+  <dl class="brief">
+    <div><dt>{s.briefWhat}</dt><dd>{e.brief.what[lang]}</dd></div>
+    <div><dt>{s.briefImpact}</dt><dd>{e.brief.impact[lang]}</dd></div>
+    <div><dt>{s.briefAction}</dt><dd>{e.brief.action[lang]}</dd></div>
+  </dl>
 
-    <section class="block">
-      <h3>{s.hWork}</h3>
-      <ul>{e.work.map((f) => <li>{f[lang]}</li>)}</ul>
-    </section>
+  {charts.length > 0 && (
+    <div class="charts">
+      {charts.map((c) => <MoveChart rows={c.rows} caption={s.chartCaption(c.name)} />)}
+      <p class="note">{s.chartNote}</p>
+    </div>
+  )}
 
-    <section class="block">
-      <h3>{s.hSecurity}</h3>
-      <ul class="tagged">
-        {e.securityFacts.map((f) => (
-          <li><span class="kind reported">{s.reported}</span>{f[lang]}</li>
-        ))}
-        {e.securityPatterns.map((f) => (
-          <li><span class="kind pattern">{s.pattern}</span>{f[lang]}</li>
-        ))}
-      </ul>
-    </section>
+  <div class="sections">
+    <details class="disc">
+      <summary>{s.hFacts}</summary>
+      <div class="sec"><ul>{e.facts.map((f) => <li>{f[lang]}</li>)}</ul></div>
+    </details>
 
-    <section class="block wide">
-      <h3>{s.hUpdates}</h3>
-      <ol class="timeline">
-        {e.updates.map((u) => (
-          <li class:list={{ upcoming: u.upcoming }}>
-            <span class="when-line num">
-              {formatDate(u.date, lang)}{u.time && ` · ${u.time[lang]}`}
-              {u.upcoming && <span class="badge up">{s.upcoming}</span>}
-            </span>
-            <span>
-              {u.text[lang]}{' '}
-              {safeUrl(u.source.url)
-                ? <a class="src" href={safeUrl(u.source.url)} target="_blank" rel="noopener noreferrer">{u.source.name}</a>
-                : <span class="src">{u.source.name}</span>}
-            </span>
-          </li>
-        ))}
-      </ol>
-      <dl class="follow">
-        <div><dt>{s.nextWatch}</dt><dd>{e.nextWatch[lang]}</dd></div>
-        <div>
-          <dt>{s.postmortem}</dt>
-          <dd>{pm ? (pm.href ? <a href={pm.href} target="_blank" rel="noopener noreferrer">{pm.name}</a> : pm.name) : s.postmortemNone}</dd>
+    <details class="disc">
+      <summary>{s.hWork}</summary>
+      <div class="sec"><ul>{e.work.map((f) => <li>{f[lang]}</li>)}</ul></div>
+    </details>
+
+    {security.length > 0 && (
+      <details class="disc">
+        <summary>{s.hSecurity}</summary>
+        <div class="sec">
+          <ul class="tagged">
+            {security.map((x) => (
+              <li><span class:list={['kind', x.kind]}>{x.kind === 'reported' ? s.reported : s.pattern}</span>{x.text[lang]}</li>
+            ))}
+          </ul>
         </div>
-      </dl>
-    </section>
-
-    {e.disputes.length > 0 && (
-      <section class="block wide">
-        <h3>{s.hDispute}</h3>
-        {e.disputes.map((d) => <DisputeBox lang={lang} dispute={d} />)}
-      </section>
+      </details>
     )}
 
-    <section class="block market">
-      <h3>{s.hMarket}</h3>
-      {markets.map((m) => (
-        <div class="scroll">
-          <table>
-            <caption>{m.name}</caption>
-            <thead>
-              <tr>
-                <th scope="col">{s.thItem}</th>
-                <th scope="col">{s.thMove}</th>
-                <th scope="col">{s.thWhen}</th>
-                <th scope="col">{s.thSource}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {m.rows.map((r) => (
-                <tr>
-                  <td>{r.label[lang]}</td>
-                  <td class="num move">{r.move[lang]}</td>
-                  <td class="when">{r.basis[lang]}</td>
-                  <td>{safeUrl(r.source.url) ? <a href={safeUrl(r.source.url)} target="_blank" rel="noopener noreferrer">{r.source.name}</a> : r.source.name}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      ))}
-      {e.market.views.length > 0 && (
-        <>
-          <h4>{s.hViews}</h4>
-          <ul>{e.market.views.map((v) => <li>{v[lang]}</li>)}</ul>
-        </>
-      )}
-      <div class="caveats">
-        <h4>{s.hCaveats}</h4>
-        <ul>{e.market.caveats.map((c) => <li>{c[lang]}</li>)}</ul>
+    <details class="disc">
+      <summary>{s.hUpdates}{count(e.updates.length)}</summary>
+      <div class="sec">
+        <ol class="timeline">
+          {e.updates.map((u) => {
+            const href = safeUrl(u.source.url);
+            return (
+              <li class:list={{ upcoming: u.upcoming }}>
+                <span class="when num">
+                  {formatDate(u.date, lang)}{u.time && `${lang === 'en' ? ', ' : '，'}${u.time[lang]}`}
+                  {u.upcoming && <span class="up" data-upcoming-date={u.date} data-past-label={s.passed}>{s.upcoming}</span>}
+                </span>
+                <span>
+                  {u.text[lang]}{' '}
+                  {href ? <a class="src" href={href} target="_blank" rel="noopener noreferrer">{u.source.name}</a> : <span class="src">{u.source.name}</span>}
+                </span>
+              </li>
+            );
+          })}
+        </ol>
+        <p class="follow"><strong>{s.nextWatch}</strong>{lang === 'en' ? ': ' : '：'}{e.nextWatch[lang]}</p>
+        <p class="follow">
+          <strong>{s.postmortem}</strong>{lang === 'en' ? ': ' : '：'}
+          {pm ? (pm.href ? <a href={pm.href} target="_blank" rel="noopener noreferrer">{pm.name}</a> : pm.name) : s.postmortemNone}
+        </p>
       </div>
-    </section>
-  </div>
+    </details>
 
-  <footer class="sources">
-    <h4>{s.hSources}</h4>
-    <ul>
-      {e.sources.map((src) => (
-        <li>{safeUrl(src.url) ? <a href={safeUrl(src.url)} target="_blank" rel="noopener noreferrer">{src.name}</a> : src.name}</li>
-      ))}
-    </ul>
-  </footer>
+    <details class="disc">
+      <summary>{s.hMarket}</summary>
+      <div class="sec">
+        {markets.map((m) => (
+          <div class="scroll">
+            <table>
+              <caption>{m.name}</caption>
+              <thead>
+                <tr>
+                  <th scope="col">{s.thItem}</th>
+                  <th scope="col">{s.thMove}</th>
+                  <th scope="col">{s.thWhen}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {m.rows.map((r) => {
+                  const href = safeUrl(r.source.url);
+                  return (
+                    <tr>
+                      <td>{r.label[lang]}</td>
+                      <td class="num move">{href ? <a href={href} target="_blank" rel="noopener noreferrer" title={r.source.name}>{r.move[lang]}</a> : r.move[lang]}</td>
+                      <td class="when-cell">{r.basis[lang]}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        ))}
+        {e.market.views.length > 0 && <ul>{e.market.views.map((v) => <li>{v[lang]}</li>)}</ul>}
+        <div class="caveats">
+          <p class="cav-title">{s.hCaveats}</p>
+          <ul>{e.market.caveats.map((c) => <li>{c[lang]}</li>)}</ul>
+          <p class="note">{s.disclaimerShort} {s.moveNote}</p>
+        </div>
+      </div>
+    </details>
+
+    {e.disputes.length > 0 && (
+      <details class="disc">
+        <summary>{s.hDispute}{count(e.disputes.length)}</summary>
+        <div class="sec">{e.disputes.map((d) => <DisputeBox lang={lang} dispute={d} />)}</div>
+      </details>
+    )}
+
+    <details class="disc">
+      <summary>{s.hSources}{count(e.sources.length)}</summary>
+      <div class="sec">
+        <ul class="sources">
+          {e.sources.map((src) => {
+            const href = safeUrl(src.url);
+            return <li>{href ? <a href={href} target="_blank" rel="noopener noreferrer">{src.name}</a> : src.name}</li>;
+          })}
+        </ul>
+        <p class="note">{s.verifiedOn} <time datetime={e.verifiedOn} class="num">{e.verifiedOn}</time></p>
+      </div>
+    </details>
+  </div>
 </article>
 
 <style>
-  .event { margin-bottom: 1.5rem; }
-  .badges { display: flex; flex-wrap: wrap; gap: .45rem; align-items: center; font-size: .82rem; color: var(--muted); }
-  .badge { border: 1px solid var(--line); border-radius: 4px; padding: 0 .45rem; }
-  .status { font-weight: 600; }
-  .status.ongoing { color: var(--alert); border-color: var(--alert); }
-  .status.monitoring { color: var(--warn); border-color: var(--warn); }
-  .status.patched, .status.resolved { color: var(--accent); border-color: var(--accent); }
-  .disputed { color: var(--warn); border-color: var(--warn); }
-  .verified { margin-left: auto; }
-  .event-head h2 { font-size: clamp(1.35rem, 3vw, 1.65rem); margin: .15rem 0 .4rem; }
-  .summary { margin: 0 0 1.25rem; max-width: 70ch; }
-  .blocks { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem 2rem; }
-  .block.market, .block.wide { grid-column: 1 / -1; }
-  .timeline { list-style: none; padding: 0; margin: .25rem 0 0; border-left: 2px solid var(--line); }
-  .timeline li { position: relative; padding: 0 0 .7rem 1rem; display: grid; gap: .1rem; }
-  .timeline li::before { content: ''; position: absolute; left: -6px; top: .45rem; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
-  .timeline li.upcoming::before { background: var(--surface); border: 2px solid var(--accent); }
-  .when-line { font-size: .8rem; color: var(--muted); display: flex; gap: .4rem; align-items: center; }
-  .up { color: var(--accent); border-color: var(--accent); }
-  .src { font-size: .82rem; }
-  .follow { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: .5rem 1.5rem; margin: .4rem 0 0; }
-  .follow dt { font-size: .8rem; color: var(--muted); font-weight: 600; }
-  .follow dd { margin: 0; font-size: .94rem; }
-  h3 { font-size: 1rem; font-weight: 600; margin: 0 0 .4rem; padding-top: .75rem; border-top: 2px solid var(--ink); }
-  h4 { font-size: .88rem; font-weight: 600; margin: 1rem 0 .3rem; color: var(--muted); }
-  ul { margin: 0; padding-left: 1.1rem; max-width: 72ch; }
-  li { margin-bottom: .35rem; font-size: .95rem; }
+  .event { margin-bottom: 1.5rem; scroll-margin-top: 1rem; }
+  .meta { display: flex; gap: .6rem; align-items: center; margin: 0; font-size: .88rem; color: var(--muted); }
+  .status { font-weight: 600; font-size: .8rem; border: 1px solid currentColor; border-radius: 4px; padding: 0 .45rem; }
+  .status.ongoing { color: var(--alert); }
+  .status.monitoring { color: var(--warn); }
+  .status.patched, .status.resolved { color: var(--accent); }
+  h2 { font-size: clamp(1.3rem, 3vw, 1.6rem); margin: .3rem 0 .9rem; max-width: var(--measure); }
+  .card-stale { margin: 0 0 .9rem; padding: .45rem .75rem; font-size: .9rem; border-left: 3px solid var(--warn); background: var(--warn-bg); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; max-width: var(--measure); }
+
+  /* 30 秒重點：本卡片唯一突出的區塊 / The 30-second brief: the one element that stands out */
+  .brief { margin: 0 0 1rem; padding: 1rem 1.1rem; background: var(--bg); border-radius: var(--radius-sm); display: grid; gap: .5rem; max-width: calc(var(--measure) + 5rem); }
+  .brief div { display: grid; grid-template-columns: 3.2rem 1fr; gap: .75rem; }
+  .brief dt { font-weight: 600; color: var(--accent); }
+  .brief dd { margin: 0; }
+
+  .charts { margin: 0 0 1rem; }
+  .charts .note { margin-top: -.4rem; }
+  .sections { border-top: 1px solid var(--line); }
+  details { border-bottom: 1px solid var(--line); }
+  summary { padding: .7rem 0; font-weight: 600; }
+  .sec { padding: 0 0 1rem 1.05rem; max-width: calc(var(--measure) + 1rem); }
+  ul { margin: 0; padding-left: 1.1rem; }
+  li { margin-bottom: .4rem; }
   .tagged { list-style: none; padding-left: 0; }
-  .kind { display: inline-block; font-size: .75rem; font-weight: 600; border-radius: 4px; padding: 0 .4rem; margin-right: .45rem; border: 1px solid currentColor; }
+  .kind { display: inline-block; font-size: .78rem; font-weight: 600; border: 1px solid currentColor; border-radius: 4px; padding: 0 .4rem; margin-right: .45rem; }
   .reported { color: var(--accent); }
   .pattern { color: var(--muted); }
+  .timeline { list-style: none; padding: 0; margin: 0; border-left: 2px solid var(--line); }
+  .timeline li { position: relative; padding: 0 0 .75rem 1rem; display: grid; gap: .1rem; }
+  .timeline li::before { content: ''; position: absolute; left: -6px; top: .55rem; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+  .timeline li.upcoming::before { background: var(--surface); border: 2px solid var(--accent); }
+  .when { font-size: .85rem; color: var(--muted); display: flex; gap: .5rem; align-items: center; }
+  .up { font-size: .78rem; color: var(--accent); border: 1px solid currentColor; border-radius: 4px; padding: 0 .35rem; }
+  .up.past { color: var(--muted); }
+  .src { font-size: .88rem; }
+  .follow { margin: .4rem 0 0; }
   .scroll { overflow-x: auto; margin-bottom: .75rem; }
-  table { width: 100%; border-collapse: collapse; font-size: .92rem; }
-  caption { text-align: left; font-weight: 600; font-size: .9rem; padding: .25rem 0; }
-  th, td { text-align: left; padding: .45rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { font-size: .8rem; color: var(--muted); font-weight: 500; }
+  table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+  caption { text-align: left; font-weight: 600; padding: .25rem 0; }
+  th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: .85rem; color: var(--muted); font-weight: 500; }
   .move { font-weight: 600; white-space: nowrap; }
-  .when { color: var(--muted); font-size: .86rem; }
-  .caveats { background: var(--bg); border-radius: var(--radius-sm); padding: .1rem 1rem .6rem; margin-top: .75rem; }
-  .sources { margin-top: 1rem; border-top: 1px solid var(--line); }
-  .sources ul { display: flex; flex-wrap: wrap; gap: .25rem 1rem; list-style: none; padding: 0; }
-  .sources li { font-size: .86rem; margin: 0; }
+  .when-cell { color: var(--muted); font-size: .9rem; }
+  .caveats { background: var(--bg); border-radius: var(--radius-sm); padding: .75rem 1rem; margin-top: .75rem; }
+  .cav-title { margin: 0 0 .35rem; font-weight: 600; }
+  .note { margin: .6rem 0 0; font-size: .88rem; color: var(--muted); }
+  .sources { display: flex; flex-wrap: wrap; gap: .25rem 1.1rem; list-style: none; padding: 0; }
+  @media (max-width: 560px) {
+    .brief div { grid-template-columns: 1fr; gap: 0; }
+  }
 </style>
