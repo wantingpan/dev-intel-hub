@@ -34,7 +34,8 @@
     },
     "seeAlso": [
       "supply-chain",
-      "cve"
+      "cve",
+      "vex"
     ],
     "sources": [
       {
@@ -56,7 +57,8 @@
         "url": "https://www.ithome.com.tw/news/177811"
       }
     ],
-    "verifiedOn": "2026-11-13"
+    "verifiedOn": "2026-11-13",
+    "group": "foundations"
   },
   {
     "id": "cve",
@@ -97,7 +99,8 @@
     },
     "seeAlso": [
       "cvss",
-      "kev"
+      "kev",
+      "vex"
     ],
     "sources": [
       {
@@ -114,7 +117,8 @@
       }
     ],
     "further": [],
-    "verifiedOn": "2026-11-13"
+    "verifiedOn": "2026-11-13",
+    "group": "foundations"
   },
   {
     "id": "cvss",
@@ -177,7 +181,8 @@
       }
     ],
     "further": [],
-    "verifiedOn": "2026-11-13"
+    "verifiedOn": "2026-11-13",
+    "group": "foundations"
   },
   {
     "id": "kev",
@@ -233,7 +238,8 @@
       }
     ],
     "further": [],
-    "verifiedOn": "2026-11-13"
+    "verifiedOn": "2026-11-13",
+    "group": "foundations"
   },
   {
     "id": "zero-day",
@@ -288,7 +294,8 @@
       }
     ],
     "further": [],
-    "verifiedOn": "2026-11-13"
+    "verifiedOn": "2026-11-13",
+    "group": "foundations"
   },
   {
     "id": "supply-chain",
@@ -326,7 +333,8 @@
       "events": []
     },
     "seeAlso": [
-      "sbom"
+      "sbom",
+      "devsecops"
     ],
     "sources": [
       {
@@ -335,7 +343,8 @@
       }
     ],
     "further": [],
-    "verifiedOn": "2026-11-13"
+    "verifiedOn": "2026-11-13",
+    "group": "threats"
   },
   {
     "id": "prompt-injection",
@@ -386,7 +395,8 @@
       }
     ],
     "further": [],
-    "verifiedOn": "2026-11-13"
+    "verifiedOn": "2026-11-13",
+    "group": "threats"
   },
   {
     "id": "postmortem",
@@ -423,7 +433,10 @@
         "m365-outage-2026-11"
       ]
     },
-    "seeAlso": [],
+    "seeAlso": [
+      "incident-response",
+      "sla-slo"
+    ],
     "sources": [
       {
         "name": "Google SRE Book",
@@ -436,6 +449,577 @@
         "url": "https://sre.google/workbook/postmortem-culture/"
       }
     ],
-    "verifiedOn": "2026-11-13"
+    "verifiedOn": "2026-11-13",
+    "group": "reliability"
+  },
+  {
+    "id": "ci-cd",
+    "category": "cloud",
+    "term": {
+      "zh-TW": "CI/CD 持續整合與持續交付",
+      "en": "CI/CD (continuous integration and delivery)"
+    },
+    "oneLiner": {
+      "zh-TW": "讓程式碼從修改到上線，自動完成整合、測試與發布的流程。",
+      "en": "An automated path that takes code changes through integration, testing and release."
+    },
+    "points": [
+      {
+        "zh-TW": "CI（持續整合）：自動且頻繁地把程式碼變更合併到共用的程式庫，並自動測試。",
+        "en": "CI: automatically and frequently merging code changes into a shared repository, with automated tests."
+      },
+      {
+        "zh-TW": "CD 有兩種：持續交付停在正式上線之前，持續部署則會自動發布到正式環境。",
+        "en": "CD comes in two forms: continuous delivery stops short of production, while continuous deployment releases automatically."
+      },
+      {
+        "zh-TW": "要選哪一種，取決於團隊對風險的容忍度。",
+        "en": "Which one to choose depends on the team's risk tolerance."
+      }
+    ],
+    "why": {
+      "zh-TW": "本站就是例子：推送到 main 之後，GitHub Actions 自動檢查資料與建置，Netlify 自動部署上線。",
+      "en": "This site is an example: pushing to main makes GitHub Actions check the data and build, and Netlify deploys automatically."
+    },
+    "related": {
+      "news": [],
+      "events": []
+    },
+    "seeAlso": [
+      "devsecops",
+      "sast-dast"
+    ],
+    "sources": [
+      {
+        "name": "Red Hat",
+        "url": "https://www.redhat.com/en/topics/devops/what-is-CI-CD"
+      }
+    ],
+    "further": [],
+    "verifiedOn": "2026-11-13",
+    "group": "pipeline"
+  },
+  {
+    "id": "devsecops",
+    "category": "security",
+    "term": {
+      "zh-TW": "DevSecOps",
+      "en": "DevSecOps"
+    },
+    "oneLiner": {
+      "zh-TW": "把資安融入開發與維運的每個階段，而不是最後才檢查。",
+      "en": "Building security into every stage of development and operations instead of checking at the end."
+    },
+    "points": [
+      {
+        "zh-TW": "核心原則是「左移」：把資安檢查提早到設計、寫程式與建置階段。",
+        "en": "Its core principle is shifting left: moving security checks earlier, into design, coding and build."
+      },
+      {
+        "zh-TW": "資安測試會整合進 CI/CD 流程中自動執行。",
+        "en": "Security tests run automatically inside the CI/CD pipeline."
+      },
+      {
+        "zh-TW": "資安是開發、資安與維運團隊的共同責任。",
+        "en": "Security becomes a shared responsibility across development, security and operations."
+      }
+    ],
+    "why": {
+      "zh-TW": "越早發現問題，修正越容易、成本越低。Linux 基金會的調查中，58% 受訪者表示交付速度已快到資安審查跟不上。",
+      "en": "Problems are easier and cheaper to fix the earlier they're found. In a Linux Foundation survey, 58% said delivery now outpaces security review."
+    },
+    "related": {
+      "news": [
+        "n04"
+      ],
+      "events": []
+    },
+    "seeAlso": [
+      "ci-cd",
+      "sast-dast",
+      "supply-chain"
+    ],
+    "sources": [
+      {
+        "name": "Fortinet",
+        "url": "https://www.fortinet.com/uk/resources/cyberglossary/devsecops"
+      },
+      {
+        "name": "Mend",
+        "url": "https://www.mend.io/breaking-down-devsecops-na"
+      },
+      {
+        "name": "AppSec Santa",
+        "url": "https://appsecsanta.com/application-security/shift-left-security"
+      }
+    ],
+    "further": [],
+    "verifiedOn": "2026-11-13",
+    "group": "pipeline"
+  },
+  {
+    "id": "sast-dast",
+    "category": "security",
+    "term": {
+      "zh-TW": "SAST／DAST 應用程式安全測試",
+      "en": "SAST and DAST"
+    },
+    "oneLiner": {
+      "zh-TW": "兩種找程式漏洞的方法：一個看原始碼，一個測執行中的程式。",
+      "en": "Two ways to find app vulnerabilities: one reads the source code, the other tests the running app."
+    },
+    "points": [
+      {
+        "zh-TW": "SAST（靜態測試）在程式執行前分析原始碼，寫程式時就能提早發現問題。",
+        "en": "SAST (static testing) analyzes source code before the app runs, catching problems while code is written."
+      },
+      {
+        "zh-TW": "DAST（動態測試）測試執行中的程式，能找出只有實際運作時才出現的問題。",
+        "en": "DAST (dynamic testing) probes the running app and finds issues that only show up at runtime."
+      },
+      {
+        "zh-TW": "兩者互補，不是二選一。",
+        "en": "They complement each other; it isn't either-or."
+      }
+    ],
+    "why": {
+      "zh-TW": "SAST 是「左移」的實際做法之一：整合進開發工具和 CI/CD 後，每次提交程式碼都會自動掃描。",
+      "en": "SAST is one practical way to shift left: built into editors and CI/CD, it scans every commit automatically."
+    },
+    "related": {
+      "news": [],
+      "events": []
+    },
+    "seeAlso": [
+      "devsecops",
+      "cve"
+    ],
+    "sources": [
+      {
+        "name": "Cycode",
+        "url": "https://cycode.com/blog/sast-vs-dast-guide/"
+      },
+      {
+        "name": "Wildnet Edge",
+        "url": "https://www.wildnetedge.com/blogs/devsecops-merging-security-into-devops-pipelines"
+      }
+    ],
+    "further": [],
+    "verifiedOn": "2026-11-13",
+    "group": "pipeline"
+  },
+  {
+    "id": "mfa",
+    "category": "security",
+    "term": {
+      "zh-TW": "MFA 多因素驗證",
+      "en": "MFA (multifactor authentication)"
+    },
+    "oneLiner": {
+      "zh-TW": "登入時除了密碼，還要用另一種方式證明是你。",
+      "en": "Proving it's you with something beyond a password when you sign in."
+    },
+    "points": [
+      {
+        "zh-TW": "即使密碼被偷或被猜到，MFA 仍能擋下對方登入。",
+        "en": "Even if a password is stolen or guessed, MFA can still stop the sign-in."
+      },
+      {
+        "zh-TW": "並非所有 MFA 都一樣：美國 CISA 把抗網路釣魚的 MFA（例如 FIDO／WebAuthn）稱為「黃金標準」。",
+        "en": "Not all MFA is equal: the US agency CISA calls phishing-resistant MFA, such as FIDO/WebAuthn, the gold standard."
+      },
+      {
+        "zh-TW": "暫時做不到時，CISA 建議至少採用「數字比對」，避免使用者被大量推播轟炸而誤按同意。",
+        "en": "Where that isn't possible yet, CISA recommends number matching so users aren't worn down into approving a flood of push prompts."
+      }
+    ],
+    "why": {
+      "zh-TW": "服務中斷時常出現假冒「請重新登入」的釣魚信。抗網路釣魚的 MFA 會綁定真正的網域，被騙走的登入資訊無法拿到假網站使用。",
+      "en": "Outages often bring fake \"sign in again\" phishing. Phishing-resistant MFA is bound to the real domain, so captured credentials can't be replayed on a fake site."
+    },
+    "related": {
+      "news": [],
+      "events": []
+    },
+    "seeAlso": [
+      "zero-trust",
+      "oauth-sso"
+    ],
+    "sources": [
+      {
+        "name": "CISA",
+        "url": "https://cisa.gov/mfa"
+      },
+      {
+        "name": "National Cybersecurity Alliance",
+        "url": "https://www.staysafeonline.org/articles/multi-factor-authentication"
+      },
+      {
+        "name": "HIPAA Journal",
+        "url": "https://www.hipaajournal.com/cisa-urges-organizations-to-implement-phishing-resistant-multifactor-authentication/"
+      },
+      {
+        "name": "Infosecurity Magazine",
+        "url": "https://www.infosecurity-magazine.com/news/cisa-mfa-guidelines-to-tackle/"
+      },
+      {
+        "name": "Adaptive Security",
+        "url": "https://www.adaptivesecurity.com/blog/phishing-resistant-mfa-guide"
+      }
+    ],
+    "further": [],
+    "verifiedOn": "2026-11-13",
+    "group": "identity"
+  },
+  {
+    "id": "zero-trust",
+    "category": "security",
+    "term": {
+      "zh-TW": "零信任（Zero Trust）",
+      "en": "Zero Trust"
+    },
+    "oneLiner": {
+      "zh-TW": "不因為「在公司網路裡」就信任，每次存取都要驗證。",
+      "en": "Never trusting a request just because it's inside the network; verifying every access."
+    },
+    "points": [
+      {
+        "zh-TW": "口號是「永不信任，持續驗證」（never trust, always verify）。",
+        "en": "The motto is never trust, always verify."
+      },
+      {
+        "zh-TW": "每個存取請求都要經過身分驗證與授權，而且只給完成工作所需的最小權限。",
+        "en": "Every request is authenticated and authorized, and access is limited to the minimum the task needs."
+      },
+      {
+        "zh-TW": "美國 NIST 在 2020 年 8 月發布 SP 800-207，為零信任架構提供正式定義。",
+        "en": "In August 2020, NIST published SP 800-207, giving zero trust architecture a formal definition."
+      }
+    ],
+    "why": {
+      "zh-TW": "雲端與遠端工作讓「公司內網」的邊界越來越模糊。零信任假設入侵難免發生，在設計上讓損害範圍盡量縮小。",
+      "en": "Cloud and remote work blur the old network perimeter. Zero trust assumes breaches will happen and is designed to keep the damage small."
+    },
+    "related": {
+      "news": [],
+      "events": []
+    },
+    "seeAlso": [
+      "mfa",
+      "oauth-sso"
+    ],
+    "sources": [
+      {
+        "name": "CyberDefenders",
+        "url": "https://cyberdefenders.org/cybersecurity-glossary/zero-trust-security/"
+      },
+      {
+        "name": "Red River",
+        "url": "https://redriver.com/security/nist-zero-trust"
+      },
+      {
+        "name": "Ivanti",
+        "url": "https://www.ivanti.com/blog/nist-zero-trust"
+      }
+    ],
+    "further": [],
+    "verifiedOn": "2026-11-13",
+    "group": "identity"
+  },
+  {
+    "id": "oauth-sso",
+    "category": "security",
+    "term": {
+      "zh-TW": "OAuth／SSO",
+      "en": "OAuth and SSO"
+    },
+    "oneLiner": {
+      "zh-TW": "SSO 讓你登入一次就能用多個系統；OAuth 讓 App 不拿你的密碼也能取得授權。",
+      "en": "SSO lets you sign in once for many apps; OAuth lets an app get permission without your password."
+    },
+    "points": [
+      {
+        "zh-TW": "SSO（單一登入）：向身分提供者驗證一次，就能使用多個應用程式。",
+        "en": "SSO (single sign-on): authenticate once with an identity provider and use many apps."
+      },
+      {
+        "zh-TW": "OAuth 2.0 是「授權」協定：讓一個 App 取得你在另一個服務上的有限權限，而不需要你的密碼。",
+        "en": "OAuth 2.0 is an authorization protocol: it gives one app limited access to your data in another service without your password."
+      },
+      {
+        "zh-TW": "OAuth 本身不負責確認「你是誰」；要做登入驗證，應使用建立在 OAuth 之上的 OpenID Connect。",
+        "en": "OAuth doesn't confirm who you are; for sign-in, use OpenID Connect, which is built on top of OAuth."
+      }
+    ],
+    "why": {
+      "zh-TW": "「用 Google 帳號登入」背後就是 OpenID Connect。把 OAuth 誤當成登入驗證來用，是常見的設計風險。",
+      "en": "\"Sign in with Google\" runs on OpenID Connect. Using OAuth alone as a login mechanism is a common design risk."
+    },
+    "related": {
+      "news": [],
+      "events": []
+    },
+    "seeAlso": [
+      "mfa",
+      "zero-trust"
+    ],
+    "sources": [
+      {
+        "name": "WorkOS",
+        "url": "https://workos.com/blog/sso-vs-oauth"
+      },
+      {
+        "name": "NHI Mgmt Group",
+        "url": "https://nhimg.org/?p=35007"
+      },
+      {
+        "name": "DEV Community",
+        "url": "https://dev.to/bharathvaj_ganesan/sso-vs-oauth-understand-the-key-difference-4lpp"
+      }
+    ],
+    "further": [],
+    "verifiedOn": "2026-11-13",
+    "group": "identity"
+  },
+  {
+    "id": "sla-slo",
+    "category": "cloud",
+    "term": {
+      "zh-TW": "SLA／SLO 服務水準協議與目標",
+      "en": "SLA and SLO"
+    },
+    "oneLiner": {
+      "zh-TW": "SLO 是內部訂的可靠度目標；SLA 是對客戶的承諾，做不到要補償。",
+      "en": "An SLO is an internal reliability target; an SLA is a promise to customers, with compensation if it's missed."
+    },
+    "points": [
+      {
+        "zh-TW": "SLI 是量測值，例如在 300 毫秒內回應的請求比例。",
+        "en": "An SLI is the measurement, such as the share of requests answered within 300 ms."
+      },
+      {
+        "zh-TW": "SLO 是 SLI 要達到的目標值或範圍。",
+        "en": "An SLO is the target value or range that the SLI must meet."
+      },
+      {
+        "zh-TW": "SLA 是對客戶的承諾，沒達到通常要提供服務抵免或退款。",
+        "en": "An SLA is a promise to customers; missing it usually means service credits or refunds."
+      }
+    ],
+    "why": {
+      "zh-TW": "SLA 決定服務中斷時的補償方式。SLA 通常比內部 SLO 寬鬆，保留緩衝：Google 的說明範例中，SLO 是 99.5%，SLA 是 99%。",
+      "en": "The SLA decides what happens when a service goes down. It's usually looser than the internal SLO to leave a buffer: in Google's example, the SLO is 99.5% and the SLA is 99%."
+    },
+    "related": {
+      "news": [],
+      "events": [
+        "m365-outage-2026-11"
+      ]
+    },
+    "seeAlso": [
+      "incident-response",
+      "postmortem"
+    ],
+    "sources": [
+      {
+        "name": "Google SRE Book",
+        "url": "https://sre.google/sre-book/service-level-objectives?hl=id"
+      },
+      {
+        "name": "Google Cloud",
+        "url": "https://cloud.google.com/blog/products/devops-sre/sre-fundamentals-sli-vs-slo-vs-sla/"
+      },
+      {
+        "name": "ClickHouse",
+        "url": "https://clickhouse.com/resources/engineering/slo-sli-sla"
+      },
+      {
+        "name": "Google SRE 白皮書",
+        "url": "https://services.google.com/fh/files/misc/sre-it-operations-whitepaper.pdf"
+      }
+    ],
+    "further": [],
+    "verifiedOn": "2026-11-13",
+    "group": "reliability"
+  },
+  {
+    "id": "incident-response",
+    "category": "security",
+    "term": {
+      "zh-TW": "事故應變（Incident response）",
+      "en": "Incident response"
+    },
+    "oneLiner": {
+      "zh-TW": "發生資安或系統事故時，有計畫地偵測、控制、復原與檢討。",
+      "en": "Handling a security or system incident with a plan: detect, contain, recover and learn."
+    },
+    "points": [
+      {
+        "zh-TW": "美國 NIST SP 800-61 第 2 版把流程分成四個階段：準備、偵測與分析、圍堵／根除／復原、事後活動。",
+        "en": "Revision 2 of NIST SP 800-61 splits the process into four phases: preparation; detection and analysis; containment, eradication and recovery; and post-incident activity."
+      },
+      {
+        "zh-TW": "準備階段最重要：事前訂好政策、角色分工，並定期演練。",
+        "en": "Preparation matters most: set policies and roles in advance, and practice regularly."
+      },
+      {
+        "zh-TW": "如果平常用的電子郵件或通訊系統也受影響，需要事先備妥其他聯絡管道。",
+        "en": "If email or chat systems are affected too, you need other ways to communicate, arranged in advance."
+      }
+    ],
+    "why": {
+      "zh-TW": "Microsoft 365 斷線就是提醒：當 Outlook 和 Teams 同時停擺，團隊要用什麼聯絡？事故應變計畫要事先回答這個問題。",
+      "en": "The Microsoft 365 outage is a reminder: if Outlook and Teams go down together, how does the team stay in touch? An incident response plan answers that ahead of time."
+    },
+    "related": {
+      "news": [],
+      "events": [
+        "m365-outage-2026-11"
+      ]
+    },
+    "seeAlso": [
+      "postmortem",
+      "sla-slo",
+      "ransomware"
+    ],
+    "sources": [
+      {
+        "name": "Petronella Technology",
+        "url": "https://book.petronellatech.com/compliance/nist-800-61-incident-response/"
+      },
+      {
+        "name": "TCM Security",
+        "url": "https://tcm-sec.com/nist-guidelines-for-incident-response-best-practices/"
+      },
+      {
+        "name": "ArmorPoint",
+        "url": "https://www.armorpoint.com/blog/a-step-by-step-guide-to-incident-response-practical-guidance-from-nist-sp-800-61"
+      },
+      {
+        "name": "PDQ",
+        "url": "https://www.adminarsenal.com/blog/how-to-use-incident-response-lifecycle/"
+      }
+    ],
+    "further": [],
+    "verifiedOn": "2026-11-13",
+    "group": "reliability"
+  },
+  {
+    "id": "vex",
+    "category": "security",
+    "term": {
+      "zh-TW": "VEX 漏洞可利用性聲明",
+      "en": "VEX (Vulnerability Exploitability eXchange)"
+    },
+    "oneLiner": {
+      "zh-TW": "告訴客戶「這個漏洞到底有沒有影響我們產品」的標準化聲明。",
+      "en": "A standard statement telling customers whether a known vulnerability actually affects a product."
+    },
+    "points": [
+      {
+        "zh-TW": "狀態有四種：不受影響、受影響、已修正、調查中。",
+        "en": "There are four statuses: not affected, affected, fixed and under investigation."
+      },
+      {
+        "zh-TW": "標示「不受影響」時，必須說明理由。",
+        "en": "A not-affected status must come with a justification."
+      },
+      {
+        "zh-TW": "它源自 SBOM：清單列出的元件有漏洞，不代表產品真的能被攻擊，VEX 用來補上這段資訊。",
+        "en": "It grew out of SBOMs: a listed component having a flaw doesn't mean the product is exploitable, and VEX fills that gap."
+      }
+    ],
+    "why": {
+      "zh-TW": "少了 VEX，客戶拿 SBOM 一掃就會冒出大量漏洞警告。VEX 能減少這些干擾，讓雙方把力氣花在真正受影響的地方。",
+      "en": "Without VEX, scanning an SBOM can flood customers with vulnerability alerts. VEX cuts that noise so both sides can focus on what's really affected."
+    },
+    "related": {
+      "news": [],
+      "events": []
+    },
+    "seeAlso": [
+      "sbom",
+      "cve",
+      "kev"
+    ],
+    "sources": [
+      {
+        "name": "CISA",
+        "url": "https://www.cisa.gov/sites/default/files/2023-09/Vulnerability%20Exploitability%20eXchange%20%28VEX%29_508c.pdf"
+      },
+      {
+        "name": "CSO Online",
+        "url": "https://www.csoonline.com/article/3669810/vulnerability-exploitability-exchange-explained-how-vex-makes-sboms-actionable.html"
+      },
+      {
+        "name": "Socket",
+        "url": "https://socket.dev/glossary/vex"
+      },
+      {
+        "name": "TuxCare",
+        "url": "https://tuxcare.com/blog/vex-sbom-audit-evidence/"
+      }
+    ],
+    "further": [],
+    "verifiedOn": "2026-11-13",
+    "group": "foundations"
+  },
+  {
+    "id": "ransomware",
+    "category": "security",
+    "term": {
+      "zh-TW": "勒索軟體",
+      "en": "Ransomware"
+    },
+    "oneLiner": {
+      "zh-TW": "把檔案加密鎖住，要求付贖金才解鎖的惡意程式。",
+      "en": "Malware that encrypts files and demands a ransom to unlock them."
+    },
+    "points": [
+      {
+        "zh-TW": "美國 CISA 的定義：一種把裝置上的檔案加密，讓檔案和依賴它們的系統無法使用的惡意程式。",
+        "en": "CISA defines it as malware that encrypts files on a device, making them and the systems that rely on them unusable."
+      },
+      {
+        "zh-TW": "「雙重勒索」是攻擊者先偷走資料再加密，威脅不付錢就公開資料。",
+        "en": "In double extortion, attackers steal data before encrypting it and threaten to publish it unless paid."
+      },
+      {
+        "zh-TW": "因此即使有備份能還原系統，資料外洩的風險依然存在。",
+        "en": "So even when backups restore the systems, the risk of the data leaking remains."
+      }
+    ],
+    "why": {
+      "zh-TW": "勒索軟體事件應同時當成資料外洩事件處理，而不只是系統停擺；英國 NCSC 也建議假設資料可能已被竊取。",
+      "en": "Treat a ransomware incident as a data breach, not just an outage; the UK's NCSC also advises assuming data may have been stolen."
+    },
+    "related": {
+      "news": [],
+      "events": []
+    },
+    "seeAlso": [
+      "incident-response"
+    ],
+    "sources": [
+      {
+        "name": "CISA #StopRansomware",
+        "url": "https://www.cisa.gov/stopransomware/ransomware-guide"
+      },
+      {
+        "name": "iTechGuides",
+        "url": "https://www.itechguides.com/data-extortion-vs-ransomware-whats-the-difference/"
+      },
+      {
+        "name": "Hexnode",
+        "url": "https://www.hexnode.com/blogs/explained/what-is-double-extortion/"
+      },
+      {
+        "name": "TechTarget",
+        "url": "https://www.techtarget.com/searchSecurity/definition/double-extortion-ransomware"
+      }
+    ],
+    "further": [],
+    "verifiedOn": "2026-11-13",
+    "group": "threats"
   }
 ]

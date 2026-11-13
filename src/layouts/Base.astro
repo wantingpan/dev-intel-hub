@@ -107,6 +107,12 @@ const pagePath = (l: string) => (page === 'impact' ? `${l}/impact/` : page === '
   }
   *, *::before, *::after { box-sizing: border-box; }
   [hidden] { display: none !important; }
+  /* 名詞分組的主題色 / Theme colors for glossary groups */
+  .g-foundations { --g: var(--c-security); --g-bg: var(--c-security-bg); }
+  .g-threats { --g: var(--c-ai); --g-bg: var(--c-ai-bg); }
+  .g-pipeline { --g: var(--c-lang); --g-bg: var(--c-lang-bg); }
+  .g-identity { --g: var(--c-industry); --g-bg: var(--c-industry-bg); }
+  .g-reliability { --g: var(--c-cloud); --g-bg: var(--c-cloud-bg); }
   body {
     margin: 0;
     background: var(--bg);

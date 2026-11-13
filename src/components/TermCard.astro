@@ -1,67 +1,62 @@
 ---
 import { t, href, type Lang } from '../i18n/ui';
 import { safeUrl } from '../lib/url';
-import CategoryIcon from './CategoryIcon.astro';
 import TermLinks from './TermLinks.astro';
 import news from '../data/news.json';
 import events from '../data/events.json';
 import type { GlossaryTerm } from '../types';
 
-interface Props { lang: Lang; term: GlossaryTerm }
-const { lang, term: g } = Astro.props;
+interface Props { lang: Lang; term: GlossaryTerm; featured?: boolean }
+const { lang, term: g, featured = false } = Astro.props;
 const s = t(lang);
 const relNews = g.related.news.map((id) => news.find((n) => n.id === id)).filter((n) => n !== undefined);
 const relEvents = g.related.events.map((id) => events.find((e) => e.id === id)).filter((e) => e !== undefined);
-const link = (src: { name: string; url: string }) => ({ name: src.name, href: safeUrl(src.url) });
+const colon = lang === 'en' ? ': ' : '：';
 ---
-<article class="term panel" id={g.id} aria-labelledby={`${g.id}-t`}>
-  <header>
-    <CategoryIcon category={g.category} size={44} />
-    <div>
-      <h2 id={`${g.id}-t`}>{g.term[lang]}</h2>
+<article class:list={['term', { featured }]} id={g.id} aria-labelledby={`${g.id}-t`}>
+  <details class="disc" open={featured}>
+    <summary>
+      <h3 id={`${g.id}-t`}>{g.term[lang]}</h3>
       <p class="one">{g.oneLiner[lang]}</p>
+    </summary>
+    <div class="body">
+      <ul class="points">{g.points.map((p) => <li>{p[lang]}</li>)}</ul>
+      <p class="why"><strong>{s.whyLabel}</strong>{colon}{g.why[lang]}</p>
+
+      {(relNews.length > 0 || relEvents.length > 0) && (
+        <p class="rel">
+          <span class="lbl">{s.relatedLabel}</span>
+          {relEvents.map((e) => <a href={href(`${lang}/impact/#${e!.id}`)}>{e!.title[lang]}</a>)}
+          {relNews.map((n) => <a href={href(`${lang}/#news-${n!.id}`)}>{n!.title[lang]}</a>)}
+        </p>
+      )}
+      <TermLinks lang={lang} ids={g.seeAlso} label={s.seeAlsoLabel} />
+
+      <p class="src">
+        <span class="lbl">{s.hSources}</span>
+        {[...g.sources, ...g.further].map((x) => {
+          const u = safeUrl(x.url);
+          return u ? <a href={u} target="_blank" rel="noopener noreferrer">{x.name}</a> : <span>{x.name}</span>;
+        })}
+      </p>
     </div>
-  </header>
-
-  <ul class="points">{g.points.map((p) => <li>{p[lang]}</li>)}</ul>
-
-  <p class="why"><strong>{s.whyLabel}</strong>{lang === 'en' ? ': ' : '：'}{g.why[lang]}</p>
-
-  {(relNews.length > 0 || relEvents.length > 0) && (
-    <p class="rel">
-      <span class="lbl">{s.relatedLabel}</span>
-      {relEvents.map((e) => <a href={href(`${lang}/impact/#${e!.id}`)}>{e!.title[lang]}</a>)}
-      {relNews.map((n) => <a href={href(`${lang}/#news-${n!.id}`)}>{n!.title[lang]}</a>)}
-    </p>
-  )}
-
-  <TermLinks lang={lang} ids={g.seeAlso} label={s.seeAlsoLabel} />
-
-  <details class="disc src">
-    <summary>{s.hSources}{g.further.length > 0 ? (lang === 'en' ? ` and ${s.furtherLabel.toLowerCase()}` : `與${s.furtherLabel}`) : ''}</summary>
-    <ul>
-      {[...g.sources, ...g.further].map((x) => {
-        const l = link(x);
-        return <li>{l.href ? <a href={l.href} target="_blank" rel="noopener noreferrer">{l.name}</a> : l.name}</li>;
-      })}
-    </ul>
-    <p class="note">{s.verifiedOn} <time datetime={g.verifiedOn} class="num">{g.verifiedOn}</time></p>
   </details>
 </article>
 
 <style>
-  .term { margin-bottom: 1.25rem; scroll-margin-top: 1rem; }
-  header { display: grid; grid-template-columns: 44px 1fr; gap: 1rem; align-items: start; margin-bottom: .75rem; }
-  h2 { font-size: 1.25rem; margin: 0; }
-  .one { margin: .2rem 0 0; font-size: 1.1rem; max-width: var(--measure); }
+  .term { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--g); border-radius: var(--radius-sm); scroll-margin-top: 1rem; }
+  .term.featured { grid-column: 1 / -1; border-top-width: 6px; }
+  summary { padding: 1rem 1.1rem; display: block; position: relative; padding-right: 2.6rem; }
+  summary::before { position: absolute; right: 1.1rem; top: 1.45rem; margin: 0 !important; }
+  h3 { margin: 0; font-size: 1.08rem; line-height: 1.4; color: var(--g); }
+  .featured h3 { font-size: 1.35rem; }
+  .one { margin: .25rem 0 0; max-width: var(--measure); }
+  .featured .one { font-size: 1.12rem; }
+  .body { padding: 0 1.1rem 1.1rem; }
   .points { margin: 0 0 .75rem; padding-left: 1.2rem; max-width: var(--measure); }
   .points li { margin-bottom: .35rem; }
-  .why { margin: 0; padding: .7rem 1rem; background: var(--bg); border-radius: var(--radius-sm); max-width: calc(var(--measure) + 2rem); }
-  .rel { margin: .75rem 0 0; display: flex; flex-wrap: wrap; gap: .25rem .9rem; font-size: .9rem; align-items: baseline; }
+  .points li::marker { color: var(--g); }
+  .why { margin: 0; padding: .7rem 1rem; background: var(--g-bg); border-radius: var(--radius-sm); max-width: calc(var(--measure) + 2rem); }
+  .rel, .src { margin: .6rem 0 0; display: flex; flex-wrap: wrap; gap: .25rem .9rem; font-size: .9rem; align-items: baseline; }
   .lbl { color: var(--muted); }
-  .src { margin-top: .75rem; border-top: 1px solid var(--line); }
-  .src summary { padding: .6rem 0; font-size: .9rem; color: var(--muted); }
-  .src ul { display: flex; flex-wrap: wrap; gap: .25rem 1.1rem; list-style: none; padding: 0; margin: 0 0 .4rem; font-size: .9rem; }
-  .note { margin: 0 0 .4rem; font-size: .85rem; color: var(--muted); }
-  @media (max-width: 560px) { header { grid-template-columns: 36px 1fr; } header :global(.cat-icon) { width: 36px; height: 36px; } }
 </style>

@@ -783,7 +783,9 @@
       }
     },
     "terms": [
-      "postmortem"
+      "postmortem",
+      "incident-response",
+      "sla-slo"
     ]
   }
 ]

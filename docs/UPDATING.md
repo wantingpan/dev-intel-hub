@@ -162,6 +162,29 @@
 - `related`、`seeAlso`：只能填已存在的新聞、事件或名詞 id，資料檢查會自動確認。
 - 在新聞或事件的 `terms` 欄位填入名詞 id，畫面上就會出現「相關名詞」連結。
 
+### 新增研討會（`conferences.json`）
+
+```json
+{
+  "id": "cybersec-2027",
+  "name": "CYBERSEC 2027 臺灣資安大會",
+  "start": "2027-05-04",
+  "end": "2027-05-06",
+  "location": { "zh-TW": "臺北南港展覽館二館", "en": "Taipei Nangang Exhibition Center, Hall 2" },
+  "groups": ["foundations", "threats", "identity"],
+  "note": null,
+  "cfp": { "date": "2026-11-30", "label": { "zh-TW": "講者徵稿截止", "en": "Call for speakers closes" } },
+  "source": { "name": "iThome CYBERSEC", "url": "https://cybersec.ithome.com.tw/2027/CFP" },
+  "official": true,
+  "verifiedOn": "2026-11-13"
+}
+```
+
+- `groups`：對應名詞小教室的分組，可填 `foundations`、`threats`、`pipeline`、`identity`、`reliability`。
+- `official`：日期來自主辦單位官網填 `true`；來自第三方彙整網站填 `false`，畫面上會標示。
+- 活動結束後，畫面會自動把「即將到來」改成「已過」，可以在下次更新時移除。
+- 新增名詞時，記得在 `glossary.json` 填入 `group` 欄位。
+
 ### 更新查證日期（`meta.json`）
 
 完成一輪更新後，把 `verifiedOn` 改成當天日期（台灣時間）。這個日期決定網站頂端是否顯示過期提示。

@@ -33,6 +33,7 @@ export type SourceType = 'official' | 'media' | 'secondary';
 export interface GlossaryTerm {
   id: string;
   category: 'industry' | 'ai' | 'lang' | 'cloud' | 'security';
+  group: GroupId;
   term: T;
   oneLiner: T;
   points: T[];
@@ -41,5 +42,21 @@ export interface GlossaryTerm {
   seeAlso: string[];
   sources: Src[];
   further: Src[];
+  verifiedOn: string;
+}
+
+export type GroupId = 'foundations' | 'threats' | 'pipeline' | 'identity' | 'reliability';
+export interface GlossaryGroup { id: GroupId; name: T; desc: T }
+export interface Conference {
+  id: string;
+  name: string;
+  start: string;
+  end: string;
+  location: T;
+  groups: GroupId[];
+  note: T | null;
+  cfp: { date: string; label: T } | null;
+  source: Src;
+  official: boolean;
   verifiedOn: string;
 }

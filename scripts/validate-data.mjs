@@ -115,6 +115,31 @@ for (const g of glossary) {
   for (const id of g.related?.events ?? []) if (!eventIds.has(id)) errors.push(`${w}: related event "${id}" doesn't exist`);
   if (!isDate(g.verifiedOn)) errors.push(`${w}: verifiedOn must be YYYY-MM-DD`);
 }
+// 名詞分組與研討會 / Glossary groups and conferences
+const groupIds = new Set(load('glossary-groups.json').map((g) => g.id));
+for (const g of load('glossary-groups.json')) {
+  checkText(`glossary-groups.json#${g.id}.name`, g.name);
+  checkText(`glossary-groups.json#${g.id}.desc`, g.desc);
+}
+for (const g of glossary) if (!groupIds.has(g.group)) errors.push(`glossary.json#${g.id}: unknown group "${g.group}"`);
+for (const c of load('conferences.json')) {
+  const w = `conferences.json#${c.id}`;
+  if (!c.name) errors.push(`${w}: missing name`);
+  if (!isDate(c.start) || !isDate(c.end)) errors.push(`${w}: start and end must be YYYY-MM-DD`);
+  else if (c.end < c.start) errors.push(`${w}: end is before start`);
+  checkText(`${w}.location`, c.location);
+  if (c.note) checkText(`${w}.note`, c.note);
+  if (c.cfp) {
+    if (!isDate(c.cfp.date)) errors.push(`${w}.cfp: date must be YYYY-MM-DD`);
+    checkText(`${w}.cfp.label`, c.cfp.label);
+  }
+  if (!Array.isArray(c.groups) || c.groups.length === 0) errors.push(`${w}: needs at least one group`);
+  for (const id of c.groups ?? []) if (!groupIds.has(id)) errors.push(`${w}: unknown group "${id}"`);
+  checkUrl(w, c.source?.url);
+  if (typeof c.official !== 'boolean') errors.push(`${w}: official must be true or false`);
+  if (!isDate(c.verifiedOn)) errors.push(`${w}: verifiedOn must be YYYY-MM-DD`);
+}
+
 for (const g of glossary) for (const id of g.seeAlso ?? []) if (!termIds.has(id)) errors.push(`glossary.json#${g.id}: seeAlso "${id}" doesn't exist`);
 for (const n of load('news.json')) for (const id of n.terms ?? []) if (!termIds.has(id)) errors.push(`news.json#${n.id}: term "${id}" doesn't exist`);
 for (const e of load('events.json')) for (const id of e.terms ?? []) if (!termIds.has(id)) errors.push(`events.json#${e.id}: term "${id}" doesn't exist`);

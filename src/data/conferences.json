@@ -1,0 +1,128 @@
+[
+  {
+    "id": "aws-reinvent-2026",
+    "name": "AWS re:Invent 2026",
+    "start": "2026-11-30",
+    "end": "2026-12-04",
+    "location": {
+      "zh-TW": "美國拉斯維加斯",
+      "en": "Las Vegas, USA"
+    },
+    "groups": [
+      "pipeline",
+      "reliability"
+    ],
+    "note": {
+      "zh-TW": "主題演講提供免費線上直播。",
+      "en": "Keynotes are livestreamed for free."
+    },
+    "cfp": null,
+    "source": {
+      "name": "TestMu AI",
+      "url": "https://www.testmuai.com/blog/devops-conferences-and-events/"
+    },
+    "official": false,
+    "verifiedOn": "2026-11-13"
+  },
+  {
+    "id": "kubecon-eu-2027",
+    "name": "KubeCon + CloudNativeCon Europe 2027",
+    "start": "2027-03-15",
+    "end": "2027-03-18",
+    "location": {
+      "zh-TW": "西班牙巴塞隆納",
+      "en": "Barcelona, Spain"
+    },
+    "groups": [
+      "pipeline",
+      "reliability"
+    ],
+    "note": {
+      "zh-TW": "CNCF 的歐洲旗艦大會，議程預計 2026 年 12 月公布。",
+      "en": "CNCF's flagship European conference; the schedule is due in December 2026."
+    },
+    "cfp": null,
+    "source": {
+      "name": "ExpOrb",
+      "url": "https://exporb.com/events/kubecon-cloudnativecon-europe-2027"
+    },
+    "official": false,
+    "verifiedOn": "2026-11-13"
+  },
+  {
+    "id": "rsac-2027",
+    "name": "RSAC 2027 Conference",
+    "start": "2027-04-05",
+    "end": "2027-04-08",
+    "location": {
+      "zh-TW": "美國舊金山 Moscone Center",
+      "en": "Moscone Center, San Francisco, USA"
+    },
+    "groups": [
+      "foundations",
+      "threats",
+      "identity"
+    ],
+    "note": null,
+    "cfp": null,
+    "source": {
+      "name": "RSA Conference",
+      "url": "https://www.rsaconference.com/usa/campus-and-travel"
+    },
+    "official": true,
+    "verifiedOn": "2026-11-13"
+  },
+  {
+    "id": "srecon27-americas",
+    "name": "SREcon27 Americas",
+    "start": "2027-04-12",
+    "end": "2027-04-14",
+    "location": {
+      "zh-TW": "美國西雅圖",
+      "en": "Seattle, USA"
+    },
+    "groups": [
+      "reliability"
+    ],
+    "note": null,
+    "cfp": null,
+    "source": {
+      "name": "TestMu AI",
+      "url": "https://www.testmuai.com/blog/devops-conferences-and-events/"
+    },
+    "official": false,
+    "verifiedOn": "2026-11-13"
+  },
+  {
+    "id": "cybersec-2027",
+    "name": "CYBERSEC 2027 臺灣資安大會",
+    "start": "2027-05-04",
+    "end": "2027-05-06",
+    "location": {
+      "zh-TW": "臺北南港展覽館二館",
+      "en": "Taipei Nangang Exhibition Center, Hall 2"
+    },
+    "groups": [
+      "foundations",
+      "threats",
+      "identity"
+    ],
+    "note": {
+      "zh-TW": "超過 300 場演說、400 多個資安品牌參展。",
+      "en": "More than 300 talks and 400 security brands."
+    },
+    "cfp": {
+      "date": "2026-11-30",
+      "label": {
+        "zh-TW": "講者徵稿截止",
+        "en": "Call for speakers closes"
+      }
+    },
+    "source": {
+      "name": "iThome CYBERSEC",
+      "url": "https://cybersec.ithome.com.tw/2027/CFP"
+    },
+    "official": true,
+    "verifiedOn": "2026-11-13"
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "foundations",
+    "name": {
+      "zh-TW": "資安基礎",
+      "en": "Security basics"
+    },
+    "desc": {
+      "zh-TW": "看懂漏洞公告的基本語言。",
+      "en": "The basic vocabulary of vulnerability advisories."
+    }
+  },
+  {
+    "id": "threats",
+    "name": {
+      "zh-TW": "威脅與攻擊",
+      "en": "Threats and attacks"
+    },
+    "desc": {
+      "zh-TW": "攻擊者常用的手法，以及它們為什麼有效。",
+      "en": "Common attacker techniques, and why they work."
+    }
+  },
+  {
+    "id": "pipeline",
+    "name": {
+      "zh-TW": "開發流程",
+      "en": "Delivery pipeline"
+    },
+    "desc": {
+      "zh-TW": "把品質與資安放進每天的開發流程。",
+      "en": "Building quality and security into everyday delivery."
+    }
+  },
+  {
+    "id": "identity",
+    "name": {
+      "zh-TW": "身分與存取",
+      "en": "Identity and access"
+    },
+    "desc": {
+      "zh-TW": "確認「你是誰」以及「你能做什麼」。",
+      "en": "Establishing who you are and what you may do."
+    }
+  },
+  {
+    "id": "reliability",
+    "name": {
+      "zh-TW": "可靠性",
+      "en": "Reliability"
+    },
+    "desc": {
+      "zh-TW": "服務出問題時，如何承諾、應變與學習。",
+      "en": "How services make promises, respond and learn when things break."
+    }
+  }
+]
