@@ -1,0 +1,141 @@
+export const languages = {
+  'zh-TW': '繁體中文',
+  en: 'English',
+} as const;
+
+export type Lang = keyof typeof languages;
+export const langs = Object.keys(languages) as Lang[];
+export const defaultLang: Lang = 'zh-TW';
+
+export type Category = 'industry' | 'ai' | 'lang' | 'cloud' | 'security';
+export const categories: Category[] = ['industry', 'ai', 'lang', 'cloud', 'security'];
+
+export const ui = {
+  'zh-TW': {
+    siteName: '軟體人每日情報',
+    tagline: '為軟體工程師整理的每日重點：AI、語言與框架、雲端 DevOps、資安。',
+    verified: '查證日期',
+    actionTitle: '需要行動',
+    actionLede: '已遭利用或重大等級的漏洞，建議優先處理。',
+    newsTitle: '新聞動態',
+    newsLede: '標題連到原始報導。「中」為中文來源，「EN」為英文來源。',
+    all: '全部',
+    hot: '焦點',
+    empty: '這個分類目前沒有新聞。',
+    mixTitle: '各分類則數',
+    total: '本期新聞',
+    hotCount: '焦點新聞',
+    exploitedCount: '已遭利用',
+    cveTitle: '資安修補清單',
+    cveLede: 'CVSS 空白表示來源未提供分數。',
+    thCve: 'CVE',
+    thProduct: '產品',
+    thCvss: 'CVSS',
+    thStatus: '狀態',
+    thAction: '建議動作',
+    thSource: '來源',
+    sev: { exploited: '已遭利用', critical: '重大', high: '高' },
+    cat: { industry: '產業焦點', ai: 'AI 與 LLM', lang: '語言與框架', cloud: '雲端與 DevOps', security: '資安' },
+    srcLang: { zh: '中', en: 'EN' },
+    notesTitle: '關於這些內容',
+    notes:
+      '所有內容皆經上網查證，摘要以自行改寫的文字呈現並附原始出處，不轉載全文。來源說法互相矛盾的消息會標註或不收錄。部分項目來自週報或彙整網站，已在摘要中註明。',
+    switchTo: '切換語言',
+    items: '則',
+    navToday: '今日情報',
+    navImpact: '事件影響',
+    impactTitle: '技術事件 × 市場',
+    impactLede: '從軟體人的角度看一個事件：發生什麼、影響工作的哪些地方、帶來哪些資安風險，以及市場的實際反應。',
+    disclaimer: '本頁內容僅供資訊參考，不構成投資建議。股價受多種因素影響，只有在媒體明確報導時，我們才指出事件與股價的關聯。',
+    hWhat: '發生什麼事',
+    hWork: '對工作的影響',
+    hSecurity: '資安風險',
+    hMarket: '市場反應',
+    reported: '已報導',
+    pattern: '常見模式',
+    us: '美股',
+    tw: '台股',
+    thItem: '標的',
+    thMove: '變動',
+    thWhen: '時間點',
+    hViews: '媒體觀點',
+    hCaveats: '解讀時請注意',
+    hSources: '參考來源',
+    moveNote: '漲跌不以顏色標示，因為台股與美股的紅綠慣例相反。',
+  },
+  en: {
+    siteName: 'DevBrief Daily',
+    tagline: 'What software engineers need to know today: AI, languages and frameworks, cloud and DevOps, security.',
+    verified: 'Verified on',
+    actionTitle: 'Act on this',
+    actionLede: 'Exploited or critical vulnerabilities to patch first.',
+    newsTitle: 'News',
+    newsLede: 'Headlines link to the original reports. “中” marks Chinese-language sources, “EN” English ones.',
+    all: 'All',
+    hot: 'Top story',
+    empty: 'No stories in this category yet.',
+    mixTitle: 'Stories by category',
+    total: 'Stories',
+    hotCount: 'Top stories',
+    exploitedCount: 'Exploited',
+    cveTitle: 'Patch list',
+    cveLede: 'A blank CVSS means the source gave no score.',
+    thCve: 'CVE',
+    thProduct: 'Product',
+    thCvss: 'CVSS',
+    thStatus: 'Status',
+    thAction: 'What to do',
+    thSource: 'Source',
+    sev: { exploited: 'Exploited', critical: 'Critical', high: 'High' },
+    cat: { industry: 'Industry', ai: 'AI & LLMs', lang: 'Languages & frameworks', cloud: 'Cloud & DevOps', security: 'Security' },
+    srcLang: { zh: '中', en: 'EN' },
+    notesTitle: 'About this content',
+    notes:
+      'Every item is checked against its sources. Summaries are written in our own words and link to the original; full articles are never reproduced. Conflicting reports are flagged or left out. Items from weekly roundups or aggregators are marked as such.',
+    switchTo: 'Language',
+    items: 'stories',
+    navToday: 'Today',
+    navImpact: 'Event impact',
+    impactTitle: 'Tech events and markets',
+    impactLede: 'One event through a software engineer\'s eyes: what happened, how it touches your work, the security risks it brings, and how markets actually moved.',
+    disclaimer: 'For information only, not investment advice. Stock prices move for many reasons; we link an event to a price move only when the media reports that link.',
+    hWhat: 'What happened',
+    hWork: 'Impact on your work',
+    hSecurity: 'Security risks',
+    hMarket: 'Market reaction',
+    reported: 'Reported',
+    pattern: 'Common pattern',
+    us: 'US',
+    tw: 'Taiwan',
+    thItem: 'Ticker',
+    thMove: 'Move',
+    thWhen: 'When',
+    hViews: 'What the media said',
+    hCaveats: 'Read with care',
+    hSources: 'Sources',
+    moveNote: 'Moves aren\'t color-coded, since red and green mean opposite things in Taiwan and US markets.',
+  },
+} as const;
+
+export function t(lang: Lang) {
+  return ui[lang];
+}
+
+export function isLang(value: string | undefined): value is Lang {
+  return !!value && value in languages;
+}
+
+/** 依 base 設定組出站內連結 / Build a site link that respects the configured base */
+export function href(path: string) {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  return `${base}/${path.replace(/^\//, '')}`;
+}
+
+export function formatDate(iso: string, lang: Lang) {
+  const d = new Date(`${iso}T00:00:00Z`);
+  return new Intl.DateTimeFormat(lang === 'en' ? 'en-US' : 'zh-TW', {
+    month: lang === 'en' ? 'short' : 'numeric',
+    day: 'numeric',
+    timeZone: 'UTC',
+  }).format(d);
+}

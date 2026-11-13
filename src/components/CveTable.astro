@@ -1,0 +1,47 @@
+---
+import cves from '../data/cves.json';
+import { t, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+---
+<section class="panel" id="patch-list" aria-labelledby="cve-title">
+  <h2 id="cve-title">{s.cveTitle}</h2>
+  <p class="lede">{s.cveLede}</p>
+  <div class="scroll">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">{s.thCve}</th>
+          <th scope="col">{s.thProduct}</th>
+          <th scope="col">{s.thCvss}</th>
+          <th scope="col">{s.thStatus}</th>
+          <th scope="col">{s.thAction}</th>
+          <th scope="col">{s.thSource}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {cves.map((c) => (
+          <tr>
+            <td class="num nowrap">{c.cve}</td>
+            <td>{c.product[lang]}</td>
+            <td class="num">{c.cvss ?? ''}</td>
+            <td class:list={['nowrap', { exploited: c.severity === 'exploited' }]}>{s.sev[c.severity as keyof typeof s.sev]}</td>
+            <td>{c.action[lang]}</td>
+            <td><a href={c.url} target="_blank" rel="noopener noreferrer">{c.source}</a></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<style>
+  .scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+  th, td { text-align: left; padding: .55rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: .8rem; color: var(--muted); font-weight: 500; }
+  .nowrap { white-space: nowrap; }
+  .exploited { color: var(--alert); font-weight: 600; }
+</style>

@@ -1,0 +1,73 @@
+---
+import news from '../data/news.json';
+import { t, categories, formatDate, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const sorted = [...news].sort((a, b) => Number(b.hot) - Number(a.hot) || b.date.localeCompare(a.date));
+---
+<section class="panel" aria-labelledby="news-title">
+  <h2 id="news-title">{s.newsTitle}</h2>
+  <p class="lede">{s.newsLede}</p>
+  <div class="tabs" role="group" aria-label={s.newsTitle}>
+    <button type="button" class="tab" data-cat="" aria-pressed="true">{s.all}</button>
+    {categories.map((c) => (
+      <button type="button" class="tab" data-cat={c} aria-pressed="false">{s.cat[c]}</button>
+    ))}
+  </div>
+  <ul class="news" data-news-list>
+    {sorted.map((n) => (
+      <li class="item" data-cat={n.category}>
+        <div class="meta">
+          <time datetime={n.date} class="num">{formatDate(n.date, lang)}</time>
+          <span class="tag">{s.cat[n.category as keyof typeof s.cat]}</span>
+          <span class="tag" title={n.sourceLang}>{s.srcLang[n.sourceLang as keyof typeof s.srcLang]}</span>
+          {n.hot && <span class="tag hot">{s.hot}</span>}
+          <span>{n.source}</span>
+        </div>
+        <a class="title" href={n.url} target="_blank" rel="noopener noreferrer" lang={lang}>{n.title[lang]}</a>
+        <p class="summary">{n.summary[lang]}</p>
+      </li>
+    ))}
+  </ul>
+  <p class="empty" data-empty hidden>{s.empty}</p>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-news-list]').forEach((list) => {
+    const panel = list.closest('section');
+    if (!panel) return;
+    const tabs = panel.querySelectorAll<HTMLButtonElement>('.tab');
+    const empty = panel.querySelector<HTMLElement>('[data-empty]');
+    tabs.forEach((tab) =>
+      tab.addEventListener('click', () => {
+        const cat = tab.dataset.cat ?? '';
+        tabs.forEach((x) => x.setAttribute('aria-pressed', String(x === tab)));
+        let shown = 0;
+        list.querySelectorAll<HTMLElement>('.item').forEach((item) => {
+          const match = !cat || item.dataset.cat === cat;
+          item.hidden = !match;
+          if (match) shown++;
+        });
+        if (empty) empty.hidden = shown > 0;
+      }),
+    );
+  });
+</script>
+
+<style>
+  .tabs { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .5rem; }
+  .tab { font: inherit; font-size: .85rem; border: 1px solid var(--line); background: transparent; color: var(--ink); border-radius: 999px; padding: .3rem .85rem; cursor: pointer; }
+  .tab[aria-pressed='true'] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .news { list-style: none; margin: 0; padding: 0; }
+  .item { padding: 1rem 0; border-bottom: 1px solid var(--line); max-width: 72ch; }
+  .item:last-child { border-bottom: 0; }
+  .meta { display: flex; flex-wrap: wrap; gap: .45rem; align-items: center; font-size: .8rem; color: var(--muted); }
+  .tag { border: 1px solid var(--line); border-radius: 4px; padding: 0 .4rem; }
+  .hot { color: var(--alert); border-color: var(--alert); }
+  .title { display: block; margin: .35rem 0 .2rem; font-weight: 600; font-size: 1.05rem; color: var(--ink); text-decoration: none; line-height: 1.4; }
+  .title:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  .summary { margin: 0; color: var(--muted); font-size: .94rem; }
+  .empty { color: var(--muted); }
+</style>

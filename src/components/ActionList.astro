@@ -1,0 +1,41 @@
+---
+import cves from '../data/cves.json';
+import { t, href, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const rank = { exploited: 0, critical: 1, high: 2 } as const;
+const top = [...cves]
+  .sort((a, b) => rank[a.severity as keyof typeof rank] - rank[b.severity as keyof typeof rank])
+  .slice(0, 4);
+---
+<section class="action" aria-labelledby="action-title">
+  <h2 id="action-title">{s.actionTitle}</h2>
+  <p class="lede">{s.actionLede}</p>
+  <ol class="action-list">
+    {top.map((c) => (
+      <li class:list={['action-item', { exploited: c.severity === 'exploited' }]}>
+        <span class="sev">{s.sev[c.severity as keyof typeof s.sev]}</span>
+        <span class="what">{c.product[lang]}</span>
+        <span class="do">{c.action[lang]}</span>
+        <a class="cve num" href={c.url} target="_blank" rel="noopener noreferrer">{c.cve}</a>
+      </li>
+    ))}
+  </ol>
+  <a class="all" href="#patch-list">{s.cveTitle}</a>
+</section>
+
+<style>
+  .action { margin: .5rem 0 2rem; }
+  h2 { font-size: clamp(1.6rem, 4vw, 2.1rem); font-weight: 600; letter-spacing: -0.01em; }
+  .action-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: .75rem; }
+  .action-item { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--muted); border-radius: var(--radius-sm); padding: .9rem 1rem; display: flex; flex-direction: column; gap: .2rem; }
+  .action-item.exploited { border-left-color: var(--alert); }
+  .sev { font-size: .8rem; font-weight: 600; color: var(--muted); }
+  .exploited .sev { color: var(--alert); }
+  .what { font-weight: 600; }
+  .do { font-size: .92rem; }
+  .cve { font-size: .82rem; color: var(--muted); margin-top: .25rem; }
+  .all { display: inline-block; margin-top: .75rem; font-size: .9rem; }
+</style>

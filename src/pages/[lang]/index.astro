@@ -1,0 +1,47 @@
+---
+import Base from '../../layouts/Base.astro';
+import ActionList from '../../components/ActionList.astro';
+import NewsList from '../../components/NewsList.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import CveTable from '../../components/CveTable.astro';
+import meta from '../../data/meta.json';
+import { langs, t, formatDate, type Lang } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return langs.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const s = t(lang);
+---
+<Base lang={lang}>
+  <p class="intro">
+    {s.tagline}
+    <span class="verified">{s.verified} <time datetime={meta.verifiedOn} class="num">{meta.verifiedOn}</time></span>
+  </p>
+
+  <ActionList lang={lang} />
+
+  <div class="grid">
+    <NewsList lang={lang} />
+    <Sidebar lang={lang} />
+  </div>
+
+  <CveTable lang={lang} />
+
+  <details class="notes">
+    <summary>{s.notesTitle}</summary>
+    <p>{s.notes}</p>
+  </details>
+</Base>
+
+<style>
+  .intro { color: var(--muted); margin: 0 0 1.25rem; max-width: 70ch; }
+  .verified { display: block; font-size: .85rem; margin-top: .2rem; }
+  .grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 1.25rem; align-items: start; margin-bottom: 1.25rem; }
+  @media (max-width: 860px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+  .notes { margin-top: 1.5rem; color: var(--muted); font-size: .9rem; max-width: 72ch; }
+  .notes summary { cursor: pointer; }
+</style>

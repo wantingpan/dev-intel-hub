@@ -1,0 +1,25 @@
+---
+// 根網址：依瀏覽器語言導向 /zh-TW/ 或 /en/
+// Root URL: send visitors to /zh-TW/ or /en/ based on browser language
+import { href, defaultLang } from '../i18n/ui';
+const zh = href('zh-TW/');
+const en = href('en/');
+const fallback = href(`${defaultLang}/`);
+---
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DevBrief Daily｜軟體人每日情報</title>
+    <noscript><meta http-equiv="refresh" content={`0; url=${fallback}`} /></noscript>
+    <script is:inline define:vars={{ zh, en }}>
+      var prefs = navigator.languages || [navigator.language || ''];
+      var useZh = prefs.some(function (l) { return /^zh/i.test(l); });
+      location.replace(useZh ? zh : en);
+    </script>
+  </head>
+  <body>
+    <p><a href={zh}>繁體中文</a>｜<a href={en}>English</a></p>
+  </body>
+</html>

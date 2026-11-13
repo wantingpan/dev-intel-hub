@@ -1,0 +1,367 @@
+[
+  {
+    "id": "nvidia-ceo-2026-11",
+    "date": "2026-11-12",
+    "title": {
+      "zh-TW": "黃仁勳辭任 Nvidia 執行長",
+      "en": "Jensen Huang resigns as Nvidia CEO"
+    },
+    "summary": {
+      "zh-TW": "AI 晶片龍頭最高領導人即刻離任。美股 Nvidia 收跌，台股隔天卻反彈，是觀察「同一事件、不同市場反應」的典型案例。",
+      "en": "The AI chip leader's chief executive left with immediate effect. Nvidia fell in the US, yet Taiwan stocks rebounded the next day: a clear case of one event drawing different market reactions."
+    },
+    "facts": [
+      {
+        "zh-TW": "黃仁勳辭去總裁、執行長及董事職務，即刻生效；財務長 Colette Kress 出任臨時執行長。",
+        "en": "Huang stepped down as president, CEO and director, effective immediately; CFO Colette Kress became interim CEO."
+      },
+      {
+        "zh-TW": "Harvey C. Jones 出任 Nvidia 首任董事會主席，主導新執行長遴選，人選將考慮公司內外部。",
+        "en": "Harvey C. Jones became Nvidia's first board chair and will lead the search, weighing internal and external candidates."
+      },
+      {
+        "zh-TW": "辭任原因各媒體報導不一，本站不轉述未經證實的指控。",
+        "en": "Reported reasons vary across outlets; we don't repeat unverified allegations."
+      }
+    ],
+    "work": [
+      {
+        "zh-TW": "據自由財經報導，Nvidia 董事會表示公司營運、客戶承諾與產品路線圖預期不受影響。",
+        "en": "According to Liberty Times Finance, Nvidia's board said operations, customer commitments and the product roadmap are expected to be unaffected."
+      },
+      {
+        "zh-TW": "目前未見 CUDA 等開發工具或授權條款的變更公告；觀察重點是新任執行長人選與產品策略是否延續。",
+        "en": "No changes to CUDA or other developer tools or licensing have been announced. Worth watching: who the next CEO is and whether product strategy holds."
+      }
+    ],
+    "securityFacts": [],
+    "securityPatterns": [
+      {
+        "zh-TW": "重大新聞發生後，常出現假冒新聞連結或「內幕消息」的釣魚信與詐騙投資訊息。",
+        "en": "Big news is routinely followed by phishing that poses as news links or \"inside information\", and by investment scams."
+      }
+    ],
+    "market": {
+      "us": [
+        {
+          "label": {
+            "zh-TW": "Nvidia（NVDA）",
+            "en": "Nvidia (NVDA)"
+          },
+          "move": {
+            "zh-TW": "-4.34%",
+            "en": "-4.34%"
+          },
+          "basis": {
+            "zh-TW": "11/12 收盤",
+            "en": "Nov 12 close"
+          },
+          "source": {
+            "name": "CNBC",
+            "url": "https://www.cnbc.com/2026/11/12/nvidia-nvda-jensen-huang-second-affair.html"
+          }
+        },
+        {
+          "label": {
+            "zh-TW": "Nvidia 盤中最大跌幅",
+            "en": "Nvidia, largest intraday drop"
+          },
+          "move": {
+            "zh-TW": "約 -13%～-14%",
+            "en": "about -13% to -14%"
+          },
+          "basis": {
+            "zh-TW": "11/12 開盤後",
+            "en": "Nov 12 after the open"
+          },
+          "source": {
+            "name": "Yahoo Finance",
+            "url": "https://finance.yahoo.com/technology/live/nvidia-live-updates-following-jensen-huangs-resignation-as-ceo-allegations-of-a-third-affair-emerge-195535310.html"
+          }
+        },
+        {
+          "label": {
+            "zh-TW": "AMD",
+            "en": "AMD"
+          },
+          "move": {
+            "zh-TW": "+5.86%",
+            "en": "+5.86%"
+          },
+          "basis": {
+            "zh-TW": "11/12 收盤",
+            "en": "Nov 12 close"
+          },
+          "source": {
+            "name": "壹蘋新聞網",
+            "url": "https://news.nextapple.com/finance/20261113/CE4D178FE850B69C528E3A092623122C"
+          }
+        },
+        {
+          "label": {
+            "zh-TW": "Intel",
+            "en": "Intel"
+          },
+          "move": {
+            "zh-TW": "約 -2%",
+            "en": "about -2%"
+          },
+          "basis": {
+            "zh-TW": "11/12 收盤",
+            "en": "Nov 12 close"
+          },
+          "source": {
+            "name": "壹蘋新聞網",
+            "url": "https://news.nextapple.com/finance/20261113/CE4D178FE850B69C528E3A092623122C"
+          }
+        },
+        {
+          "label": {
+            "zh-TW": "台積電 ADR（TSM）",
+            "en": "TSMC ADR (TSM)"
+          },
+          "move": {
+            "zh-TW": "-1.90%",
+            "en": "-1.90%"
+          },
+          "basis": {
+            "zh-TW": "11/12 收盤",
+            "en": "Nov 12 close"
+          },
+          "source": {
+            "name": "NOWnews",
+            "url": "https://www.nownews.com/news/6891945"
+          }
+        }
+      ],
+      "tw": [
+        {
+          "label": {
+            "zh-TW": "加權指數",
+            "en": "TAIEX"
+          },
+          "move": {
+            "zh-TW": "-2.63%（收 43,091.87）",
+            "en": "-2.63% (closed 43,091.87)"
+          },
+          "basis": {
+            "zh-TW": "11/12 收盤，正式宣布前",
+            "en": "Nov 12 close, before the announcement"
+          },
+          "source": {
+            "name": "三立新聞網",
+            "url": "https://inews.setn.com/news/1937589"
+          }
+        },
+        {
+          "label": {
+            "zh-TW": "台指期夜盤",
+            "en": "TAIEX futures, night session"
+          },
+          "move": {
+            "zh-TW": "一度跌逾 700 點，收漲 548 點",
+            "en": "fell over 700 points, closed up 548"
+          },
+          "basis": {
+            "zh-TW": "11/12 夜盤",
+            "en": "Nov 12 night session"
+          },
+          "source": {
+            "name": "NOWnews",
+            "url": "https://www.nownews.com/news/6891945"
+          }
+        },
+        {
+          "label": {
+            "zh-TW": "加權指數",
+            "en": "TAIEX"
+          },
+          "move": {
+            "zh-TW": "開盤 +1.46%，早盤漲逾 1,200 點",
+            "en": "opened +1.46%, up over 1,200 points in early trade"
+          },
+          "basis": {
+            "zh-TW": "11/13 盤中，非收盤",
+            "en": "Nov 13 intraday, not a close"
+          },
+          "source": {
+            "name": "中央社",
+            "url": "https://www.cna.com.tw/news/afe/202611130036.aspx"
+          }
+        },
+        {
+          "label": {
+            "zh-TW": "台積電（2330）",
+            "en": "TSMC (2330)"
+          },
+          "move": {
+            "zh-TW": "最高 +2.14%（2,390 元）",
+            "en": "up as much as 2.14% (NT$2,390)"
+          },
+          "basis": {
+            "zh-TW": "11/13 早盤，非收盤",
+            "en": "Nov 13 early trade, not a close"
+          },
+          "source": {
+            "name": "自由財經",
+            "url": "https://ec.ltn.com.tw/article/breakingnews/5639195"
+          }
+        }
+      ],
+      "views": [
+        {
+          "zh-TW": "中央社將台股 11/13 的走高描述為「短期利空出盡」的反應。",
+          "en": "CNA described Taiwan's Nov 13 rise as a reaction to the bad news being priced in."
+        },
+        {
+          "zh-TW": "自由財經報導，投資人資金轉向 AMD 與博通等 Nvidia 競爭對手，兩者皆上漲超過 5%。",
+          "en": "Liberty Times Finance reported investors moving into Nvidia rivals AMD and Broadcom, both up more than 5%."
+        }
+      ],
+      "caveats": [
+        {
+          "zh-TW": "同一週美國消費者物價指數高於預期，市場也在等待生產者物價指數，這些總體因素同樣影響股價。",
+          "en": "US consumer prices came in above expectations that week and producer prices were still due; such macro factors also move stocks."
+        },
+        {
+          "zh-TW": "台股 11/12 的下跌發生在正式宣布之前，當時市場已有相關人事傳聞，不能全部歸因於這次宣布。",
+          "en": "Taiwan's Nov 12 drop came before the official announcement, while personnel rumors were already circulating, so it can't all be attributed to the announcement."
+        },
+        {
+          "zh-TW": "Nvidia 股價在宣布前一個月已下跌超過兩成。",
+          "en": "Nvidia's stock had already fallen more than 20% over the prior month."
+        }
+      ]
+    },
+    "sources": [
+      {
+        "name": "Quartz",
+        "url": "https://qz.com/jensen-huang-resigns-nvidia-ceo-affairs-stock-sinks-111226"
+      },
+      {
+        "name": "CNBC",
+        "url": "https://www.cnbc.com/2026/11/12/nvidia-nvda-jensen-huang-second-affair.html"
+      },
+      {
+        "name": "自由財經（美股收盤）",
+        "url": "https://ec.ltn.com.tw/article/breakingnews/5639091"
+      },
+      {
+        "name": "自由財經（台積電）",
+        "url": "https://ec.ltn.com.tw/article/breakingnews/5639195"
+      },
+      {
+        "name": "中央社",
+        "url": "https://www.cna.com.tw/news/afe/202611130036.aspx"
+      }
+    ]
+  },
+  {
+    "id": "outlook-zero-day-2026-11",
+    "date": "2026-11-10",
+    "title": {
+      "zh-TW": "Outlook 零時差漏洞遭實際利用",
+      "en": "Outlook zero-day exploited in the wild"
+    },
+    "summary": {
+      "zh-TW": "企業每天都在用的 Outlook 出現已遭利用的漏洞，可能外洩登入憑證。分數不高，卻是本月唯一已遭利用的微軟漏洞。",
+      "en": "Outlook, used across workplaces every day, has an exploited flaw that can leak sign-in credentials. Its score is modest, yet it's the only exploited Microsoft flaw this month."
+    },
+    "facts": [
+      {
+        "zh-TW": "微軟 11/10 例行更新修補 CVE-2026-124194，屬於 Outlook 欺騙漏洞，CVSS 6.5，微軟確認已遭利用。",
+        "en": "Microsoft's Nov 10 update fixed CVE-2026-124194, an Outlook spoofing flaw rated CVSS 6.5 that Microsoft confirmed is being exploited."
+      },
+      {
+        "zh-TW": "開啟特製的郵件檔案時，Outlook 可能在未警告的情況下連線到外部伺服器，外洩使用者的 NTLMv2 雜湊值。",
+        "en": "Opening a crafted message file can make Outlook connect to an outside server without warning, leaking the user's NTLMv2 hash."
+      },
+      {
+        "zh-TW": "美國 CISA 已列入已遭利用漏洞清單，要求聯邦機構於 11/24 前完成修補。",
+        "en": "CISA added it to its known-exploited list, giving federal agencies until Nov 24 to patch."
+      }
+    ],
+    "work": [
+      {
+        "zh-TW": "IT 部門可能推送 Office 更新並要求重新啟動 Outlook；建議確認更新確實已安裝到自己的電腦上。",
+        "en": "IT may push Office updates and ask you to restart Outlook. Check that the update has actually landed on your machine."
+      },
+      {
+        "zh-TW": "在修補完成前，對來路不明的附件或郵件檔案要特別小心。",
+        "en": "Until it's patched, be especially careful with unexpected attachments and message files."
+      }
+    ],
+    "securityFacts": [
+      {
+        "zh-TW": "資安媒體建議除了安裝更新，也考慮限制對外的 NTLM 驗證與連往不受信任主機的 SMB 連線。",
+        "en": "Security outlets advise installing the update and also limiting outbound NTLM authentication and SMB connections to untrusted hosts."
+      }
+    ],
+    "securityPatterns": [
+      {
+        "zh-TW": "外洩的 NTLM 雜湊值常被用於中繼攻擊或離線破解，進一步取得帳號存取權。",
+        "en": "Leaked NTLM hashes are commonly used in relay attacks or cracked offline to gain account access."
+      },
+      {
+        "zh-TW": "重大漏洞公開後，常出現假冒「緊急更新」的釣魚信，要求使用者點連結或下載檔案。",
+        "en": "After a major flaw goes public, fake \"urgent update\" emails asking users to click links or download files are common."
+      }
+    ],
+    "market": {
+      "us": [
+        {
+          "label": {
+            "zh-TW": "Microsoft（MSFT）",
+            "en": "Microsoft (MSFT)"
+          },
+          "move": {
+            "zh-TW": "-2.2%（收 533.16 美元）",
+            "en": "-2.2% (closed $533.16)"
+          },
+          "basis": {
+            "zh-TW": "11/10 收盤",
+            "en": "Nov 10 close"
+          },
+          "source": {
+            "name": "Market Chameleon",
+            "url": "https://marketchameleon.com/Overview/MSFT/MultiLegOptionTrades"
+          }
+        }
+      ],
+      "tw": [],
+      "views": [],
+      "caveats": [
+        {
+          "zh-TW": "我們未找到將當天跌幅與此漏洞或例行更新連結的報導，因此不推論兩者有因果關係。",
+          "en": "We found no reporting linking that day's drop to this flaw or the update, so we draw no causal link."
+        },
+        {
+          "zh-TW": "例行安全更新每月都會發布，通常不被市場視為重大事件。",
+          "en": "Security updates ship every month and usually aren't treated as major market events."
+        },
+        {
+          "zh-TW": "台股方面沒有直接相關的上市公司，因此不列出。",
+          "en": "No directly related company is listed in Taiwan, so none is shown."
+        }
+      ]
+    },
+    "sources": [
+      {
+        "name": "Tenable",
+        "url": "https://www.tenable.com/blog/microsoft-november-2026-patch-tuesday-addresses-1093-cves-cve-2026-124194"
+      },
+      {
+        "name": "CyberExperts",
+        "url": "https://cyberexperts.com/2026-11-11-outlook-message-file-ntlm-zero-day/?utm_source=bluesky&utm_medium=social&utm_campaign=daily_brief&utm_content=20261111_0820_bluesky"
+      },
+      {
+        "name": "Between The Hacks",
+        "url": "https://www.betweenthehacks.com/blog/bth-news-november-12-2026"
+      },
+      {
+        "name": "SOCRadar",
+        "url": "https://socradar.io/blog/november-2026-patch-tuesday-zero-day/"
+      }
+    ]
+  }
+]

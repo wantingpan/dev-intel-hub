@@ -1,0 +1,119 @@
+---
+import { t, formatDate, type Lang } from '../i18n/ui';
+import type { ImpactEvent } from '../types';
+
+interface Props { lang: Lang; event: ImpactEvent }
+const { lang, event: e } = Astro.props;
+const s = t(lang);
+const markets = [
+  { key: 'us', name: s.us, rows: e.market.us },
+  { key: 'tw', name: s.tw, rows: e.market.tw },
+].filter((m) => m.rows.length > 0);
+---
+<article class="event panel" id={e.id} aria-labelledby={`${e.id}-title`}>
+  <header class="event-head">
+    <time datetime={e.date} class="num">{formatDate(e.date, lang)}</time>
+    <h2 id={`${e.id}-title`}>{e.title[lang]}</h2>
+    <p class="summary">{e.summary[lang]}</p>
+  </header>
+
+  <div class="blocks">
+    <section class="block">
+      <h3>{s.hWhat}</h3>
+      <ul>{e.facts.map((f) => <li>{f[lang]}</li>)}</ul>
+    </section>
+
+    <section class="block">
+      <h3>{s.hWork}</h3>
+      <ul>{e.work.map((f) => <li>{f[lang]}</li>)}</ul>
+    </section>
+
+    <section class="block">
+      <h3>{s.hSecurity}</h3>
+      <ul class="tagged">
+        {e.securityFacts.map((f) => (
+          <li><span class="kind reported">{s.reported}</span>{f[lang]}</li>
+        ))}
+        {e.securityPatterns.map((f) => (
+          <li><span class="kind pattern">{s.pattern}</span>{f[lang]}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="block market">
+      <h3>{s.hMarket}</h3>
+      {markets.map((m) => (
+        <div class="scroll">
+          <table>
+            <caption>{m.name}</caption>
+            <thead>
+              <tr>
+                <th scope="col">{s.thItem}</th>
+                <th scope="col">{s.thMove}</th>
+                <th scope="col">{s.thWhen}</th>
+                <th scope="col">{s.thSource}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {m.rows.map((r) => (
+                <tr>
+                  <td>{r.label[lang]}</td>
+                  <td class="num move">{r.move[lang]}</td>
+                  <td class="when">{r.basis[lang]}</td>
+                  <td><a href={r.source.url} target="_blank" rel="noopener noreferrer">{r.source.name}</a></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
+      {e.market.views.length > 0 && (
+        <>
+          <h4>{s.hViews}</h4>
+          <ul>{e.market.views.map((v) => <li>{v[lang]}</li>)}</ul>
+        </>
+      )}
+      <div class="caveats">
+        <h4>{s.hCaveats}</h4>
+        <ul>{e.market.caveats.map((c) => <li>{c[lang]}</li>)}</ul>
+      </div>
+    </section>
+  </div>
+
+  <footer class="sources">
+    <h4>{s.hSources}</h4>
+    <ul>
+      {e.sources.map((src) => (
+        <li><a href={src.url} target="_blank" rel="noopener noreferrer">{src.name}</a></li>
+      ))}
+    </ul>
+  </footer>
+</article>
+
+<style>
+  .event { margin-bottom: 1.5rem; }
+  .event-head time { font-size: .85rem; color: var(--muted); }
+  .event-head h2 { font-size: clamp(1.35rem, 3vw, 1.65rem); margin: .15rem 0 .4rem; }
+  .summary { margin: 0 0 1.25rem; max-width: 70ch; }
+  .blocks { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem 2rem; }
+  .block.market { grid-column: 1 / -1; }
+  h3 { font-size: 1rem; font-weight: 600; margin: 0 0 .4rem; padding-top: .75rem; border-top: 2px solid var(--ink); }
+  h4 { font-size: .88rem; font-weight: 600; margin: 1rem 0 .3rem; color: var(--muted); }
+  ul { margin: 0; padding-left: 1.1rem; max-width: 72ch; }
+  li { margin-bottom: .35rem; font-size: .95rem; }
+  .tagged { list-style: none; padding-left: 0; }
+  .kind { display: inline-block; font-size: .75rem; font-weight: 600; border-radius: 4px; padding: 0 .4rem; margin-right: .45rem; border: 1px solid currentColor; }
+  .reported { color: var(--accent); }
+  .pattern { color: var(--muted); }
+  .scroll { overflow-x: auto; margin-bottom: .75rem; }
+  table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+  caption { text-align: left; font-weight: 600; font-size: .9rem; padding: .25rem 0; }
+  th, td { text-align: left; padding: .45rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: .8rem; color: var(--muted); font-weight: 500; }
+  .move { font-weight: 600; white-space: nowrap; }
+  .when { color: var(--muted); font-size: .86rem; }
+  .caveats { background: var(--bg); border-radius: var(--radius-sm); padding: .1rem 1rem .6rem; margin-top: .75rem; }
+  .sources { margin-top: 1rem; border-top: 1px solid var(--line); }
+  .sources ul { display: flex; flex-wrap: wrap; gap: .25rem 1rem; list-style: none; padding: 0; }
+  .sources li { font-size: .86rem; margin: 0; }
+</style>

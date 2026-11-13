@@ -1,0 +1,122 @@
+[
+  {
+    "cve": "CVE-2026-124194",
+    "severity": "exploited",
+    "cvss": 6.5,
+    "product": {
+      "zh-TW": "Microsoft Outlook（欺騙）",
+      "en": "Microsoft Outlook (spoofing)"
+    },
+    "action": {
+      "zh-TW": "套用 11 月 Patch Tuesday；CISA 列入 KEV",
+      "en": "Apply November Patch Tuesday; added to CISA KEV"
+    },
+    "source": "Tenable",
+    "url": "https://www.tenable.com/blog/microsoft-november-2026-patch-tuesday-addresses-1093-cves-cve-2026-124194"
+  },
+  {
+    "cve": "CVE-2026-125350",
+    "severity": "exploited",
+    "cvss": null,
+    "product": {
+      "zh-TW": "Google Chrome",
+      "en": "Google Chrome"
+    },
+    "action": {
+      "zh-TW": "升級至 157.0.8103.50 以上",
+      "en": "Upgrade to 157.0.8103.50 or later"
+    },
+    "source": "CSO Online",
+    "url": "https://www.csoonline.com/article/4247015/november-2026-patch-tuesday-63-critical-microsoft-fixes-plus-an-outlook-zero-day-that-allows-theft-of-hashed-credentials.html"
+  },
+  {
+    "cve": "CVE-2026-119618",
+    "severity": "critical",
+    "cvss": null,
+    "product": {
+      "zh-TW": "Apache HTTP Server mod_http2",
+      "en": "Apache HTTP Server mod_http2"
+    },
+    "action": {
+      "zh-TW": "2.4.55～2.4.70 升級至 2.4.71",
+      "en": "Upgrade 2.4.55–2.4.70 to 2.4.71"
+    },
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/"
+  },
+  {
+    "cve": "CVE-2026-123866",
+    "severity": "high",
+    "cvss": null,
+    "product": {
+      "zh-TW": "Node.js HTTP/2",
+      "en": "Node.js HTTP/2"
+    },
+    "action": {
+      "zh-TW": "升級至 22.23.5／24.22.3／26.13.1",
+      "en": "Upgrade to 22.23.5, 24.22.3 or 26.13.1"
+    },
+    "source": "Node.js 官方部落格",
+    "url": "https://nodejs.org/en/blog/vulnerability/november-2026-security-releases"
+  },
+  {
+    "cve": "CVE-2026-119958",
+    "severity": "critical",
+    "cvss": 9.8,
+    "product": {
+      "zh-TW": "Windows LDAP（RCE）",
+      "en": "Windows LDAP (RCE)"
+    },
+    "action": {
+      "zh-TW": "套用 11 月 Patch Tuesday",
+      "en": "Apply November Patch Tuesday"
+    },
+    "source": "CCB Belgium",
+    "url": "https://ccb.belgium.be/advisories/warning-microsoft-patch-tuesday-november-2026-patches-1093-vulnerabilities-63-critical"
+  },
+  {
+    "cve": "CVE-2026-116928",
+    "severity": "critical",
+    "cvss": 9.8,
+    "product": {
+      "zh-TW": "Windows Search（RCE）",
+      "en": "Windows Search (RCE)"
+    },
+    "action": {
+      "zh-TW": "套用 11 月 Patch Tuesday",
+      "en": "Apply November Patch Tuesday"
+    },
+    "source": "CCB Belgium",
+    "url": "https://ccb.belgium.be/advisories/warning-microsoft-patch-tuesday-november-2026-patches-1093-vulnerabilities-63-critical"
+  },
+  {
+    "cve": "CVE-2026-118207",
+    "severity": "critical",
+    "cvss": 8.8,
+    "product": {
+      "zh-TW": "Microsoft Exchange Server（RCE）",
+      "en": "Microsoft Exchange Server (RCE)"
+    },
+    "action": {
+      "zh-TW": "套用 11 月 Patch Tuesday",
+      "en": "Apply November Patch Tuesday"
+    },
+    "source": "CCB Belgium",
+    "url": "https://ccb.belgium.be/advisories/warning-microsoft-patch-tuesday-november-2026-patches-1093-vulnerabilities-63-critical"
+  },
+  {
+    "cve": "CVE-2026-58868",
+    "severity": "critical",
+    "cvss": null,
+    "product": {
+      "zh-TW": "Android 14～17（RCE）",
+      "en": "Android 14–17 (RCE)"
+    },
+    "action": {
+      "zh-TW": "安全性修補程式等級 2026-11-01 以上",
+      "en": "Security patch level 2026-11-01 or later"
+    },
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/11/google-patches-critical-android-flaw.html"
+  }
+]

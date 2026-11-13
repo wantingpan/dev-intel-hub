@@ -1,0 +1,461 @@
+[
+  {
+    "id": "n01",
+    "date": "2026-11-12",
+    "category": "industry",
+    "hot": true,
+    "title": {
+      "zh-TW": "黃仁勳辭去 Nvidia 執行長，財務長 Colette Kress 接任臨時執行長",
+      "en": "Jensen Huang resigns as Nvidia CEO; CFO Colette Kress named interim CEO"
+    },
+    "summary": {
+      "zh-TW": "黃仁勳辭去總裁、執行長及董事職務並即刻生效；Nvidia 同時任命 Harvey C. Jones 為首任董事會主席，董事會將尋找正式繼任人選。",
+      "en": "Huang stepped down as president, CEO and board member, effective immediately. Nvidia also appointed Harvey C. Jones as its first board chair while it searches for a permanent successor."
+    },
+    "source": "TechCrunch",
+    "sourceLang": "en",
+    "url": "https://techcrunch.com/2026/11/12/nvidias-jensen-huang-resigns-chipmaker-names-cfo-colette-kress-as-interim-ceo/"
+  },
+  {
+    "id": "n02",
+    "date": "2026-11-11",
+    "category": "industry",
+    "hot": true,
+    "title": {
+      "zh-TW": "Anthropic 啟動 IPO 投資人說明會",
+      "en": "Anthropic begins its IPO roadshow"
+    },
+    "summary": {
+      "zh-TW": "預計每股 70 至 78 美元，基本發行最多募資約 625 億美元；另有 7 家投資方計畫投入 260 億美元。",
+      "en": "Shares are expected at $70–78, raising up to about $62.5B in the base offering; seven investors plan to put in a further $26B."
+    },
+    "source": "iThome",
+    "sourceLang": "zh",
+    "url": "https://www.ithome.com.tw/ai"
+  },
+  {
+    "id": "n03",
+    "date": "2026-11-13",
+    "category": "industry",
+    "hot": false,
+    "title": {
+      "zh-TW": "Google 攜三星推出搭載 Gemini 的 AI 智慧眼鏡",
+      "en": "Google and Samsung launch Gemini-powered AI smart glasses"
+    },
+    "summary": {
+      "zh-TW": "整合語音 AI、即時翻譯、導航與拍照，並加入拍攝指示燈與旁觀者臉部遮蔽等隱私措施。",
+      "en": "Features include voice AI, live translation, navigation and photos, plus privacy measures such as a recording indicator light and bystander face blurring."
+    },
+    "source": "iThome",
+    "sourceLang": "zh",
+    "url": "https://www.ithome.com.tw/"
+  },
+  {
+    "id": "n04",
+    "date": "2026-11-13",
+    "category": "security",
+    "hot": false,
+    "title": {
+      "zh-TW": "Linux 基金會調查：近 6 成團隊交付速度超過資安審查",
+      "en": "Linux Foundation survey: nearly 6 in 10 teams ship faster than security can review"
+    },
+    "summary": {
+      "zh-TW": "58% 受訪者表示交付速度已快到安全審查跟不上，60% 表示 AI 程式開發工具增加了外部相依套件。",
+      "en": "58% said delivery now outpaces security review, and 60% said AI coding tools have added more external dependencies."
+    },
+    "source": "iThome",
+    "sourceLang": "zh",
+    "url": "https://www.ithome.com.tw/"
+  },
+  {
+    "id": "n05",
+    "date": "2026-11-09",
+    "category": "ai",
+    "hot": true,
+    "title": {
+      "zh-TW": "Anthropic 發表 Claude Fable 5.2 與 Mythos 5.2",
+      "en": "Anthropic releases Claude Fable 5.2 and Mythos 5.2"
+    },
+    "summary": {
+      "zh-TW": "輸出速度最高提升 30%、價格降 20%；兩者底層相同，Mythos 僅開放符合資格的資安與生命科學組織申請。",
+      "en": "Output is up to 30% faster and prices are 20% lower. Both share the same underlying model; Mythos is available only to qualifying security and life-science organizations."
+    },
+    "source": "iThome",
+    "sourceLang": "zh",
+    "url": "https://www.ithome.com.tw/ai"
+  },
+  {
+    "id": "n06",
+    "date": "2026-11-09",
+    "category": "ai",
+    "hot": false,
+    "title": {
+      "zh-TW": "Meta 推出 Muse Ember 模型",
+      "en": "Meta launches the Muse Ember model"
+    },
+    "summary": {
+      "zh-TW": "定價每百萬 token 輸入 0.10、輸出 0.50 美元，支援 1M context。",
+      "en": "Priced at $0.10 input and $0.50 output per million tokens, with a 1M-token context window."
+    },
+    "source": "LLM Stats",
+    "sourceLang": "en",
+    "url": "https://llm-stats.com/ai-news"
+  },
+  {
+    "id": "n07",
+    "date": "2026-11-12",
+    "category": "ai",
+    "hot": false,
+    "title": {
+      "zh-TW": "DeepMind AlphaProof Code 形式化驗證 Signal 核心實作",
+      "en": "DeepMind's AlphaProof Code formally verifies Signal's core implementation"
+    },
+    "summary": {
+      "zh-TW": "多 LLM 代理框架產出逾 600 萬行經機器檢查的 Lean 證明，約四週內驗證 libsignal 的關鍵安全性質。（週報彙整）",
+      "en": "A multi-LLM agentic framework produced over six million lines of machine-checked Lean proofs, verifying key security properties of libsignal in about four weeks. (Weekly roundup)"
+    },
+    "source": "AI Agents News 週報",
+    "sourceLang": "en",
+    "url": "https://aiagentstore.ai/ai-agent-news/this-week"
+  },
+  {
+    "id": "n08",
+    "date": "2026-11-06",
+    "category": "ai",
+    "hot": false,
+    "title": {
+      "zh-TW": "OpenAI 發表資安專用模型 GPT-6 Cyber",
+      "en": "OpenAI unveils security model GPT-6 Cyber"
+    },
+    "summary": {
+      "zh-TW": "在 Firefox 找出 81 個先前未知的高風險漏洞，並針對 Linux 核心漏洞開發出可運作的提權攻擊程式。",
+      "en": "It found 81 previously unknown high-severity bugs in Firefox and built working privilege-escalation exploits for Linux kernel vulnerabilities."
+    },
+    "source": "iThome",
+    "sourceLang": "zh",
+    "url": "https://www.ithome.com.tw/index.php?articleId=21374&blogId=1325&op=ViewArticle"
+  },
+  {
+    "id": "n09",
+    "date": "2026-11-12",
+    "category": "ai",
+    "hot": false,
+    "title": {
+      "zh-TW": "OpenAI 推出 Businesses in ChatGPT",
+      "en": "OpenAI launches Businesses in ChatGPT"
+    },
+    "summary": {
+      "zh-TW": "企業可在 ChatGPT 建立商家檔案、更新商品與價格，並由 Business Agent 回答消費者問題。",
+      "en": "Businesses can create profiles, update products and prices, and let a Business Agent answer customer questions."
+    },
+    "source": "iThome",
+    "sourceLang": "zh",
+    "url": "https://www.ithome.com.tw/latest"
+  },
+  {
+    "id": "n10",
+    "date": "2026-11-05",
+    "category": "ai",
+    "hot": false,
+    "title": {
+      "zh-TW": "Meta 收購 AI 程式開發協作平臺 Conductor",
+      "en": "Meta acquires AI coding collaboration startup Conductor"
+    },
+    "summary": {
+      "zh-TW": "Conductor 讓開發人員同時指派多個 AI 代理在背景撰寫程式、測試與除錯。",
+      "en": "Conductor lets developers assign multiple AI agents to write, test and debug code in the background."
+    },
+    "source": "iThome",
+    "sourceLang": "zh",
+    "url": "https://www.ithome.com.tw/news/168194&gsessionid=Yw_UgXhTMBq4v2T5Kf_q7fRs1xhrvCn91xnbTT_Q0pp_Srypblanag"
+  },
+  {
+    "id": "n11",
+    "date": "2026-11-11",
+    "category": "lang",
+    "hot": true,
+    "title": {
+      "zh-TW": "Node.js 22／24／26 安全更新",
+      "en": "Node.js 22, 24 and 26 security releases"
+    },
+    "summary": {
+      "zh-TW": "修正 HTTP/2 等高風險漏洞，請升級至 v22.23.5、v24.22.3 或 v26.13.1；已停止支援的版本不會修補。",
+      "en": "Fixes high-severity issues including HTTP/2. Upgrade to v22.23.5, v24.22.3 or v26.13.1; end-of-life lines receive no fix."
+    },
+    "source": "Node.js 官方部落格",
+    "sourceLang": "en",
+    "url": "https://nodejs.org/en/blog/vulnerability/november-2026-security-releases"
+  },
+  {
+    "id": "n12",
+    "date": "2026-10-20",
+    "category": "lang",
+    "hot": false,
+    "title": {
+      "zh-TW": "TypeScript 7.1 Beta 恢復編譯器 API",
+      "en": "TypeScript 7.1 Beta restores the compiler API"
+    },
+    "summary": {
+      "zh-TW": "Go 原生編譯器的首次更新，恢復 7.0 移除的程式化 API；RC 與正式版暫定 11 月下旬。",
+      "en": "The first update to the Go-based native compiler brings back the programmatic API removed in 7.0. RC and stable releases are tentatively planned for late November."
+    },
+    "source": "InfoQ",
+    "sourceLang": "en",
+    "url": "https://www.infoq.com/news/2026/11/typescript-7-1-beta/"
+  },
+  {
+    "id": "n13",
+    "date": "2026-11-03",
+    "category": "lang",
+    "hot": false,
+    "title": {
+      "zh-TW": "Next.js 11 月安全更新",
+      "en": "Next.js November security release"
+    },
+    "summary": {
+      "zh-TW": "發布 v16.4.5 與 v15.5.29 安全修正版，11/10 另有 v16.4.6。",
+      "en": "Security fixes shipped in v16.4.5 and v15.5.29, followed by v16.4.6 on Nov 10."
+    },
+    "source": "Releasebot",
+    "sourceLang": "en",
+    "url": "https://releasebot.io/updates/vercel/next-js"
+  },
+  {
+    "id": "n14",
+    "date": "2026-11-05",
+    "category": "lang",
+    "hot": false,
+    "title": {
+      "zh-TW": "Postman 桌面版未經同意安裝 AI 外掛引發爭議",
+      "en": "Postman desktop installed AI plugins without consent"
+    },
+    "summary": {
+      "zh-TW": "使用者發現 Postman 自動安裝 Codex 與 Claude Code 外掛並嘗試代為核准 Hook，官方承諾改善同意流程。",
+      "en": "Users found Postman auto-installing Codex and Claude Code plugins and trying to pre-approve a hook; the company pledged to fix its consent flow."
+    },
+    "source": "iThome",
+    "sourceLang": "zh",
+    "url": "https://www.ithome.com.tw/news/180065&gsessionid=rA8DJOo1PLq-mNIuUfxsdtczt0sxtZWXHW-ecrswQaQE4Kvkhig3uw"
+  },
+  {
+    "id": "n15",
+    "date": "2026-11-10",
+    "category": "cloud",
+    "hot": false,
+    "title": {
+      "zh-TW": "CNCF 宣布 KubeVirt 畢業",
+      "en": "CNCF graduates KubeVirt"
+    },
+    "summary": {
+      "zh-TW": "KubeVirt 讓 VM、容器與 AI 工作負載共用同一個 Kubernetes 控制平面，於 KubeCon NA 宣布。",
+      "en": "KubeVirt runs VMs, containers and AI workloads under one Kubernetes control plane. Announced at KubeCon NA."
+    },
+    "source": "PR Newswire（CNCF）",
+    "sourceLang": "en",
+    "url": "https://prnewswire.com/news-releases/cloud-native-computing-foundation-announces-kubevirt-graduation-302934697.html"
+  },
+  {
+    "id": "n16",
+    "date": "2026-11-12",
+    "category": "cloud",
+    "hot": true,
+    "title": {
+      "zh-TW": "AWS 推出由 AI 代理開發的本機模擬器 AWS Emulator",
+      "en": "AWS launches AWS Emulator, built by AI agents"
+    },
+    "summary": {
+      "zh-TW": "可在本機模擬 AWS API 測試應用程式，不必連線雲端服務。",
+      "en": "It emulates AWS APIs locally, so developers can test apps without connecting to the cloud."
+    },
+    "source": "iThome",
+    "sourceLang": "zh",
+    "url": "https://www.ithome.com.tw/latest"
+  },
+  {
+    "id": "n17",
+    "date": "2026-11-07",
+    "category": "cloud",
+    "hot": false,
+    "title": {
+      "zh-TW": "AKS LTS 支援 Kubernetes 1.37，未支援版本將被強制升級",
+      "en": "AKS LTS adds Kubernetes 1.37; unsupported clusters face forced upgrades"
+    },
+    "summary": {
+      "zh-TW": "2027 年 6 月 1 日起，停留在未支援版本的叢集將由平台依其時程升級。",
+      "en": "From June 1, 2027, clusters left on unsupported versions will be upgraded by the platform on its own schedule."
+    },
+    "source": "Qovery Blog",
+    "sourceLang": "en",
+    "url": "https://www.qovery.com/blog/aks-lts-kubernetes-1-37-forced-upgrade-plan"
+  },
+  {
+    "id": "n18",
+    "date": "2026-11-10",
+    "category": "cloud",
+    "hot": false,
+    "title": {
+      "zh-TW": "Google Cloud 公布 AI-native Kubernetes 堆疊",
+      "en": "Google Cloud outlines an AI-native Kubernetes stack"
+    },
+    "summary": {
+      "zh-TW": "包含 llm-d 1.0、KubeRay 等元件，鎖定強化學習後訓練、推論與多輪代理執行。（週報彙整）",
+      "en": "Components include llm-d 1.0 and KubeRay, targeting RL post-training, inference and multi-turn agent execution. (Weekly roundup)"
+    },
+    "source": "AI Agents News 週報",
+    "sourceLang": "en",
+    "url": "https://aiagentstore.ai/ai-agent-news/this-week"
+  },
+  {
+    "id": "n19",
+    "date": "2026-11-04",
+    "category": "cloud",
+    "hot": false,
+    "title": {
+      "zh-TW": "Amazon ECS Gateway 上線",
+      "en": "Amazon ECS Gateway launches"
+    },
+    "summary": {
+      "zh-TW": "帳號層級的入口資源，服務取得自動產生的主機名稱；目前文件未提到自訂網域。",
+      "en": "An account-level ingress resource. Services get generated hostnames; current docs don't cover custom domains."
+    },
+    "source": "InfoQ",
+    "sourceLang": "en",
+    "url": "https://www.infoq.com/Devops/news/"
+  },
+  {
+    "id": "n20",
+    "date": "2026-11-11",
+    "category": "cloud",
+    "hot": false,
+    "title": {
+      "zh-TW": "ElastiCache Serverless 新增向量與全文搜尋",
+      "en": "ElastiCache Serverless adds vector and full-text search"
+    },
+    "summary": {
+      "zh-TW": "支援向量、全文與混合查詢，可用於 AI 代理記憶、推薦與 RAG。",
+      "en": "Supports vector, full-text and hybrid queries for AI agent memory, recommendations and RAG."
+    },
+    "source": "iThome",
+    "sourceLang": "zh",
+    "url": "https://www.ithome.com.tw/latest/%E2%80%9D"
+  },
+  {
+    "id": "n21",
+    "date": "2026-11-11",
+    "category": "cloud",
+    "hot": false,
+    "title": {
+      "zh-TW": "AMD 推出第 6 代 EPYC（Venice）",
+      "en": "AMD launches 6th Gen EPYC (Venice)"
+    },
+    "summary": {
+      "zh-TW": "採 Zen 6 架構，最高 256 核心，支援 PCIe Gen 6 與 CXL 3.1。",
+      "en": "Built on Zen 6 with up to 256 cores, supporting PCIe Gen 6 and CXL 3.1."
+    },
+    "source": "iThome",
+    "sourceLang": "zh",
+    "url": "https://www.ithome.com.tw/news"
+  },
+  {
+    "id": "n22",
+    "date": "2026-11-10",
+    "category": "security",
+    "hot": true,
+    "title": {
+      "zh-TW": "微軟 11 月 Patch Tuesday 修補逾千個漏洞",
+      "en": "Microsoft's November Patch Tuesday fixes over 1,000 flaws"
+    },
+    "summary": {
+      "zh-TW": "共 63 個重大等級，含已遭利用的 Outlook 零時差漏洞 CVE-2026-124194（各家統計總數為 1,093～1,095）。",
+      "en": "63 are rated Critical, including an exploited Outlook zero-day, CVE-2026-124194. Reported totals range from 1,093 to 1,095."
+    },
+    "source": "Tenable",
+    "sourceLang": "en",
+    "url": "https://www.tenable.com/blog/microsoft-november-2026-patch-tuesday-addresses-1093-cves-cve-2026-124194"
+  },
+  {
+    "id": "n23",
+    "date": "2026-11-11",
+    "category": "security",
+    "hot": true,
+    "title": {
+      "zh-TW": "Apache HTTP Server 修補重大 HTTP/2 RCE",
+      "en": "Apache HTTP Server patches a critical HTTP/2 RCE"
+    },
+    "summary": {
+      "zh-TW": "CVE-2026-119618 影響 2.4.55～2.4.70，請升級至 2.4.71；由 Anthropic 與 Google 回報。",
+      "en": "CVE-2026-119618 affects 2.4.55–2.4.70; upgrade to 2.4.71. Reported by Anthropic and Google."
+    },
+    "source": "SecurityWeek",
+    "sourceLang": "en",
+    "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/"
+  },
+  {
+    "id": "n24",
+    "date": "2026-11-09",
+    "category": "security",
+    "hot": false,
+    "title": {
+      "zh-TW": "Chrome 修補已遭利用的零時差漏洞",
+      "en": "Chrome fixes an exploited zero-day"
+    },
+    "summary": {
+      "zh-TW": "Chrome 157.0.8103.50 修正 9 個 CVE，其中 CVE-2026-125350 已遭實際利用。",
+      "en": "Chrome 157.0.8103.50 resolves nine CVEs, including CVE-2026-125350, which is exploited in the wild."
+    },
+    "source": "CSO Online",
+    "sourceLang": "en",
+    "url": "https://www.csoonline.com/article/4247015/november-2026-patch-tuesday-63-critical-microsoft-fixes-plus-an-outlook-zero-day-that-allows-theft-of-hashed-credentials.html"
+  },
+  {
+    "id": "n25",
+    "date": "2026-11-05",
+    "category": "security",
+    "hot": false,
+    "title": {
+      "zh-TW": "Android 11 月公告：免互動遠端執行漏洞",
+      "en": "Android November bulletin: zero-click remote code execution"
+    },
+    "summary": {
+      "zh-TW": "CVE-2026-58868 影響 Android 14～17，需安全性修補程式等級 2026-11-01 以上。",
+      "en": "CVE-2026-58868 affects Android 14–17. Security patch level 2026-11-01 or later is required."
+    },
+    "source": "The Hacker News",
+    "sourceLang": "en",
+    "url": "https://thehackernews.com/2026/11/google-patches-critical-android-flaw.html"
+  },
+  {
+    "id": "n26",
+    "date": "2026-11-11",
+    "category": "security",
+    "hot": false,
+    "title": {
+      "zh-TW": "Fireworks AI 遭駭波及 Notion",
+      "en": "Fireworks AI breach affects Notion"
+    },
+    "summary": {
+      "zh-TW": "Notion 停用 Insights 功能；Fireworks 確認部分客戶帳務資料、資料集與不完整模型權重遭存取。",
+      "en": "Notion disabled its Insights feature; Fireworks confirmed some customer billing data, datasets and partial model weights were accessed."
+    },
+    "source": "iThome",
+    "sourceLang": "zh",
+    "url": "https://www.ithome.com.tw/news"
+  },
+  {
+    "id": "n27",
+    "date": "2026-11-06",
+    "category": "security",
+    "hot": false,
+    "title": {
+      "zh-TW": "SonicWall GMS 免登入檔案讀取漏洞，產品已無修補",
+      "en": "SonicWall GMS flaw allows unauthenticated file reads; no patch coming"
+    },
+    "summary": {
+      "zh-TW": "最高 9.1 分；產品已終止支援，官方建議遷移至 NSM。",
+      "en": "Scored up to 9.1. The product is end-of-life, and the vendor recommends migrating to NSM."
+    },
+    "source": "iThome",
+    "sourceLang": "zh",
+    "url": "https://www.ithome.com.tw/index.php?articleId=21374&blogId=1325&op=ViewArticle"
+  }
+]
