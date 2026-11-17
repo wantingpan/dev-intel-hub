@@ -6,5 +6,6 @@
   },
   "staleAfterDays": 3,
   "developingStaleAfterDays": 1,
-  "kevStaleAfterDays": 10
+  "kevStaleAfterDays": 10,
+  "feedStaleAfterDays": 3
 }

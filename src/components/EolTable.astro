@@ -1,0 +1,74 @@
+---
+// 版本與支援期限：資料由 GitHub Actions 每天 08:00–17:00 每小時同步（scripts/fetch-eol.mjs）
+// Versions and support dates: synced hourly 08:00–17:00 Taiwan time by GitHub Actions (scripts/fetch-eol.mjs)
+import eol from '../data/eol.json';
+import { t, type Lang } from '../i18n/ui';
+import { safeUrl } from '../lib/url';
+
+interface Cycle { cycle: string; latest: string | null; latestDate: string | null; lts: boolean; eol: string | null }
+interface Product { id: string; label: string; url: string; cycles: Cycle[] }
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const SHOW = 3; // 每個產品最多顯示幾個版本 / versions shown per product
+const products = (eol.products ?? []) as Product[];
+const site = safeUrl(eol.sourceUrl);
+// 建置當下計算 90 天內到期；每次同步都會重新建置 / "ends within 90 days" is computed at build time; every sync rebuilds
+const today = new Date().toISOString().slice(0, 10);
+const soonLimit = new Date(Date.now() + 90 * 86400000).toISOString().slice(0, 10);
+const soon = (d: string | null) => !!d && d >= today && d <= soonLimit;
+---
+<section class="panel" id="eol" aria-labelledby="eol-t">
+  <h2 id="eol-t">{s.eolTitle}</h2>
+  <p class="lede">{s.eolSub}</p>
+  <div class="grid">
+    {products.map((p) => {
+      const u = safeUrl(p.url);
+      return (
+        <div class="prod">
+          <h3>{u ? <a href={u} target="_blank" rel="noopener noreferrer">{p.label}</a> : p.label}</h3>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">{s.eolLatest}</th>
+                <th scope="col" class="r">{s.eolEnds}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {p.cycles.slice(0, SHOW).map((c) => (
+                <tr class:list={{ soon: soon(c.eol) }}>
+                  <td>
+                    <span class="num ver">{c.latest ?? c.cycle}</span>
+                    {c.lts && <span class="lts">LTS</span>}
+                  </td>
+                  <td class="r">
+                    {c.eol ? <time datetime={c.eol} class="num">{c.eol}</time> : <span class="none">{s.eolNone}</span>}
+                    {soon(c.eol) && <span class="warn">{s.eolSoon}</span>}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    })}
+  </div>
+  {site && <p class="foot"><a href={site} target="_blank" rel="noopener noreferrer">{s.eolCredit}</a></p>}
+</section>
+
+<style>
+  #eol { margin-top: 1.25rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1rem 1.25rem; }
+  .prod { border-top: 1px solid var(--line); padding-top: .6rem; min-width: 0; }
+  h3 { margin: 0 0 .35rem; font-size: 1rem; }
+  table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  th { font-size: .76rem; color: var(--muted); font-weight: 500; text-align: left; padding: 0 0 .2rem; }
+  td { padding: .2rem 0; vertical-align: top; }
+  .r { text-align: right; }
+  .ver { overflow-wrap: anywhere; }
+  .lts { margin-left: .35rem; font-size: .72rem; font-weight: 600; color: var(--accent); border: 1px solid currentColor; border-radius: 4px; padding: 0 .3rem; }
+  .none { color: var(--muted); }
+  .warn { display: block; font-size: .72rem; font-weight: 600; color: var(--warn); }
+  tr.soon td { color: var(--warn); }
+  .foot { margin: .9rem 0 0; padding-top: .75rem; border-top: 1px solid var(--line); font-size: .88rem; color: var(--muted); }
+</style>

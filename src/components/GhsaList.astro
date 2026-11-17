@@ -1,0 +1,95 @@
+---
+// GitHub 套件漏洞公告：資料由 GitHub Actions 每天 08:00–17:00 每小時同步（scripts/fetch-ghsa.mjs）
+// GitHub package advisories: synced hourly 08:00–17:00 Taiwan time by GitHub Actions (scripts/fetch-ghsa.mjs)
+import ghsa from '../data/ghsa.json';
+import meta from '../data/meta.json';
+import { t, formatDate, type Lang } from '../i18n/ui';
+import { safeUrl } from '../lib/url';
+import CvssMeter from './CvssMeter.astro';
+
+interface Item {
+  ghsa: string; cve: string | null; severity: 'critical' | 'high'; cvss: number | null;
+  ecosystem: string; packages: string[]; patched: string[]; summary: string; published: string;
+}
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const items = (ghsa.items ?? []) as Item[];
+const all = safeUrl(ghsa.sourceUrl);
+const license = safeUrl(ghsa.licenseUrl);
+// GHSA 編號已在同步時驗證過格式 / GHSA ids are format-checked during sync
+const link = (id: string) => (/^GHSA(-[23456789cfghjmpqrvwx]{4}){3}$/.test(id) ? `https://github.com/advisories/${id}` : undefined);
+const newest = items[0]?.published;
+---
+<section class="panel ghsa" id="ghsa" aria-labelledby="ghsa-t">
+  <h2 id="ghsa-t">{s.ghsaTitle}</h2>
+  <p class="lede">{s.ghsaSub}</p>
+
+  {newest && (
+    <p class="stale" role="status" data-stale-check data-verified={newest} data-threshold={meta.feedStaleAfterDays} hidden>
+      {s.ghsaStaleA}<span class="num" data-stale-days></span>{s.ghsaStaleB}
+    </p>
+  )}
+
+  {items.length === 0 ? (
+    <p class="empty">{s.ghsaEmpty}</p>
+  ) : (
+    <>
+      <ul class="list">
+        {items.map((v) => (
+          <li>
+            <div class="when">
+              <time datetime={v.published} class="num">{formatDate(v.published, lang)}</time>
+              <span class:list={['sev', v.severity]}>{s.sev[v.severity]}</span>
+            </div>
+            <div class="what">
+              <p class="head">
+                {link(v.ghsa) ? <a class="num" href={link(v.ghsa)} target="_blank" rel="noopener noreferrer">{v.ghsa}</a> : <span class="num">{v.ghsa}</span>}
+                <span class="pkg"><span class="eco">{v.ecosystem}</span> {v.packages.join(', ')}</span>
+              </p>
+              <p class="name" lang="en">{v.summary}</p>
+              <p class="meta">
+                <span>
+                  {v.patched.length > 0
+                    ? <>{s.ghsaPatched}{lang === 'en' ? ': ' : '：'}<span class="num">{v.patched.join(', ')}</span></>
+                    : s.ghsaNoPatch}
+                </span>
+                {v.cve && <span class="num">{v.cve}</span>}
+              </p>
+            </div>
+            <div class="score"><CvssMeter score={v.cvss} noneLabel={s.cvssNone} /></div>
+          </li>
+        ))}
+      </ul>
+      <p class="foot">
+        {all && <a href={all} target="_blank" rel="noopener noreferrer">{s.ghsaAll}</a>}
+        {license && <a href={license} target="_blank" rel="noopener noreferrer license">{s.ghsaLicense}</a>}
+      </p>
+    </>
+  )}
+</section>
+
+<style>
+  .ghsa { margin-bottom: 1.25rem; }
+  .stale { margin: 0 0 .75rem; padding: .45rem .75rem; font-size: .9rem; border-left: 3px solid var(--warn); background: var(--warn-bg); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; max-width: var(--measure); }
+  .empty { color: var(--muted); margin: 0; }
+  .list { list-style: none; margin: 0; padding: 0; }
+  li { display: grid; grid-template-columns: 6.5rem 1fr auto; gap: 1rem; padding: .8rem 0; border-top: 1px solid var(--line); }
+  .when { display: flex; flex-direction: column; gap: .3rem; align-items: flex-start; color: var(--muted); font-size: .9rem; }
+  .sev { font-size: .76rem; font-weight: 600; border-radius: 4px; padding: .05rem .4rem; border: 1px solid currentColor; line-height: 1.5; }
+  .sev.critical { color: var(--c-security); background: var(--c-security-bg); }
+  .sev.high { color: var(--warn); background: var(--warn-bg); }
+  .head { margin: 0; display: flex; flex-wrap: wrap; gap: .2rem .75rem; align-items: baseline; }
+  .head a, .head > .num { font-weight: 600; }
+  .pkg { font-weight: 600; overflow-wrap: anywhere; }
+  .eco { font-size: .78rem; font-weight: 500; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 .35rem; }
+  .name { margin: .1rem 0 0; color: var(--muted); font-size: .94rem; max-width: 66ch; line-height: 1.5; }
+  .meta { margin: .25rem 0 0; font-size: .88rem; display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
+  .meta .num:last-child:not(:first-child) { color: var(--muted); }
+  .score { padding-top: .1rem; }
+  .foot { margin: .75rem 0 0; padding-top: .75rem; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; font-size: .88rem; color: var(--muted); }
+  @media (max-width: 560px) {
+    li { grid-template-columns: 1fr; gap: .3rem; }
+    .when { flex-direction: row; align-items: center; }
+  }
+</style>

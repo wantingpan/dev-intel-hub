@@ -1,0 +1,189 @@
+{
+  "source": "GitHub Advisory Database",
+  "sourceUrl": "https://github.com/advisories",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "items": [
+    {
+      "ghsa": "GHSA-24c4-3p7v-29cm",
+      "cve": "CVE-2026-128127",
+      "severity": "high",
+      "cvss": 8.7,
+      "ecosystem": "pip",
+      "packages": [
+        "aiohttp"
+      ],
+      "patched": [
+        "3.14.4"
+      ],
+      "summary": "AIOHTTP: Base64 multipart parts bypass client_max_size",
+      "published": "2026-11-16"
+    },
+    {
+      "ghsa": "GHSA-259w-wmqg-fp76",
+      "cve": "CVE-2026-86046",
+      "severity": "high",
+      "cvss": null,
+      "ecosystem": "pip",
+      "packages": [
+        "termux-sync"
+      ],
+      "patched": [
+        "1.2.4"
+      ],
+      "summary": "termux-sync: Arbitrary file write during restore via attacker-controlled manifest source path",
+      "published": "2026-11-16"
+    },
+    {
+      "ghsa": "GHSA-28qf-cpwq-vmc2",
+      "cve": "CVE-2026-128130",
+      "severity": "high",
+      "cvss": 8.3,
+      "ecosystem": "pip",
+      "packages": [
+        "aiohttp"
+      ],
+      "patched": [
+        "3.14.4"
+      ],
+      "summary": "AIOHTTP: Pure-Python parser request replay and buffer growth behind a declined upgrade",
+      "published": "2026-11-16"
+    },
+    {
+      "ghsa": "GHSA-3r8g-jcqq-3p5j",
+      "cve": "CVE-2026-128120",
+      "severity": "high",
+      "cvss": null,
+      "ecosystem": "npm",
+      "packages": [
+        "@sveltejs/kit"
+      ],
+      "patched": [
+        "3.1.1"
+      ],
+      "summary": "SvelteKit: DoS while parsing form data from a remote functions `form`",
+      "published": "2026-11-16"
+    },
+    {
+      "ghsa": "GHSA-3rp8-rxj8-mvjw",
+      "cve": "CVE-2026-128128",
+      "severity": "high",
+      "cvss": null,
+      "ecosystem": "pip",
+      "packages": [
+        "aiohttp"
+      ],
+      "patched": [
+        "3.14.4"
+      ],
+      "summary": "AIOHTTP: WebSocket max_msg_size bypass via integer overflow",
+      "published": "2026-11-16"
+    },
+    {
+      "ghsa": "GHSA-5rmc-48h2-hvcm",
+      "cve": "CVE-2026-128132",
+      "severity": "high",
+      "cvss": 8.7,
+      "ecosystem": "pip",
+      "packages": [
+        "aiohttp"
+      ],
+      "patched": [
+        "3.14.4"
+      ],
+      "summary": "AIOHTTP: WebSocket receive queue limits bypassed by small or compressed messages",
+      "published": "2026-11-16"
+    },
+    {
+      "ghsa": "GHSA-72px-j8gh-p79x",
+      "cve": "CVE-2026-129297",
+      "severity": "high",
+      "cvss": null,
+      "ecosystem": "pip",
+      "packages": [
+        "mail-parser"
+      ],
+      "patched": [
+        "4.6.2"
+      ],
+      "summary": "mail-parser: Sender IP address spoofing in get_server_ipaddress()",
+      "published": "2026-11-16"
+    },
+    {
+      "ghsa": "GHSA-7mxv-7h3q-9324",
+      "cve": "CVE-2026-128134",
+      "severity": "high",
+      "cvss": null,
+      "ecosystem": "pip",
+      "packages": [
+        "nltk"
+      ],
+      "patched": [
+        "3.10.4"
+      ],
+      "summary": "NLTK dot2img runs Graphviz 'dot' without the trusted-exec chokepoint, enabling local code execution via a writable PATH element",
+      "published": "2026-11-16"
+    },
+    {
+      "ghsa": "GHSA-8vf2-hxg5-crqh",
+      "cve": "CVE-2026-129236",
+      "severity": "high",
+      "cvss": null,
+      "ecosystem": "go",
+      "packages": [
+        "github.com/kubeshark/kubeshark"
+      ],
+      "patched": [
+        "0.0.2-0.20260812200004-a76a1920dc75"
+      ],
+      "summary": "Kubeshark: MCP `start_kubeshark` argument injection via `pod_regex` → image redirect → cluster takeover",
+      "published": "2026-11-16"
+    },
+    {
+      "ghsa": "GHSA-c94f-87xg-65wf",
+      "cve": "CVE-2026-91115",
+      "severity": "high",
+      "cvss": null,
+      "ecosystem": "composer",
+      "packages": [
+        "silverstripe/framework"
+      ],
+      "patched": [
+        "6.2.13"
+      ],
+      "summary": "Silverstripe Framework: RCE via i18nTextCollectorTask writer parameter",
+      "published": "2026-11-16"
+    },
+    {
+      "ghsa": "GHSA-h4cc-hm5h-fmm9",
+      "cve": "CVE-2026-128131",
+      "severity": "high",
+      "cvss": 8.7,
+      "ecosystem": "pip",
+      "packages": [
+        "aiohttp"
+      ],
+      "patched": [
+        "3.14.4"
+      ],
+      "summary": "AIOHTTP: Concatenated compressed streams cause excessive CPU use",
+      "published": "2026-11-16"
+    },
+    {
+      "ghsa": "GHSA-jm3w-gw2p-xjfj",
+      "cve": "CVE-2026-128124",
+      "severity": "high",
+      "cvss": 8.2,
+      "ecosystem": "pip",
+      "packages": [
+        "aiohttp"
+      ],
+      "patched": [
+        "3.14.4"
+      ],
+      "summary": "AIOHTTP: Event loop stall in add_domain() wildcard matching",
+      "published": "2026-11-16"
+    }
+  ],
+  "fetchedAt": "2026-11-17T01:38:49.572Z"
+}

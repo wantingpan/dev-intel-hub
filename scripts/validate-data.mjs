@@ -160,12 +160,48 @@ for (const [i, v] of (kev.items ?? []).entries()) {
   }
 }
 
+// GitHub 套件漏洞公告（由排程自動同步，外部資料）/ GitHub advisories (synced on a schedule; external data)
+const ghsa = load('ghsa.json');
+checkUrl('ghsa.json.sourceUrl', ghsa.sourceUrl);
+checkUrl('ghsa.json.licenseUrl', ghsa.licenseUrl);
+if (!Array.isArray(ghsa.items)) errors.push('ghsa.json: items must be an array');
+for (const [i, v] of (ghsa.items ?? []).entries()) {
+  const w = `ghsa.json.items[${i}]`;
+  if (!/^GHSA(-[23456789cfghjmpqrvwx]{4}){3}$/.test(v.ghsa ?? '')) errors.push(`${w}: invalid GHSA id`);
+  if (v.cve !== null && !/^CVE-\d{4}-\d{4,}$/.test(v.cve ?? '')) errors.push(`${w}: cve must be a CVE id or null`);
+  if (!['critical', 'high'].includes(v.severity)) errors.push(`${w}: unknown severity "${v.severity}"`);
+  if (v.cvss !== null && (typeof v.cvss !== 'number' || v.cvss < 0 || v.cvss > 10)) errors.push(`${w}: cvss must be 0–10 or null`);
+  if (!isDate(v.published)) errors.push(`${w}: published must be YYYY-MM-DD`);
+  if (typeof v.summary !== 'string' || v.summary.length > 200) errors.push(`${w}: summary must be a string of at most 200 characters`);
+  if (typeof v.ecosystem !== 'string' || !v.ecosystem) errors.push(`${w}: missing ecosystem`);
+  if (!Array.isArray(v.packages) || v.packages.length === 0) errors.push(`${w}: needs at least one package`);
+  if (!Array.isArray(v.patched)) errors.push(`${w}: patched must be an array`);
+}
+
+// 版本與支援期限（由排程自動同步，外部資料）/ Versions and support dates (synced on a schedule; external data)
+const eol = load('eol.json');
+checkUrl('eol.json.sourceUrl', eol.sourceUrl);
+if (!Array.isArray(eol.products)) errors.push('eol.json: products must be an array');
+for (const p of eol.products ?? []) {
+  const w = `eol.json#${p.id}`;
+  if (!/^[a-z0-9-]+$/.test(p.id ?? '')) errors.push(`${w}: invalid product id`);
+  if (typeof p.label !== 'string' || !p.label) errors.push(`${w}: missing label`);
+  checkUrl(w, p.url);
+  if (!Array.isArray(p.cycles) || p.cycles.length === 0) errors.push(`${w}: needs at least one release cycle`);
+  for (const [i, c] of (p.cycles ?? []).entries()) {
+    if (typeof c.cycle !== 'string' || !c.cycle) errors.push(`${w}.cycles[${i}]: missing cycle`);
+    if (c.eol !== null && !isDate(c.eol)) errors.push(`${w}.cycles[${i}]: eol must be YYYY-MM-DD or null`);
+    if (c.latestDate !== null && !isDate(c.latestDate)) errors.push(`${w}.cycles[${i}]: latestDate must be YYYY-MM-DD or null`);
+    if (typeof c.lts !== 'boolean') errors.push(`${w}.cycles[${i}]: lts must be true or false`);
+  }
+}
+
 // 查證日期不可晚於今天（容許台灣與 UTC 的時差）/ Verification dates can't be in the future (allowing for Taiwan vs UTC)
 const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
 const meta = load('meta.json');
 if (!isDate(meta.verifiedOn)) errors.push('meta.json: verifiedOn must be YYYY-MM-DD');
 else if (meta.verifiedOn > tomorrow) errors.push(`meta.json: verifiedOn ${meta.verifiedOn} is in the future`);
-for (const k of ['staleAfterDays', 'developingStaleAfterDays', 'kevStaleAfterDays']) {
+for (const k of ['staleAfterDays', 'developingStaleAfterDays', 'kevStaleAfterDays', 'feedStaleAfterDays']) {
   if (!Number.isInteger(meta[k]) || meta[k] < 1) errors.push(`meta.json: ${k} must be a positive integer`);
 }
 for (const e of load('events.json')) {

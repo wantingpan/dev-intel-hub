@@ -53,7 +53,22 @@ npm run dev
 - `cves.json`：漏洞。`severity` 為 `exploited`、`critical` 或 `high`；`cvss` 沒有分數時為 `null`。
 - `events.json`：事件影響卡片。`status` 為 `ongoing`、`monitoring`、`patched` 或 `resolved`；`updates` 是後續追蹤時間軸，每筆都要附出處；`disputes` 記錄說法分歧；`postmortem` 為事後檢討報告連結（未發布時為 `null`）。市場資料需註明時間點（收盤或盤中）與來源；資安內容分為「已報導」與「常見模式」。
 - `kev.json`：CISA 已遭利用漏洞清單，由 `.github/workflows/kev-sync.yml` 每小時自動同步，**請勿手動編輯**。本機可執行 `node scripts/fetch-kev.mjs` 立即更新。
-- `meta.json`：查證日期，以及過期提示的門檻天數（`staleAfterDays`、`developingStaleAfterDays`）。
+- `ghsa.json`：GitHub 套件漏洞公告（重大與高風險，CC BY 4.0），由 `.github/workflows/feeds-sync.yml` 每天 08:00–17:00 每小時自動同步，**請勿手動編輯**。本機可執行 `node scripts/fetch-ghsa.mjs`。
+- `eol.json`：常用語言、框架與平台的最新版本與支援到期日（endoflife.date，MIT 授權），同上排程自動同步，**請勿手動編輯**。本機可執行 `node scripts/fetch-eol.mjs`。
+- `meta.json`：查證日期，以及過期提示的門檻天數（`staleAfterDays`、`developingStaleAfterDays`、`kevStaleAfterDays`、`feedStaleAfterDays`）。
+
+### 自動更新排程
+
+| 時間（台灣時間） | 執行者 | 更新內容 | 上線方式 |
+|---|---|---|---|
+| 每小時第 17 分 | GitHub Actions（`kev-sync.yml`） | `kev.json` | 有變動才推上 `main`，Netlify 自動部署 |
+| 每天 08:00–17:00 每小時整點 | GitHub Actions（`feeds-sync.yml`） | `ghsa.json`、`eol.json` | 同上 |
+| 週一到週五 08:00 | 本機 Claude 排程 | 新聞、漏洞、事件、`meta.json` | 依 UPDATING.md 查證，`check:data` 與 `build` 通過後直接推上 `main` |
+| 週一到週五 13:00 | 本機 Claude 排程 | 只更新「處理中」「觀察中」的事件 | 同上 |
+
+- GitHub Actions 的排程可能延遲幾分鐘到半小時。
+- 本機 Claude 排程需要電腦與 Claude 桌面 App 開著；錯過的時段會在下次打開 App 時補跑。
+- Claude 排程寫的內容**不經人工審核直接上線**。發現錯誤時，用 `git revert <commit>` 撤回該次提交即可。
 
 介面文字放在 `src/i18n/ui.ts`。
 
@@ -84,6 +99,8 @@ npm run dev
 - [x] 第一階段：雙語靜態網站（目前版本，資料手動更新）
 - [x] Netlify 自動部署與 GitHub Actions CI 檢查
 - [x] 第二階段（第一步）：每小時自動同步 CISA 已遭利用漏洞清單
+- [x] 第二階段：GitHub 套件漏洞公告與 endoflife.date 版本資料，每天 08:00–17:00 每小時自動同步
+- [x] 第二階段：本機 Claude 排程，平日 08:00 與 13:00 依查證規則更新新聞與事件
 - [ ] 第二階段：以 GitHub Actions 排程，自動抓取更多公開資料來源（各來源須先確認使用條款）
 - [ ] 第二階段：選用 AI 產生摘要與翻譯草稿，經人工審核後發布
 - [ ] 第二階段：串接股價資料來源（須確認市場資料的轉載與展示授權）
@@ -140,7 +157,22 @@ Content lives in `src/data/`:
 - `cves.json`: vulnerabilities. `severity` is `exploited`, `critical` or `high`; `cvss` is `null` when no score was given.
 - `events.json`: event impact cards. `status` is `ongoing`, `monitoring`, `patched` or `resolved`; `updates` is a follow-up timeline, each entry sourced; `disputes` records conflicting reports; `postmortem` links the post-incident review (`null` until published). Market rows must state their timing (close or intraday) and source; security items are split into "reported" and "common pattern".
 - `kev.json`: CISA's KEV catalog, synced hourly by `.github/workflows/kev-sync.yml`. **Don't edit by hand.** Run `node scripts/fetch-kev.mjs` locally to refresh it now.
-- `meta.json`: the verification date and staleness thresholds (`staleAfterDays`, `developingStaleAfterDays`).
+- `ghsa.json`: critical and high GitHub package advisories (CC BY 4.0), synced hourly 08:00–17:00 Taiwan time by `.github/workflows/feeds-sync.yml`. **Don't edit by hand.** Run `node scripts/fetch-ghsa.mjs` locally.
+- `eol.json`: latest versions and end-of-support dates for common languages, frameworks and platforms (endoflife.date, MIT licensed), synced on the same schedule. **Don't edit by hand.** Run `node scripts/fetch-eol.mjs` locally.
+- `meta.json`: the verification date and staleness thresholds (`staleAfterDays`, `developingStaleAfterDays`, `kevStaleAfterDays`, `feedStaleAfterDays`).
+
+### Scheduled updates
+
+| When (Taiwan time) | Runs on | Updates | How it goes live |
+|---|---|---|---|
+| Minute 17 of every hour | GitHub Actions (`kev-sync.yml`) | `kev.json` | Pushed to `main` only when changed; Netlify redeploys |
+| Every hour on the hour, 08:00–17:00 | GitHub Actions (`feeds-sync.yml`) | `ghsa.json`, `eol.json` | Same |
+| Weekdays 08:00 | Local Claude scheduled task | News, CVEs, events, `meta.json` | Verified per UPDATING.md; pushed to `main` after `check:data` and `build` pass |
+| Weekdays 13:00 | Local Claude scheduled task | Ongoing and monitoring events only | Same |
+
+- GitHub Actions may start scheduled runs a few minutes to half an hour late.
+- The local Claude task needs the computer and the Claude desktop app running; missed runs happen the next time the app opens.
+- Content from the Claude task **goes live without human review**. To undo a bad update, `git revert <commit>`.
 
 UI strings live in `src/i18n/ui.ts`.
 
@@ -171,6 +203,8 @@ See [SECURITY.md](SECURITY.md) for protections and how to report issues. Recomme
 - [x] Phase 1: bilingual static site (current; data updated by hand)
 - [x] Netlify auto-deploys with GitHub Actions CI checks
 - [x] Phase 2, step one: hourly sync of CISA's Known Exploited Vulnerabilities catalog
+- [x] Phase 2: GitHub package advisories and endoflife.date versions, synced hourly 08:00–17:00 Taiwan time
+- [x] Phase 2: local Claude scheduled task updates news and events on weekdays at 08:00 and 13:00, following the verification rules
 - [ ] Phase 2: scheduled GitHub Actions that pull from more public sources (each source's terms checked first)
 - [ ] Phase 2: optional AI-drafted summaries and translations, published after human review
 - [ ] Phase 2: connect a market data source (licensing for redisplay must be checked first)

@@ -5,6 +5,8 @@ import NewsList from '../../components/NewsList.astro';
 import Sidebar from '../../components/Sidebar.astro';
 import CveTable from '../../components/CveTable.astro';
 import KevList from '../../components/KevList.astro';
+import GhsaList from '../../components/GhsaList.astro';
+import EolTable from '../../components/EolTable.astro';
 import meta from '../../data/meta.json';
 import { langs, t, formatDate, type Lang } from '../../i18n/ui';
 
@@ -30,7 +32,11 @@ const s = t(lang);
 
   <KevList lang={lang} />
 
+  <GhsaList lang={lang} />
+
   <CveTable lang={lang} />
+
+  <EolTable lang={lang} />
 
   <details class="notes">
     <summary>{s.notesTitle}</summary>

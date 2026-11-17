@@ -1,0 +1,421 @@
+{
+  "source": "endoflife.date",
+  "sourceUrl": "https://endoflife.date",
+  "license": "MIT",
+  "products": [
+    {
+      "id": "nodejs",
+      "label": "Node.js",
+      "url": "https://endoflife.date/nodejs",
+      "cycles": [
+        {
+          "cycle": "26",
+          "latest": "26.13.1",
+          "latestDate": "2026-11-11",
+          "lts": true,
+          "eol": "2029-04-30"
+        },
+        {
+          "cycle": "24",
+          "latest": "24.22.3",
+          "latestDate": "2026-11-11",
+          "lts": true,
+          "eol": "2028-04-30"
+        },
+        {
+          "cycle": "22",
+          "latest": "22.23.5",
+          "latestDate": "2026-11-11",
+          "lts": true,
+          "eol": "2027-04-30"
+        }
+      ]
+    },
+    {
+      "id": "python",
+      "label": "Python",
+      "url": "https://endoflife.date/python",
+      "cycles": [
+        {
+          "cycle": "3.15",
+          "latest": "3.15.2",
+          "latestDate": "2026-10-25",
+          "lts": false,
+          "eol": "2031-10-31"
+        },
+        {
+          "cycle": "3.14",
+          "latest": "3.14.10",
+          "latestDate": "2026-10-25",
+          "lts": false,
+          "eol": "2030-10-31"
+        },
+        {
+          "cycle": "3.13",
+          "latest": "3.13.18",
+          "latestDate": "2026-10-25",
+          "lts": false,
+          "eol": "2029-10-31"
+        },
+        {
+          "cycle": "3.12",
+          "latest": "3.12.16",
+          "latestDate": "2026-10-25",
+          "lts": false,
+          "eol": "2028-10-31"
+        },
+        {
+          "cycle": "3.11",
+          "latest": "3.11.18",
+          "latestDate": "2026-10-25",
+          "lts": false,
+          "eol": "2027-10-31"
+        }
+      ]
+    },
+    {
+      "id": "dotnet",
+      "label": "Microsoft .NET",
+      "url": "https://endoflife.date/dotnet",
+      "cycles": [
+        {
+          "cycle": "11",
+          "latest": "11.0.0",
+          "latestDate": "2026-11-10",
+          "lts": false,
+          "eol": "2028-11-14"
+        },
+        {
+          "cycle": "10",
+          "latest": "10.0.15",
+          "latestDate": "2026-11-10",
+          "lts": true,
+          "eol": "2028-11-14"
+        }
+      ]
+    },
+    {
+      "id": "eclipse-temurin",
+      "label": "Eclipse Temurin",
+      "url": "https://endoflife.date/eclipse-temurin",
+      "cycles": [
+        {
+          "cycle": "27",
+          "latest": "27.0.1.0.2+1",
+          "latestDate": "2026-10-24",
+          "lts": false,
+          "eol": "2027-03-23"
+        },
+        {
+          "cycle": "25",
+          "latest": "25.0.5+8",
+          "latestDate": "2026-10-22",
+          "lts": true,
+          "eol": "2031-09-30"
+        },
+        {
+          "cycle": "21",
+          "latest": "21.0.13+9",
+          "latestDate": "2026-10-22",
+          "lts": true,
+          "eol": "2029-12-31"
+        },
+        {
+          "cycle": "17",
+          "latest": "17.0.21+9",
+          "latestDate": "2026-10-22",
+          "lts": true,
+          "eol": "2027-10-31"
+        },
+        {
+          "cycle": "11",
+          "latest": "11.0.33+10",
+          "latestDate": "2026-11-04",
+          "lts": true,
+          "eol": "2027-10-31"
+        },
+        {
+          "cycle": "8",
+          "latest": "8u512-b09",
+          "latestDate": "2026-11-04",
+          "lts": true,
+          "eol": "2030-12-31"
+        }
+      ]
+    },
+    {
+      "id": "go",
+      "label": "Go",
+      "url": "https://endoflife.date/go",
+      "cycles": [
+        {
+          "cycle": "1.27",
+          "latest": "1.27.4",
+          "latestDate": "2026-11-10",
+          "lts": false,
+          "eol": null
+        },
+        {
+          "cycle": "1.26",
+          "latest": "1.26.11",
+          "latestDate": "2026-11-10",
+          "lts": false,
+          "eol": null
+        }
+      ]
+    },
+    {
+      "id": "php",
+      "label": "PHP",
+      "url": "https://endoflife.date/php",
+      "cycles": [
+        {
+          "cycle": "8.5",
+          "latest": "8.5.12",
+          "latestDate": "2026-10-21",
+          "lts": false,
+          "eol": "2029-12-31"
+        },
+        {
+          "cycle": "8.4",
+          "latest": "8.4.27",
+          "latestDate": "2026-10-21",
+          "lts": false,
+          "eol": "2028-12-31"
+        },
+        {
+          "cycle": "8.3",
+          "latest": "8.3.36",
+          "latestDate": "2026-10-21",
+          "lts": false,
+          "eol": "2027-12-31"
+        },
+        {
+          "cycle": "8.2",
+          "latest": "8.2.35",
+          "latestDate": "2026-10-21",
+          "lts": false,
+          "eol": "2026-12-31"
+        }
+      ]
+    },
+    {
+      "id": "react",
+      "label": "React",
+      "url": "https://endoflife.date/react",
+      "cycles": [
+        {
+          "cycle": "19",
+          "latest": "19.3.1",
+          "latestDate": "2026-10-14",
+          "lts": false,
+          "eol": null
+        },
+        {
+          "cycle": "18",
+          "latest": "18.3.1",
+          "latestDate": "2024-04-26",
+          "lts": false,
+          "eol": null
+        },
+        {
+          "cycle": "17",
+          "latest": "17.0.2",
+          "latestDate": "2021-03-22",
+          "lts": false,
+          "eol": null
+        },
+        {
+          "cycle": "16",
+          "latest": "16.14.0",
+          "latestDate": "2020-10-14",
+          "lts": false,
+          "eol": null
+        },
+        {
+          "cycle": "15",
+          "latest": "15.7.0",
+          "latestDate": "2020-10-14",
+          "lts": false,
+          "eol": null
+        }
+      ]
+    },
+    {
+      "id": "angular",
+      "label": "Angular",
+      "url": "https://endoflife.date/angular",
+      "cycles": [
+        {
+          "cycle": "22",
+          "latest": "22.2.6",
+          "latestDate": "2026-11-11",
+          "lts": false,
+          "eol": "2028-06-30"
+        },
+        {
+          "cycle": "21",
+          "latest": "21.2.26",
+          "latestDate": "2026-11-02",
+          "lts": false,
+          "eol": "2027-06-30"
+        },
+        {
+          "cycle": "20",
+          "latest": "20.3.35",
+          "latestDate": "2026-11-02",
+          "lts": false,
+          "eol": "2026-11-28"
+        }
+      ]
+    },
+    {
+      "id": "vue",
+      "label": "Vue",
+      "url": "https://endoflife.date/vue",
+      "cycles": [
+        {
+          "cycle": "3.5",
+          "latest": "3.5.45",
+          "latestDate": "2026-11-05",
+          "lts": false,
+          "eol": null
+        }
+      ]
+    },
+    {
+      "id": "nextjs",
+      "label": "Next.js",
+      "url": "https://endoflife.date/nextjs",
+      "cycles": [
+        {
+          "cycle": "16",
+          "latest": "16.4.6",
+          "latestDate": "2026-11-09",
+          "lts": true,
+          "eol": null
+        },
+        {
+          "cycle": "15",
+          "latest": "15.5.29",
+          "latestDate": "2026-11-03",
+          "lts": true,
+          "eol": "2027-01-31"
+        }
+      ]
+    },
+    {
+      "id": "django",
+      "label": "Django",
+      "url": "https://endoflife.date/django",
+      "cycles": [
+        {
+          "cycle": "6.1",
+          "latest": "6.1.3",
+          "latestDate": "2026-11-03",
+          "lts": false,
+          "eol": "2027-12-31"
+        },
+        {
+          "cycle": "6.0",
+          "latest": "6.0.10",
+          "latestDate": "2026-11-03",
+          "lts": false,
+          "eol": "2027-04-30"
+        },
+        {
+          "cycle": "5.2",
+          "latest": "5.2.19",
+          "latestDate": "2026-11-03",
+          "lts": true,
+          "eol": "2028-04-30"
+        }
+      ]
+    },
+    {
+      "id": "spring-boot",
+      "label": "Spring Boot",
+      "url": "https://endoflife.date/spring-boot",
+      "cycles": [
+        {
+          "cycle": "4.1",
+          "latest": "4.1.2",
+          "latestDate": "2026-10-22",
+          "lts": false,
+          "eol": "2027-07-31"
+        },
+        {
+          "cycle": "4.0",
+          "latest": "4.0.9",
+          "latestDate": "2026-10-22",
+          "lts": false,
+          "eol": "2026-12-31"
+        }
+      ]
+    },
+    {
+      "id": "kubernetes",
+      "label": "Kubernetes",
+      "url": "https://endoflife.date/kubernetes",
+      "cycles": [
+        {
+          "cycle": "1.37",
+          "latest": "1.37.2",
+          "latestDate": "2026-10-27",
+          "lts": false,
+          "eol": "2027-10-28"
+        },
+        {
+          "cycle": "1.36",
+          "latest": "1.36.6",
+          "latestDate": "2026-10-27",
+          "lts": false,
+          "eol": "2027-06-28"
+        },
+        {
+          "cycle": "1.35",
+          "latest": "1.35.10",
+          "latestDate": "2026-10-27",
+          "lts": false,
+          "eol": "2027-02-28"
+        }
+      ]
+    },
+    {
+      "id": "postgresql",
+      "label": "PostgreSQL",
+      "url": "https://endoflife.date/postgresql",
+      "cycles": [
+        {
+          "cycle": "18",
+          "latest": "18.7",
+          "latestDate": "2026-11-09",
+          "lts": false,
+          "eol": "2030-11-14"
+        },
+        {
+          "cycle": "17",
+          "latest": "17.12",
+          "latestDate": "2026-11-09",
+          "lts": false,
+          "eol": "2029-11-08"
+        },
+        {
+          "cycle": "16",
+          "latest": "16.16",
+          "latestDate": "2026-11-09",
+          "lts": false,
+          "eol": "2028-11-09"
+        },
+        {
+          "cycle": "15",
+          "latest": "15.20",
+          "latestDate": "2026-11-09",
+          "lts": false,
+          "eol": "2027-11-11"
+        }
+      ]
+    }
+  ],
+  "fetchedAt": "2026-11-17T01:39:06.995Z"
+}

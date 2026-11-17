@@ -17,6 +17,18 @@
 
 門檻天數設定在 `src/data/meta.json` 的 `staleAfterDays`（一般內容）與 `developingStaleAfterDays`（發展中事件）。
 
+### 自動更新
+
+| 時間（台灣時間） | 執行者 | 做什麼 |
+|---|---|---|
+| 週一到週五 08:00 | 本機 Claude 排程 | 完整一輪：新聞、漏洞、事件，最多新增 5 則新聞，更新 `meta.json` |
+| 週一到週五 13:00 | 本機 Claude 排程 | 只確認「處理中」「觀察中」的事件，沒有新進展就不提交 |
+
+- 排程同樣遵守本文件的查證規則，`npm run check:data` 與 `npm run build` 都通過後才直接推上 `main`，不開 Pull Request。
+- 每次自動更新是一個獨立提交，訊息為 `Content update YYYY-MM-DD HH:00 (auto)`。發現錯誤時用 `git revert` 撤回。
+- `kev.json`、`ghsa.json`、`eol.json` 由 GitHub Actions 同步，排程與手動更新都不要修改。
+- 手動更新時，先 `git pull` 取得排程推上的最新內容，避免衝突。
+
 ---
 
 ## 二、查證規則
