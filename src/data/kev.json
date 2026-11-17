@@ -1,10 +1,20 @@
 {
   "source": "CISA Known Exploited Vulnerabilities Catalog",
   "sourceUrl": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-  "catalogVersion": "2026.11.13",
-  "dateReleased": "2026-11-13T20:24:18.3008Z",
-  "total": 1781,
+  "catalogVersion": "2026.11.17",
+  "dateReleased": "2026-11-17T17:53:15.5664Z",
+  "total": 1782,
   "items": [
+    {
+      "cve": "CVE-2026-115731",
+      "vendor": "Perforce",
+      "product": "Puppet Enterprise",
+      "name": "Perforce Puppet Enterprise Deserialization of Untrusted Data Vulnerability",
+      "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating",
+      "dateAdded": "2026-11-17",
+      "dueDate": "2026-12-01",
+      "ransomware": false
+    },
     {
       "cve": "CVE-2026-123039",
       "vendor": "Check Point",
@@ -114,17 +124,7 @@
       "dateAdded": "2026-11-09",
       "dueDate": "2026-11-12",
       "ransomware": false
-    },
-    {
-      "cve": "CVE-2026-102895",
-      "vendor": "GPUStack",
-      "product": "GPUStack",
-      "name": "GPUStack Improper Authentication Vulnerability",
-      "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating",
-      "dateAdded": "2026-11-09",
-      "dueDate": "2026-11-12",
-      "ransomware": false
     }
   ],
-  "fetchedAt": "2026-11-13T22:36:18.361Z"
+  "fetchedAt": "2026-11-17T22:21:32.909Z"
 }
