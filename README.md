@@ -63,7 +63,7 @@ npm run dev
 |---|---|---|---|
 | 每小時第 17 分 | GitHub Actions（`kev-sync.yml`） | `kev.json` | 有變動才推上 `main`，Netlify 自動部署 |
 | 每天 08:00–17:00 每小時整點 | GitHub Actions（`feeds-sync.yml`） | `ghsa.json`、`eol.json` | 同上 |
-| 週一到週五 08:00 | 本機 Claude 排程 | 新聞、漏洞、事件、`meta.json` | 依 UPDATING.md 查證，`check:data` 與 `build` 通過後直接推上 `main` |
+| 週一到週五 09:10 | 本機 Claude 排程 | 新聞、漏洞、事件、`meta.json` | 依 UPDATING.md 查證，`check:data` 與 `build` 通過後直接推上 `main` |
 | 週一到週五 13:00 | 本機 Claude 排程 | 只更新「處理中」「觀察中」的事件 | 同上 |
 
 - GitHub Actions 的排程可能延遲幾分鐘到半小時。
@@ -100,7 +100,7 @@ npm run dev
 - [x] Netlify 自動部署與 GitHub Actions CI 檢查
 - [x] 第二階段（第一步）：每小時自動同步 CISA 已遭利用漏洞清單
 - [x] 第二階段：GitHub 套件漏洞公告與 endoflife.date 版本資料，每天 08:00–17:00 每小時自動同步
-- [x] 第二階段：本機 Claude 排程，平日 08:00 與 13:00 依查證規則更新新聞與事件
+- [x] 第二階段：本機 Claude 排程，平日 09:10 與 13:00 依查證規則更新新聞與事件
 - [ ] 第二階段：以 GitHub Actions 排程，自動抓取更多公開資料來源（各來源須先確認使用條款）
 - [ ] 第二階段：選用 AI 產生摘要與翻譯草稿，經人工審核後發布
 - [ ] 第二階段：串接股價資料來源（須確認市場資料的轉載與展示授權）
@@ -167,7 +167,7 @@ Content lives in `src/data/`:
 |---|---|---|---|
 | Minute 17 of every hour | GitHub Actions (`kev-sync.yml`) | `kev.json` | Pushed to `main` only when changed; Netlify redeploys |
 | Every hour on the hour, 08:00–17:00 | GitHub Actions (`feeds-sync.yml`) | `ghsa.json`, `eol.json` | Same |
-| Weekdays 08:00 | Local Claude scheduled task | News, CVEs, events, `meta.json` | Verified per UPDATING.md; pushed to `main` after `check:data` and `build` pass |
+| Weekdays 09:10 | Local Claude scheduled task | News, CVEs, events, `meta.json` | Verified per UPDATING.md; pushed to `main` after `check:data` and `build` pass |
 | Weekdays 13:00 | Local Claude scheduled task | Ongoing and monitoring events only | Same |
 
 - GitHub Actions may start scheduled runs a few minutes to half an hour late.
@@ -204,7 +204,7 @@ See [SECURITY.md](SECURITY.md) for protections and how to report issues. Recomme
 - [x] Netlify auto-deploys with GitHub Actions CI checks
 - [x] Phase 2, step one: hourly sync of CISA's Known Exploited Vulnerabilities catalog
 - [x] Phase 2: GitHub package advisories and endoflife.date versions, synced hourly 08:00–17:00 Taiwan time
-- [x] Phase 2: local Claude scheduled task updates news and events on weekdays at 08:00 and 13:00, following the verification rules
+- [x] Phase 2: local Claude scheduled task updates news and events on weekdays at 09:10 and 13:00, following the verification rules
 - [ ] Phase 2: scheduled GitHub Actions that pull from more public sources (each source's terms checked first)
 - [ ] Phase 2: optional AI-drafted summaries and translations, published after human review
 - [ ] Phase 2: connect a market data source (licensing for redisplay must be checked first)
