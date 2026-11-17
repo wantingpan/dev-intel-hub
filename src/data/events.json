@@ -265,7 +265,7 @@
       }
     ],
     "status": "monitoring",
-    "verifiedOn": "2026-11-13",
+    "verifiedOn": "2026-11-17",
     "updates": [
       {
         "date": "2026-11-12",
@@ -307,6 +307,52 @@
         "source": {
           "name": "中央社",
           "url": "https://www.cna.com.tw/news/afe/202611130036.aspx"
+        }
+      },
+      {
+        "date": "2026-11-13",
+        "time": {
+          "zh-TW": "美東收盤",
+          "en": "US close"
+        },
+        "text": {
+          "zh-TW": "Nvidia 收跌 2.01%，市值收在 4 兆美元以下。",
+          "en": "Nvidia closed down 2.01%, ending below a $4 trillion market value."
+        },
+        "source": {
+          "name": "CNBC",
+          "url": "https://www.cnbc.com/2026/11/13/nvidia-nvda-stock-jensen-huang-transition.html"
+        }
+      },
+      {
+        "date": "2026-11-16",
+        "time": {
+          "zh-TW": "美東收盤",
+          "en": "US close"
+        },
+        "text": {
+          "zh-TW": "Nvidia 收跌 4.12%。截至此時，董事會尚未公布新任執行長人選。",
+          "en": "Nvidia closed down 4.12%. The board had not yet named a permanent CEO."
+        },
+        "source": {
+          "name": "CNBC",
+          "url": "https://www.cnbc.com/2026/11/16/nvidia-stock-price-jensen-huang.html"
+        }
+      },
+      {
+        "date": "2026-11-18",
+        "time": {
+          "zh-TW": "台灣時間約 05:20（美西 11/17 約 13:20）",
+          "en": "about 5:20 a.m. Taiwan time (about 1:20 p.m. PT on Nov 17)"
+        },
+        "upcoming": true,
+        "text": {
+          "zh-TW": "Nvidia 依原訂時程公布 2027 會計年度第三季財報，這是執行長異動後的第一次財報。",
+          "en": "Nvidia reports fiscal 2027 third-quarter results as previously scheduled, its first report since the CEO change."
+        },
+        "source": {
+          "name": "Nvidia",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
         }
       }
     ],
@@ -533,8 +579,8 @@
         "en": "Microsoft said elevated load on part of its infrastructure across regions was likely behind the errors; it paused all deployments, moved traffic and restarted affected servers."
       },
       {
-        "zh-TW": "部分伺服器恢復後，一旦流量回流又會再度無回應；截至查證時（台灣時間 11/13），微軟尚未宣布完全恢復。",
-        "en": "Some servers became unresponsive again once traffic returned. As of our check (Nov 13, Taiwan time), Microsoft hadn't declared full recovery."
+        "zh-TW": "部分伺服器恢復後，一旦流量回流又會再度無回應；微軟於美東時間 11/13 深夜將事件標示為服務已恢復。",
+        "en": "Some servers became unresponsive again once traffic returned. Microsoft marked the incident as service restored late on Nov 13 ET."
       }
     ],
     "work": [
@@ -663,8 +709,8 @@
         "url": "https://www.fxleaders.com/news/2026/11/12/msft-stock-reverses-heading-to-500-after-microsoft-365-services-impacted-by-outlook-outage/"
       }
     ],
-    "status": "ongoing",
-    "verifiedOn": "2026-11-13",
+    "status": "monitoring",
+    "verifiedOn": "2026-11-17",
     "updates": [
       {
         "date": "2026-11-12",
@@ -725,11 +771,51 @@
           "name": "ABC News",
           "url": "https://abcnews.com/US/outlook-down-microsoft-outage-reported-mail/story?id=138088203"
         }
+      },
+      {
+        "date": "2026-11-13",
+        "time": {
+          "zh-TW": "美東約 23:17",
+          "en": "about 11:17 p.m. ET"
+        },
+        "text": {
+          "zh-TW": "微軟將事件 MO1550821 與 EX1550543 標示為服務已恢復。",
+          "en": "Microsoft marked incidents MO1550821 and EX1550543 as service restored."
+        },
+        "source": {
+          "name": "On-Site Technology",
+          "url": "https://www.on-sitetechnology.com/microsoft-365-outage-november-2026/"
+        }
+      },
+      {
+        "date": "2026-11-15",
+        "time": null,
+        "text": {
+          "zh-TW": "據 Wccftech 報導，微軟的初步事後檢討報告指出，原因是 Microsoft 365 網路閘道伺服器上一個先前未被發現的缺陷，源自 2026 年 7 月部署的更新；高峰時超過八成的閘道伺服器停止回應。",
+          "en": "According to Wccftech, Microsoft's preliminary post-incident report traced the outage to a previously undetected defect on Microsoft 365 networking gateway servers, introduced by an update deployed in July 2026; at the peak, more than 80% of gateway servers stopped responding."
+        },
+        "source": {
+          "name": "Wccftech",
+          "url": "https://wccftech.com/microsoft-reveals-root-cause-of-massive-microsoft-365-outage-as-months-old-windows-bug-crippled-over-80-of-servers/"
+        }
+      },
+      {
+        "date": "2026-11-20",
+        "time": null,
+        "upcoming": true,
+        "text": {
+          "zh-TW": "微軟預定發布最終事後檢討報告。",
+          "en": "Microsoft is due to publish its final post-incident report."
+        },
+        "source": {
+          "name": "Wccftech",
+          "url": "https://wccftech.com/microsoft-reveals-root-cause-of-massive-microsoft-365-outage-as-months-old-windows-bug-crippled-over-80-of-servers/"
+        }
       }
     ],
     "nextWatch": {
-      "zh-TW": "完全恢復的時間，以及微軟是否發布事後檢討報告說明根本原因。",
-      "en": "When service fully recovers, and whether Microsoft publishes a post-incident review with the root cause."
+      "zh-TW": "微軟預定 11/20 發布的最終事後檢討報告，以及後續的改善措施。",
+      "en": "Microsoft's final post-incident report, due Nov 20, and the follow-up fixes."
     },
     "postmortem": null,
     "disputes": [
