@@ -3,6 +3,7 @@ import cves from '../data/cves.json';
 import { t, type Lang } from '../i18n/ui';
 import { safeUrl } from '../lib/url';
 import CvssMeter from './CvssMeter.astro';
+import InfoTip from './InfoTip.astro';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -14,11 +15,11 @@ const s = t(lang);
     <table>
       <thead>
         <tr>
-          <th scope="col">{s.thCve}</th>
+          <th scope="col">{s.thCve}<InfoTip lang={lang} id="cve" /></th>
           <th scope="col">{s.thProduct}</th>
           <th scope="col">{s.thStatus}</th>
           <th scope="col">{s.thAction}</th>
-          <th scope="col" class="r">{s.thCvss}</th>
+          <th scope="col" class="r">{s.thCvss}<InfoTip lang={lang} id="cvss" /></th>
         </tr>
       </thead>
       <tbody>

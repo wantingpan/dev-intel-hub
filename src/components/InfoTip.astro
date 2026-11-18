@@ -1,0 +1,58 @@
+---
+// 名詞說明小圖示：點擊（或鍵盤 Enter／Space）展開名詞小教室裡的說明，內容與名詞小教室同源，不重複維護。
+// Info icon: click (or Enter/Space) opens the glossary entry for a term. Text comes from glossary.json, so it's maintained in one place.
+// 使用瀏覽器內建的 popover，Esc 與點擊外部會自動關閉，也不會被表格的捲動區域裁切。
+// Uses the browser's built-in popover: Esc and outside clicks close it, and the table's scroll area can't clip it.
+import { t, href, type Lang } from '../i18n/ui';
+import { getTerm } from '../lib/glossary';
+
+interface Props { lang: Lang; id: string }
+const { lang, id } = Astro.props;
+const s = t(lang);
+const term = getTerm(id);
+const popId = `tip-${id}`;
+---
+{term && (
+  <span class="info">
+    <button type="button" class="btn" popovertarget={popId} aria-label={`${term.term[lang]}：${s.infoLabel}`}>
+      <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
+        <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.4" />
+        <circle cx="8" cy="4.9" r="1" fill="currentColor" />
+        <path d="M8 7.4v4.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+      </svg>
+    </button>
+    <div id={popId} popover="auto" class="tip" role="note" lang={lang}>
+      <p class="ttl">{term.term[lang]}</p>
+      <p class="one">{term.oneLiner[lang]}</p>
+      <ul>
+        {term.points.map((p) => <li>{p[lang]}</li>)}
+      </ul>
+      <a class="more" href={href(`${lang}/learn/#${term.id}`)}>{s.infoMore}</a>
+    </div>
+  </span>
+)}
+
+<style>
+  .info { display: inline-block; margin-left: .2rem; vertical-align: middle; }
+  .btn {
+    display: inline-grid; place-items: center; width: 1.5rem; height: 1.5rem; padding: 0;
+    border: 0; background: none; color: var(--muted); cursor: pointer; border-radius: 50%;
+  }
+  .btn:hover, .btn[aria-expanded='true'], .btn:has(+ .tip:popover-open) { color: var(--accent); }
+  .tip {
+    /* popover 預設置中；位置由 js/infotip.js 在開啟時依按鈕算出 / popovers center by default; js/infotip.js positions it next to the button */
+    inset: auto; margin: 0; position: fixed;
+    width: min(21rem, calc(100vw - 1rem)); max-height: calc(100vh - 1rem); overflow: auto;
+    padding: .85rem 1rem; text-align: left; font-size: .9rem; font-weight: 400; line-height: 1.55;
+    color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm);
+    box-shadow: 0 8px 24px rgb(0 0 0 / .18);
+  }
+  .tip p { margin: 0; }
+  .ttl { font-weight: 600; }
+  .one { margin-top: .15rem; color: var(--muted); }
+  .tip ul { margin: .5rem 0 0; padding-left: 1.1rem; }
+  .tip li + li { margin-top: .3rem; }
+  .more { display: inline-block; margin-top: .6rem; font-size: .88rem; }
+</style>
+
+<script is:inline src={href('js/infotip.js')} defer></script>
