@@ -1,0 +1,139 @@
+---
+// 技術動態：RSS 來源的最新標題與連結。資料由 GitHub Actions 每天 3 次同步（scripts/fetch-feeds.mjs）。
+// Dev feeds: latest titles and links from RSS sources, synced three times a day by GitHub Actions (scripts/fetch-feeds.mjs).
+import Base from '../../layouts/Base.astro';
+import config from '../../data/feed-sources.json';
+import feeds from '../../data/feeds.json';
+import meta from '../../data/meta.json';
+import { langs, t, href, formatDate, type Lang } from '../../i18n/ui';
+import { safeUrl } from '../../lib/url';
+
+export function getStaticPaths() {
+  return langs.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const s = t(lang);
+const byId = new Map(feeds.sources.map((x) => [x.id, x]));
+const interestName = new Map(config.interests.map((i) => [i.id, i.name[lang]]));
+const groups = config.groups.map((g) => ({
+  ...g,
+  sources: config.sources
+    .filter((x) => x.group === g.id)
+    .map((x) => ({ ...x, data: byId.get(x.id) })),
+}));
+const fetched = typeof feeds.fetchedAt === 'string' ? feeds.fetchedAt.slice(0, 10) : null;
+---
+<Base lang={lang} page="feeds" title={s.feedsTitle}>
+  <header class="head">
+    <h1>{s.feedsTitle}</h1>
+    <p class="lede">{s.feedsLede}</p>
+    <p class="badges">
+      <span class="notice">{s.feedsNotice}</span>
+      <span class="muted">{s.feedsSync}</span>
+      <a class="opml" href={href('feeds.opml')} download title={s.feedsOpmlHint}>{s.feedsOpml}</a>
+    </p>
+    {fetched && (
+      <p class="stale" role="status" data-stale-check data-verified={fetched} data-threshold={meta.feedStaleAfterDays} hidden>
+        {s.feedsStaleA}<span class="num" data-stale-days></span>{s.feedsStaleB}
+      </p>
+    )}
+  </header>
+
+  <div class="tabs" role="group" aria-label={s.feedsTitle} data-feed-tabs>
+    <button type="button" class="tab" data-group="" aria-pressed="true">{s.all}</button>
+    {groups.map((g) => <button type="button" class="tab" data-group={g.id} aria-pressed="false">{g.name[lang]}</button>)}
+  </div>
+
+  {groups.map((g) => (
+    <section class="group" data-group={g.id} aria-labelledby={`g-${g.id}`}>
+      <h2 id={`g-${g.id}`}>{g.name[lang]}</h2>
+      <div class="cards">
+        {g.sources.map((src) => {
+          const site = safeUrl(src.siteUrl);
+          const d = src.data;
+          const items = d?.items ?? [];
+          const more = d?.more ?? [];
+          const itemLang = src.lang === 'zh-TW' ? 'zh-TW' : 'en';
+          return (
+            <article class="card" aria-labelledby={`s-${src.id}`}>
+              <h3 id={`s-${src.id}`}>
+                {site ? <a href={site} target="_blank" rel="noopener noreferrer">{src.name}</a> : src.name}
+                {src.mode === 'filter' && <span class="filtered" title={s.feedsFiltered}>{s.feedsFiltered}</span>}
+              </h3>
+              {d?.failing && <p class="warn" role="status">{s.feedsFailing}</p>}
+              {!d ? (
+                <p class="empty">{s.feedsNoData}</p>
+              ) : items.length === 0 ? (
+                <p class="empty">{s.feedsNone}</p>
+              ) : (
+                <ul class="items">
+                  {items.map((it) => {
+                    const u = safeUrl(it.url);
+                    return (
+                      <li>
+                        {u ? <a class="title" href={u} target="_blank" rel="noopener noreferrer" lang={itemLang}>{it.title}</a> : <span class="title" lang={itemLang}>{it.title}</span>}
+                        <span class="meta">
+                          {it.date && <time datetime={it.date} class="num">{formatDate(it.date, lang)}</time>}
+                          {it.matches.map((m) => <span class="tag">{interestName.get(m) ?? m}</span>)}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+              {more.length > 0 && (
+                <details class="more">
+                  <summary>{s.feedsMore(more.length)}</summary>
+                  <ul class="items">
+                    {more.map((it) => {
+                      const u = safeUrl(it.url);
+                      return (
+                        <li>
+                          {u ? <a class="title" href={u} target="_blank" rel="noopener noreferrer" lang={itemLang}>{it.title}</a> : <span class="title" lang={itemLang}>{it.title}</span>}
+                          <span class="meta">
+                            {it.date && <time datetime={it.date} class="num">{formatDate(it.date, lang)}</time>}
+                            {it.matches.map((m) => <span class="tag">{interestName.get(m) ?? m}</span>)}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </details>
+              )}
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  ))}
+  <script is:inline src={href('js/feeds-filter.js')} defer></script>
+</Base>
+
+<style>
+  .head { margin-bottom: 1rem; }
+  h1 { margin: 0; font-size: 1.6rem; }
+  .badges { margin: 0 0 .5rem; display: flex; flex-wrap: wrap; gap: .35rem 1rem; align-items: center; font-size: .9rem; }
+  .notice { font-size: .8rem; font-weight: 600; color: var(--warn); background: var(--warn-bg); border: 1px solid var(--warn-line); border-radius: 4px; padding: .05rem .5rem; }
+  .muted { color: var(--muted); }
+  .stale { margin: .5rem 0 0; padding: .45rem .75rem; font-size: .9rem; border-left: 3px solid var(--warn); background: var(--warn-bg); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; max-width: var(--measure); }
+  .tabs { display: flex; gap: .4rem; margin-bottom: 1rem; overflow-x: auto; padding-bottom: .25rem; scrollbar-width: thin; }
+  .tab { flex: none; font: inherit; font-size: .9rem; border: 1px solid var(--line); background: transparent; color: var(--ink); border-radius: 999px; padding: .3rem .9rem; cursor: pointer; }
+  .tab[aria-pressed='true'] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .group { margin-bottom: 1.75rem; }
+  .group[hidden] { display: none; }
+  h2 { margin: 0 0 .6rem; font-size: 1.15rem; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); gap: .9rem; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: .85rem 1rem 1rem; min-width: 0; }
+  h3 { margin: 0 0 .4rem; font-size: 1rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: .15rem .6rem; }
+  .filtered { font-size: .72rem; font-weight: 500; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 .35rem; }
+  .items { list-style: none; margin: 0; padding: 0; }
+  .items li { padding: .55rem 0; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: .2rem; }
+  .title { font-weight: 500; line-height: 1.45; overflow-wrap: anywhere; }
+  .meta { display: flex; flex-wrap: wrap; gap: .2rem .5rem; align-items: center; font-size: .82rem; color: var(--muted); }
+  .tag { font-size: .74rem; font-weight: 600; color: var(--accent); border: 1px solid currentColor; border-radius: 4px; padding: 0 .35rem; line-height: 1.5; }
+  .empty, .warn { margin: .2rem 0 0; font-size: .88rem; color: var(--muted); }
+  .warn { color: var(--warn); }
+  .more { margin-top: .4rem; font-size: .88rem; }
+  .more summary { cursor: pointer; color: var(--accent); }
+</style>

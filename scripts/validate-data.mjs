@@ -201,6 +201,44 @@ for (const p of eol.products ?? []) {
   }
 }
 
+// 技術動態：來源設定與自動同步的 RSS 資料 / Dev feeds: source config and the auto-synced RSS data
+const feedCfg = load('feed-sources.json');
+const feedGroups = new Set((feedCfg.groups ?? []).map((g) => g.id));
+const feedInterests = new Set((feedCfg.interests ?? []).map((i) => i.id));
+const feedSourceIds = new Set();
+for (const g of feedCfg.groups ?? []) checkText(`feed-sources.json#${g.id}.name`, g.name);
+for (const i of feedCfg.interests ?? []) {
+  checkText(`feed-sources.json#${i.id}.name`, i.name);
+  if (!Array.isArray(i.keywords) || i.keywords.length === 0) errors.push(`feed-sources.json#${i.id}: needs at least one keyword`);
+}
+for (const x of feedCfg.sources ?? []) {
+  const w = `feed-sources.json#${x.id}`;
+  if (!/^[a-z0-9-]+$/.test(x.id ?? '')) errors.push(`${w}: id must use lowercase letters, digits and hyphens`);
+  if (feedSourceIds.has(x.id)) errors.push(`${w}: duplicate id`);
+  feedSourceIds.add(x.id);
+  if (!x.name) errors.push(`${w}: missing name`);
+  if (!feedGroups.has(x.group)) errors.push(`${w}: unknown group "${x.group}"`);
+  if (!['en', 'zh-TW'].includes(x.lang)) errors.push(`${w}: lang must be "en" or "zh-TW"`);
+  if (!['all', 'filter'].includes(x.mode)) errors.push(`${w}: mode must be "all" or "filter"`);
+  checkUrl(`${w}.feedUrl`, x.feedUrl);
+  checkUrl(`${w}.siteUrl`, x.siteUrl);
+}
+const feedData = load('feeds.json');
+if (!Array.isArray(feedData.sources)) errors.push('feeds.json: sources must be an array');
+const checkFeedItem = (w, it) => {
+  if (typeof it.title !== 'string' || !it.title.trim() || it.title.length > 200) errors.push(`${w}: title must be a non-empty string of at most 200 characters`);
+  checkUrl(w, it.url);
+  if (it.date !== null && !isDate(it.date)) errors.push(`${w}: date must be YYYY-MM-DD or null`);
+  if (!Array.isArray(it.matches) || it.matches.some((m) => !feedInterests.has(m))) errors.push(`${w}: matches must list known interest ids`);
+};
+for (const s of feedData.sources ?? []) {
+  const w = `feeds.json#${s.id}`;
+  if (!feedSourceIds.has(s.id)) errors.push(`${w}: source isn't listed in feed-sources.json`);
+  for (const [i, it] of (s.items ?? []).entries()) checkFeedItem(`${w}.items[${i}]`, it);
+  for (const [i, it] of (s.more ?? []).entries()) checkFeedItem(`${w}.more[${i}]`, it);
+  if (s.failing !== undefined && typeof s.failing !== 'boolean') errors.push(`${w}: failing must be true or false`);
+}
+
 // 查證日期不可晚於今天（容許台灣與 UTC 的時差）/ Verification dates can't be in the future (allowing for Taiwan vs UTC)
 const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
 const meta = load('meta.json');

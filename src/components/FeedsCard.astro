@@ -1,0 +1,56 @@
+---
+// 首頁側邊欄：跨來源、符合關注主題的最新 5 則技術動態，完整清單在技術動態頁。
+// Home sidebar: the latest 5 on-topic items across all sources; the full list lives on the dev feeds page.
+import config from '../data/feed-sources.json';
+import feeds from '../data/feeds.json';
+import { t, href, formatDate, type Lang } from '../i18n/ui';
+import { safeUrl } from '../lib/url';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const names = new Map(config.sources.map((x) => [x.id, x]));
+const interestName = new Map(config.interests.map((i) => [i.id, i.name[lang]]));
+const latest = feeds.sources
+  .flatMap((src) => src.items.filter((i) => i.matches.length > 0).map((i) => ({ ...i, src: names.get(src.id) })))
+  .filter((i) => i.src)
+  .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''))
+  .slice(0, 5);
+---
+{latest.length > 0 && (
+  <section class="panel feeds" aria-labelledby="feeds-card-t">
+    <h2 id="feeds-card-t">{s.feedsCardTitle}</h2>
+    <p class="note"><span class="notice">{s.feedsNotice}</span></p>
+    <p class="lede">{s.feedsCardNote}</p>
+    <ul>
+      {latest.map((it) => {
+        const u = safeUrl(it.url);
+        const itemLang = it.src!.lang === 'zh-TW' ? 'zh-TW' : 'en';
+        return (
+          <li>
+            {u ? <a class="title" href={u} target="_blank" rel="noopener noreferrer" lang={itemLang}>{it.title}</a> : <span class="title" lang={itemLang}>{it.title}</span>}
+            <span class="meta">
+              <span>{it.src!.name}</span>
+              {it.date && <time datetime={it.date} class="num">{formatDate(it.date, lang)}</time>}
+              {it.matches.slice(0, 2).map((m) => <span class="tag">{interestName.get(m) ?? m}</span>)}
+            </span>
+          </li>
+        );
+      })}
+    </ul>
+    <p class="all"><a href={href(`${lang}/feeds/`)}>{s.feedsCardAll}</a></p>
+  </section>
+)}
+
+<style>
+  h2 { margin-bottom: .35rem; }
+  .note { margin: 0 0 .25rem; }
+  .notice { font-size: .74rem; font-weight: 600; color: var(--warn); background: var(--warn-bg); border: 1px solid var(--warn-line); border-radius: 4px; padding: .05rem .45rem; }
+  .lede { margin: .25rem 0 .5rem; font-size: .88rem; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { padding: .55rem 0; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: .2rem; }
+  .title { font-weight: 500; font-size: .92rem; line-height: 1.4; overflow-wrap: anywhere; }
+  .meta { display: flex; flex-wrap: wrap; gap: .15rem .5rem; align-items: center; font-size: .78rem; color: var(--muted); }
+  .tag { font-size: .7rem; font-weight: 600; color: var(--accent); border: 1px solid currentColor; border-radius: 4px; padding: 0 .3rem; line-height: 1.5; }
+  .all { margin: .6rem 0 0; padding-top: .6rem; border-top: 1px solid var(--line); font-size: .9rem; }
+</style>

@@ -3,6 +3,7 @@ import news from '../data/news.json';
 import cves from '../data/cves.json';
 import { t, categories, type Lang } from '../i18n/ui';
 import CategoryIcon from './CategoryIcon.astro';
+import FeedsCard from './FeedsCard.astro';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -41,6 +42,7 @@ const stats = [
       ))}
     </ul>
   </section>
+  <FeedsCard lang={lang} />
 </aside>
 
 <style>

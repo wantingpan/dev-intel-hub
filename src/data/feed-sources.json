@@ -1,0 +1,82 @@
+{
+  "perSource": 3,
+  "moreCount": 10,
+  "groups": [
+    { "id": "community", "name": { "zh-TW": "社群聚合", "en": "Communities" } },
+    { "id": "engineering", "name": { "zh-TW": "工程部落格", "en": "Engineering blogs" } },
+    { "id": "architecture", "name": { "zh-TW": "架構與管理", "en": "Architecture & leadership" } },
+    { "id": "ai", "name": { "zh-TW": "AI", "en": "AI" } },
+    { "id": "security", "name": { "zh-TW": "資安", "en": "Security" } },
+    { "id": "taiwan", "name": { "zh-TW": "台灣中文", "en": "Taiwan (Chinese)" } }
+  ],
+  "sources": [
+    { "id": "hn", "name": "Hacker News", "group": "community", "lang": "en", "mode": "filter", "feedUrl": "https://news.ycombinator.com/rss", "siteUrl": "https://news.ycombinator.com/" },
+    { "id": "lobsters", "name": "Lobsters", "group": "community", "lang": "en", "mode": "filter", "feedUrl": "https://lobste.rs/rss", "siteUrl": "https://lobste.rs/" },
+    { "id": "devto", "name": "DEV Community", "group": "community", "lang": "en", "mode": "filter", "feedUrl": "https://dev.to/feed", "siteUrl": "https://dev.to/" },
+
+    { "id": "github-blog", "name": "The GitHub Blog", "group": "engineering", "lang": "en", "mode": "all", "feedUrl": "https://github.blog/feed/", "siteUrl": "https://github.blog/" },
+    { "id": "dotnet-blog", "name": ".NET Blog", "group": "engineering", "lang": "en", "mode": "all", "feedUrl": "https://devblogs.microsoft.com/dotnet/feed/", "siteUrl": "https://devblogs.microsoft.com/dotnet/" },
+    { "id": "cloudflare", "name": "Cloudflare Blog", "group": "engineering", "lang": "en", "mode": "all", "feedUrl": "https://blog.cloudflare.com/rss/", "siteUrl": "https://blog.cloudflare.com/" },
+    { "id": "netflix", "name": "Netflix TechBlog", "group": "engineering", "lang": "en", "mode": "all", "feedUrl": "https://netflixtechblog.com/feed", "siteUrl": "https://netflixtechblog.com/" },
+    { "id": "aws", "name": "AWS News Blog", "group": "engineering", "lang": "en", "mode": "all", "feedUrl": "https://aws.amazon.com/blogs/aws/feed/", "siteUrl": "https://aws.amazon.com/blogs/aws/" },
+    { "id": "css-tricks", "name": "CSS-Tricks", "group": "engineering", "lang": "en", "mode": "all", "feedUrl": "https://css-tricks.com/feed/", "siteUrl": "https://css-tricks.com/" },
+
+    { "id": "pragmatic", "name": "The Pragmatic Engineer", "group": "architecture", "lang": "en", "mode": "all", "feedUrl": "https://newsletter.pragmaticengineer.com/feed", "siteUrl": "https://newsletter.pragmaticengineer.com/" },
+    { "id": "bytebytego", "name": "ByteByteGo", "group": "architecture", "lang": "en", "mode": "all", "feedUrl": "https://blog.bytebytego.com/feed", "siteUrl": "https://blog.bytebytego.com/" },
+    { "id": "fowler", "name": "Martin Fowler", "group": "architecture", "lang": "en", "mode": "all", "feedUrl": "https://martinfowler.com/feed.atom", "siteUrl": "https://martinfowler.com/" },
+
+    { "id": "simonw", "name": "Simon Willison's Weblog", "group": "ai", "lang": "en", "mode": "all", "feedUrl": "https://simonwillison.net/atom/everything/", "siteUrl": "https://simonwillison.net/" },
+    { "id": "openai", "name": "OpenAI News", "group": "ai", "lang": "en", "mode": "all", "feedUrl": "https://openai.com/news/rss.xml", "siteUrl": "https://openai.com/news/" },
+    { "id": "huggingface", "name": "Hugging Face Blog", "group": "ai", "lang": "en", "mode": "all", "feedUrl": "https://huggingface.co/blog/feed.xml", "siteUrl": "https://huggingface.co/blog" },
+
+    { "id": "thehackernews", "name": "The Hacker News", "group": "security", "lang": "en", "mode": "filter", "feedUrl": "https://feeds.feedburner.com/TheHackersNews", "siteUrl": "https://thehackernews.com/" },
+    { "id": "krebs", "name": "Krebs on Security", "group": "security", "lang": "en", "mode": "all", "feedUrl": "https://krebsonsecurity.com/feed/", "siteUrl": "https://krebsonsecurity.com/" },
+    { "id": "mssecurity", "name": "Microsoft Security Blog", "group": "security", "lang": "en", "mode": "all", "feedUrl": "https://www.microsoft.com/en-us/security/blog/feed/", "siteUrl": "https://www.microsoft.com/en-us/security/blog/" },
+
+    { "id": "ithome", "name": "iThome", "group": "taiwan", "lang": "zh-TW", "mode": "filter", "feedUrl": "https://www.ithome.com.tw/rss", "siteUrl": "https://www.ithome.com.tw/" }
+  ],
+  "interests": [
+    {
+      "id": "frontend",
+      "name": { "zh-TW": "前端", "en": "Frontend" },
+      "keywords": ["TypeScript", "JavaScript", "React", "CSS", "Angular", "前端"],
+      "caseSensitive": []
+    },
+    {
+      "id": "dotnet",
+      "name": { "zh-TW": ".NET 與雲端", "en": ".NET & cloud" },
+      "keywords": [".NET", "C#", "ASP.NET", "Entity Framework", "Azure", "SQL Server", "Visual Studio", "NuGet", "Azure DevOps", "Blazor"],
+      "caseSensitive": []
+    },
+    {
+      "id": "agile",
+      "name": { "zh-TW": "敏捷與設計工具", "en": "Agile & design tools" },
+      "keywords": ["Scrum", "Scaled Agile", "Large-Scale Scrum", "Kanban", "Flow Metrics", "Agile", "Figma", "Google Stitch", "敏捷", "看板"],
+      "caseSensitive": ["SAFe", "LeSS"]
+    },
+    {
+      "id": "security",
+      "name": { "zh-TW": "資安", "en": "Security" },
+      "keywords": ["CVE", "vulnerability", "vulnerabilities", "zero-day", "ransomware", "exploit", "exploited", "data breach", "漏洞", "零時差", "勒索", "資料外洩", "資安"],
+      "caseSensitive": []
+    },
+    {
+      "id": "ai",
+      "name": { "zh-TW": "AI", "en": "AI" },
+      "keywords": ["LLM", "Claude", "GPT", "AI agent", "agentic", "Copilot", "MCP", "OpenAI", "Anthropic", "人工智慧"],
+      "caseSensitive": []
+    },
+    {
+      "id": "architecture",
+      "name": { "zh-TW": "架構", "en": "Architecture" },
+      "keywords": ["system design", "microservice", "microservices", "distributed system", "scalability", "software architecture", "微服務", "系統設計", "架構"],
+      "caseSensitive": []
+    },
+    {
+      "id": "career",
+      "name": { "zh-TW": "職涯", "en": "Career" },
+      "keywords": ["career", "interview", "Staff Engineer", "Tech Lead", "engineering manager", "remote work", "面試", "職涯", "外商"],
+      "caseSensitive": []
+    }
+  ]
+}

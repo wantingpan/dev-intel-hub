@@ -55,7 +55,11 @@ npm run dev
 - `kev.json`：CISA 已遭利用漏洞清單，由 `.github/workflows/kev-sync.yml` 每小時自動同步，**請勿手動編輯**。本機可執行 `node scripts/fetch-kev.mjs` 立即更新。
 - `ghsa.json`：GitHub 套件漏洞公告（重大與高風險，CC BY 4.0），由 `.github/workflows/feeds-sync.yml` 每天 08:00–17:00 每小時自動同步，**請勿手動編輯**。本機可執行 `node scripts/fetch-ghsa.mjs`。
 - `eol.json`：常用語言、框架與平台的最新版本與支援到期日（endoflife.date，MIT 授權），同上排程自動同步，**請勿手動編輯**。本機可執行 `node scripts/fetch-eol.mjs`。
+- `feed-sources.json`：技術動態的來源設定（19 個 RSS／Atom 來源、分類、每個來源顯示幾則），以及**關注主題與關鍵字**。想增減來源或關鍵字，改這個檔案即可，不用動程式。`mode` 為 `filter` 的來源（流量大，如 Hacker News）只顯示標題符合關注主題的文章；`all` 則顯示最新幾則。英文關鍵字以完整單字比對，`caseSensitive` 內的字（如 SAFe）會區分大小寫。
+- `feeds.json`：技術動態的資料，由 `.github/workflows/feeds-rss.yml` 每天 08:00、12:00、17:00（含週末）自動同步，**請勿手動編輯**。只保存標題、連結與日期，不保存內文或摘要。本機可執行 `node scripts/fetch-feeds.mjs`。所有項目標示為「自動彙整，未經本站查證」。
 - `meta.json`：查證日期，以及過期提示的門檻天數（`staleAfterDays`、`developingStaleAfterDays`、`kevStaleAfterDays`、`feedStaleAfterDays`）。
+
+技術動態頁（`/zh-TW/feeds/`）底部提供 OPML 檔（`/feeds.opml`），可一次匯入 Feedly、Inoreader、NetNewsWire 等 RSS 閱讀器。
 
 ### 自動更新排程
 
@@ -63,6 +67,7 @@ npm run dev
 |---|---|---|---|
 | 每小時第 17 分 | GitHub Actions（`kev-sync.yml`） | `kev.json` | 有變動才推上 `main`，Netlify 自動部署 |
 | 每天 08:00–17:00 每小時整點 | GitHub Actions（`feeds-sync.yml`） | `ghsa.json`、`eol.json` | 同上 |
+| 每天 08:00、12:00、17:00 | GitHub Actions（`feeds-rss.yml`） | `feeds.json` | 同上 |
 | 週一到週五 09:10 | 本機 Claude 排程 | 新聞、漏洞、事件、`meta.json` | 依 UPDATING.md 查證，`check:data` 與 `build` 通過後直接推上 `main` |
 | 週一到週五 13:00 | 本機 Claude 排程 | 只更新「處理中」「觀察中」的事件 | 同上 |
 
@@ -159,7 +164,11 @@ Content lives in `src/data/`:
 - `kev.json`: CISA's KEV catalog, synced hourly by `.github/workflows/kev-sync.yml`. **Don't edit by hand.** Run `node scripts/fetch-kev.mjs` locally to refresh it now.
 - `ghsa.json`: critical and high GitHub package advisories (CC BY 4.0), synced hourly 08:00–17:00 Taiwan time by `.github/workflows/feeds-sync.yml`. **Don't edit by hand.** Run `node scripts/fetch-ghsa.mjs` locally.
 - `eol.json`: latest versions and end-of-support dates for common languages, frameworks and platforms (endoflife.date, MIT licensed), synced on the same schedule. **Don't edit by hand.** Run `node scripts/fetch-eol.mjs` locally.
+- `feed-sources.json`: configuration for the dev feeds page (19 RSS/Atom sources, groups, items per source) and **your topics and keywords**. Edit this file to add or remove sources or keywords; no code changes needed. Sources with `mode: "filter"` (high-volume ones such as Hacker News) show only items whose titles match your topics; `all` shows the latest few. English keywords match whole words, and those under `caseSensitive` (such as SAFe) are case-sensitive.
+- `feeds.json`: the dev feeds data, synced at 08:00, 12:00 and 17:00 Taiwan time every day (weekends included) by `.github/workflows/feeds-rss.yml`. **Don't edit by hand.** Run `node scripts/fetch-feeds.mjs` locally. It stores titles, links and dates only, never bodies or summaries, and every item is labeled "auto-collected, not verified by this site".
 - `meta.json`: the verification date and staleness thresholds (`staleAfterDays`, `developingStaleAfterDays`, `kevStaleAfterDays`, `feedStaleAfterDays`).
+
+The dev feeds page (`/en/feeds/`) offers an OPML file (`/feeds.opml`) for importing every source into Feedly, Inoreader, NetNewsWire or any RSS reader.
 
 ### Scheduled updates
 
@@ -167,6 +176,7 @@ Content lives in `src/data/`:
 |---|---|---|---|
 | Minute 17 of every hour | GitHub Actions (`kev-sync.yml`) | `kev.json` | Pushed to `main` only when changed; Netlify redeploys |
 | Every hour on the hour, 08:00–17:00 | GitHub Actions (`feeds-sync.yml`) | `ghsa.json`, `eol.json` | Same |
+| Every day 08:00, 12:00, 17:00 | GitHub Actions (`feeds-rss.yml`) | `feeds.json` | Same |
 | Weekdays 09:10 | Local Claude scheduled task | News, CVEs, events, `meta.json` | Verified per UPDATING.md; pushed to `main` after `check:data` and `build` pass |
 | Weekdays 13:00 | Local Claude scheduled task | Ongoing and monitoring events only | Same |
 

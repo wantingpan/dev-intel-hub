@@ -26,7 +26,9 @@
 
 - 排程同樣遵守本文件的查證規則，`npm run check:data` 與 `npm run build` 都通過後才直接推上 `main`，不開 Pull Request。
 - 每次自動更新是一個獨立提交，訊息為 `Content update YYYY-MM-DD HH:MM (auto)`。發現錯誤時用 `git revert` 撤回。
-- `kev.json`、`ghsa.json`、`eol.json` 由 GitHub Actions 同步，排程與手動更新都不要修改。
+- `kev.json`、`ghsa.json`、`eol.json`、`feeds.json` 由 GitHub Actions 同步，排程與手動更新都不要修改。
+- `feeds.json`（技術動態）是自動彙整、**未經查證**的標題與連結。09:10 的排程可以把它當成找新聞的候選清單，但收錄進 `news.json` 前，一定要打開文章確認內容，並照上面的查證規則處理，不能因為它出現在技術動態就當成已查證。
+- 想調整技術動態的來源或關注主題關鍵字，改 `src/data/feed-sources.json`。
 - 手動更新時，先 `git pull` 取得排程推上的最新內容，避免衝突。
 
 ---

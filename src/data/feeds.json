@@ -1,0 +1,813 @@
+{
+  "sources": [
+    {
+      "id": "hn",
+      "items": [
+        {
+          "title": "GoGoGrandparent (YC S16) Is a Front End JavaScript / TypeScript Engineer",
+          "url": "https://www.ycombinator.com/companies/gogograndparent/jobs/05woouL-front-end-javascript-typescript-engineer",
+          "date": "2026-11-18",
+          "matches": [
+            "frontend"
+          ]
+        },
+        {
+          "title": "Not Everything Needs an LLM",
+          "url": "https://newsletter.posthog.com/p/decision-models",
+          "date": "2026-11-18",
+          "matches": [
+            "ai"
+          ]
+        },
+        {
+          "title": "GPT‑6.2 Astra and Sol",
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+          "date": "2026-11-18",
+          "matches": [
+            "ai"
+          ]
+        }
+      ],
+      "more": [
+        {
+          "title": "Why is Gemini 4 Carbon taking so long?",
+          "url": "https://kernel.dev/blog/why-is-gemini-4-carbon-taking-so-long/",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "H-1B Executive Actions in 2026 [pdf]",
+          "url": "https://www.everycrsreport.com/files/2026-10-14_IN12747_fcb1389788aa7b9102b795882af042e85d20532c.pdf",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "GoGoGrandparent (YC S16) Is a Front End JavaScript / TypeScript Engineer",
+          "url": "https://www.ycombinator.com/companies/gogograndparent/jobs/05woouL-front-end-javascript-typescript-engineer",
+          "date": "2026-11-18",
+          "matches": [
+            "frontend"
+          ]
+        },
+        {
+          "title": "Cerebras Disaggregated Inference",
+          "url": "https://www.cerebras.ai/blog/cerebras-launches-disaggregated-inference",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "ID.me terms required for IRS sign-in",
+          "url": "https://consumerrights.wiki/w/ID.me_terms_required_for_IRS_sign-in",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Google's AI answers reducing search traffic by 40%",
+          "url": "https://revscope.co/blog/search-seo-geo-2026/",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Archive Team is archiving the Apple Support Community (closes November 20, 2026)",
+          "url": "https://wiki.archiveteam.org/index.php/Apple_Discussions",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Microsoft's ONNX Runtime has disappeared from GitHub",
+          "url": "https://github.com/microsoft/onnxruntime",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Latent Lattice Language Models",
+          "url": "https://shivamduggal4.github.io/latent-lattice-language-models/",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Quad9's withdrawal from France: A canary in the coal mine",
+          "url": "https://blog.cloudflare.com/quad9-withdrawal-from-france/",
+          "date": "2026-11-18",
+          "matches": []
+        }
+      ]
+    },
+    {
+      "id": "lobsters",
+      "items": [],
+      "more": [
+        {
+          "title": "FreeBSD GUS",
+          "url": "https://gregoire.dev/writing/gus/",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "jQuery 4.1.0 Released",
+          "url": "https://blog.jquery.com/2026/11/17/jquery-4-1-0-and-3-8-0-released-passing-the-torch/",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Vx32: Lightweight User-level Sandboxing on the x86 (2008)",
+          "url": "https://pdos.csail.mit.edu/papers/vx32:usenix08.pdf",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Nimony: The next version of Nim",
+          "url": "https://nimony.org/",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Sexp Matrix",
+          "url": "https://lisper.cc/ideas/entangle.html",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Java4Shell: Write once, RCE everywhere",
+          "url": "https://calif.io/java4shell/",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Sarasa Gothic Mono",
+          "url": "https://picaq.github.io/sarasa",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Automatic Checking of Compiler Correctness with E-Graphs",
+          "url": "https://stng.substack.com/p/automatic-checking-of-compiler-correctness",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Phrack 73",
+          "url": "https://phrack.org/issues/73/introduction_md.html",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Making Games in Go: Entity Component System (ECS)",
+          "url": "https://threedots.tech/post/making-games-in-go-ecs/",
+          "date": "2026-11-18",
+          "matches": []
+        }
+      ]
+    },
+    {
+      "id": "devto",
+      "items": [
+        {
+          "title": "Fix pnpm audit vulnerabilities in Wrangler dependencies",
+          "url": "https://dev.to/raylabs/fix-pnpm-audit-vulnerabilities-in-wrangler-dependencies-141n",
+          "date": "2026-11-18",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "From GPT-3 to Agents: How AI Rewired Software in Six Years (2020-2026)",
+          "url": "https://dev.to/akhourianmolkumar/from-gpt-3-to-agents-how-ai-rewired-software-in-six-years-2020-2026-5al1",
+          "date": "2026-11-18",
+          "matches": [
+            "ai"
+          ]
+        }
+      ],
+      "more": [
+        {
+          "title": "How to Run a Developer Hackathon: Operator Guide",
+          "url": "https://dev.to/mobil3/how-to-run-a-developer-hackathon-operator-guide-50bg",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Show DEV: FantasticFractals v1.1 — 60 FPS WebGL 2.0 Fractal Visualizer & Vectorized NumPy Library (The Mathematical Journey & Fixes) 🌀⚡",
+          "url": "https://dev.to/quantumtechcoder/show-dev-fantasticfractals-v11-60-fps-webgl-20-fractal-visualizer-vectorized-numpy-library-nnk",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Keeping the Same Character Across AI Video Shots: A Short-Drama Workflow",
+          "url": "https://dev.to/xinyue_zhan_35ea4c0965196/keeping-the-same-character-across-ai-video-shots-a-short-drama-workflow-o97",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Does ChatGPT Save Your Data? What It Keeps, and How to Limit It",
+          "url": "https://dev.to/techs_slash_e51f13e16b5fc/does-chatgpt-save-your-data-what-it-keeps-and-how-to-limit-it-4fa",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Fix pnpm audit vulnerabilities in Wrangler dependencies",
+          "url": "https://dev.to/raylabs/fix-pnpm-audit-vulnerabilities-in-wrangler-dependencies-141n",
+          "date": "2026-11-18",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "SMS and Email OTP for SaaS Login: 3 Deadline Controls",
+          "url": "https://dev.to/solacew31/sms-and-email-otp-for-saas-login-3-deadline-controls-209f",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "ChatGPT vs Meta AI: Which Free Assistant Actually Helps a Small Business?",
+          "url": "https://dev.to/techs_slash_e51f13e16b5fc/chatgpt-vs-meta-ai-which-free-assistant-actually-helps-a-small-business-3615",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "From GPT-3 to Agents: How AI Rewired Software in Six Years (2020-2026)",
+          "url": "https://dev.to/akhourianmolkumar/from-gpt-3-to-agents-how-ai-rewired-software-in-six-years-2020-2026-5al1",
+          "date": "2026-11-18",
+          "matches": [
+            "ai"
+          ]
+        },
+        {
+          "title": "Why Video Loops Glitch (and What 'Seamless' Actually Takes)",
+          "url": "https://dev.to/codenamew/why-video-loops-glitch-and-what-seamless-actually-takes-488p",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Spreadsheets to ERP: Seven Signs It Is Time to Move On",
+          "url": "https://dev.to/ksoft_technologies_33f7f6/spreadsheets-to-erp-seven-signs-it-is-time-to-move-on-30p6",
+          "date": "2026-11-18",
+          "matches": []
+        }
+      ]
+    },
+    {
+      "id": "github-blog",
+      "items": [
+        {
+          "title": "Maintainers don’t need more AI bug reports. They need fixes.",
+          "url": "https://github.blog/open-source/maintainers/maintainers-dont-need-more-ai-bug-reports-they-need-fixes/",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Building the Agent Host Protocol for sessions that continue across devices",
+          "url": "https://github.blog/engineering/engineering-principles/building-the-agent-host-protocol-for-sessions-that-continue-across-devices/",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "GitHub availability report: October 2026",
+          "url": "https://github.blog/news-insights/company-news/github-availability-report-october-2026/",
+          "date": "2026-11-13",
+          "matches": []
+        }
+      ],
+      "more": []
+    },
+    {
+      "id": "dotnet-blog",
+      "items": [
+        {
+          "title": "Introducing staged publishing on NuGet.org",
+          "url": "https://devblogs.microsoft.com/dotnet/nuget-staged-publishing/",
+          "date": "2026-11-18",
+          "matches": [
+            "dotnet"
+          ]
+        },
+        {
+          "title": "Announcing .NET 11",
+          "url": "https://devblogs.microsoft.com/dotnet/announcing-dotnet-11/",
+          "date": "2026-11-11",
+          "matches": [
+            "dotnet"
+          ]
+        },
+        {
+          "title": ".NET and .NET Framework November 2026 servicing updates",
+          "url": "https://devblogs.microsoft.com/dotnet/dotnet-and-dotnet-framework-november-2026-servicing-updates/",
+          "date": "2026-11-11",
+          "matches": [
+            "dotnet"
+          ]
+        }
+      ],
+      "more": []
+    },
+    {
+      "id": "cloudflare",
+      "items": [
+        {
+          "title": "Quad9’s withdrawal from France: A canary in the coal mine",
+          "url": "https://blog.cloudflare.com/quad9-withdrawal-from-france/",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Kitesurf is now open source",
+          "url": "https://blog.cloudflare.com/kitesurf-open-source/",
+          "date": "2026-11-14",
+          "matches": []
+        },
+        {
+          "title": "Adapting to AI penetration testing orchestrators: The Modern Security Model",
+          "url": "https://blog.cloudflare.com/adapting-to-ai-penetration-testing-orchestrators/",
+          "date": "2026-11-14",
+          "matches": []
+        }
+      ],
+      "more": []
+    },
+    {
+      "id": "netflix",
+      "items": [
+        {
+          "title": "Engineering AI Discover",
+          "url": "https://netflixtechblog.com/engineering-ai-discover-e244944cdc38",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Fact-Checking at Scale: Building a More Accurate and Efficient Synopsis Factuality System",
+          "url": "https://netflixtechblog.com/fact-checking-at-scale-building-a-more-accurate-and-efficient-synopsis-factuality-system-d7d85859d808",
+          "date": "2026-11-10",
+          "matches": []
+        },
+        {
+          "title": "Making Failure Diagnosis Reliable with Pensive AI",
+          "url": "https://netflixtechblog.com/making-failure-diagnosis-reliable-with-pensive-ai-6b0811a1c015",
+          "date": "2026-10-27",
+          "matches": []
+        }
+      ],
+      "more": []
+    },
+    {
+      "id": "aws",
+      "items": [
+        {
+          "title": "Four Continents, Four New AWS Heroes: Closing Out 2026",
+          "url": "https://aws.amazon.com/blogs/aws/four-continents-four-new-aws-heroes-closing-out-2026/",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "AWS Weekly Roundup: AWS Nitro Sandboxes, AWS Emulator, and more (November 16, 2026)",
+          "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-nitro-sandboxes-aws-emulator-and-more-november-16-2026/",
+          "date": "2026-11-17",
+          "matches": []
+        },
+        {
+          "title": "Test your applications against AWS locally with AWS Emulator",
+          "url": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/",
+          "date": "2026-11-12",
+          "matches": []
+        }
+      ],
+      "more": []
+    },
+    {
+      "id": "css-tricks",
+      "items": [
+        {
+          "title": "Staggering Scroll-Driven Animations with animation-range-start",
+          "url": "https://css-tricks.com/staggering-scroll-driven-animations-with-animation-range-start/",
+          "date": "2026-11-17",
+          "matches": []
+        },
+        {
+          "title": "10 Big Ol’ 2027 Black Friday Deals",
+          "url": "https://css-tricks.com/2027-front-end-black-friday-deals/",
+          "date": "2026-11-13",
+          "matches": []
+        },
+        {
+          "title": "Beyond 12 Columns: Designing Layouts With Personality",
+          "url": "https://css-tricks.com/beyond-12-columns/",
+          "date": "2026-11-13",
+          "matches": []
+        }
+      ],
+      "more": []
+    },
+    {
+      "id": "pragmatic",
+      "items": [
+        {
+          "title": "Inference engineering for software engineers",
+          "url": "https://newsletter.pragmaticengineer.com/p/inference-engineering-for-software-engineers",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Software engineering after code becomes cheap with Satya Nadella",
+          "url": "https://newsletter.pragmaticengineer.com/p/software-engineering-after-code-becomes",
+          "date": "2026-11-16",
+          "matches": []
+        },
+        {
+          "title": "The Pulse: What can we learn from the Railway hack?",
+          "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-what-can-we-learn-from-114",
+          "date": "2026-11-13",
+          "matches": []
+        }
+      ],
+      "more": []
+    },
+    {
+      "id": "bytebytego",
+      "items": [
+        {
+          "title": "Why Thinking More Can Make an LLM Dumb",
+          "url": "https://blog.bytebytego.com/p/why-thinking-more-can-make-an-llm",
+          "date": "2026-11-18",
+          "matches": [
+            "ai"
+          ]
+        },
+        {
+          "title": "How Instacart Uses LLMs to Make People Buy More",
+          "url": "https://blog.bytebytego.com/p/how-instacart-uses-llms-to-make-people",
+          "date": "2026-11-17",
+          "matches": []
+        },
+        {
+          "title": "LAST CALL FOR ENROLLMENT: AI Engineering Fundamentals",
+          "url": "https://blog.bytebytego.com/p/last-call-for-enrollment-ai-engineering",
+          "date": "2026-11-16",
+          "matches": []
+        }
+      ],
+      "more": []
+    },
+    {
+      "id": "fowler",
+      "items": [
+        {
+          "title": "Deterministic Simulation Testing",
+          "url": "https://martinfowler.com/articles/deterministic-simulation-testing.html",
+          "date": "2026-11-17",
+          "matches": []
+        },
+        {
+          "title": "Bliki: Generated Glossary",
+          "url": "https://martinfowler.com/bliki/GeneratedGlossary.html",
+          "date": "2026-11-12",
+          "matches": []
+        },
+        {
+          "title": "Tests as data: ensuring AI-generated code does what we want",
+          "url": "https://martinfowler.com/articles/tests-as-data.html",
+          "date": "2026-11-11",
+          "matches": []
+        }
+      ],
+      "more": []
+    },
+    {
+      "id": "simonw",
+      "items": [
+        {
+          "title": "External sandboxes for coding agents",
+          "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "GPT‑6.2 Astra and GPT‑6.2 Sol",
+          "url": "https://simonwillison.net/2026/Nov/17/gpt62-astra-and-sol/",
+          "date": "2026-11-18",
+          "matches": [
+            "ai"
+          ]
+        },
+        {
+          "title": "Running the full server-side Datasette Python app in the browser with service workers and Pyodide",
+          "url": "https://simonwillison.net/2026/Nov/17/datasette-lite/",
+          "date": "2026-11-18",
+          "matches": []
+        }
+      ],
+      "more": []
+    },
+    {
+      "id": "openai",
+      "items": [
+        {
+          "title": "Introducing GPT-6.2 Astra and Sol",
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+          "date": "2026-11-18",
+          "matches": [
+            "ai"
+          ]
+        },
+        {
+          "title": "Introducing ChatGPT for Sales",
+          "url": "https://openai.com/index/introducing-chatgpt-for-sales",
+          "date": "2026-11-17",
+          "matches": []
+        },
+        {
+          "title": "Strengthening NATO and allied cyber defenses with AI",
+          "url": "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai",
+          "date": "2026-11-17",
+          "matches": []
+        }
+      ],
+      "more": []
+    },
+    {
+      "id": "huggingface",
+      "items": [
+        {
+          "title": "Hugging Face and OpenRouter join forces to make open-weight models easy to run",
+          "url": "https://huggingface.co/blog/openrouter",
+          "date": "2026-11-16",
+          "matches": []
+        },
+        {
+          "title": "Build a Robot Pick-and-Place Simulation with SimReady Assets",
+          "url": "https://huggingface.co/blog/nvidia/simready-assets-robot-pick-and-place",
+          "date": "2026-11-14",
+          "matches": []
+        },
+        {
+          "title": "XYBench: Helping with the problem behind the question",
+          "url": "https://huggingface.co/blog/allenai/xybench",
+          "date": "2026-11-14",
+          "matches": []
+        }
+      ],
+      "more": []
+    },
+    {
+      "id": "thehackernews",
+      "items": [
+        {
+          "title": "Java4Shell (CVE-2026-114938) Enables Pre-Auth RCE in Jira, Jenkins, Keycloak on Java 17+ AVX-512 VBMI Servers",
+          "url": "https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html",
+          "date": "2026-11-18",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "Oracle to Patch 11 Java Flaws Today as Critical OpenJDK RCE (CVE-2026-114938) Report Emerges",
+          "url": "https://thehackernews.com/2026/11/oracle-to-patch-11-java-flaws-today-as.html",
+          "date": "2026-11-17",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "Apple Tightens macOS App Permissions to Limit Data Access Amid AI Agent Security Risks",
+          "url": "https://thehackernews.com/2026/11/apple-tightens-macos-app-permissions-to.html",
+          "date": "2026-11-17",
+          "matches": [
+            "ai"
+          ]
+        }
+      ],
+      "more": [
+        {
+          "title": "Java4Shell (CVE-2026-114938) Enables Pre-Auth RCE in Jira, Jenkins, Keycloak on Java 17+ AVX-512 VBMI Servers",
+          "url": "https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html",
+          "date": "2026-11-18",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "Researchers Claim Two RCE Exploits That Bypass Telegram’s New Android Defenses",
+          "url": "https://thehackernews.com/2026/11/researchers-claim-two-rce-exploits-that.html",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Oracle to Patch 11 Java Flaws Today as Critical OpenJDK RCE (CVE-2026-114938) Report Emerges",
+          "url": "https://thehackernews.com/2026/11/oracle-to-patch-11-java-flaws-today-as.html",
+          "date": "2026-11-17",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "Trigram Campaign Impersonates About 50 AI and Blockchain Brands to Target Devs with Infostealers",
+          "url": "https://thehackernews.com/2026/11/trigram-campaign-impersonates-about-50.html",
+          "date": "2026-11-17",
+          "matches": []
+        },
+        {
+          "title": "Hackers Found a Way Around GitHub SHA Pinning. This Webinar Explains How to Close the Gap",
+          "url": "https://thehackernews.com/2026/11/hackers-found-way-around-github-sha.html",
+          "date": "2026-11-17",
+          "matches": []
+        },
+        {
+          "title": "Researchers Detail iPhone Flaw That Let Apps Record Audio Despite Denied Microphone Permission",
+          "url": "https://thehackernews.com/2026/11/researchers-detail-iphone-flaw-that-let.html",
+          "date": "2026-11-17",
+          "matches": []
+        },
+        {
+          "title": "New GitDoor and GraphDoor Backdoors Turn GitHub and SharePoint Into Covert C2 Channels",
+          "url": "https://thehackernews.com/2026/11/new-gitdoor-and-graphdoor-backdoors.html",
+          "date": "2026-11-17",
+          "matches": []
+        },
+        {
+          "title": "Apple Tightens macOS App Permissions to Limit Data Access Amid AI Agent Security Risks",
+          "url": "https://thehackernews.com/2026/11/apple-tightens-macos-app-permissions-to.html",
+          "date": "2026-11-17",
+          "matches": [
+            "ai"
+          ]
+        },
+        {
+          "title": "Hijacked Optimizely Scripts Served Card Skimmer and iOS Exploit Kits to CNN, BBC and Zoom Visitors",
+          "url": "https://thehackernews.com/2026/11/hijacked-optimizely-scripts-served-card.html",
+          "date": "2026-11-17",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "ConnectWise Warns ScreenConnect Attacks Continue as SCKit Targets Unpatched Systems",
+          "url": "https://thehackernews.com/2026/11/connectwise-warns-screenconnect-attacks.html",
+          "date": "2026-11-17",
+          "matches": []
+        }
+      ]
+    },
+    {
+      "id": "krebs",
+      "items": [
+        {
+          "title": "Attackers Used Optimizely to A/B Test Malware on Top Websites",
+          "url": "https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Who Runs the Ransomware Group Qilin?",
+          "url": "https://krebsonsecurity.com/2026/11/who-runs-the-ransomware-group-qilin/",
+          "date": "2026-11-12",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "Microsoft Fixes Nearly 1,100 Security Vulnerabilities",
+          "url": "https://krebsonsecurity.com/2026/11/microsoft-fixes-nearly-1100-security-vulnerabilities/",
+          "date": "2026-11-11",
+          "matches": [
+            "security"
+          ]
+        }
+      ],
+      "more": []
+    },
+    {
+      "id": "mssecurity",
+      "items": [
+        {
+          "title": "Security for the agentic era, powered by Microsoft Perception",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/17/security-for-the-agentic-era-powered-by-microsoft-perception/",
+          "date": "2026-11-18",
+          "matches": [
+            "ai"
+          ]
+        },
+        {
+          "title": "The risks of device code authentication for AI coding agents",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/17/the-risks-of-device-code-authentication-for-ai-coding-agents/",
+          "date": "2026-11-17",
+          "matches": []
+        },
+        {
+          "title": "High volume phishing campaign uses Microsoft 365 outage lures to target multiple industry sectors",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2/",
+          "date": "2026-11-17",
+          "matches": []
+        }
+      ],
+      "more": []
+    },
+    {
+      "id": "ithome",
+      "items": [
+        {
+          "title": "OpenAI推出GPT-6.2雙模型，Astra首度達AI自我改進高風險門檻",
+          "url": "https://www.ithome.com.tw/news/180605",
+          "date": "2026-11-18",
+          "matches": [
+            "ai"
+          ]
+        },
+        {
+          "title": "N-able發布N-central重大安全更新，修補17個漏洞並強化身分驗證機制",
+          "url": "https://www.ithome.com.tw/news/180606",
+          "date": "2026-11-18",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "資安署揭露某機關平臺忘記帳號功能存在身分驗證漏洞，而被新增34組異常帳號",
+          "url": "https://www.ithome.com.tw/news/180607",
+          "date": "2026-11-18",
+          "matches": [
+            "security"
+          ]
+        }
+      ],
+      "more": [
+        {
+          "title": "OpenAI推出GPT-6.2雙模型，Astra首度達AI自我改進高風險門檻",
+          "url": "https://www.ithome.com.tw/news/180605",
+          "date": "2026-11-18",
+          "matches": [
+            "ai"
+          ]
+        },
+        {
+          "title": "N-able發布N-central重大安全更新，修補17個漏洞並強化身分驗證機制",
+          "url": "https://www.ithome.com.tw/news/180606",
+          "date": "2026-11-18",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "資安署揭露某機關平臺忘記帳號功能存在身分驗證漏洞，而被新增34組異常帳號",
+          "url": "https://www.ithome.com.tw/news/180607",
+          "date": "2026-11-18",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "Node.js修補16個漏洞，包括可能導致伺服器當機與洩漏連線資料的HTTP/2漏洞",
+          "url": "https://www.ithome.com.tw/news/180608",
+          "date": "2026-11-18",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "研究人員公布OpenJDK重大漏洞Java4Shell細節",
+          "url": "https://www.ithome.com.tw/news/180601",
+          "date": "2026-11-18",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "Oracle發布11月例行更新，修補640個資安漏洞",
+          "url": "https://www.ithome.com.tw/news/180603",
+          "date": "2026-11-18",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "Danfoss冷凍控制器傳出6個未修補漏洞，攻擊者可未經身分驗證遠端取得控制權",
+          "url": "https://www.ithome.com.tw/news/180602",
+          "date": "2026-11-18",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "Optimizely供應鏈攻擊波及BBC、GitLab、IKEA等178個組織網站，匯豐臺灣也名列其中",
+          "url": "https://www.ithome.com.tw/news/180588",
+          "date": "2026-11-18",
+          "matches": []
+        },
+        {
+          "title": "Mozilla發布Firefox 160.0.1，緊急修補兩個高風險漏洞",
+          "url": "https://www.ithome.com.tw/news/180591",
+          "date": "2026-11-18",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "微軟推出7款自研AI模型，以低價挑戰OpenAI及Anthropic",
+          "url": "https://www.ithome.com.tw/news/180590",
+          "date": "2026-11-18",
+          "matches": [
+            "ai"
+          ]
+        }
+      ]
+    }
+  ],
+  "fetchedAt": "2026-11-18T05:32:34.178Z"
+}
