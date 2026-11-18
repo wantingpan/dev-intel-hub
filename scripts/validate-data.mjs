@@ -39,6 +39,11 @@ for (const n of load('news.json')) {
   if (!categories.includes(n.category)) errors.push(`${w}: unknown category "${n.category}"`);
   checkText(`${w}.title`, n.title);
   checkText(`${w}.summary`, n.summary);
+  // 原文標題：來源網頁上的英文標題，原樣照抄；沒有（來源是中文或彙整頁）時填 null
+  // Original headline: the English headline as it appears on the source page, copied as-is; null when the source is Chinese or a roundup page
+  if (n.originalTitle !== null && (typeof n.originalTitle !== 'string' || !n.originalTitle.trim() || n.originalTitle.length > 250))
+    errors.push(`${w}: originalTitle must be null or a non-empty string of at most 250 characters`);
+  if (n.originalTitle && n.sourceLang !== 'en') errors.push(`${w}: originalTitle is only for sources whose sourceLang is "en"`);
   checkUrl(w, n.url);
   if (!['official', 'media', 'secondary'].includes(n.sourceType)) errors.push(`${w}: unknown sourceType "${n.sourceType}"`);
   if (!Array.isArray(n.corroboration)) errors.push(`${w}: corroboration must be an array`);

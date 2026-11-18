@@ -6,12 +6,14 @@ import DisputeBox from './DisputeBox.astro';
 import Legend from './Legend.astro';
 import CategoryIcon from './CategoryIcon.astro';
 import TermLinks from './TermLinks.astro';
+import AltToggle from './AltToggle.astro';
 import type { Category } from '../i18n/ui';
 import type { Dispute, SourceType } from '../types';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const s = t(lang);
+const other = lang === 'en' ? 'zh-TW' : 'en';
 const sorted = [...news].sort((a, b) => Number(b.hot) - Number(a.hot) || b.date.localeCompare(a.date));
 ---
 <section class="panel" aria-labelledby="news-title">
@@ -47,6 +49,13 @@ const sorted = [...news].sort((a, b) => Number(b.hot) - Number(a.hot) || b.date.
             </summary>
             <div class="body">
               <p class="summary">{n.summary[lang]}</p>
+              {n.originalTitle && (
+                <p class="orig"><span class="muted">{s.origTitle}{lang === 'en' ? ': ' : '：'}</span><span lang="en">{n.originalTitle}</span></p>
+              )}
+              <AltToggle lang={lang} id={n.id}>
+                <p class="alt-title">{n.title[other]}</p>
+                <p>{n.summary[other]}</p>
+              </AltToggle>
               {n.dispute && <DisputeBox lang={lang} dispute={n.dispute as Dispute} compact />}
               <TermLinks lang={lang} ids={n.terms} />
               <p class="links">
@@ -91,6 +100,7 @@ const sorted = [...news].sort((a, b) => Number(b.hot) - Number(a.hot) || b.date.
   details[open] .src { display: none; }
   .body { padding: 0 0 1rem calc(40px + .9rem); max-width: calc(var(--measure) + 40px + .9rem); }
   .summary { margin: 0; }
+  .orig { margin: .5rem 0 0; font-size: .92rem; max-width: var(--measure); }
   .links { margin-top: .5rem !important; }
   .links { margin: 0; display: flex; flex-wrap: wrap; gap: .25rem 1rem; font-size: .9rem; }
   .links a:first-child { font-weight: 600; }

@@ -63,6 +63,7 @@
   "hot": false,
   "title": { "zh-TW": "中文標題", "en": "English headline" },
   "summary": { "zh-TW": "中文摘要，用自己的話改寫。", "en": "English summary in our own words." },
+  "originalTitle": "The headline exactly as it appears on the source page",
   "source": "來源名稱",
   "sourceLang": "en",
   "url": "https://example.com/article",
@@ -75,6 +76,7 @@
 
 - `id`：接續最後一個編號，不可重複。
 - `category`：`industry`、`ai`、`lang`、`cloud`、`security` 其中之一。
+- `originalTitle`：來源網頁上的英文標題，**原樣照抄**（去掉網站名稱後綴，例如「 | TechCrunch」），網站會顯示在新聞內容裡，供對照英文用。只有 `sourceLang` 為 `en` 且來源是單篇文章時才填；來源是中文或週報彙整頁時填 `null`。只抄標題，內文仍用自己的話改寫，不轉載原文段落。
 - `sourceLang`：主要來源的語言，`zh` 或 `en`。
 - `sourceType`：`official`（官方）、`media`（媒體）、`secondary`（第三方彙整）。
 - `corroboration`：沒有其他來源時填 `[]`。

@@ -2,6 +2,7 @@
 import { t, href, type Lang } from '../i18n/ui';
 import { safeUrl } from '../lib/url';
 import TermLinks from './TermLinks.astro';
+import AltToggle from './AltToggle.astro';
 import news from '../data/news.json';
 import events from '../data/events.json';
 import type { GlossaryTerm } from '../types';
@@ -12,6 +13,8 @@ const s = t(lang);
 const relNews = g.related.news.map((id) => news.find((n) => n.id === id)).filter((n) => n !== undefined);
 const relEvents = g.related.events.map((id) => events.find((e) => e.id === id)).filter((e) => e !== undefined);
 const colon = lang === 'en' ? ': ' : '：';
+const other = lang === 'en' ? 'zh-TW' : 'en';
+const otherColon = other === 'en' ? ': ' : '：';
 ---
 <article class:list={['term', { featured }]} id={g.id} aria-labelledby={`${g.id}-t`}>
   <details class="disc" open={featured}>
@@ -22,6 +25,12 @@ const colon = lang === 'en' ? ': ' : '：';
     <div class="body">
       <ul class="points">{g.points.map((p) => <li>{p[lang]}</li>)}</ul>
       <p class="why"><strong>{s.whyLabel}</strong>{colon}{g.why[lang]}</p>
+      <AltToggle lang={lang} id={`term-${g.id}`}>
+        <p class="alt-title">{g.term[other]}</p>
+        <p>{g.oneLiner[other]}</p>
+        <ul>{g.points.map((p) => <li>{p[other]}</li>)}</ul>
+        <p><strong>{t(other).whyLabel}</strong>{otherColon}{g.why[other]}</p>
+      </AltToggle>
 
       {(relNews.length > 0 || relEvents.length > 0) && (
         <p class="rel">

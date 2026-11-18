@@ -1,0 +1,30 @@
+---
+// 對照另一種語言：按鈕展開／收合另一種語言的內容（放在 <slot />），方便邊讀中文邊對照英文。
+// Show the other language: a button reveals or hides the other language's text (placed in the slot), for reading Chinese with English side by side.
+// 展開收合由 js/alt-toggle.js 處理（獨立檔案，符合 CSP）。沒有 JS 時內容保持隱藏，原本的語言不受影響。
+// js/alt-toggle.js does the toggling (a separate file for CSP). Without JS the extra text stays hidden and the main language is unaffected.
+import { t, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang; id: string }
+const { lang, id } = Astro.props;
+const s = t(lang);
+const other = lang === 'en' ? 'zh-TW' : 'en';
+---
+<div class="alt">
+  <button type="button" class="alt-btn" data-alt-toggle aria-expanded="false" aria-controls={`alt-${id}`} data-show={s.altShow} data-hide={s.altHide}>{s.altShow}</button>
+  <div id={`alt-${id}`} class="alt-body" lang={other} hidden><slot /></div>
+</div>
+
+<style>
+  .alt { margin: .6rem 0 0; }
+  .alt-btn {
+    font: inherit; font-size: .85rem; color: var(--accent); background: transparent;
+    border: 1px solid var(--accent); border-radius: 999px; padding: .1rem .8rem; cursor: pointer;
+  }
+  .alt-btn[aria-expanded='true'] { background: var(--accent); color: var(--surface); }
+  .alt-body { margin-top: .6rem; padding: .7rem 1rem; border-left: 3px solid var(--accent); background: var(--bg); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; max-width: var(--measure); }
+  .alt-body :global(p) { margin: 0; }
+  .alt-body :global(p + p), .alt-body :global(ul), .alt-body :global(p + ul) { margin-top: .45rem; }
+  .alt-body :global(ul) { padding-left: 1.2rem; }
+  .alt-body :global(.alt-title) { font-weight: 600; }
+</style>
