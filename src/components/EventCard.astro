@@ -16,9 +16,10 @@ const other = lang === 'en' ? 'zh-TW' : 'en';
 const so = t(other);
 const otherColon = other === 'en' ? ': ' : '：';
 const markets = [
-  { key: 'us', name: s.us, rows: e.market.us },
-  { key: 'tw', name: s.tw, rows: e.market.tw },
+  { key: 'us', name: s.us, nameOther: so.us, rows: e.market.us },
+  { key: 'tw', name: s.tw, nameOther: so.tw, rows: e.market.tw },
 ].filter((m) => m.rows.length > 0);
+const pct = (v: number) => `${v > 0 ? '+' : ''}${v.toFixed(2)}%`;
 const pm = e.postmortem ? { name: e.postmortem.name, href: safeUrl(e.postmortem.url) } : null;
 const developing = e.status === 'ongoing' || e.status === 'monitoring';
 const security = [
@@ -68,6 +69,19 @@ const charts = markets
     <div class="charts">
       {charts.map((c) => <MoveChart rows={c.rows} caption={s.chartCaption(c.name)} />)}
       <p class="note">{s.chartNote}</p>
+      <AltToggle lang={lang} id={`${e.id}-chart`}>
+        {markets.filter((m) => m.rows.some((r) => typeof r.pct === 'number')).map((m) => (
+          <>
+            <p class="alt-title">{so.chartCaption(m.nameOther)}</p>
+            <ul>
+              {m.rows.filter((r) => typeof r.pct === 'number').map((r) => (
+                <li>{r.label[other]}{otherColon}<span class="num">{pct(r.pct as number)}</span></li>
+              ))}
+            </ul>
+          </>
+        ))}
+        <p>{so.chartNote}</p>
+      </AltToggle>
     </div>
   )}
 
@@ -179,6 +193,27 @@ const charts = markets
           <ul>{e.market.caveats.map((c) => <li>{c[lang]}</li>)}</ul>
           <p class="note">{s.disclaimerShort} {s.moveNote}</p>
         </div>
+        <AltToggle lang={lang} id={`${e.id}-market`}>
+          {markets.map((m) => (
+            <>
+              <p class="alt-title">{m.nameOther}</p>
+              <ul class="alt-list">
+                {m.rows.map((r) => (
+                  <li>{r.label[other]}{otherColon}{r.move[other]}{other === 'en' ? ' (' : '（'}{r.basis[other]}{other === 'en' ? ')' : '）'}</li>
+                ))}
+              </ul>
+            </>
+          ))}
+          {e.market.views.length > 0 && (
+            <>
+              <p class="alt-title">{so.hViews}</p>
+              <ul>{e.market.views.map((v) => <li>{v[other]}</li>)}</ul>
+            </>
+          )}
+          <p class="alt-title">{so.hCaveats}</p>
+          <ul>{e.market.caveats.map((c) => <li>{c[other]}</li>)}</ul>
+          <p>{so.disclaimerShort} {so.moveNote}</p>
+        </AltToggle>
       </div>
     </details>
 
