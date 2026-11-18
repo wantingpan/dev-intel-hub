@@ -24,7 +24,7 @@
 | 週一到週五 09:10 | 本機 Claude 排程 | 完整一輪：新聞、漏洞、事件，最多新增 5 則新聞，更新 `meta.json` |
 | 週一到週五 13:00 | 本機 Claude 排程 | 只確認「處理中」「觀察中」的事件，沒有新進展就不提交 |
 
-- 排程同樣遵守本文件的查證規則，`npm run check:data` 與 `npm run build` 都通過後，推到 **`data` 分支**（不開 Pull Request，也不直接推 `main`）。`publish-data` 流程每天 3 次（08:30、12:30、17:30）把 `data` 合併到 `main`，合併後才部署。
+- 排程同樣遵守本文件的查證規則，`npm run check:data` 與 `npm run build` 都通過後，推到 **`data` 分支**（不開 Pull Request，也不直接推 `main`）。`publish-data` 流程每週一、三、五 17:30把 `data` 合併到 `main`，合併後才部署。
 - 每次自動更新是一個獨立提交，訊息為 `Content update YYYY-MM-DD HH:MM (auto)`。發現錯誤時用 `git revert` 撤回。
 - `kev.json`、`ghsa.json`、`eol.json`、`feeds.json` 由 GitHub Actions 同步，排程與手動更新都不要修改。
 - `feeds.json`（技術動態）是自動彙整、**未經查證**的標題與連結。09:10 的排程可以把它當成找新聞的候選清單，但收錄進 `news.json` 前，一定要打開文章確認內容，並照上面的查證規則處理，不能因為它出現在技術動態就當成已查證。
@@ -231,8 +231,8 @@ git push -u origin content/2026-11-20
 ```
 
 5. 到 GitHub 開 Pull Request，依照範本的檢查清單逐項確認。
-6. 等待 CI 檢查通過，並打開 Cloudflare Pages 自動產生的預覽網址確認畫面。
-7. 確認無誤後合併，Cloudflare Pages 會自動部署到正式網站。一個功能只合併一次，避免浪費建置額度。
+6. 等待 CI 檢查通過，並打開 Netlify 自動產生的預覽網址確認畫面。
+7. 確認無誤後合併，Netlify 會自動部署到正式網站（每次正式部署扣 15 點，免費版每月約 20 次），所以一個功能只合併一次。
 
 ---
 

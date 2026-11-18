@@ -478,8 +478,8 @@
       }
     ],
     "why": {
-      "zh-TW": "本站就是例子：推送到 main 之後，GitHub Actions 自動檢查資料與建置，Cloudflare Pages 自動部署上線。",
-      "en": "This site is an example: pushing to main makes GitHub Actions check the data and build, and Cloudflare Pages deploys automatically."
+      "zh-TW": "本站就是例子：推送到 main 之後，GitHub Actions 自動檢查資料與建置，Netlify 自動部署上線。",
+      "en": "This site is an example: pushing to main makes GitHub Actions check the data and build, and Netlify deploys automatically."
     },
     "related": {
       "news": [],
