@@ -9,7 +9,7 @@ If you find a security issue in this site or repo, please **don't** open a publi
 ## 本專案的防護措施｜What this project does
 
 - 純靜態網站，沒有伺服器、資料庫或登入功能。 / Static site with no server, database or sign-in.
-- 部署於 Netlify，以 HTTP 標頭提供內容安全政策（CSP）、防點擊劫持、MIME 類型保護、權限政策與 HSTS。 / Hosted on Netlify with HTTP headers for CSP, anti-clickjacking, MIME sniffing protection, Permissions-Policy and HSTS.
+- 部署於 Cloudflare Pages（亦相容 Netlify），以 HTTP 標頭提供內容安全政策（CSP）、防點擊劫持、MIME 類型保護、權限政策與 HSTS。 / Hosted on Cloudflare Pages (Netlify also works) with HTTP headers for CSP, anti-clickjacking, MIME sniffing protection, Permissions-Policy and HSTS.
 - 所有外部連結只接受 `https://` 網址，建置前自動檢查資料檔。 / External links accept `https://` only, and data files are checked before every build.
 - 依 `package-lock.json` 安裝固定版本套件，並由 Dependabot 追蹤更新。 / Dependencies install from `package-lock.json` and are tracked by Dependabot.
 - 每次推送與 Pull Request 都由 GitHub Actions 執行資料檢查與建置。 / GitHub Actions runs the data check and build on every push and pull request.

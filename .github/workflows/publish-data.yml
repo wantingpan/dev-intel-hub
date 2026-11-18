@@ -1,0 +1,45 @@
+name: Publish data
+
+# 自動同步的資料先累積在 data 分支（不會部署）。這個流程每天 3 次把 data 合併到 main，合併後才會部署。
+# 時間：台灣時間 08:30、12:30、17:30，排在各資料同步之後。GitHub 的排程可能延遲幾分鐘到半小時。
+# Automatic syncs pile up on the data branch (which doesn't deploy). This workflow merges data into main three times a day, and that is what deploys.
+# Times: 08:30, 12:30 and 17:30 Taiwan time, after each data sync. GitHub may start scheduled runs late.
+on:
+  schedule:
+    - cron: '30 0,4,9 * * *'   # UTC 00:30、04:30、09:30 = 台灣時間 08:30、12:30、17:30 / = 08:30, 12:30, 17:30 Taiwan time (UTC+8)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# 與各資料同步流程共用同一組，避免同時推送 / Shares one group with the data syncs so they never push at the same time
+concurrency:
+  group: data-branch
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Merge data into main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin data || { echo "No data branch yet; nothing to publish."; exit 0; }
+          # data 的內容都已經在 main 裡，不需要發佈 / everything on data is already in main
+          if git merge-base --is-ancestor origin/data origin/main; then
+            echo "Nothing to publish."
+            exit 0
+          fi
+          # 合併失敗（衝突）時讓這次執行失敗，GitHub 會寄通知 / a conflict fails the run so GitHub sends a notification
+          git merge --no-ff --no-edit -m "Publish data updates" origin/data
+          node scripts/validate-data.mjs
+          git push origin main

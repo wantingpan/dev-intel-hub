@@ -32,18 +32,38 @@ npm run dev
 
 修改資料檔後，可以先執行 `npm run check:data` 檢查格式與網址。
 
-### 部署到 Netlify
+### 部署到 Cloudflare Pages
 
-網站透過 Netlify 直接連結這個 GitHub repo 部署，設定都在 `netlify.toml`：
+網站透過 Cloudflare Pages 直接連結這個 GitHub repo 部署（免費版每月 500 次建置，預覽部署不限數量）：
 
-- 推送到 `main`：Netlify 自動建置並上線。
-- 發 Pull Request：Netlify 自動產生預覽網址，GitHub Actions 同時執行 CI 檢查。
+- 推送到 `main`：自動建置並上線。**每次推送都會用掉一次建置額度**，所以功能請走分支與 Pull Request，測試完才合併；資料更新則走下面的 `data` 分支，不會直接推 `main`。
+- 其他分支與 Pull Request：自動產生預覽網址，GitHub Actions 同時執行 CI 檢查。
 - 建置前會自動執行資料檢查，資料有誤時建置失敗、不會上線。
-- 資安標頭（CSP、防點擊劫持等）由 `netlify.toml` 以 HTTP 標頭提供。
+- 資安標頭（CSP、防點擊劫持等）由 `public/_headers` 提供，內容與 `netlify.toml` 相同；修改時兩邊一起改。
 
-首次設定：登入 Netlify → 新增網站 → 從 GitHub 匯入現有專案 → 授權並選擇此 repo → 確認建置設定（會自動讀取 `netlify.toml`）→ 部署。
+首次設定：登入 Cloudflare → Workers & Pages → Create → Pages → Connect to Git → 授權並選擇此 repo → 設定：
 
-若要改回 GitHub Pages，建置時設定環境變數 `DEPLOY_TARGET=github-pages`，網址路徑會自動切換為 `/dev-intel-hub/`。
+| 項目 | 值 |
+|---|---|
+| Production branch | `main` |
+| Framework preset | Astro |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Environment variable | `NODE_VERSION` = `22`（專案也有 `.node-version`） |
+| 選填 | `SITE_URL` = 網站正式網址 |
+| 預覽分支（Branch control） | 排除 `data`，避免每次資料同步都用掉建置額度 |
+
+設定介面的名稱可能與上表略有出入，以 Cloudflare 當時的畫面為準。
+
+專案也保留了 `netlify.toml`，仍可部署到 Netlify（免費版每月只有 300 點，每次正式部署 15 點，約 20 次，不適合自動更新的網站）。若要改回 GitHub Pages，建置時設定環境變數 `DEPLOY_TARGET=github-pages`，網址路徑會自動切換為 `/dev-intel-hub/`。
+
+### 分支流程
+
+- **功能與修改**：開分支 → 本機 `npm run build` 與 `npm run preview` 測試 → 推分支、開 Pull Request → CI 通過並確認預覽網址 → 合併到 `main`。一個功能只部署一次。
+- **自動資料更新**：GitHub Actions 的同步與 Claude 排程只寫到 **`data` 分支**，不會觸發部署。`publish-data.yml` 每天 3 次（台灣時間 08:30、12:30、17:30）把 `data` 合併到 `main`，合併後才部署。
+- `data` 分支不存在時，同步流程會自動從 `main` 建立；`main` 有新內容時，同步前會先併進 `data`。
+
+在 `data` 分支與 `main` 之間發生衝突時，同步或發佈流程會失敗並寄通知，需要手動解決。
 
 ### 資料格式
 
@@ -65,13 +85,15 @@ npm run dev
 
 | 時間（台灣時間） | 執行者 | 更新內容 | 上線方式 |
 |---|---|---|---|
-| 每小時第 17 分 | GitHub Actions（`kev-sync.yml`） | `kev.json` | 有變動才推上 `main`，Netlify 自動部署 |
+| 每小時第 17 分 | GitHub Actions（`kev-sync.yml`） | `kev.json` | 有變動才推到 `data` 分支（不部署） |
 | 每天 08:00–17:00 每小時整點 | GitHub Actions（`feeds-sync.yml`） | `ghsa.json`、`eol.json` | 同上 |
 | 每天 08:00、12:00、17:00 | GitHub Actions（`feeds-rss.yml`） | `feeds.json` | 同上 |
-| 週一到週五 09:10 | 本機 Claude 排程 | 新聞、漏洞、事件、`meta.json` | 依 UPDATING.md 查證，`check:data` 與 `build` 通過後直接推上 `main` |
+| 週一到週五 09:10 | 本機 Claude 排程 | 新聞、漏洞、事件、`meta.json` | 依 UPDATING.md 查證，`check:data` 與 `build` 通過後推到 `data` 分支 |
 | 週一到週五 13:00 | 本機 Claude 排程 | 只更新「處理中」「觀察中」的事件 | 同上 |
+| 每天 08:30、12:30、17:30 | GitHub Actions（`publish-data.yml`） | 把 `data` 合併到 `main` | **合併後才部署上線** |
 
 - GitHub Actions 的排程可能延遲幾分鐘到半小時。
+- 資料上線時間：最晚等下一次發佈（08:30、12:30、17:30）。
 - 本機 Claude 排程需要電腦與 Claude 桌面 App 開著；錯過的時段會在下次打開 App 時補跑。
 - Claude 排程寫的內容**不經人工審核直接上線**。發現錯誤時，用 `git revert <commit>` 撤回該次提交即可。
 
@@ -102,7 +124,7 @@ npm run dev
 ### 發展規劃
 
 - [x] 第一階段：雙語靜態網站（目前版本，資料手動更新）
-- [x] Netlify 自動部署與 GitHub Actions CI 檢查
+- [x] Cloudflare Pages 自動部署與 GitHub Actions CI 檢查（原為 Netlify）
 - [x] 第二階段（第一步）：每小時自動同步 CISA 已遭利用漏洞清單
 - [x] 第二階段：GitHub 套件漏洞公告與 endoflife.date 版本資料，每天 08:00–17:00 每小時自動同步
 - [x] 第二階段：本機 Claude 排程，平日 09:10 與 13:00 依查證規則更新新聞與事件
@@ -141,18 +163,38 @@ The first `npm install` creates `package-lock.json`. **Commit it**: the deploy w
 
 After editing data files, run `npm run check:data` to validate them.
 
-### Deploy to Netlify
+### Deploy to Cloudflare Pages
 
-The site deploys through Netlify's direct link to this GitHub repo; settings live in `netlify.toml`:
+The site deploys through Cloudflare Pages' direct link to this GitHub repo (the free plan includes 500 builds a month and unlimited preview deployments):
 
-- Push to `main`: Netlify builds and publishes automatically.
-- Open a pull request: Netlify creates a preview URL while GitHub Actions runs CI checks.
+- Push to `main`: builds and publishes automatically. **Every push uses one build**, so features go through branches and pull requests and merge only once tested; data updates go through the `data` branch below, never straight to `main`.
+- Other branches and pull requests: a preview URL is created while GitHub Actions runs CI checks.
 - The data check runs before every build; bad data fails the build and never goes live.
-- Security headers (CSP, anti-clickjacking and more) are sent as HTTP headers from `netlify.toml`.
+- Security headers (CSP, anti-clickjacking and more) come from `public/_headers`, which mirrors `netlify.toml`; change both together.
 
-First-time setup: sign in to Netlify → add a new site → import an existing project from GitHub → authorize and pick this repo → confirm the build settings (read from `netlify.toml`) → deploy.
+First-time setup: sign in to Cloudflare → Workers & Pages → Create → Pages → Connect to Git → authorize and pick this repo → settings:
 
-To build for GitHub Pages instead, set `DEPLOY_TARGET=github-pages`; the base path switches to `/dev-intel-hub/` automatically.
+| Setting | Value |
+|---|---|
+| Production branch | `main` |
+| Framework preset | Astro |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Environment variable | `NODE_VERSION` = `22` (the repo also has `.node-version`) |
+| Optional | `SITE_URL` = the site's main address |
+| Preview branches (Branch control) | Exclude `data`, so data syncs don't use up the build quota |
+
+Labels in the dashboard may differ slightly from this table; go by what Cloudflare shows.
+
+`netlify.toml` is kept, so Netlify still works as a target (its free plan has 300 credits a month at 15 per production deploy, about 20 deploys, which doesn't suit a site that updates automatically). To build for GitHub Pages instead, set `DEPLOY_TARGET=github-pages`; the base path switches to `/dev-intel-hub/` automatically.
+
+### Branch workflow
+
+- **Features and changes**: branch → test locally with `npm run build` and `npm run preview` → push the branch and open a pull request → CI passes and the preview URL checks out → merge into `main`. One deploy per feature.
+- **Automatic data updates**: the GitHub Actions syncs and the Claude tasks write to the **`data` branch** only, which doesn't deploy. `publish-data.yml` merges `data` into `main` three times a day (08:30, 12:30, 17:30 Taiwan time), and that merge is what deploys.
+- When the `data` branch doesn't exist, the syncs create it from `main`; when `main` has new commits, they're merged into `data` before each sync.
+
+If `data` and `main` conflict, the sync or publish run fails and GitHub sends a notification; resolve it by hand.
 
 ### Data
 
@@ -174,13 +216,15 @@ The dev feeds page (`/en/feeds/`) offers an OPML file (`/feeds.opml`) for import
 
 | When (Taiwan time) | Runs on | Updates | How it goes live |
 |---|---|---|---|
-| Minute 17 of every hour | GitHub Actions (`kev-sync.yml`) | `kev.json` | Pushed to `main` only when changed; Netlify redeploys |
+| Minute 17 of every hour | GitHub Actions (`kev-sync.yml`) | `kev.json` | Pushed to the `data` branch only when changed (no deploy) |
 | Every hour on the hour, 08:00–17:00 | GitHub Actions (`feeds-sync.yml`) | `ghsa.json`, `eol.json` | Same |
 | Every day 08:00, 12:00, 17:00 | GitHub Actions (`feeds-rss.yml`) | `feeds.json` | Same |
-| Weekdays 09:10 | Local Claude scheduled task | News, CVEs, events, `meta.json` | Verified per UPDATING.md; pushed to `main` after `check:data` and `build` pass |
+| Weekdays 09:10 | Local Claude scheduled task | News, CVEs, events, `meta.json` | Verified per UPDATING.md; pushed to `data` after `check:data` and `build` pass |
 | Weekdays 13:00 | Local Claude scheduled task | Ongoing and monitoring events only | Same |
+| Every day 08:30, 12:30, 17:30 | GitHub Actions (`publish-data.yml`) | Merges `data` into `main` | **Goes live when deployed after the merge** |
 
 - GitHub Actions may start scheduled runs a few minutes to half an hour late.
+- Data goes live at the next publish (08:30, 12:30 or 17:30) at the latest.
 - The local Claude task needs the computer and the Claude desktop app running; missed runs happen the next time the app opens.
 - Content from the Claude task **goes live without human review**. To undo a bad update, `git revert <commit>`.
 
@@ -211,7 +255,7 @@ See [SECURITY.md](SECURITY.md) for protections and how to report issues. Recomme
 ### Roadmap
 
 - [x] Phase 1: bilingual static site (current; data updated by hand)
-- [x] Netlify auto-deploys with GitHub Actions CI checks
+- [x] Cloudflare Pages auto-deploys with GitHub Actions CI checks (previously Netlify)
 - [x] Phase 2, step one: hourly sync of CISA's Known Exploited Vulnerabilities catalog
 - [x] Phase 2: GitHub package advisories and endoflife.date versions, synced hourly 08:00–17:00 Taiwan time
 - [x] Phase 2: local Claude scheduled task updates news and events on weekdays at 09:10 and 13:00, following the verification rules

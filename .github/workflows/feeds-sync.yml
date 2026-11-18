@@ -1,9 +1,9 @@
 name: Sync data feeds
 
 # 每天台灣時間 08:00–17:00 每小時整點，同步 GitHub 套件漏洞公告與 endoflife.date 版本資料。
-# 有變動才提交；Netlify 會因為這次提交自動重新部署。GitHub 的排程可能延遲幾分鐘到半小時。
+# 有變動才提交到 data 分支（不會部署）；publish-data 流程每天 3 次把 data 合併到 main 才部署。GitHub 的排程可能延遲幾分鐘到半小時。
 # Every hour on the hour, 08:00–17:00 Taiwan time, sync GitHub advisories and endoflife.date versions.
-# Commits only when something changed; Netlify redeploys on that commit. GitHub may start scheduled runs late.
+# Commits to the data branch only when something changed (no deploy); the publish-data workflow merges data into main three times a day, and that is what deploys. GitHub may start scheduled runs late.
 on:
   schedule:
     - cron: '0 0-9 * * *'   # UTC 00–09 = 台灣時間 08–17 / UTC 00–09 = 08–17 Taiwan time (UTC+8)
@@ -13,8 +13,9 @@ on:
 permissions:
   contents: write
 
+# 與其他資料同步流程共用同一組，避免同時推送到 data 分支 / Shared with the other data workflows so they never push to data at the same time
 concurrency:
-  group: feeds-sync
+  group: data-branch
   cancel-in-progress: false
 
 jobs:
@@ -23,9 +24,14 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Switch to the data branch
+        run: bash scripts/ci/checkout-data.sh
       # 單一來源失敗不影響另一個；失敗時保留原本的資料檔
       # One source failing doesn't block the other; on failure the existing file is kept
       - name: Fetch GitHub advisories
@@ -40,18 +46,8 @@ jobs:
         run: node scripts/fetch-eol.mjs
       - name: Validate data
         run: node scripts/validate-data.mjs
-      - name: Commit if changed
-        run: |
-          if git diff --quiet -- src/data/ghsa.json src/data/eol.json; then
-            echo "No change."
-          else
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add src/data/ghsa.json src/data/eol.json
-            git commit -m "Sync data feeds"
-            git pull --rebase
-            git push
-          fi
+      - name: Commit to data if changed
+        run: bash scripts/ci/push-data.sh "Sync data feeds" src/data/ghsa.json src/data/eol.json
       # 有來源失敗時讓這次執行顯示為失敗，GitHub 會寄通知
       # Mark the run failed when a source failed, so GitHub sends a notification
       - name: Report failed sources

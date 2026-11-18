@@ -16,4 +16,4 @@
 - [ ] 中英文內容都已填寫，事實一致
 - [ ] 已更新相關事件與 `meta.json` 的 `verifiedOn`
 - [ ] 本機執行 `npm run check:data` 與 `npm run build` 都通過
-- [ ] 已在 Netlify 預覽網址確認畫面
+- [ ] 已在預覽網址確認畫面（Cloudflare Pages 會為每個分支與 Pull Request 產生）
