@@ -5,6 +5,97 @@
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
   "items": [
     {
+      "ghsa": "GHSA-c5q4-97jw-jggh",
+      "cve": "CVE-2026-14265",
+      "severity": "high",
+      "cvss": 7.7,
+      "ecosystem": "maven",
+      "packages": [
+        "software.amazon.jdbc:aws-advanced-jdbc-wrapper"
+      ],
+      "patched": [
+        "4.0.1"
+      ],
+      "summary": "AWS-advanced-jdbc-wrapper: Java Deserialization RCE via Cache Poisoning",
+      "published": "2026-11-17"
+    },
+    {
+      "ghsa": "GHSA-gfv3-m769-5xm3",
+      "cve": "CVE-2026-53998",
+      "severity": "critical",
+      "cvss": null,
+      "ecosystem": "pip",
+      "packages": [
+        "arize-phoenix"
+      ],
+      "patched": [
+        "15.7.0"
+      ],
+      "summary": "Phoenix: Format String Injection in applyChatTemplate",
+      "published": "2026-11-17"
+    },
+    {
+      "ghsa": "GHSA-r7hw-jx6r-756g",
+      "cve": "CVE-2026-110782",
+      "severity": "high",
+      "cvss": null,
+      "ecosystem": "composer",
+      "packages": [
+        "simplesamlphp/saml2"
+      ],
+      "patched": [
+        "6.2.4",
+        "7.0.0-rc2"
+      ],
+      "summary": "SAML2: Incomplete fix of CVE-2026-49283: unsigned embedded Response bypasses HTTP-Artifact signature verification (no embedded-Issuer binding)",
+      "published": "2026-11-17"
+    },
+    {
+      "ghsa": "GHSA-rvfr-cqwq-rc4j",
+      "cve": "CVE-2026-110789",
+      "severity": "high",
+      "cvss": null,
+      "ecosystem": "npm",
+      "packages": [
+        "@libp2p/crypto"
+      ],
+      "patched": [
+        "5.1.22"
+      ],
+      "summary": "libp2p: ASN.1 DER decoder drives an unbounded synchronous loop on attacker-controlled length fields, stalling the Node event loop pre-auth",
+      "published": "2026-11-17"
+    },
+    {
+      "ghsa": "GHSA-x2vm-cf3p-m2w8",
+      "cve": "CVE-2026-119793",
+      "severity": "high",
+      "cvss": null,
+      "ecosystem": "npm",
+      "packages": [
+        "@libp2p/gossipsub"
+      ],
+      "patched": [
+        "17.0.0"
+      ],
+      "summary": "libp2p: gossipsub creates a permanent topics-map entry per distinct subscription with no cap in the default config",
+      "published": "2026-11-17"
+    },
+    {
+      "ghsa": "GHSA-xhv5-8fpq-g7hf",
+      "cve": "CVE-2026-62336",
+      "severity": "high",
+      "cvss": 8.5,
+      "ecosystem": "go",
+      "packages": [
+        "go.qbee.io/agent"
+      ],
+      "patched": [
+        "0.0.0-20260615134032-0fdf8e411de5"
+      ],
+      "summary": "qbee-agent: Local Privilege Escalation and Arbitrary File Tampering via Symlink Following in createFile helper",
+      "published": "2026-11-17"
+    },
+    {
       "ghsa": "GHSA-24c4-3p7v-29cm",
       "cve": "CVE-2026-128127",
       "severity": "high",
@@ -93,97 +184,7 @@
       ],
       "summary": "AIOHTTP: WebSocket receive queue limits bypassed by small or compressed messages",
       "published": "2026-11-16"
-    },
-    {
-      "ghsa": "GHSA-72px-j8gh-p79x",
-      "cve": "CVE-2026-129297",
-      "severity": "high",
-      "cvss": null,
-      "ecosystem": "pip",
-      "packages": [
-        "mail-parser"
-      ],
-      "patched": [
-        "4.6.2"
-      ],
-      "summary": "mail-parser: Sender IP address spoofing in get_server_ipaddress()",
-      "published": "2026-11-16"
-    },
-    {
-      "ghsa": "GHSA-7mxv-7h3q-9324",
-      "cve": "CVE-2026-128134",
-      "severity": "high",
-      "cvss": null,
-      "ecosystem": "pip",
-      "packages": [
-        "nltk"
-      ],
-      "patched": [
-        "3.10.4"
-      ],
-      "summary": "NLTK dot2img runs Graphviz 'dot' without the trusted-exec chokepoint, enabling local code execution via a writable PATH element",
-      "published": "2026-11-16"
-    },
-    {
-      "ghsa": "GHSA-8vf2-hxg5-crqh",
-      "cve": "CVE-2026-129236",
-      "severity": "high",
-      "cvss": null,
-      "ecosystem": "go",
-      "packages": [
-        "github.com/kubeshark/kubeshark"
-      ],
-      "patched": [
-        "0.0.2-0.20260812200004-a76a1920dc75"
-      ],
-      "summary": "Kubeshark: MCP `start_kubeshark` argument injection via `pod_regex` → image redirect → cluster takeover",
-      "published": "2026-11-16"
-    },
-    {
-      "ghsa": "GHSA-c94f-87xg-65wf",
-      "cve": "CVE-2026-91115",
-      "severity": "high",
-      "cvss": null,
-      "ecosystem": "composer",
-      "packages": [
-        "silverstripe/framework"
-      ],
-      "patched": [
-        "6.2.13"
-      ],
-      "summary": "Silverstripe Framework: RCE via i18nTextCollectorTask writer parameter",
-      "published": "2026-11-16"
-    },
-    {
-      "ghsa": "GHSA-h4cc-hm5h-fmm9",
-      "cve": "CVE-2026-128131",
-      "severity": "high",
-      "cvss": 8.7,
-      "ecosystem": "pip",
-      "packages": [
-        "aiohttp"
-      ],
-      "patched": [
-        "3.14.4"
-      ],
-      "summary": "AIOHTTP: Concatenated compressed streams cause excessive CPU use",
-      "published": "2026-11-16"
-    },
-    {
-      "ghsa": "GHSA-jm3w-gw2p-xjfj",
-      "cve": "CVE-2026-128124",
-      "severity": "high",
-      "cvss": 8.2,
-      "ecosystem": "pip",
-      "packages": [
-        "aiohttp"
-      ],
-      "patched": [
-        "3.14.4"
-      ],
-      "summary": "AIOHTTP: Event loop stall in add_domain() wildcard matching",
-      "published": "2026-11-16"
     }
   ],
-  "fetchedAt": "2026-11-17T01:38:49.572Z"
+  "fetchedAt": "2026-11-18T04:59:59.160Z"
 }
