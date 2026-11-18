@@ -1,0 +1,37 @@
+---
+// 資安與漏洞：把「已遭利用（CISA KEV）」「套件公告（GitHub）」「修補清單」合成一個區塊，用頁籤切換。
+// Security and vulnerabilities: CISA KEV, GitHub advisories and the patch list in one section, switched with tabs.
+// 沒有 JavaScript 時三個面板會全部顯示；有 JavaScript 時由 js/tabs.js 只顯示選到的那個。
+// Without JavaScript all three panels show; with it, js/tabs.js shows only the selected one.
+import { t, href, type Lang } from '../i18n/ui';
+import KevList from './KevList.astro';
+import GhsaList from './GhsaList.astro';
+import CveTable from './CveTable.astro';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+---
+<section class="panel vulns" id="vulns" aria-labelledby="vulns-t" data-tabs>
+  <h2 id="vulns-t">{s.vulnsTitle}</h2>
+  <div class="tabs" role="group" aria-label={s.vulnsTitle}>
+    <button type="button" class="tab" data-tab="kev" aria-pressed="true">{s.tabKev}</button>
+    <button type="button" class="tab" data-tab="ghsa" aria-pressed="false">{s.tabGhsa}</button>
+    <button type="button" class="tab" data-tab="patch" aria-pressed="false">{s.tabPatch}</button>
+  </div>
+  <KevList lang={lang} embedded />
+  <GhsaList lang={lang} embedded />
+  <CveTable lang={lang} embedded />
+  <script is:inline src={href('js/more.js')} defer></script>
+  <script is:inline src={href('js/tabs.js')} defer></script>
+</section>
+
+<style>
+  .vulns { margin-bottom: 1.25rem; }
+  h2 { margin-bottom: .75rem; }
+  .tabs { display: flex; gap: .4rem; margin-bottom: 1rem; overflow-x: auto; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab { flex: none; font: inherit; font-size: .92rem; border: 1px solid var(--line); background: transparent; color: var(--ink); border-radius: 999px; padding: .4rem 1rem; min-height: 2.5rem; cursor: pointer; }
+  .tab[aria-pressed='true'] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  [data-tab-panel] + [data-tab-panel] { margin-top: 1.5rem; }
+</style>

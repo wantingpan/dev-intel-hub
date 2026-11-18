@@ -7,9 +7,10 @@ import { safeUrl } from '../lib/url';
 
 interface Cycle { cycle: string; latest: string | null; latestDate: string | null; lts: boolean; eol: string | null }
 interface Product { id: string; label: string; url: string; cycles: Cycle[] }
-interface Props { lang: Lang }
-const { lang } = Astro.props;
+interface Props { lang: Lang; standalone?: boolean }
+const { lang, standalone = false } = Astro.props;
 const s = t(lang);
+const H = standalone ? 'h1' : 'h2';
 const SHOW = 3; // 每個產品最多顯示幾個版本 / versions shown per product
 const products = (eol.products ?? []) as Product[];
 const site = safeUrl(eol.sourceUrl);
@@ -19,7 +20,7 @@ const soonLimit = new Date(Date.now() + 90 * 86400000).toISOString().slice(0, 10
 const soon = (d: string | null) => !!d && d >= today && d <= soonLimit;
 ---
 <section class="panel" id="eol" aria-labelledby="eol-t">
-  <h2 id="eol-t">{s.eolTitle}</h2>
+  <H id="eol-t">{s.eolTitle}</H>
   <p class="lede">{s.eolSub}</p>
   <div class="grid">
     {products.map((p) => {
@@ -57,18 +58,18 @@ const soon = (d: string | null) => !!d && d >= today && d <= soonLimit;
 </section>
 
 <style>
-  #eol { margin-top: 1.25rem; }
+  h1 { margin: 0 0 .35rem; font-size: 1.6rem; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1rem 1.25rem; }
   .prod { border-top: 1px solid var(--line); padding-top: .6rem; min-width: 0; }
   h3 { margin: 0 0 .35rem; font-size: 1rem; }
   table { width: 100%; border-collapse: collapse; font-size: .88rem; }
-  th { font-size: .76rem; color: var(--muted); font-weight: 500; text-align: left; padding: 0 0 .2rem; }
+  th { font-size: .8rem; color: var(--muted); font-weight: 500; text-align: left; padding: 0 0 .2rem; }
   td { padding: .2rem 0; vertical-align: top; }
   .r { text-align: right; }
   .ver { overflow-wrap: anywhere; }
-  .lts { margin-left: .35rem; font-size: .72rem; font-weight: 600; color: var(--accent); border: 1px solid currentColor; border-radius: 4px; padding: 0 .3rem; }
+  .lts { margin-left: .35rem; font-size: .8rem; font-weight: 600; color: var(--accent); border: 1px solid currentColor; border-radius: 4px; padding: 0 .3rem; }
   .none { color: var(--muted); }
-  .warn { display: block; font-size: .72rem; font-weight: 600; color: var(--warn); }
+  .warn { display: block; font-size: .8rem; font-weight: 600; color: var(--warn); }
   tr.soon td { color: var(--warn); }
   .foot { margin: .9rem 0 0; padding-top: .75rem; border-top: 1px solid var(--line); font-size: .88rem; color: var(--muted); }
 </style>

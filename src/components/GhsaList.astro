@@ -11,9 +11,11 @@ interface Item {
   ghsa: string; cve: string | null; severity: 'critical' | 'high'; cvss: number | null;
   ecosystem: string; packages: string[]; patched: string[]; summary: string; published: string;
 }
-interface Props { lang: Lang }
-const { lang } = Astro.props;
+interface Props { lang: Lang; embedded?: boolean }
+const { lang, embedded = false } = Astro.props;
 const s = t(lang);
+const SHOW = 5; // 預設顯示幾則，其餘按「看更多」/ items shown by default; the rest sit behind "show more"
+const H = embedded ? 'h3' : 'h2';
 const items = (ghsa.items ?? []) as Item[];
 const all = safeUrl(ghsa.sourceUrl);
 const license = safeUrl(ghsa.licenseUrl);
@@ -21,8 +23,8 @@ const license = safeUrl(ghsa.licenseUrl);
 const link = (id: string) => (/^GHSA(-[23456789cfghjmpqrvwx]{4}){3}$/.test(id) ? `https://github.com/advisories/${id}` : undefined);
 const newest = items[0]?.published;
 ---
-<section class="panel ghsa" id="ghsa" aria-labelledby="ghsa-t">
-  <h2 id="ghsa-t">{s.ghsaTitle}</h2>
+<section class:list={['panel', 'ghsa', { flat: embedded }]} id="ghsa" aria-labelledby="ghsa-t" data-tab-panel={embedded ? 'ghsa' : undefined}>
+  <H id="ghsa-t" class:list={{ 'sr-only': embedded }}>{s.ghsaTitle}</H>
   <p class="lede">{s.ghsaSub}</p>
 
   {newest && (
@@ -35,9 +37,9 @@ const newest = items[0]?.published;
     <p class="empty">{s.ghsaEmpty}</p>
   ) : (
     <>
-      <ul class="list">
-        {items.map((v) => (
-          <li>
+      <ul class="list" data-more-list>
+        {items.map((v, i) => (
+          <li data-extra={i >= SHOW ? '' : undefined}>
             <div class="when">
               <time datetime={v.published} class="num">{formatDate(v.published, lang)}</time>
               <span class:list={['sev', v.severity]}>{s.sev[v.severity]}</span>
@@ -61,6 +63,7 @@ const newest = items[0]?.published;
           </li>
         ))}
       </ul>
+      {items.length > SHOW && <button type="button" class="more-btn" data-more-btn hidden>{s.moreBtn(items.length - SHOW)}</button>}
       <p class="foot">
         {all && <a href={all} target="_blank" rel="noopener noreferrer">{s.ghsaAll}</a>}
         {license && <a href={license} target="_blank" rel="noopener noreferrer license">{s.ghsaLicense}</a>}
@@ -71,18 +74,20 @@ const newest = items[0]?.published;
 
 <style>
   .ghsa { margin-bottom: 1.25rem; }
+  .ghsa.flat { margin-bottom: 0; }
+  .more-btn { margin-top: .75rem; font: inherit; font-size: .9rem; color: var(--accent); background: transparent; border: 1px solid var(--accent); border-radius: 999px; padding: .45rem 1.1rem; min-height: 2.5rem; cursor: pointer; }
   .stale { margin: 0 0 .75rem; padding: .45rem .75rem; font-size: .9rem; border-left: 3px solid var(--warn); background: var(--warn-bg); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; max-width: var(--measure); }
   .empty { color: var(--muted); margin: 0; }
   .list { list-style: none; margin: 0; padding: 0; }
   li { display: grid; grid-template-columns: 6.5rem 1fr auto; gap: 1rem; padding: .8rem 0; border-top: 1px solid var(--line); }
   .when { display: flex; flex-direction: column; gap: .3rem; align-items: flex-start; color: var(--muted); font-size: .9rem; }
-  .sev { font-size: .76rem; font-weight: 600; border-radius: 4px; padding: .05rem .4rem; border: 1px solid currentColor; line-height: 1.5; }
+  .sev { font-size: .8rem; font-weight: 600; border-radius: 4px; padding: .05rem .4rem; border: 1px solid currentColor; line-height: 1.5; }
   .sev.critical { color: var(--c-security); background: var(--c-security-bg); }
   .sev.high { color: var(--warn); background: var(--warn-bg); }
   .head { margin: 0; display: flex; flex-wrap: wrap; gap: .2rem .75rem; align-items: baseline; }
   .head a, .head > .num { font-weight: 600; }
   .pkg { font-weight: 600; overflow-wrap: anywhere; }
-  .eco { font-size: .78rem; font-weight: 500; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 .35rem; }
+  .eco { font-size: .8rem; font-weight: 500; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 .35rem; }
   .name { margin: .1rem 0 0; color: var(--muted); font-size: .94rem; max-width: 66ch; line-height: 1.5; }
   .meta { margin: .25rem 0 0; font-size: .88rem; display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
   .meta .num:last-child:not(:first-child) { color: var(--muted); }

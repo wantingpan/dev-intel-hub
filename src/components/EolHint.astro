@@ -1,0 +1,31 @@
+---
+// 首頁的版本提醒：只用一行告訴讀者哪些版本快到期，完整表格在版本頁。
+// Home page version hint: one line on what's ending support soon; the full table lives on the versions page.
+import { t, href, type Lang } from '../i18n/ui';
+import { endingSoon } from '../lib/eol';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = t(lang);
+const soon = endingSoon();
+const names = soon.slice(0, 3).map((x) => `${x.product} ${x.cycle}`);
+---
+<aside class="hint panel" aria-label={s.eolTitle}>
+  <p>
+    <strong>{s.eolTitle}</strong>
+    <span class="msg">
+      {soon.length > 0
+        ? s.eolHintSoon(soon.length, names.join(s.listSep))
+        : s.eolHintNone}
+    </span>
+  </p>
+  <a href={href(`${lang}/versions/`)}>{s.eolHintLink}</a>
+</aside>
+
+<style>
+  .hint { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .5rem 1rem; padding: .9rem 1.1rem; margin-bottom: 1.25rem; }
+  p { margin: 0; font-size: .95rem; }
+  strong { margin-right: .6rem; }
+  .msg { color: var(--muted); }
+  a { font-size: .92rem; padding: .35rem 0; }
+</style>

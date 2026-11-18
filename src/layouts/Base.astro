@@ -9,13 +9,13 @@ import '@fontsource/ibm-plex-sans/600.css';
 
 interface Props {
   lang: Lang;
-  page?: 'today' | 'impact' | 'learn' | 'feeds';
+  page?: 'today' | 'impact' | 'learn' | 'feeds' | 'versions';
   title?: string;
 }
 const { lang, page = 'today', title } = Astro.props;
 const s = t(lang);
 const pagePath = (l: string) =>
-  page === 'impact' ? `${l}/impact/` : page === 'learn' ? `${l}/learn/` : page === 'feeds' ? `${l}/feeds/` : `${l}/`;
+  page === 'impact' ? `${l}/impact/` : page === 'learn' ? `${l}/learn/` : page === 'feeds' ? `${l}/feeds/` : page === 'versions' ? `${l}/versions/` : `${l}/`;
 ---
 <!doctype html>
 <html lang={lang}>
@@ -36,11 +36,24 @@ const pagePath = (l: string) =>
         <img src={href('favicon.svg')} alt="" width="28" height="28" />
         <span>{s.siteName}</span>
       </a>
-      <nav class="site-nav" aria-label={s.siteName}>
-        <a href={href(`${lang}/`)} aria-current={page === 'today' ? 'page' : undefined}>{s.navToday}</a>
-        <a href={href(`${lang}/impact/`)} aria-current={page === 'impact' ? 'page' : undefined}>{s.navImpact}</a>
-        <a href={href(`${lang}/feeds/`)} aria-current={page === 'feeds' ? 'page' : undefined}>{s.navFeeds}</a>
-        <a href={href(`${lang}/learn/`)} aria-current={page === 'learn' ? 'page' : undefined}>{s.navLearn}</a>
+      {/* 桌面：頂部導覽；手機：固定在畫面底部的分頁列，單手好按 / Desktop: top navigation; phone: a bottom tab bar within thumb reach */}
+      <nav class="site-nav" aria-label={s.navLabel}>
+        <a href={href(`${lang}/`)} aria-current={page === 'today' ? 'page' : undefined}>
+          <svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z" /></svg>
+          <span>{s.navToday}</span>
+        </a>
+        <a href={href(`${lang}/impact/`)} aria-current={page === 'impact' ? 'page' : undefined}>
+          <svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 17l6-6 4 4 8-8" /><path d="M15 7h6v6" /></svg>
+          <span>{s.navImpact}</span>
+        </a>
+        <a href={href(`${lang}/feeds/`)} aria-current={page === 'feeds' ? 'page' : undefined}>
+          <svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 11a9 9 0 0 1 9 9" /><path d="M4 4a16 16 0 0 1 16 16" /><circle cx="5" cy="19" r="1" /></svg>
+          <span>{s.navFeeds}</span>
+        </a>
+        <a href={href(`${lang}/learn/`)} aria-current={page === 'learn' ? 'page' : undefined}>
+          <svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z" /><path d="M4 19V5" /></svg>
+          <span>{s.navLearn}</span>
+        </a>
       </nav>
       <nav class="lang-switch" aria-label={s.switchTo}>
         {
@@ -144,9 +157,33 @@ const pagePath = (l: string) =>
   .site-nav { display: flex; gap: 1.25rem; margin-right: auto; margin-left: 1.5rem; }
   .site-nav a { color: var(--muted); text-decoration: none; font-size: .95rem; padding: .2rem 0; border-bottom: 2px solid transparent; }
   .site-nav a[aria-current='page'] { color: var(--ink); border-bottom-color: var(--accent); }
-  @media (max-width: 560px) { .site-nav { order: 3; width: 100%; margin-left: 0; } }
+  .site-nav .ic { display: none; }
   .lang-switch { display: flex; gap: .25rem; }
   .lang-switch a { padding: .25rem .75rem; border-radius: 999px; text-decoration: none; color: var(--muted); font-size: .9rem; }
+  /* 手機：頂部縮成一列（站名＋語言），主導覽移到畫面底部 / Phone: a one-row header (name + language), main navigation moves to the bottom */
+  @media (max-width: 720px) {
+    .site-head { flex-wrap: nowrap; padding-top: .7rem; padding-bottom: .7rem; }
+    .brand { min-width: 0; font-size: 1rem; }
+    .brand span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .lang-switch { flex: none; }
+    .lang-switch a { padding: .5rem .8rem; min-height: 2.75rem; display: inline-flex; align-items: center; }
+    .site-nav {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; margin: 0; width: auto;
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0;
+      background: var(--surface); border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom);
+    }
+    .site-nav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .2rem; min-height: 3.5rem; padding: .35rem .25rem; font-size: .8rem; line-height: 1.2; border-bottom: 0; border-top: 3px solid transparent; text-align: center; }
+    .site-nav a[aria-current='page'] { border-top-color: var(--accent); color: var(--accent); }
+    .site-nav .ic { display: block; }
+    body main { padding-bottom: calc(5.5rem + env(safe-area-inset-bottom)); }
+    /* 手機的點擊目標：按鈕、頁籤、展開列至少 44px 高，連結列至少 28px / Phone tap targets: buttons, tabs and disclosure rows at least 44px, link rows at least 28px */
+    .tab, .alt-btn, .more-btn { min-height: 2.75rem; }
+    main summary { min-height: 2.75rem; }
+    main .links a, main .foot a, main .term-links a, main .src a, main .rel a, main .follow a, main .confs a { display: inline-block; padding: .25rem 0; }
+  }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+  /* 嵌在頁籤裡的面板：不再有自己的外框 / A panel nested in tabs drops its own frame */
+  .panel.flat { border: 0; padding: 0; background: transparent; border-radius: 0; }
   .lang-switch a[aria-current='page'] { background: var(--ink); color: var(--bg); }
   main { padding-bottom: 4rem; }
   .stale-banner { margin: 0 0 1.25rem; padding: .7rem 1rem; border: 1px solid var(--warn-line); background: var(--warn-bg); color: var(--ink); border-radius: var(--radius-sm); font-size: .92rem; }

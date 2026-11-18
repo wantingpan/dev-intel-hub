@@ -2,15 +2,22 @@
 import cves from '../data/cves.json';
 import { t, type Lang } from '../i18n/ui';
 import { safeUrl } from '../lib/url';
+import { actionIds } from '../lib/vulns';
 import CvssMeter from './CvssMeter.astro';
 import InfoTip from './InfoTip.astro';
 
-interface Props { lang: Lang }
-const { lang } = Astro.props;
+interface Props { lang: Lang; embedded?: boolean }
+const { lang, embedded = false } = Astro.props;
 const s = t(lang);
+const H = embedded ? 'h3' : 'h2';
+// 已列在「需要行動」的漏洞不重複 / CVEs already under "Act on this" aren't repeated
+const rows = cves.filter((c) => !actionIds.has(c.cve));
+const hiddenDup = cves.length - rows.length;
 ---
-<section class="panel" id="patch-list" aria-labelledby="cve-title">
-  <h2 id="cve-title">{s.cveTitle}</h2>
+<section class:list={['panel', 'patch', { flat: embedded }]} id="patch-list" aria-labelledby="cve-title" data-tab-panel={embedded ? 'patch' : undefined}>
+  <H id="cve-title" class:list={{ 'sr-only': embedded }}>{s.cveTitle}</H>
+  <p class="lede">{s.cveLede}</p>
+  {hiddenDup > 0 && <p class="dup">{s.dupNote(hiddenDup)}</p>}
   <div class="scroll">
     <table>
       <thead>
@@ -23,17 +30,17 @@ const s = t(lang);
         </tr>
       </thead>
       <tbody>
-        {cves.map((c) => {
+        {rows.map((c) => {
           const u = safeUrl(c.url);
           return (
             <tr>
-              <td class="num nowrap">
+              <td class="num nowrap c-cve">
                 {u ? <a href={u} target="_blank" rel="noopener noreferrer" title={c.source}>{c.cve}</a> : c.cve}
               </td>
-              <td>{c.product[lang]}</td>
-              <td class="nowrap"><span class:list={['sev', c.severity]}>{s.sev[c.severity as keyof typeof s.sev]}</span></td>
-              <td>{c.action[lang]}</td>
-              <td class="r"><CvssMeter score={c.cvss} noneLabel={s.cvssNone} /></td>
+              <td class="c-prod">{c.product[lang]}</td>
+              <td class="nowrap c-stat"><span class:list={['sev', c.severity]}>{s.sev[c.severity as keyof typeof s.sev]}</span></td>
+              <td class="c-act">{c.action[lang]}</td>
+              <td class="r c-score"><CvssMeter score={c.cvss} noneLabel={s.cvssNone} /></td>
             </tr>
           );
         })}
@@ -43,7 +50,10 @@ const s = t(lang);
 </section>
 
 <style>
+  .patch { margin-bottom: 1.25rem; }
+  .patch.flat { margin-bottom: 0; }
   h2 { margin-bottom: .75rem; }
+  .dup { margin: -.25rem 0 .75rem; font-size: .88rem; color: var(--muted); }
   .scroll { overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; font-size: .95rem; }
   th, td { text-align: left; padding: .6rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
@@ -54,4 +64,21 @@ const s = t(lang);
   .sev.exploited { background: var(--alert); border-color: var(--alert); color: var(--surface); }
   .sev.critical { color: var(--c-security); background: var(--c-security-bg); }
   .sev.high { color: var(--warn); background: var(--warn-bg); }
+
+  /* 手機：每一列變成一張卡片，不需要左右捲動。表頭只留 CVE 與 CVSS，因為它們旁邊有名詞說明按鈕
+     Phone: each row becomes a card, no sideways scrolling. The header keeps only CVE and CVSS, which carry the glossary info buttons */
+  @media (max-width: 720px) {
+    table, tbody { display: block; }
+    thead { display: block; margin-bottom: .5rem; }
+    thead tr { display: flex; gap: 1rem; }
+    thead th { display: none; padding: 0; border: 0; }
+    thead th:first-child, thead th:last-child { display: block; }
+    tbody tr { display: grid; grid-template-columns: 1fr auto; grid-template-areas: 'cve score' 'prod prod' 'stat stat' 'act act'; gap: .35rem .75rem; padding: .85rem 0; border-top: 1px solid var(--line); }
+    td { display: block; padding: 0; border: 0; }
+    .c-cve { grid-area: cve; }
+    .c-score { grid-area: score; text-align: right; }
+    .c-prod { grid-area: prod; font-weight: 600; }
+    .c-stat { grid-area: stat; }
+    .c-act { grid-area: act; }
+  }
 </style>

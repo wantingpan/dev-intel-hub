@@ -1,0 +1,17 @@
+---
+// 版本與支援期限：完整表格。首頁只放一行提醒。資料由 GitHub Actions 同步（scripts/fetch-eol.mjs）。
+// Versions and support dates: the full table. The home page only carries a one-line hint. Synced by GitHub Actions (scripts/fetch-eol.mjs).
+import Base from '../../layouts/Base.astro';
+import EolTable from '../../components/EolTable.astro';
+import { langs, t, type Lang } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return langs.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const s = t(lang);
+---
+<Base lang={lang} page="versions" title={s.eolTitle}>
+  <EolTable lang={lang} standalone />
+</Base>

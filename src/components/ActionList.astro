@@ -1,19 +1,15 @@
 ---
-import cves from '../data/cves.json';
 import { t, type Lang } from '../i18n/ui';
 import { safeUrl } from '../lib/url';
+import { actionTop as top } from '../lib/vulns';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const s = t(lang);
-const rank = { exploited: 0, critical: 1, high: 2 } as const;
-const top = [...cves]
-  .sort((a, b) => rank[a.severity as keyof typeof rank] - rank[b.severity as keyof typeof rank])
-  .slice(0, 4);
 ---
 <section class="action" aria-labelledby="action-title">
   <h2 id="action-title">{s.actionTitle}</h2>
-  <ol class="action-list">
+  <ol class="action-list" data-swipe-list>
     {top.map((c) => (
       <li class:list={['action-item', { exploited: c.severity === 'exploited' }]}>
         <span class="sev">{s.sev[c.severity as keyof typeof s.sev]}</span>
@@ -29,9 +25,18 @@ const top = [...cves]
 </section>
 
 <style>
-  .action { margin: .5rem 0 2rem; }
-  h2 { font-size: clamp(1.6rem, 4vw, 2.1rem); font-weight: 600; letter-spacing: -0.01em; }
-  .action-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: .75rem; }
+  .action { margin: .5rem 0 1.5rem; }
+  h2 { font-size: clamp(1.35rem, 3.5vw, 1.6rem); font-weight: 600; letter-spacing: -0.01em; margin-bottom: .75rem; }
+  .action-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; }
+  /* 平板：兩欄；手機：橫向滑動，露出下一張卡片的邊緣，暗示可以滑 / tablet: 2 columns; phone: swipe sideways, with the next card peeking in */
+  @media (max-width: 960px) { .action-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) {
+    .action-list { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: .6rem; margin: 0 calc(-1 * clamp(1rem, 4vw, 2rem)); padding: 0 clamp(1rem, 4vw, 2rem) .5rem; scrollbar-width: none; }
+    .action-list::-webkit-scrollbar { display: none; }
+    .action-list { scroll-padding: 0 clamp(1rem, 4vw, 2rem); }
+    .action-item { flex: 0 0 82%; scroll-snap-align: start; }
+    .cve { display: inline-block; padding: .4rem 0; }
+  }
   .action-item { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--muted); border-radius: var(--radius-sm); padding: .9rem 1rem; display: flex; flex-direction: column; gap: .2rem; }
   .action-item.exploited { border-left-color: var(--alert); }
   .sev { font-size: .8rem; font-weight: 600; color: var(--muted); }
@@ -39,5 +44,5 @@ const top = [...cves]
   .what { font-weight: 600; }
   .do { font-size: .92rem; }
   .cve { font-size: .82rem; color: var(--muted); margin-top: .25rem; }
-  .all { display: inline-block; margin-top: .75rem; font-size: .9rem; }
+  .all { display: inline-block; margin-top: .5rem; font-size: .9rem; padding: .35rem 0; }
 </style>
