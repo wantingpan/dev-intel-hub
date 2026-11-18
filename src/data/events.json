@@ -265,7 +265,7 @@
       }
     ],
     "status": "monitoring",
-    "verifiedOn": "2026-11-17",
+    "verifiedOn": "2026-11-18",
     "updates": [
       {
         "date": "2026-11-12",
@@ -340,19 +340,18 @@
         }
       },
       {
-        "date": "2026-11-18",
+        "date": "2026-11-17",
         "time": {
-          "zh-TW": "台灣時間約 05:20（美西 11/17 約 13:20）",
-          "en": "about 5:20 a.m. Taiwan time (about 1:20 p.m. PT on Nov 17)"
+          "zh-TW": "美西下午（台灣時間 11/18 凌晨）",
+          "en": "Pacific afternoon (early Nov 18 Taiwan time)"
         },
-        "upcoming": true,
         "text": {
-          "zh-TW": "Nvidia 依原訂時程公布 2027 會計年度第三季財報，這是執行長異動後的第一次財報。",
-          "en": "Nvidia reports fiscal 2027 third-quarter results as previously scheduled, its first report since the CEO change."
+          "zh-TW": "Nvidia 公布 2027 會計年度第三季財報：營收 1,158 億美元，資料中心營收 1,076 億美元；財報仍稱 Colette Kress 為臨時執行長，尚未公布新任執行長人選。",
+          "en": "Nvidia reported fiscal 2027 third-quarter results: revenue of $115.8 billion, Data Center revenue of $107.6 billion. The release still calls Colette Kress interim CEO; no permanent CEO has been named."
         },
         "source": {
           "name": "Nvidia",
-          "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+          "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027"
         }
       }
     ],
@@ -710,7 +709,7 @@
       }
     ],
     "status": "monitoring",
-    "verifiedOn": "2026-11-17",
+    "verifiedOn": "2026-11-18",
     "updates": [
       {
         "date": "2026-11-12",
