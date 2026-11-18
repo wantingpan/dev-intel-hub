@@ -5,10 +5,12 @@
 // Uses the browser's built-in popover: Esc and outside clicks close it, and the table's scroll area can't clip it.
 import { t, href, type Lang } from '../i18n/ui';
 import { getTerm } from '../lib/glossary';
+import AltToggle from './AltToggle.astro';
 
 interface Props { lang: Lang; id: string }
 const { lang, id } = Astro.props;
 const s = t(lang);
+const other = lang === 'en' ? 'zh-TW' : 'en';
 const term = getTerm(id);
 const popId = `tip-${id}`;
 ---
@@ -27,6 +29,11 @@ const popId = `tip-${id}`;
       <ul>
         {term.points.map((p) => <li>{p[lang]}</li>)}
       </ul>
+      <AltToggle lang={lang} id={`tip-${term.id}`}>
+        <p class="alt-title">{term.term[other]}</p>
+        <p>{term.oneLiner[other]}</p>
+        <ul>{term.points.map((p) => <li>{p[other]}</li>)}</ul>
+      </AltToggle>
       <a class="more" href={href(`${lang}/learn/#${term.id}`)}>{s.infoMore}</a>
     </div>
   </span>

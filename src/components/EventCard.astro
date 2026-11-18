@@ -5,11 +5,16 @@ import { safeUrl } from '../lib/url';
 import DisputeBox from './DisputeBox.astro';
 import MoveChart from './MoveChart.astro';
 import TermLinks from './TermLinks.astro';
+import AltToggle from './AltToggle.astro';
 import meta from '../data/meta.json';
 
 interface Props { lang: Lang; event: ImpactEvent }
 const { lang, event: e } = Astro.props;
 const s = t(lang);
+// 對照用的另一種語言 / the other language, for the side-by-side toggles
+const other = lang === 'en' ? 'zh-TW' : 'en';
+const so = t(other);
+const otherColon = other === 'en' ? ': ' : '：';
 const markets = [
   { key: 'us', name: s.us, rows: e.market.us },
   { key: 'tw', name: s.tw, rows: e.market.tw },
@@ -47,6 +52,16 @@ const charts = markets
     <div><dt>{s.briefImpact}</dt><dd>{e.brief.impact[lang]}</dd></div>
     <div><dt>{s.briefAction}</dt><dd>{e.brief.action[lang]}</dd></div>
   </dl>
+  <div class="alt-wrap">
+    <AltToggle lang={lang} id={`${e.id}-brief`}>
+      <p class="alt-title">{e.title[other]}</p>
+      <ul>
+        <li><strong>{so.briefWhat}</strong>{otherColon}{e.brief.what[other]}</li>
+        <li><strong>{so.briefImpact}</strong>{otherColon}{e.brief.impact[other]}</li>
+        <li><strong>{so.briefAction}</strong>{otherColon}{e.brief.action[other]}</li>
+      </ul>
+    </AltToggle>
+  </div>
   {e.terms.length > 0 && <div class="terms"><TermLinks lang={lang} ids={e.terms} /></div>}
 
   {charts.length > 0 && (
@@ -59,12 +74,18 @@ const charts = markets
   <div class="sections">
     <details class="disc">
       <summary>{s.hFacts}</summary>
-      <div class="sec"><ul>{e.facts.map((f) => <li>{f[lang]}</li>)}</ul></div>
+      <div class="sec">
+        <ul>{e.facts.map((f) => <li>{f[lang]}</li>)}</ul>
+        <AltToggle lang={lang} id={`${e.id}-facts`}><ul>{e.facts.map((f) => <li>{f[other]}</li>)}</ul></AltToggle>
+      </div>
     </details>
 
     <details class="disc">
       <summary>{s.hWork}</summary>
-      <div class="sec"><ul>{e.work.map((f) => <li>{f[lang]}</li>)}</ul></div>
+      <div class="sec">
+        <ul>{e.work.map((f) => <li>{f[lang]}</li>)}</ul>
+        <AltToggle lang={lang} id={`${e.id}-work`}><ul>{e.work.map((f) => <li>{f[other]}</li>)}</ul></AltToggle>
+      </div>
     </details>
 
     {security.length > 0 && (
@@ -76,6 +97,13 @@ const charts = markets
               <li><span class:list={['kind', x.kind]}>{x.kind === 'reported' ? s.reported : s.pattern}</span>{x.text[lang]}</li>
             ))}
           </ul>
+          <AltToggle lang={lang} id={`${e.id}-security`}>
+            <ul>
+              {security.map((x) => (
+                <li><strong>{x.kind === 'reported' ? so.reported : so.pattern}</strong>{otherColon}{x.text[other]}</li>
+              ))}
+            </ul>
+          </AltToggle>
         </div>
       </details>
     )}
@@ -100,6 +128,14 @@ const charts = markets
             );
           })}
         </ol>
+        <AltToggle lang={lang} id={`${e.id}-updates`}>
+          <ol class="alt-list">
+            {e.updates.map((u) => (
+              <li>{formatDate(u.date, other)}{u.time && `${other === 'en' ? ', ' : '，'}${u.time[other]}`}{other === 'en' ? ': ' : '：'}{u.text[other]}</li>
+            ))}
+          </ol>
+          <p><strong>{so.nextWatch}</strong>{otherColon}{e.nextWatch[other]}</p>
+        </AltToggle>
         <p class="follow"><strong>{s.nextWatch}</strong>{lang === 'en' ? ': ' : '：'}{e.nextWatch[lang]}</p>
         <p class="follow">
           <strong>{s.postmortem}</strong>{lang === 'en' ? ': ' : '：'}
@@ -182,6 +218,9 @@ const charts = markets
   .brief { margin: 0 0 1rem; padding: 1rem 1.1rem; background: var(--bg); border-radius: var(--radius-sm); display: grid; gap: .5rem; max-width: calc(var(--measure) + 5rem); }
   .brief div { display: grid; grid-template-columns: 3.2rem 1fr; gap: .75rem; }
   .brief dt { font-weight: 600; color: var(--accent); }
+  .alt-wrap { margin: -.4rem 0 1rem; }
+  .alt-list { margin: 0; padding-left: 1.2rem; }
+  .alt-list li + li { margin-top: .35rem; }
   .brief dd { margin: 0; }
 
   .terms { margin: -.4rem 0 1rem; }
