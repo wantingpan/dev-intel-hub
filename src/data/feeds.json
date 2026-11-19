@@ -4,24 +4,16 @@
       "id": "hn",
       "items": [
         {
-          "title": "Previous-Token Prediction Based LLM Inversion for Prompt Reconstruction",
-          "url": "https://arxiv.org/abs/2607.29378",
-          "date": "2026-11-19",
+          "title": "Anthropic (ANT) stock lists at nearly $2T valuation",
+          "url": "https://news.ycombinator.com/item?id=50562528",
+          "date": "2026-11-20",
           "matches": [
             "ai"
           ]
         },
         {
-          "title": "Multiple vulnerabilities in Regexp and String case conversion",
-          "url": "https://www.ruby-lang.org/en/news/2026/11/18/multiple-vulnerabilities-in-regexp-and-string/",
-          "date": "2026-11-19",
-          "matches": [
-            "security"
-          ]
-        },
-        {
-          "title": "LLM assisted reverse engineering",
-          "url": "https://www.slowchronicle.com/posts/llm-assisted-reverse-engineering",
+          "title": "OpenAI still has a WebRTC Problem",
+          "url": "https://moq.dev/blog/webrtc-is-still-the-problem/",
           "date": "2026-11-19",
           "matches": [
             "ai"
@@ -30,68 +22,64 @@
       ],
       "more": [
         {
-          "title": "AI will not make you rich (2025)",
-          "url": "https://colossus.com/article/ai-will-not-make-you-rich/",
-          "date": "2026-11-19",
+          "title": "Chrome AI Features Wasting Much Bandwidth",
+          "url": "https://perishablepress.com/chrome-ai-wasting-much-bandwidth/",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "FailTrace – Reproduce a failed GitHub Actions run locally from its URL",
-          "url": "https://github.com/Ri4dH/failtrace",
-          "date": "2026-11-19",
-          "matches": []
-        },
-        {
-          "title": "Unreal Tournament 2004 in the Browser",
-          "url": "https://ut2004.dev/",
-          "date": "2026-11-19",
-          "matches": []
-        },
-        {
-          "title": "Previous-Token Prediction Based LLM Inversion for Prompt Reconstruction",
-          "url": "https://arxiv.org/abs/2607.29378",
-          "date": "2026-11-19",
+          "title": "Anthropic (ANT) stock lists at nearly $2T valuation",
+          "url": "https://news.ycombinator.com/item?id=50562528",
+          "date": "2026-11-20",
           "matches": [
             "ai"
           ]
         },
         {
-          "title": "Gemini 4 Neon looks like an Opus 5.5 competitor",
-          "url": "https://micjm.com/blog/gemini-4-neon-looks-like-a-top-model/",
+          "title": "Launch HN: Onlook (YC W25) – An open-source developer tool for designers",
+          "url": "https://github.com/onlook-dev/onlook/",
+          "date": "2026-11-20",
+          "matches": []
+        },
+        {
+          "title": "UK Government Forced to Admit It Issued Apple a Secret Encryption Order",
+          "url": "https://macanorak.com/uk-government-forced-to-admit-it-issued-apple-a-secret-encryption-order/",
+          "date": "2026-11-20",
+          "matches": []
+        },
+        {
+          "title": "I built Cornhole News. A Hacker News inspired site for news across the Midwest",
+          "url": "https://cornholenews.news/",
           "date": "2026-11-19",
           "matches": []
         },
         {
-          "title": "We need smart people who give a shit",
-          "url": "https://violetpixel.com/blog/2026-11-17-we-need-smart-people-who-give-a-shit/",
+          "title": "Pete warden on local AI, open models, voice interfaces, the future of hardware",
+          "url": "https://thedataexchange.media/pete-warden-moonshine/",
           "date": "2026-11-19",
           "matches": []
         },
         {
-          "title": "Multiple vulnerabilities in Regexp and String case conversion",
-          "url": "https://www.ruby-lang.org/en/news/2026/11/18/multiple-vulnerabilities-in-regexp-and-string/",
-          "date": "2026-11-19",
-          "matches": [
-            "security"
-          ]
-        },
-        {
-          "title": "Palo Alto Networks to Acquire Applied Compute for $4.5B",
-          "url": "https://investors.paloaltonetworks.com/news-releases/news-release-details/palo-alto-networks-acquire-applied-compute-bringing-secure-open",
+          "title": "Show HN: Watch weight-space programming in action with WebGPU",
+          "url": "https://tabbyml.github.io/weight-space-playground/",
           "date": "2026-11-19",
           "matches": []
         },
         {
-          "title": "LLM assisted reverse engineering",
-          "url": "https://www.slowchronicle.com/posts/llm-assisted-reverse-engineering",
+          "title": "How to Make the Ink Used to Write Hamlet and the Declaration of Independence",
+          "url": "https://lithub.com/how-to-make-the-ink-used-to-write-hamlet-the-declaration-of-independence-and-beethovens-fifth/",
           "date": "2026-11-19",
-          "matches": [
-            "ai"
-          ]
+          "matches": []
         },
         {
-          "title": "Gemini 4 Neon",
-          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+          "title": "Cooling buildings is overtaking heating them as an energy need, IEA says",
+          "url": "https://maccus.fr/en/cooling-overtaking-heating/",
+          "date": "2026-11-19",
+          "matches": []
+        },
+        {
+          "title": "Everything you need to survive and rebuild society",
+          "url": "https://lastbook.org/",
           "date": "2026-11-19",
           "matches": []
         }
@@ -111,64 +99,62 @@
       ],
       "more": [
         {
-          "title": "Incidents in the news",
-          "url": "https://surfingcomplexity.blog/2026/11/18/incidents-in-the-news/",
+          "title": "Postel Awardee Dave Täht Made Every Millisecond Count",
+          "url": "https://www.internetsociety.org/blog/2026/11/postel-awardee-dave-taht-made-every-millisecond-count/",
+          "date": "2026-11-20",
+          "matches": []
+        },
+        {
+          "title": "PostgreSQL 19 Released",
+          "url": "https://www.postgresql.org/about/news/postgresql-19-released-3449/",
           "date": "2026-11-19",
           "matches": []
         },
         {
-          "title": "Security advisories: multiple vulnerabilities in Regexp and String case conversion",
-          "url": "https://www.ruby-lang.org/en/news/2026/11/18/multiple-vulnerabilities-in-regexp-and-string/",
-          "date": "2026-11-19",
-          "matches": [
-            "security"
-          ]
-        },
-        {
-          "title": "sysdeck: Raycast for Linux & BSD",
-          "url": "https://xn--gckvb8fzb.com/sysdeck-raycast-for-linux-bsd/",
+          "title": "15 million web servers on one VM - smoltcp, DPDK, AF_XDP",
+          "url": "https://kapteko.com/15-million-webservers/",
           "date": "2026-11-19",
           "matches": []
         },
         {
-          "title": "Reversing the Next-Page Prefetcher in Skylake-X",
-          "url": "https://devsh0.github.io/microarchitecture,/intel,/computer-architecture/2026/11/17/reversing-the-next-page-prefetcher-in-skylake-x.html",
+          "title": "Type inference and narrowing with reverse arrows",
+          "url": "https://elixir-lang.org/blog/2026/11/10/inference-narrowing-reverse-arrows/",
           "date": "2026-11-19",
           "matches": []
         },
         {
-          "title": "Stricter checks for uploaded distributions on PyPI",
-          "url": "https://blog.pypi.org/posts/2026-11-18-stricter-checks-for-uploaded-sdists/",
+          "title": "We Need Smart People Who Give a Shit",
+          "url": "https://violetpixel.com/blog/2026-11-17-we-need-smart-people-who-give-a-shit/",
           "date": "2026-11-19",
           "matches": []
         },
         {
-          "title": "Upcoming Critical PHP Security Release (18 Nov 2026)",
-          "url": "https://www.php.net/index.php#2026-11-18-1",
+          "title": "Design for Understandability",
+          "url": "https://jschuster.org/blog/2026/11/19/design-for-understandability/",
           "date": "2026-11-19",
           "matches": []
         },
         {
-          "title": "Why Fibonacci?",
-          "url": "https://www.evilgeniuslabs.org/why-fibonacci",
+          "title": "Mutex poisoning is not for everyone",
+          "url": "https://bertptrs.nl/2026/11/16/mutex-poisoning-is-not-for-everyone.html",
           "date": "2026-11-19",
           "matches": []
         },
         {
-          "title": "Faster CI with Orchestrated Pytest Workers",
-          "url": "https://making.close.com/posts/faster-ci-with-orchestrated-pytest-workers/",
+          "title": "Ruby2Shell (GHSA-34m4-m9fh-gqp5)",
+          "url": "https://verialabs.com/ruby2shell/",
           "date": "2026-11-19",
           "matches": []
         },
         {
-          "title": "IPv6 delegation, an unusually subtle failure mode",
-          "url": "https://savyasacheejha.com/posts/why-odhcpd/",
+          "title": "PHP 8.6 Release Announcement",
+          "url": "https://www.php.net/releases/8.6/en.php",
           "date": "2026-11-19",
           "matches": []
         },
         {
-          "title": "markdownWeb",
-          "url": "https://demo.bonbonweb.org/",
+          "title": "Validating a High-Performance Cloud Object Store with Lightweight Formal Methods",
+          "url": "https://dl.acm.org/doi/10.1145/3830418.3843899",
           "date": "2026-11-19",
           "matches": []
         }
@@ -178,75 +164,93 @@
       "id": "devto",
       "items": [
         {
-          "title": "AI News Today: Lazarus Backdoor vs United Ban, Anthropic Cut",
-          "url": "https://dev.to/aitecharchive/ai-news-today-lazarus-backdoor-vs-united-ban-anthropic-cut-1f2h",
-          "date": "2026-11-19",
+          "title": "Start Your First AI Agent as a 30-Day Pilot, Not a Launch.",
+          "url": "https://dev.to/rick_leffke_6541e28129e2a/start-your-first-ai-agent-as-a-30-day-pilot-not-a-launch-8eh",
+          "date": "2026-11-20",
           "matches": [
             "ai"
+          ]
+        },
+        {
+          "title": "Canary tokens for LLM apps: detecting system prompt leaks and injected exfiltration",
+          "url": "https://dev.to/quantumbreakz/canary-tokens-for-llm-apps-detecting-system-prompt-leaks-and-injected-exfiltration-15n9",
+          "date": "2026-11-20",
+          "matches": [
+            "ai"
+          ]
+        },
+        {
+          "title": "CVE-2026-63412: CVE-2026-63412: Remote Code Execution via PHPDoc Comment Injection in Jane PHP OpenAPI Generator",
+          "url": "https://dev.to/cverports/cve-2026-63412-cve-2026-63412-remote-code-execution-via-phpdoc-comment-injection-in-jane-php-j88",
+          "date": "2026-11-20",
+          "matches": [
+            "security"
           ]
         }
       ],
       "more": [
         {
-          "title": "Edge0-145B Open Weights: RTX GPU vs Mac, RTX Wins",
-          "url": "https://dev.to/aitecharchive/edge0-145b-open-weights-rtx-gpu-vs-mac-rtx-wins-30gp",
-          "date": "2026-11-19",
+          "title": "What Assay Development Looks Like for a New Drug Target",
+          "url": "https://dev.to/dirkproteros/what-assay-development-looks-like-for-a-new-drug-target-2ad9",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "N-central 4EverAble2Shell: Legacy API Off vs Hotfix 2",
-          "url": "https://dev.to/aitecharchive/n-central-4everable2shell-legacy-api-off-vs-hotfix-2-4pk9",
-          "date": "2026-11-19",
+          "title": "Correcting MRZ OCR errors with check digits: O vs 0, I vs 1, and when not to guess",
+          "url": "https://dev.to/quantumbreakz/correcting-mrz-ocr-errors-with-check-digits-o-vs-0-i-vs-1-and-when-not-to-guess-14k1",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "A bilingual article’s canonical URL changes from a draft decision to an API result",
-          "url": "https://dev.to/hirodeath/a-bilingual-articles-canonical-url-changes-from-a-draft-decision-to-an-api-result-4e95",
-          "date": "2026-11-19",
+          "title": "Finding near-duplicate documents with MinHash and LSH before you index them for RAG",
+          "url": "https://dev.to/quantumbreakz/finding-near-duplicate-documents-with-minhash-and-lsh-before-you-index-them-for-rag-580c",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "How my terminal knows which AI coding agent is waiting for me",
-          "url": "https://dev.to/ilhamnadhif/how-my-terminal-knows-which-ai-coding-agent-is-waiting-for-me-1pbm",
-          "date": "2026-11-19",
+          "title": "Power Swings: Why a Distance Relay Cannot Just Trip on What It Sees",
+          "url": "https://dev.to/gridcircuits/power-swings-why-a-distance-relay-cannot-just-trip-on-what-it-sees-2gcd",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "OCR Invoice Extraction With Human Review: A Design Guide",
-          "url": "https://dev.to/boilershelf/ocr-invoice-extraction-with-human-review-a-design-guide-34be",
-          "date": "2026-11-19",
-          "matches": []
-        },
-        {
-          "title": "AI News Today: Lazarus Backdoor vs United Ban, Anthropic Cut",
-          "url": "https://dev.to/aitecharchive/ai-news-today-lazarus-backdoor-vs-united-ban-anthropic-cut-1f2h",
-          "date": "2026-11-19",
+          "title": "Start Your First AI Agent as a 30-Day Pilot, Not a Launch.",
+          "url": "https://dev.to/rick_leffke_6541e28129e2a/start-your-first-ai-agent-as-a-30-day-pilot-not-a-launch-8eh",
+          "date": "2026-11-20",
           "matches": [
             "ai"
           ]
         },
         {
-          "title": "Cursor Projects Multiplayer vs Antigravity Swarm",
-          "url": "https://dev.to/aitecharchive/cursor-projects-multiplayer-vs-antigravity-swarm-5bcl",
-          "date": "2026-11-19",
+          "title": "Limiting concurrent async calls in Node.js without a library: a 15-line promise pool",
+          "url": "https://dev.to/quantumbreakz/limiting-concurrent-async-calls-in-nodejs-without-a-library-a-15-line-promise-pool-4cil",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "A free PRD template your AI coding agent can actually build from",
-          "url": "https://dev.to/web-dev-mehedi/a-free-prd-template-your-ai-coding-agent-can-actually-build-from-51af",
-          "date": "2026-11-19",
+          "title": "Canary tokens for LLM apps: detecting system prompt leaks and injected exfiltration",
+          "url": "https://dev.to/quantumbreakz/canary-tokens-for-llm-apps-detecting-system-prompt-leaks-and-injected-exfiltration-15n9",
+          "date": "2026-11-20",
+          "matches": [
+            "ai"
+          ]
+        },
+        {
+          "title": "NVIDIA RTX Spark Desktops Are Here: A $4,400 Box That Runs 120B-Parameter AI Models at Home",
+          "url": "https://dev.to/paullovelace/nvidia-rtx-spark-desktops-are-here-a-4400-box-that-runs-120b-parameter-ai-models-at-home-3g81",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "DeepSeek Harness vs Hermes Agent: Tied First, One Flaw",
-          "url": "https://dev.to/aitecharchive/deepseek-harness-vs-hermes-agent-tied-first-one-flaw-3klp",
-          "date": "2026-11-19",
+          "title": "Supabase \"infinite recursion detected in policy for relation\" (42P17): find the loop and break it without turning RLS off",
+          "url": "https://dev.to/appfirstaid/supabase-infinite-recursion-detected-in-policy-for-relation-42p17-find-the-loop-and-break-it-14g0",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "Rebuilding Programming Drive After AI Over-Reliance by Learning C Manually and Documenting Progress on YouTube",
-          "url": "https://dev.to/ilyatech/rebuilding-programming-drive-after-ai-over-reliance-by-learning-c-manually-and-documenting-progress-1hmf",
-          "date": "2026-11-19",
+          "title": "4 GitHub Actions mistakes that hand attackers your secrets (and the fixes)",
+          "url": "https://dev.to/sqlinterviewpatterns/4-github-actions-mistakes-that-hand-attackers-your-secrets-and-the-fixes-4ab",
+          "date": "2026-11-20",
           "matches": []
         }
       ]
@@ -254,6 +258,12 @@
     {
       "id": "github-blog",
       "items": [
+        {
+          "title": "The best things in open source are built together",
+          "url": "https://github.blog/open-source/maintainers/the-best-things-in-open-source-are-built-together/",
+          "date": "2026-11-20",
+          "matches": []
+        },
         {
           "title": "Maintainers don’t need more AI bug reports. They need fixes.",
           "url": "https://github.blog/open-source/maintainers/maintainers-dont-need-more-ai-bug-reports-they-need-fixes/",
@@ -264,12 +274,6 @@
           "title": "Building the Agent Host Protocol for sessions that continue across devices",
           "url": "https://github.blog/engineering/engineering-principles/building-the-agent-host-protocol-for-sessions-that-continue-across-devices/",
           "date": "2026-11-18",
-          "matches": []
-        },
-        {
-          "title": "GitHub availability report: October 2026",
-          "url": "https://github.blog/news-insights/company-news/github-availability-report-october-2026/",
-          "date": "2026-11-13",
           "matches": []
         }
       ],
@@ -309,6 +313,12 @@
       "id": "cloudflare",
       "items": [
         {
+          "title": "Internet traffic and attacks during the 2026 U.S. midterm elections",
+          "url": "https://blog.cloudflare.com/internet-traffic-2026-us-election/",
+          "date": "2026-11-19",
+          "matches": []
+        },
+        {
           "title": "An updated Clairic and Clairic-flash are now open-weight, from the new Workers AI Superintelligence team",
           "url": "https://blog.cloudflare.com/open-clairic/",
           "date": "2026-11-19",
@@ -321,12 +331,6 @@
           "matches": [
             "security"
           ]
-        },
-        {
-          "title": "Quad9’s withdrawal from France: A canary in the coal mine",
-          "url": "https://blog.cloudflare.com/quad9-withdrawal-from-france/",
-          "date": "2026-11-18",
-          "matches": []
         }
       ],
       "more": []
@@ -383,6 +387,12 @@
       "id": "css-tricks",
       "items": [
         {
+          "title": "scroll-state()",
+          "url": "https://css-tricks.com/almanac/functions/s/scroll-state/",
+          "date": "2026-11-19",
+          "matches": []
+        },
+        {
           "title": "When Everything Has Changed, What Do We Do Next?",
           "url": "https://css-tricks.com/when-everything-has-changed/",
           "date": "2026-11-18",
@@ -393,12 +403,6 @@
           "url": "https://css-tricks.com/staggering-scroll-driven-animations-with-animation-range-start/",
           "date": "2026-11-17",
           "matches": []
-        },
-        {
-          "title": "10 Big Ol’ 2027 Black Friday Deals",
-          "url": "https://css-tricks.com/2027-front-end-black-friday-deals/",
-          "date": "2026-11-13",
-          "matches": []
         }
       ],
       "more": []
@@ -406,6 +410,12 @@
     {
       "id": "pragmatic",
       "items": [
+        {
+          "title": "The Pulse: Is Amazon’s writing culture collapsing because of AI?",
+          "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-is-amazons-writing-culture",
+          "date": "2026-11-20",
+          "matches": []
+        },
         {
           "title": "Software factories and code reviews with Harjot Gill",
           "url": "https://newsletter.pragmaticengineer.com/p/software-factories-and-code-reviews",
@@ -417,12 +427,6 @@
           "url": "https://newsletter.pragmaticengineer.com/p/inference-engineering-for-software-engineers",
           "date": "2026-11-18",
           "matches": []
-        },
-        {
-          "title": "Software engineering after code becomes cheap with Satya Nadella",
-          "url": "https://newsletter.pragmaticengineer.com/p/software-engineering-after-code-becomes",
-          "date": "2026-11-16",
-          "matches": []
         }
       ],
       "more": []
@@ -430,6 +434,12 @@
     {
       "id": "bytebytego",
       "items": [
+        {
+          "title": "The Invisible Systems: What Happens Between Services",
+          "url": "https://blog.bytebytego.com/p/the-invisible-systems-what-happens",
+          "date": "2026-11-20",
+          "matches": []
+        },
         {
           "title": "Evals for AI Engineers",
           "url": "https://blog.bytebytego.com/p/evals-for-ai-engineers",
@@ -443,12 +453,6 @@
           "matches": [
             "ai"
           ]
-        },
-        {
-          "title": "How Instacart Uses LLMs to Make People Buy More",
-          "url": "https://blog.bytebytego.com/p/how-instacart-uses-llms-to-make-people",
-          "date": "2026-11-17",
-          "matches": []
         }
       ],
       "more": []
@@ -481,6 +485,14 @@
       "id": "simonw",
       "items": [
         {
+          "title": "llm-gemini 0.38",
+          "url": "https://simonwillison.net/2026/Nov/18/llm-gemini/",
+          "date": "2026-11-19",
+          "matches": [
+            "ai"
+          ]
+        },
+        {
           "title": "datasette-arrows 0.1a0",
           "url": "https://simonwillison.net/2026/Nov/18/datasette-arrows/",
           "date": "2026-11-19",
@@ -491,12 +503,6 @@
           "url": "https://simonwillison.net/2026/Nov/18/daniel-stenberg/",
           "date": "2026-11-18",
           "matches": []
-        },
-        {
-          "title": "The PSF end-of-year fundraiser",
-          "url": "https://simonwillison.net/2026/Nov/18/psf-end-of-year-fundraiser/",
-          "date": "2026-11-18",
-          "matches": []
         }
       ],
       "more": []
@@ -505,14 +511,16 @@
       "id": "openai",
       "items": [
         {
-          "title": "The Silent Consensus",
-          "url": "https://openai.com/index/the-silent-consensus",
-          "date": "2026-11-18",
-          "matches": []
+          "title": "How OpenAI’s Performance Factory keeps ChatGPT fast",
+          "url": "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast",
+          "date": "2026-11-19",
+          "matches": [
+            "ai"
+          ]
         },
         {
-          "title": "Research acceleration: The jagged frontier",
-          "url": "https://openai.com/index/research-acceleration-jagged-frontier",
+          "title": "The Silent Consensus",
+          "url": "https://openai.com/index/the-silent-consensus",
           "date": "2026-11-18",
           "matches": []
         },
@@ -553,6 +561,14 @@
       "id": "thehackernews",
       "items": [
         {
+          "title": "CISA Warns of 4 Exploited Flaws Linked to Ransomware, Cryptomining, and LLMjacking Attacks",
+          "url": "https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html",
+          "date": "2026-11-19",
+          "matches": [
+            "security"
+          ]
+        },
+        {
           "title": "Java4Shell Flaw (CVE-2026-114938) Enables Pre-Auth RCE in Jira, Jenkins, Keycloak and More",
           "url": "https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html",
           "date": "2026-11-18",
@@ -567,77 +583,69 @@
           "matches": [
             "security"
           ]
-        },
-        {
-          "title": "Apple Tightens macOS App Permissions to Limit Data Access Amid AI Agent Security Risks",
-          "url": "https://thehackernews.com/2026/11/apple-tightens-macos-app-permissions-to.html",
-          "date": "2026-11-17",
-          "matches": [
-            "ai"
-          ]
         }
       ],
       "more": [
         {
-          "title": "10-Year-Old NGINX HTTP/2 Flaw Lets Unauthenticated Attackers Execute Code on Servers",
-          "url": "https://thehackernews.com/2026/11/10-year-old-nginx-http2-flaw-lets.html",
+          "title": "phpAfterShell Explained: How Hackers Could Turn a PHP Session Flaw Into Code Execution",
+          "url": "https://thehackernews.com/2026/11/phpaftershell-explained-how-hackers.html",
+          "date": "2026-11-20",
+          "matches": []
+        },
+        {
+          "title": "PHP Fixes 7 Critical Flaws, Including Bugs That Could Allow Remote Code Execution",
+          "url": "https://thehackernews.com/2026/11/php-fixes-7-critical-flaws-including.html",
           "date": "2026-11-19",
           "matches": []
         },
         {
-          "title": "F5 Warns 6 Critical BIG-IP Flaws Can Crash Traffic in Specific Setups, May Allow RCE",
-          "url": "https://thehackernews.com/2026/11/f5-warns-6-critical-big-ip-flaws-can.html",
+          "title": "Critical VMware vCenter Flaw (CVSS 9.8) Lets Network Attackers Bypass Authentication",
+          "url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
           "date": "2026-11-19",
           "matches": []
         },
         {
-          "title": "Critical Apache Roller RCE Flaw Under Active Exploitation, No Authentication Required",
-          "url": "https://thehackernews.com/2026/11/critical-apache-roller-rce-flaw-under.html",
+          "title": "Drupal Patches Critical Installer Flaw That Could Give Unauthenticated Attackers Control of Sites",
+          "url": "https://thehackernews.com/2026/11/drupal-patches-critical-installer-flaw.html",
           "date": "2026-11-19",
           "matches": []
         },
         {
-          "title": "New EggStreme Malware Variant Goes Silent to Evade Security Tools in Government Attacks",
-          "url": "https://thehackernews.com/2026/11/eggstreme-hackers-rebuild-malware-with.html",
-          "date": "2026-11-18",
+          "title": "Everything Is a Web Application, Including Your Firewall",
+          "url": "https://thehackernews.com/2026/11/everything-is-web-application-including.html",
+          "date": "2026-11-19",
           "matches": []
         },
         {
-          "title": "New Attack Bypasses TPM Lockout to Crack Windows Hello and BitLocker PINs in Days, Not Years",
-          "url": "https://thehackernews.com/2026/11/flash-chip-attack-bypasses-tpm-lockout.html",
-          "date": "2026-11-18",
+          "title": "Hackers Breach N-able Cloud Server, Disrupting Email Security Management Across 3 Regions",
+          "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html",
+          "date": "2026-11-19",
           "matches": []
         },
         {
-          "title": "AI Pentesting Checklist for Web Apps: 15 Questions to Ask Before Choosing a Vendor",
-          "url": "https://thehackernews.com/2026/11/ai-pentesting-checklist-for-web-apps-15.html",
-          "date": "2026-11-18",
+          "title": "Ruby Releases Fixes for 7 Regex and String Flaws, Warns 5 Have Proof-of-Concept RCE",
+          "url": "https://thehackernews.com/2026/11/ruby-releases-fixes-for-7-regex-and.html",
+          "date": "2026-11-19",
           "matches": []
         },
         {
-          "title": "Java4Shell Flaw (CVE-2026-114938) Enables Pre-Auth RCE in Jira, Jenkins, Keycloak and More",
-          "url": "https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html",
-          "date": "2026-11-18",
+          "title": "Researcher Demonstrates Database RCE Exploits Affecting PostgreSQL, MySQL and Oracle",
+          "url": "https://thehackernews.com/2026/11/researcher-demonstrates-database-rce.html",
+          "date": "2026-11-19",
+          "matches": []
+        },
+        {
+          "title": "CISA Warns of 4 Exploited Flaws Linked to Ransomware, Cryptomining, and LLMjacking Attacks",
+          "url": "https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html",
+          "date": "2026-11-19",
           "matches": [
             "security"
           ]
         },
         {
-          "title": "Quality Isn’t The Main Worry About AI Pentesting — Data Privacy and Production Safety Are",
-          "url": "https://thehackernews.com/2026/11/quality-isnt-main-worry-about-ai.html",
-          "date": "2026-11-18",
-          "matches": []
-        },
-        {
-          "title": "Hackers Exploiting Critical Puppet RCE Flaw Affecting Enterprise Management Servers",
-          "url": "https://thehackernews.com/2026/11/hackers-exploiting-critical-puppet-rce.html",
-          "date": "2026-11-18",
-          "matches": []
-        },
-        {
-          "title": "CISA Urges Immediate Patching of Java4Shell Flaw That Could Allow Remote Code Execution",
-          "url": "https://thehackernews.com/2026/11/cisa-urges-immediate-patching-of.html",
-          "date": "2026-11-18",
+          "title": "PHP Warns of Critical Security Flaws Affecting All Supported Versions, Fixes Coming November 19",
+          "url": "https://thehackernews.com/2026/11/php-warns-of-critical-security-flaws.html",
+          "date": "2026-11-19",
           "matches": []
         }
       ]
@@ -700,6 +708,14 @@
       "id": "ithome",
       "items": [
         {
+          "title": "美國警告群暉NAS、Apache Axis等4款應用系統的漏洞遭積極利用",
+          "url": "https://www.ithome.com.tw/news/180644",
+          "date": "2026-11-19",
+          "matches": [
+            "security"
+          ]
+        },
+        {
           "title": "資安業者揭露ARTEX攻擊事件應變過程，AI代理程式取得API金鑰後幾分鐘內即發動攻擊，防守方也用AI加速調查",
           "url": "https://www.ithome.com.tw/news/180647",
           "date": "2026-11-19",
@@ -714,14 +730,6 @@
           "matches": [
             "security"
           ]
-        },
-        {
-          "title": "JINS、三菱UFJ銀行等數十家日本企業陸續發布資安事件公告，皆因第三方行銷科技業者PLAID旗下KARTE平臺遭駭",
-          "url": "https://www.ithome.com.tw/news/180640",
-          "date": "2026-11-19",
-          "matches": [
-            "security"
-          ]
         }
       ],
       "more": [
@@ -730,6 +738,20 @@
           "url": "https://www.ithome.com.tw/news/180645",
           "date": "2026-11-19",
           "matches": []
+        },
+        {
+          "title": "日本藥妝業者DHC因第三方行銷分析平臺被駭，外洩用戶個資1,911萬筆",
+          "url": "https://www.ithome.com.tw/news/180648",
+          "date": "2026-11-19",
+          "matches": []
+        },
+        {
+          "title": "美國警告群暉NAS、Apache Axis等4款應用系統的漏洞遭積極利用",
+          "url": "https://www.ithome.com.tw/news/180644",
+          "date": "2026-11-19",
+          "matches": [
+            "security"
+          ]
         },
         {
           "title": "資安業者揭露ARTEX攻擊事件應變過程，AI代理程式取得API金鑰後幾分鐘內即發動攻擊，防守方也用AI加速調查",
@@ -746,7 +768,7 @@
           "matches": []
         },
         {
-          "title": "美國NSA高機密通訊網路NSANet傳中斷，官方稱例行維護期間發生異常",
+          "title": "美國NSA機密通訊網路NSANet傳中斷，官方稱例行維護期間發生異常",
           "url": "https://www.ithome.com.tw/news/180642",
           "date": "2026-11-19",
           "matches": []
@@ -782,23 +804,9 @@
           "matches": [
             "security"
           ]
-        },
-        {
-          "title": "Palo Alto Networks斥資45億美元併購AI新創Applied Compute",
-          "url": "https://www.ithome.com.tw/news/180637",
-          "date": "2026-11-19",
-          "matches": []
-        },
-        {
-          "title": "微軟Agent Framework套件遭植入惡意程式，鎖定Azure及CI/CD環境憑證",
-          "url": "https://www.ithome.com.tw/news/180624",
-          "date": "2026-11-19",
-          "matches": [
-            "dotnet"
-          ]
         }
       ]
     }
   ],
-  "fetchedAt": "2026-11-19T04:49:28.653Z"
+  "fetchedAt": "2026-11-19T17:48:39.286Z"
 }
