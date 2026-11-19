@@ -118,5 +118,20 @@
     },
     "source": "The Hacker News",
     "url": "https://thehackernews.com/2026/11/google-patches-critical-android-flaw.html"
+  },
+  {
+    "cve": "CVE-2026-114938",
+    "severity": "critical",
+    "cvss": 8.1,
+    "product": {
+      "zh-TW": "OpenJDK / Oracle Java SE（17.0.6 以上，x86-64 AVX-512 VBMI）",
+      "en": "OpenJDK / Oracle Java SE (17.0.6+, x86-64 with AVX-512 VBMI)"
+    },
+    "action": {
+      "zh-TW": "安裝 Oracle 11 月重要修補更新或 OpenJDK 修補版本",
+      "en": "Install Oracle's November CPU or the patched OpenJDK build"
+    },
+    "source": "Oracle",
+    "url": "https://www.oracle.com/security-alerts/cspunov2026.html"
   }
 ]

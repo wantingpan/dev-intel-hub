@@ -644,5 +644,81 @@
     "terms": [
       "cvss"
     ]
+  },
+  {
+    "id": "n28",
+    "date": "2026-11-17",
+    "category": "ai",
+    "hot": true,
+    "title": {
+      "zh-TW": "OpenAI 推出 GPT-6.2 Astra 與 Sol",
+      "en": "OpenAI launches GPT-6.2 Astra and Sol"
+    },
+    "summary": {
+      "zh-TW": "Astra 主打複雜專業工作，Sol 主打日常與成本效率；Astra 是首款對外發布、AI 自我改進能力達「高」門檻的模型，兩款網路安全能力皆達「關鍵」門檻。即日起於 ChatGPT 工作、Codex 與 API 提供。",
+      "en": "Astra targets complex professional work and Sol everyday use at lower cost. Astra is the first publicly released model rated High on AI self-improvement, and both reach the Critical cybersecurity threshold. Available now in ChatGPT, Codex and the API."
+    },
+    "originalTitle": "Introducing GPT-6.2 Astra and Sol",
+    "source": "OpenAI",
+    "sourceLang": "en",
+    "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+    "sourceType": "official",
+    "corroboration": [
+      {
+        "name": "iThome",
+        "url": "https://www.ithome.com.tw/news/180605"
+      }
+    ],
+    "terms": []
+  },
+  {
+    "id": "n29",
+    "date": "2026-11-17",
+    "category": "security",
+    "hot": true,
+    "title": {
+      "zh-TW": "Java4Shell（CVE-2026-114938）：OpenJDK Base64 解碼器漏洞可能導致遠端執行",
+      "en": "Java4Shell (CVE-2026-114938): OpenJDK Base64 decoder flaw can lead to remote code execution"
+    },
+    "summary": {
+      "zh-TW": "影響 Java 17.0.6 以上、且在支援 AVX-512 VBMI 的 x86-64 處理器上執行的程式。研究團隊 Calif 展示可在多款常見產品上免登入攻擊；Oracle 與 OpenJDK 已發布修補。截至報導時，未見已遭利用的通報。",
+      "en": "Affects Java 17.0.6 and later running on x86-64 CPUs with AVX-512 VBMI. Researchers at Calif demonstrated unauthenticated attacks on several popular products; Oracle and OpenJDK have shipped fixes. No exploitation had been reported at the time of writing."
+    },
+    "originalTitle": "Java4Shell Flaw (CVE-2026-114938) Enables Pre-Auth RCE in Jira, Jenkins, Keycloak and More",
+    "source": "The Hacker News",
+    "sourceLang": "en",
+    "url": "https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html",
+    "sourceType": "media",
+    "corroboration": [
+      {
+        "name": "Cloudflare",
+        "url": "https://blog.cloudflare.com/java4shell-waf-protection/"
+      }
+    ],
+    "terms": [
+      "cve",
+      "cvss"
+    ]
+  },
+  {
+    "id": "n30",
+    "date": "2026-11-17",
+    "category": "security",
+    "hot": false,
+    "title": {
+      "zh-TW": "Chrome 158 穩定版修補 204 個漏洞",
+      "en": "Chrome 158 stable fixes 204 vulnerabilities"
+    },
+    "summary": {
+      "zh-TW": "其中 6 個重大、62 個高風險。Windows 與 macOS 請升級至 158.0.8127.36 或 .37，Linux 為 158.0.8127.36，Android 為 158.0.8127.42。",
+      "en": "Six are rated critical and 62 high. Update to 158.0.8127.36 or .37 on Windows and macOS, 158.0.8127.36 on Linux, and 158.0.8127.42 on Android."
+    },
+    "originalTitle": null,
+    "source": "iThome",
+    "sourceLang": "zh",
+    "url": "https://www.ithome.com.tw/news/180609",
+    "sourceType": "media",
+    "corroboration": [],
+    "terms": []
   }
 ]
