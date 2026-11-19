@@ -5,186 +5,181 @@
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
   "items": [
     {
-      "ghsa": "GHSA-c5q4-97jw-jggh",
-      "cve": "CVE-2026-14265",
+      "ghsa": "GHSA-2m9m-6cr5-9x25",
+      "cve": "CVE-2026-63129",
       "severity": "high",
-      "cvss": 7.7,
+      "cvss": null,
+      "ecosystem": "npm",
+      "packages": [
+        "@connorbritain/mssql-mcp-core",
+        "@connorbritain/mssql-mcp-reader",
+        "@connorbritain/mssql-mcp-writer"
+      ],
+      "patched": [
+        "0.6.0",
+        "0.5.0"
+      ],
+      "summary": "mssql-mcp-core: SQL injection in mssql-mcp write tools via unparameterized table names and WHERE clauses",
+      "published": "2026-11-19"
+    },
+    {
+      "ghsa": "GHSA-8fh7-7q4q-cq52",
+      "cve": "CVE-2026-75521",
+      "severity": "critical",
+      "cvss": 10,
+      "ecosystem": "go",
+      "packages": [
+        "miren.dev/runtime"
+      ],
+      "patched": [
+        "0.11.1"
+      ],
+      "summary": "Miren Runtime: Authentication bypass in RPC layer: unverified TLS client certificates grant cluster superuser access",
+      "published": "2026-11-19"
+    },
+    {
+      "ghsa": "GHSA-cvx8-9ff6-54xq",
+      "cve": "CVE-2026-76088",
+      "severity": "high",
+      "cvss": null,
       "ecosystem": "maven",
       "packages": [
-        "software.amazon.jdbc:aws-advanced-jdbc-wrapper"
+        "org.pgpainless:pgpainless-core"
       ],
       "patched": [
-        "4.0.1"
+        "1.7.8",
+        "2.0.4"
       ],
-      "summary": "AWS-advanced-jdbc-wrapper: Java Deserialization RCE via Cache Poisoning",
-      "published": "2026-11-17"
+      "summary": "PGPainless: Unbounded Compressed Packet Descent in inline-detach and MessageInspector leads to Denial of Service (DoS)",
+      "published": "2026-11-19"
     },
     {
-      "ghsa": "GHSA-gfv3-m769-5xm3",
-      "cve": "CVE-2026-53998",
+      "ghsa": "GHSA-5hrj-7fc3-cmx9",
+      "cve": "CVE-2026-130001",
       "severity": "critical",
       "cvss": null,
-      "ecosystem": "pip",
+      "ecosystem": "rubygems",
       "packages": [
-        "arize-phoenix"
+        "mustache"
       ],
       "patched": [
-        "15.7.0"
+        "1.1.3"
       ],
-      "summary": "Phoenix: Format String Injection in applyChatTemplate",
-      "published": "2026-11-17"
+      "summary": "Mustache for Ruby: RCE using built-in method access",
+      "published": "2026-11-18"
     },
     {
-      "ghsa": "GHSA-r7hw-jx6r-756g",
-      "cve": "CVE-2026-110782",
+      "ghsa": "GHSA-82w8-65qw-gch6",
+      "cve": "CVE-2026-71481",
       "severity": "high",
       "cvss": null,
       "ecosystem": "composer",
       "packages": [
-        "simplesamlphp/saml2"
+        "altcha-org/altcha"
       ],
       "patched": [
-        "6.2.4",
-        "7.0.0-rc2"
+        "2.0.3"
       ],
-      "summary": "SAML2: Incomplete fix of CVE-2026-49283: unsigned embedded Response bypasses HTTP-Artifact signature verification (no embedded-Issuer binding)",
-      "published": "2026-11-17"
+      "summary": "ALTCHA PHP: verifySolution bypasses HMAC signature check when challenge signature is absent",
+      "published": "2026-11-18"
     },
     {
-      "ghsa": "GHSA-rvfr-cqwq-rc4j",
-      "cve": "CVE-2026-110789",
+      "ghsa": "GHSA-88q3-gch3-5396",
+      "cve": "CVE-2026-73864",
       "severity": "high",
       "cvss": null,
       "ecosystem": "npm",
       "packages": [
-        "@libp2p/crypto"
+        "install-artifact-from-github"
       ],
       "patched": [
-        "5.1.22"
+        "1.7.0"
       ],
-      "summary": "libp2p: ASN.1 DER decoder drives an unbounded synchronous loop on attacker-controlled length fields, stalling the Node event loop pre-auth",
-      "published": "2026-11-17"
+      "summary": "install-artifact-from-github loads downloaded native artifacts without integrity verification",
+      "published": "2026-11-18"
     },
     {
-      "ghsa": "GHSA-x2vm-cf3p-m2w8",
-      "cve": "CVE-2026-119793",
+      "ghsa": "GHSA-8vc4-8hjq-988p",
+      "cve": "CVE-2026-69156",
       "severity": "high",
       "cvss": null,
-      "ecosystem": "npm",
+      "ecosystem": "rust",
       "packages": [
-        "@libp2p/gossipsub"
+        "atomic-server"
       ],
-      "patched": [
-        "17.0.0"
-      ],
-      "summary": "libp2p: gossipsub creates a permanent topics-map entry per distinct subscription with no cap in the default config",
-      "published": "2026-11-17"
+      "patched": [],
+      "summary": "Atomic Server: Arbitrary file read via user-controlled `internalId` in the `/download` handler (leaks root agent private key)",
+      "published": "2026-11-18"
     },
     {
-      "ghsa": "GHSA-xhv5-8fpq-g7hf",
-      "cve": "CVE-2026-62336",
+      "ghsa": "GHSA-ff87-73jp-f3v4",
+      "cve": "CVE-2026-69158",
       "severity": "high",
-      "cvss": 8.5,
+      "cvss": null,
+      "ecosystem": "rust",
+      "packages": [
+        "atomic-server"
+      ],
+      "patched": [],
+      "summary": "Atomic Server: Unauthenticated full-response SSRF in Atomic-Server /bookmark endpoint",
+      "published": "2026-11-18"
+    },
+    {
+      "ghsa": "GHSA-jw3m-8q7m-f35r",
+      "cve": "CVE-2026-68903",
+      "severity": "high",
+      "cvss": null,
       "ecosystem": "go",
       "packages": [
-        "go.qbee.io/agent"
+        "github.com/defilantech/llmkube"
       ],
       "patched": [
-        "0.0.0-20260615134032-0fdf8e411de5"
+        "0.9.0"
       ],
-      "summary": "qbee-agent: Local Privilege Escalation and Arbitrary File Tampering via Symlink Following in createFile helper",
-      "published": "2026-11-17"
+      "summary": "LLMKube: Arbitrary Host File Read via Model.spec.source hostPath Injection",
+      "published": "2026-11-18"
     },
     {
-      "ghsa": "GHSA-24c4-3p7v-29cm",
-      "cve": "CVE-2026-128127",
-      "severity": "high",
-      "cvss": 8.7,
-      "ecosystem": "pip",
+      "ghsa": "GHSA-pfwx-xjp4-qxcj",
+      "cve": "CVE-2026-69157",
+      "severity": "critical",
+      "cvss": null,
+      "ecosystem": "rust",
       "packages": [
-        "aiohttp"
+        "atomic-server"
       ],
-      "patched": [
-        "3.14.4"
-      ],
-      "summary": "AIOHTTP: Base64 multipart parts bypass client_max_size",
-      "published": "2026-11-16"
+      "patched": [],
+      "summary": "Atomic Server: Unauthenticated `/setup` invite grants write access to the entire Drive",
+      "published": "2026-11-18"
     },
     {
-      "ghsa": "GHSA-259w-wmqg-fp76",
-      "cve": "CVE-2026-86046",
+      "ghsa": "GHSA-wq26-3j2m-4hvv",
+      "cve": "CVE-2026-71861",
       "severity": "high",
       "cvss": null,
-      "ecosystem": "pip",
+      "ecosystem": "go",
       "packages": [
-        "termux-sync"
+        "chainguard.dev/sdk"
       ],
       "patched": [
-        "1.2.4"
+        "0.1.107"
       ],
-      "summary": "termux-sync: Arbitrary file write during restore via attacker-controlled manifest source path",
-      "published": "2026-11-16"
+      "summary": "Chainguard SDK: AWS SigV4 token replay in auth/aws.VerifyToken — Chainguard-Audience/Chainguard-Identity binding headers not required in SignedHeaders",
+      "published": "2026-11-18"
     },
     {
-      "ghsa": "GHSA-28qf-cpwq-vmc2",
-      "cve": "CVE-2026-128130",
-      "severity": "high",
-      "cvss": 8.3,
-      "ecosystem": "pip",
-      "packages": [
-        "aiohttp"
-      ],
-      "patched": [
-        "3.14.4"
-      ],
-      "summary": "AIOHTTP: Pure-Python parser request replay and buffer growth behind a declined upgrade",
-      "published": "2026-11-16"
-    },
-    {
-      "ghsa": "GHSA-3r8g-jcqq-3p5j",
-      "cve": "CVE-2026-128120",
+      "ghsa": "GHSA-x277-3wcg-g9r2",
+      "cve": "CVE-2026-69155",
       "severity": "high",
       "cvss": null,
-      "ecosystem": "npm",
+      "ecosystem": "rust",
       "packages": [
-        "@sveltejs/kit"
+        "atomic-server"
       ],
-      "patched": [
-        "3.1.1"
-      ],
-      "summary": "SvelteKit: DoS while parsing form data from a remote functions `form`",
-      "published": "2026-11-16"
-    },
-    {
-      "ghsa": "GHSA-3rp8-rxj8-mvjw",
-      "cve": "CVE-2026-128128",
-      "severity": "high",
-      "cvss": null,
-      "ecosystem": "pip",
-      "packages": [
-        "aiohttp"
-      ],
-      "patched": [
-        "3.14.4"
-      ],
-      "summary": "AIOHTTP: WebSocket max_msg_size bypass via integer overflow",
-      "published": "2026-11-16"
-    },
-    {
-      "ghsa": "GHSA-5rmc-48h2-hvcm",
-      "cve": "CVE-2026-128132",
-      "severity": "high",
-      "cvss": 8.7,
-      "ecosystem": "pip",
-      "packages": [
-        "aiohttp"
-      ],
-      "patched": [
-        "3.14.4"
-      ],
-      "summary": "AIOHTTP: WebSocket receive queue limits bypassed by small or compressed messages",
-      "published": "2026-11-16"
+      "patched": [],
+      "summary": "Atomic Server: Stored XSS via uploaded files served inline (same-origin) on `/download` → account takeover",
+      "published": "2026-11-18"
     }
   ],
-  "fetchedAt": "2026-11-18T04:59:59.160Z"
+  "fetchedAt": "2026-11-19T04:54:51.469Z"
 }
