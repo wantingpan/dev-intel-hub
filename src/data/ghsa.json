@@ -5,186 +5,185 @@
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
   "items": [
     {
-      "ghsa": "GHSA-c5q4-97jw-jggh",
-      "cve": "CVE-2026-14265",
+      "ghsa": "GHSA-24pw-rf5p-mgp7",
+      "cve": "CVE-2026-77318",
       "severity": "high",
-      "cvss": 7.7,
-      "ecosystem": "maven",
+      "cvss": 7.3,
+      "ecosystem": "pip",
       "packages": [
-        "software.amazon.jdbc:aws-advanced-jdbc-wrapper"
+        "jupyter-mcp-server"
       ],
       "patched": [
-        "4.0.1"
+        "1.0.3"
       ],
-      "summary": "AWS-advanced-jdbc-wrapper: Java Deserialization RCE via Cache Poisoning",
-      "published": "2026-11-17"
+      "summary": "Jupyter MCP Server: Unauthenticated management routes can hijack the Jupyter backend in standalone HTTP mode",
+      "published": "2026-11-20"
     },
     {
-      "ghsa": "GHSA-gfv3-m769-5xm3",
-      "cve": "CVE-2026-53998",
-      "severity": "critical",
+      "ghsa": "GHSA-2mr3-rxrq-238c",
+      "cve": "CVE-2026-77315",
+      "severity": "high",
       "cvss": null,
       "ecosystem": "pip",
       "packages": [
-        "arize-phoenix"
+        "flyto-core"
       ],
       "patched": [
-        "15.7.0"
+        "2.26.8"
       ],
-      "summary": "Phoenix: Format String Injection in applyChatTemplate",
-      "published": "2026-11-17"
+      "summary": "Flyto2 Core: http.paginate follows server-supplied next-page URLs (Link header / cursor) without SSRF revalidation",
+      "published": "2026-11-20"
     },
     {
-      "ghsa": "GHSA-r7hw-jx6r-756g",
-      "cve": "CVE-2026-110782",
+      "ghsa": "GHSA-2pj4-v76f-wjvx",
+      "cve": "CVE-2026-62955",
       "severity": "high",
       "cvss": null,
       "ecosystem": "composer",
       "packages": [
-        "simplesamlphp/saml2"
+        "baserproject/baser-core"
       ],
       "patched": [
-        "6.2.4",
-        "7.0.0-rc2"
+        "5.3.0"
       ],
-      "summary": "SAML2: Incomplete fix of CVE-2026-49283: unsigned embedded Response bypasses HTTP-Artifact signature verification (no embedded-Issuer binding)",
-      "published": "2026-11-17"
+      "summary": "baserCMS: Path Traversal Bypass via realpath() in BcThemeFileService (CVE-2026-30940 Patch Bypass)",
+      "published": "2026-11-20"
     },
     {
-      "ghsa": "GHSA-rvfr-cqwq-rc4j",
-      "cve": "CVE-2026-110789",
+      "ghsa": "GHSA-3fhm-p725-h3g3",
+      "cve": "CVE-2026-63345",
+      "severity": "critical",
+      "cvss": 9.3,
+      "ecosystem": "nuget",
+      "packages": [
+        "Refitter"
+      ],
+      "patched": [
+        "2.1.2"
+      ],
+      "summary": "Refitter allows arbitrary code execution through unescaped OpenAPI paths",
+      "published": "2026-11-20"
+    },
+    {
+      "ghsa": "GHSA-58x9-vjvp-6mx8",
+      "cve": "CVE-2026-63346",
+      "severity": "critical",
+      "cvss": 9.3,
+      "ecosystem": "nuget",
+      "packages": [
+        "Refitter"
+      ],
+      "patched": [
+        "2.1.2"
+      ],
+      "summary": "Refitter allows code execution through unescaped OpenAPI header parameter names",
+      "published": "2026-11-20"
+    },
+    {
+      "ghsa": "GHSA-6pm8-6f34-9v3g",
+      "cve": "CVE-2026-77316",
       "severity": "high",
       "cvss": null,
-      "ecosystem": "npm",
+      "ecosystem": "pip",
       "packages": [
-        "@libp2p/crypto"
+        "flyto-core"
       ],
       "patched": [
-        "5.1.22"
+        "2.26.8"
       ],
-      "summary": "libp2p: ASN.1 DER decoder drives an unbounded synchronous loop on attacker-controlled length fields, stalling the Node event loop pre-auth",
-      "published": "2026-11-17"
+      "summary": "Flyto2 Core: SSRF guard bypass via DNS rebinding (validate_url_ssrf resolves-then-connects without pinning)",
+      "published": "2026-11-20"
     },
     {
-      "ghsa": "GHSA-x2vm-cf3p-m2w8",
-      "cve": "CVE-2026-119793",
+      "ghsa": "GHSA-7hvw-3c2q-45qg",
+      "cve": "CVE-2026-103025",
       "severity": "high",
-      "cvss": null,
-      "ecosystem": "npm",
-      "packages": [
-        "@libp2p/gossipsub"
-      ],
-      "patched": [
-        "17.0.0"
-      ],
-      "summary": "libp2p: gossipsub creates a permanent topics-map entry per distinct subscription with no cap in the default config",
-      "published": "2026-11-17"
-    },
-    {
-      "ghsa": "GHSA-xhv5-8fpq-g7hf",
-      "cve": "CVE-2026-62336",
-      "severity": "high",
-      "cvss": 8.5,
+      "cvss": 8.7,
       "ecosystem": "go",
       "packages": [
-        "go.qbee.io/agent"
+        "github.com/bep/imagemeta"
       ],
       "patched": [
-        "0.0.0-20260615134032-0fdf8e411de5"
+        "0.17.3"
       ],
-      "summary": "qbee-agent: Local Privilege Escalation and Arbitrary File Tampering via Symlink Following in createFile helper",
-      "published": "2026-11-17"
+      "summary": "bep/imagemeta: Unbounded memory allocation decoding PNG `zTXt` \"Raw profile type iptc\" chunks",
+      "published": "2026-11-20"
     },
     {
-      "ghsa": "GHSA-24c4-3p7v-29cm",
-      "cve": "CVE-2026-128127",
-      "severity": "high",
-      "cvss": 8.7,
-      "ecosystem": "pip",
-      "packages": [
-        "aiohttp"
-      ],
-      "patched": [
-        "3.14.4"
-      ],
-      "summary": "AIOHTTP: Base64 multipart parts bypass client_max_size",
-      "published": "2026-11-16"
-    },
-    {
-      "ghsa": "GHSA-259w-wmqg-fp76",
-      "cve": "CVE-2026-86046",
+      "ghsa": "GHSA-86mf-q4h5-69gp",
+      "cve": "CVE-2026-59988",
       "severity": "high",
       "cvss": null,
       "ecosystem": "pip",
       "packages": [
-        "termux-sync"
+        "django-docutils"
       ],
       "patched": [
-        "1.2.4"
+        "0.30.0"
       ],
-      "summary": "termux-sync: Arbitrary file write during restore via attacker-controlled manifest source path",
-      "published": "2026-11-16"
+      "summary": "django-docutils unsafe Docutils defaults allow local file disclosure, SSRF, and stored XSS",
+      "published": "2026-11-20"
     },
     {
-      "ghsa": "GHSA-28qf-cpwq-vmc2",
-      "cve": "CVE-2026-128130",
-      "severity": "high",
-      "cvss": 8.3,
+      "ghsa": "GHSA-9x8x-crjq-g64h",
+      "cve": "CVE-2026-77359",
+      "severity": "critical",
+      "cvss": 9.3,
       "ecosystem": "pip",
       "packages": [
-        "aiohttp"
+        "jupyter-mcp-server"
       ],
       "patched": [
-        "3.14.4"
+        "1.0.3"
       ],
-      "summary": "AIOHTTP: Pure-Python parser request replay and buffer growth behind a declined upgrade",
-      "published": "2026-11-16"
+      "summary": "Jupyter MCP Server: Browser DNS rebinding can hijack the Jupyter backend through management routes",
+      "published": "2026-11-20"
     },
     {
-      "ghsa": "GHSA-3r8g-jcqq-3p5j",
-      "cve": "CVE-2026-128120",
+      "ghsa": "GHSA-c3cj-3p6p-j822",
+      "cve": "CVE-2026-63415",
       "severity": "high",
+      "cvss": 7,
+      "ecosystem": "composer",
+      "packages": [
+        "jane-php/open-api-3"
+      ],
+      "patched": [
+        "7.12.0"
+      ],
+      "summary": "Jane: $ref resolution performs SSRF + LFI (path traversal) at code-generation time (jane-php)",
+      "published": "2026-11-20"
+    },
+    {
+      "ghsa": "GHSA-hq2p-f2vj-v3cm",
+      "cve": "CVE-2026-77367",
+      "severity": "critical",
+      "cvss": null,
+      "ecosystem": "go",
+      "packages": [
+        "github.com/daptin/daptin"
+      ],
+      "patched": [
+        "0.12.30"
+      ],
+      "summary": "Daptin: Unauthenticated SQL Injection via the `sort` query parameter on every entity list endpoint",
+      "published": "2026-11-20"
+    },
+    {
+      "ghsa": "GHSA-mc8w-wjhw-45x5",
+      "cve": "CVE-2026-114516",
+      "severity": "critical",
       "cvss": null,
       "ecosystem": "npm",
       "packages": [
-        "@sveltejs/kit"
+        "ep_etherpad-lite"
       ],
       "patched": [
-        "3.1.1"
+        "3.3.3"
       ],
-      "summary": "SvelteKit: DoS while parsing form data from a remote functions `form`",
-      "published": "2026-11-16"
-    },
-    {
-      "ghsa": "GHSA-3rp8-rxj8-mvjw",
-      "cve": "CVE-2026-128128",
-      "severity": "high",
-      "cvss": null,
-      "ecosystem": "pip",
-      "packages": [
-        "aiohttp"
-      ],
-      "patched": [
-        "3.14.4"
-      ],
-      "summary": "AIOHTTP: WebSocket max_msg_size bypass via integer overflow",
-      "published": "2026-11-16"
-    },
-    {
-      "ghsa": "GHSA-5rmc-48h2-hvcm",
-      "cve": "CVE-2026-128132",
-      "severity": "high",
-      "cvss": 8.7,
-      "ecosystem": "pip",
-      "packages": [
-        "aiohttp"
-      ],
-      "patched": [
-        "3.14.4"
-      ],
-      "summary": "AIOHTTP: WebSocket receive queue limits bypassed by small or compressed messages",
-      "published": "2026-11-16"
+      "summary": "Etherpad: Pre-auth arbitrary file read",
+      "published": "2026-11-20"
     }
   ],
-  "fetchedAt": "2026-11-18T04:59:59.160Z"
+  "fetchedAt": "2026-11-20T04:45:29.731Z"
 }
