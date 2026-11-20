@@ -265,7 +265,7 @@
       }
     ],
     "status": "monitoring",
-    "verifiedOn": "2026-11-19",
+    "verifiedOn": "2026-11-20",
     "updates": [
       {
         "date": "2026-11-12",
@@ -709,7 +709,7 @@
       }
     ],
     "status": "monitoring",
-    "verifiedOn": "2026-11-19",
+    "verifiedOn": "2026-11-20",
     "updates": [
       {
         "date": "2026-11-12",
@@ -801,10 +801,9 @@
       {
         "date": "2026-11-20",
         "time": null,
-        "upcoming": true,
         "text": {
-          "zh-TW": "微軟預定發布最終事後檢討報告。",
-          "en": "Microsoft is due to publish its final post-incident report."
+          "zh-TW": "微軟預定今天發布最終事後檢討報告；截至本站查證時，尚未查到已發布。",
+          "en": "Microsoft's final post-incident report is due today; we had not found it published at the time of our check."
         },
         "source": {
           "name": "Wccftech",

@@ -720,5 +720,71 @@
     "sourceType": "media",
     "corroboration": [],
     "terms": []
+  },
+  {
+    "id": "n31",
+    "date": "2026-11-19",
+    "category": "lang",
+    "hot": false,
+    "title": {
+      "zh-TW": "PHP 8.6 正式發布",
+      "en": "PHP 8.6 is released"
+    },
+    "summary": {
+      "zh-TW": "官方公告列出部分函式應用（Partial Function Application）、時間長度類別、Io\\Poll API 與 clamp() 等新功能，同時列出數項棄用，包括 finally 區塊內的 return。",
+      "en": "The official announcement lists new features such as partial function application, a duration class, the Io\\Poll API and clamp(), along with deprecations including return inside finally blocks."
+    },
+    "originalTitle": "PHP 8.6 Release Announcement",
+    "source": "PHP 官方網站",
+    "sourceLang": "en",
+    "url": "https://www.php.net/releases/8.6/en.php",
+    "sourceType": "official",
+    "corroboration": [],
+    "terms": []
+  },
+  {
+    "id": "n32",
+    "date": "2026-11-18",
+    "category": "security",
+    "hot": false,
+    "title": {
+      "zh-TW": "Ruby 修補 7 個 Regexp 與字串大小寫轉換漏洞",
+      "en": "Ruby fixes seven Regexp and String case-conversion vulnerabilities"
+    },
+    "summary": {
+      "zh-TW": "官方表示部分漏洞已有概念驗證程式，且可能達成遠端執行；CVE 編號尚未核發，目前以 GHSA 編號標示。請升級至 Ruby 4.0.10、3.4.13 或 3.3.14；3.2 以下已停止支援，不會有修補。",
+      "en": "The project says some flaws have proof-of-concept code and may allow remote code execution. CVE IDs are not yet assigned, so GHSA IDs are used. Upgrade to Ruby 4.0.10, 3.4.13 or 3.3.14; Ruby 3.2 and earlier are end-of-life and get no fix."
+    },
+    "originalTitle": "Security advisories: multiple vulnerabilities in Regexp and String case conversion",
+    "source": "Ruby 官方網站",
+    "sourceLang": "en",
+    "url": "https://www.ruby-lang.org/en/news/2026/11/18/multiple-vulnerabilities-in-regexp-and-string/",
+    "sourceType": "official",
+    "corroboration": [],
+    "terms": []
+  },
+  {
+    "id": "n33",
+    "date": "2026-11-18",
+    "category": "security",
+    "hot": false,
+    "title": {
+      "zh-TW": "CISA 將 Apache Axis、REDCap、LiteLLM 等漏洞列入已遭利用清單",
+      "en": "CISA adds Apache Axis, REDCap and LiteLLM flaws to its known-exploited list"
+    },
+    "summary": {
+      "zh-TW": "11/18 新增的條目包括 Apache Axis（CVE-2026-90436）、REDCap（CVE-2026-90817）與 LiteLLM（CVE-2026-40217），前兩項聯邦機構須於 11/21 前處理，LiteLLM 期限為 12/2。",
+      "en": "Entries added on Nov 18 include Apache Axis (CVE-2026-90436), REDCap (CVE-2026-90817) and LiteLLM (CVE-2026-40217). Federal agencies must act on the first two by Nov 21 and on LiteLLM by Dec 2."
+    },
+    "originalTitle": null,
+    "source": "CISA 已知遭利用漏洞清單",
+    "sourceLang": "en",
+    "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+    "sourceType": "official",
+    "corroboration": [],
+    "terms": [
+      "kev",
+      "cve"
+    ]
   }
 ]

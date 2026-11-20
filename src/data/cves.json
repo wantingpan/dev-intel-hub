@@ -133,5 +133,50 @@
     },
     "source": "Oracle",
     "url": "https://www.oracle.com/security-alerts/cspunov2026.html"
+  },
+  {
+    "cve": "CVE-2026-90436",
+    "severity": "exploited",
+    "cvss": null,
+    "product": {
+      "zh-TW": "Apache Axis（不安全的反射）",
+      "en": "Apache Axis (unsafe reflection)"
+    },
+    "action": {
+      "zh-TW": "CISA 列入 KEV，聯邦機構期限 11/21",
+      "en": "Added to CISA KEV; federal due date Nov 21"
+    },
+    "source": "CISA KEV",
+    "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+  },
+  {
+    "cve": "CVE-2026-90817",
+    "severity": "exploited",
+    "cvss": null,
+    "product": {
+      "zh-TW": "Vanderbilt REDCap（程式碼注入）",
+      "en": "Vanderbilt REDCap (code injection)"
+    },
+    "action": {
+      "zh-TW": "CISA 列入 KEV，聯邦機構期限 11/21",
+      "en": "Added to CISA KEV; federal due date Nov 21"
+    },
+    "source": "CISA KEV",
+    "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+  },
+  {
+    "cve": "CVE-2026-40217",
+    "severity": "exploited",
+    "cvss": null,
+    "product": {
+      "zh-TW": "BerriAI LiteLLM（未受保護的替代通道）",
+      "en": "BerriAI LiteLLM (unprotected alternate channel)"
+    },
+    "action": {
+      "zh-TW": "CISA 列入 KEV，聯邦機構期限 12/2",
+      "en": "Added to CISA KEV; federal due date Dec 2"
+    },
+    "source": "CISA KEV",
+    "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
   }
 ]
