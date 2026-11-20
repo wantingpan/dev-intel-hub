@@ -4,17 +4,25 @@
       "id": "hn",
       "items": [
         {
-          "title": "Anthropic (ANT) stock lists at nearly $2T valuation",
-          "url": "https://news.ycombinator.com/item?id=50562528",
+          "title": "OpenSSL: Buffer overflow in EVP_EncodeBlock() (CVE-2026-121481, CVSS 9.8)",
+          "url": "https://github.com/openssl/openssl/pull/33652",
+          "date": "2026-11-20",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "Claude solves two open problems in the physics of black holes",
+          "url": "https://www.anthropic.com/research/claude-black-hole-physics",
           "date": "2026-11-20",
           "matches": [
             "ai"
           ]
         },
         {
-          "title": "OpenAI still has a WebRTC Problem",
-          "url": "https://moq.dev/blog/webrtc-is-still-the-problem/",
-          "date": "2026-11-19",
+          "title": "Anthropic’s Nasdaq debut",
+          "url": "https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/",
+          "date": "2026-11-20",
           "matches": [
             "ai"
           ]
@@ -22,140 +30,131 @@
       ],
       "more": [
         {
-          "title": "Chrome AI Features Wasting Much Bandwidth",
-          "url": "https://perishablepress.com/chrome-ai-wasting-much-bandwidth/",
+          "title": "Postgres 19 Repack: Faster, Built-In Table Bloat Cleanup",
+          "url": "https://www.snowflake.com/en/blog/engineering/postgres-19-repack-table-bloat/",
           "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "Anthropic (ANT) stock lists at nearly $2T valuation",
-          "url": "https://news.ycombinator.com/item?id=50562528",
+          "title": "OpenSSL: Buffer overflow in EVP_EncodeBlock() (CVE-2026-121481, CVSS 9.8)",
+          "url": "https://github.com/openssl/openssl/pull/33652",
           "date": "2026-11-20",
           "matches": [
-            "ai"
+            "security"
           ]
         },
         {
-          "title": "Launch HN: Onlook (YC W25) – An open-source developer tool for designers",
-          "url": "https://github.com/onlook-dev/onlook/",
+          "title": "Vint Cerf on why TCP/IP was never patented",
+          "url": "https://seremot.com/p/vint-cerf-on-why-tcpip-was-never",
           "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "UK Government Forced to Admit It Issued Apple a Secret Encryption Order",
-          "url": "https://macanorak.com/uk-government-forced-to-admit-it-issued-apple-a-secret-encryption-order/",
+          "title": "Postgres 19 is out, and it's available on Neon and Databricks Lakebase",
+          "url": "https://www.databricks.com/blog/postgresql-19-available-lakebase",
           "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "I built Cornhole News. A Hacker News inspired site for news across the Midwest",
-          "url": "https://cornholenews.news/",
-          "date": "2026-11-19",
+          "title": "Gemini 4 Neon is the new #1 on the Models Engineering Index",
+          "url": "https://git-aarvin.github.io/mei/",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "Pete warden on local AI, open models, voice interfaces, the future of hardware",
-          "url": "https://thedataexchange.media/pete-warden-moonshine/",
-          "date": "2026-11-19",
+          "title": "Visa, Mastercard and JPMorgan Customer Data Leaked by Hackers",
+          "url": "https://www.wsj.com/finance/banking/visa-mastercard-and-jpmorgan-customer-data-leaked-by-hackers-3b5a0f87",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "Show HN: Watch weight-space programming in action with WebGPU",
-          "url": "https://tabbyml.github.io/weight-space-playground/",
-          "date": "2026-11-19",
+          "title": "RegExr: Temporarily Offline",
+          "url": "https://regexr.com/",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "How to Make the Ink Used to Write Hamlet and the Declaration of Independence",
-          "url": "https://lithub.com/how-to-make-the-ink-used-to-write-hamlet-the-declaration-of-independence-and-beethovens-fifth/",
-          "date": "2026-11-19",
+          "title": "Synology Security Advisory",
+          "url": "https://www.synology.com/en-uk/security/advisory/Synology_SA_26_21",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "Cooling buildings is overtaking heating them as an energy need, IEA says",
-          "url": "https://maccus.fr/en/cooling-overtaking-heating/",
-          "date": "2026-11-19",
+          "title": "Rebuilding my local voice assistant pipeline",
+          "url": "https://blog.platypush.tech/article/Rewriting-my-voice-assistant-pipeline",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "Everything you need to survive and rebuild society",
-          "url": "https://lastbook.org/",
-          "date": "2026-11-19",
+          "title": "Should governments slow frontier AI? Jacob Coxon and Robin Hanson debate [video]",
+          "url": "https://www.youtube.com/watch?v=lwfewYL7X0o",
+          "date": "2026-11-20",
           "matches": []
         }
       ]
     },
     {
       "id": "lobsters",
-      "items": [
-        {
-          "title": "Security advisories: multiple vulnerabilities in Regexp and String case conversion",
-          "url": "https://www.ruby-lang.org/en/news/2026/11/18/multiple-vulnerabilities-in-regexp-and-string/",
-          "date": "2026-11-19",
-          "matches": [
-            "security"
-          ]
-        }
-      ],
+      "items": [],
       "more": [
         {
-          "title": "Postel Awardee Dave Täht Made Every Millisecond Count",
-          "url": "https://www.internetsociety.org/blog/2026/11/postel-awardee-dave-taht-made-every-millisecond-count/",
+          "title": "Persistent incrementality in Rust",
+          "url": "https://rust-glancer.github.io/blog/persistent-incrementality-in-rust/",
           "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "PostgreSQL 19 Released",
-          "url": "https://www.postgresql.org/about/news/postgresql-19-released-3449/",
-          "date": "2026-11-19",
+          "title": "Jujutsu Primer",
+          "url": "https://ethanlowman.com/posts/jj-primer/",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "15 million web servers on one VM - smoltcp, DPDK, AF_XDP",
-          "url": "https://kapteko.com/15-million-webservers/",
-          "date": "2026-11-19",
+          "title": "Garage Door Spam",
+          "url": "https://blog.harrison.page/garage-door-spam/",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "Type inference and narrowing with reverse arrows",
-          "url": "https://elixir-lang.org/blog/2026/11/10/inference-narrowing-reverse-arrows/",
-          "date": "2026-11-19",
+          "title": "Farcall, a terminal-ready Rust PC+DOS emulator",
+          "url": "https://www.dialup.net/farcall/",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "We Need Smart People Who Give a Shit",
-          "url": "https://violetpixel.com/blog/2026-11-17-we-need-smart-people-who-give-a-shit/",
-          "date": "2026-11-19",
+          "title": "Visualizing a Ledger with pgledger-ui",
+          "url": "https://www.pgrs.net/2026/11/19/visualizing-a-ledger-with-pgledger-ui/",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "Design for Understandability",
-          "url": "https://jschuster.org/blog/2026/11/19/design-for-understandability/",
-          "date": "2026-11-19",
+          "title": "Rebuilding my local voice assistant pipeline",
+          "url": "https://blog.platypush.tech/article/Rewriting-my-voice-assistant-pipeline",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "Mutex poisoning is not for everyone",
-          "url": "https://bertptrs.nl/2026/11/16/mutex-poisoning-is-not-for-everyone.html",
-          "date": "2026-11-19",
+          "title": "Supporting FOSS projects to transition to memory safe tech",
+          "url": "https://tweedegolf.nl/en/blog/243/supporting-foss-projects-to-transition-to-memory-safe-tech/",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "Ruby2Shell (GHSA-34m4-m9fh-gqp5)",
-          "url": "https://verialabs.com/ruby2shell/",
-          "date": "2026-11-19",
+          "title": "Mercurius — A Zero-Trust Network‑Native Window System",
+          "url": "https://mercurius.tebibyte.org/",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "PHP 8.6 Release Announcement",
-          "url": "https://www.php.net/releases/8.6/en.php",
-          "date": "2026-11-19",
+          "title": "Hiring a Systems Programmer for Boxem",
+          "url": "https://lobste.rs/s/pnfs5p/hiring_systems_programmer_for_boxem",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "Validating a High-Performance Cloud Object Store with Lightweight Formal Methods",
-          "url": "https://dl.acm.org/doi/10.1145/3830418.3843899",
-          "date": "2026-11-19",
+          "title": "Postel Awardee Dave Täht Made Every Millisecond Count",
+          "url": "https://www.internetsociety.org/blog/2026/11/postel-awardee-dave-taht-made-every-millisecond-count/",
+          "date": "2026-11-20",
           "matches": []
         }
       ]
@@ -164,92 +163,94 @@
       "id": "devto",
       "items": [
         {
-          "title": "Start Your First AI Agent as a 30-Day Pilot, Not a Launch.",
-          "url": "https://dev.to/rick_leffke_6541e28129e2a/start-your-first-ai-agent-as-a-30-day-pilot-not-a-launch-8eh",
+          "title": "What Microsoft's Foundry IQ Knowledge Graph update and real-world MCP OAuth headaches tell us about building self-hosted RAG",
+          "url": "https://dev.to/contextual_layer_guy/what-microsofts-foundry-iq-knowledge-graph-update-and-real-world-mcp-oauth-headaches-tell-us-about-3pkc",
           "date": "2026-11-20",
           "matches": [
             "ai"
           ]
         },
         {
-          "title": "Canary tokens for LLM apps: detecting system prompt leaks and injected exfiltration",
-          "url": "https://dev.to/quantumbreakz/canary-tokens-for-llm-apps-detecting-system-prompt-leaks-and-injected-exfiltration-15n9",
+          "title": "Running Claude Code and Codex from your phone: the official options, and the self-hosted app I built",
+          "url": "https://dev.to/cloveric/running-claude-code-and-codex-from-your-phone-the-official-options-and-the-self-hosted-app-i-built-38p4",
           "date": "2026-11-20",
           "matches": [
             "ai"
           ]
         },
         {
-          "title": "CVE-2026-63412: CVE-2026-63412: Remote Code Execution via PHPDoc Comment Injection in Jane PHP OpenAPI Generator",
-          "url": "https://dev.to/cverports/cve-2026-63412-cve-2026-63412-remote-code-execution-via-phpdoc-comment-injection-in-jane-php-j88",
+          "title": "Prompt, Workflow, Agent or Agentic System: Which One Does Your Process Need?",
+          "url": "https://dev.to/rushabh_3f5acfe17e0cb07b7/prompt-workflow-agent-or-agentic-system-which-one-does-your-process-need-3l0k",
           "date": "2026-11-20",
           "matches": [
-            "security"
+            "ai"
           ]
         }
       ],
       "more": [
         {
-          "title": "What Assay Development Looks Like for a New Drug Target",
-          "url": "https://dev.to/dirkproteros/what-assay-development-looks-like-for-a-new-drug-target-2ad9",
+          "title": "Eclipse Enclave 1.0 Puts Your AI Coding Agent in a Sandbox",
+          "url": "https://dev.to/paullovelace/eclipse-enclave-10-puts-your-ai-coding-agent-in-a-sandbox-4aah",
           "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "Correcting MRZ OCR errors with check digits: O vs 0, I vs 1, and when not to guess",
-          "url": "https://dev.to/quantumbreakz/correcting-mrz-ocr-errors-with-check-digits-o-vs-0-i-vs-1-and-when-not-to-guess-14k1",
+          "title": "How many days of article stock remain? Count bilingual pairs against platform slots",
+          "url": "https://dev.to/hirodeath/how-many-days-of-article-stock-remain-count-bilingual-pairs-against-platform-slots-1h80",
           "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "Finding near-duplicate documents with MinHash and LSH before you index them for RAG",
-          "url": "https://dev.to/quantumbreakz/finding-near-duplicate-documents-with-minhash-and-lsh-before-you-index-them-for-rag-580c",
-          "date": "2026-11-20",
-          "matches": []
-        },
-        {
-          "title": "Power Swings: Why a Distance Relay Cannot Just Trip on What It Sees",
-          "url": "https://dev.to/gridcircuits/power-swings-why-a-distance-relay-cannot-just-trip-on-what-it-sees-2gcd",
-          "date": "2026-11-20",
-          "matches": []
-        },
-        {
-          "title": "Start Your First AI Agent as a 30-Day Pilot, Not a Launch.",
-          "url": "https://dev.to/rick_leffke_6541e28129e2a/start-your-first-ai-agent-as-a-30-day-pilot-not-a-launch-8eh",
+          "title": "What Microsoft's Foundry IQ Knowledge Graph update and real-world MCP OAuth headaches tell us about building self-hosted RAG",
+          "url": "https://dev.to/contextual_layer_guy/what-microsofts-foundry-iq-knowledge-graph-update-and-real-world-mcp-oauth-headaches-tell-us-about-3pkc",
           "date": "2026-11-20",
           "matches": [
             "ai"
           ]
         },
         {
-          "title": "Limiting concurrent async calls in Node.js without a library: a 15-line promise pool",
-          "url": "https://dev.to/quantumbreakz/limiting-concurrent-async-calls-in-nodejs-without-a-library-a-15-line-promise-pool-4cil",
+          "title": "Unlocking Enhanced Visuals: Dlss5 Without Extra Load --An unofficial side-story version",
+          "url": "https://dev.to/techscienceenergy/unlocking-enhanced-visuals-dlss5-without-extra-load-an-unofficial-side-story-version-4jcc",
           "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "Canary tokens for LLM apps: detecting system prompt leaks and injected exfiltration",
-          "url": "https://dev.to/quantumbreakz/canary-tokens-for-llm-apps-detecting-system-prompt-leaks-and-injected-exfiltration-15n9",
+          "title": "Restarting Tailscale silently isolated a k3s node: fixing a flannel VXLAN bug upstream",
+          "url": "https://dev.to/ryan0215/restarting-tailscale-silently-isolated-a-k3s-node-fixing-a-flannel-vxlan-bug-upstream-1p0n",
+          "date": "2026-11-20",
+          "matches": []
+        },
+        {
+          "title": "nginx2root: AI Found Five Critical nginx Flaws — Patch to 1.30.7 or 1.31.9 Before Attackers Do",
+          "url": "https://dev.to/shakeelahmed/nginx2root-ai-found-five-critical-nginx-flaws-patch-to-1307-or-1319-before-attackers-do-5bkf",
+          "date": "2026-11-20",
+          "matches": []
+        },
+        {
+          "title": "Running Claude Code and Codex from your phone: the official options, and the self-hosted app I built",
+          "url": "https://dev.to/cloveric/running-claude-code-and-codex-from-your-phone-the-official-options-and-the-self-hosted-app-i-built-38p4",
           "date": "2026-11-20",
           "matches": [
             "ai"
           ]
         },
         {
-          "title": "NVIDIA RTX Spark Desktops Are Here: A $4,400 Box That Runs 120B-Parameter AI Models at Home",
-          "url": "https://dev.to/paullovelace/nvidia-rtx-spark-desktops-are-here-a-4400-box-that-runs-120b-parameter-ai-models-at-home-3g81",
+          "title": "Day 9: +376 downloads yesterday",
+          "url": "https://dev.to/parasraju/day-9-376-downloads-yesterday-4ol1",
           "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "Supabase \"infinite recursion detected in policy for relation\" (42P17): find the loop and break it without turning RLS off",
-          "url": "https://dev.to/appfirstaid/supabase-infinite-recursion-detected-in-policy-for-relation-42p17-find-the-loop-and-break-it-14g0",
+          "title": "Prompt, Workflow, Agent or Agentic System: Which One Does Your Process Need?",
+          "url": "https://dev.to/rushabh_3f5acfe17e0cb07b7/prompt-workflow-agent-or-agentic-system-which-one-does-your-process-need-3l0k",
           "date": "2026-11-20",
-          "matches": []
+          "matches": [
+            "ai"
+          ]
         },
         {
-          "title": "4 GitHub Actions mistakes that hand attackers your secrets (and the fixes)",
-          "url": "https://dev.to/sqlinterviewpatterns/4-github-actions-mistakes-that-hand-attackers-your-secrets-and-the-fixes-4ab",
+          "title": "Process vs Thread in OS: PCB, States, fork()",
+          "url": "https://dev.to/codekairo/process-vs-thread-in-os-pcb-states-fork-1c63",
           "date": "2026-11-20",
           "matches": []
         }
@@ -313,6 +314,14 @@
       "id": "cloudflare",
       "items": [
         {
+          "title": "nginx2root: Five new nginx vulnerabilities, and how Cloudflare protects origins from the worst of them",
+          "url": "https://blog.cloudflare.com/nginx2root/",
+          "date": "2026-11-20",
+          "matches": [
+            "security"
+          ]
+        },
+        {
           "title": "Internet traffic and attacks during the 2026 U.S. midterm elections",
           "url": "https://blog.cloudflare.com/internet-traffic-2026-us-election/",
           "date": "2026-11-19",
@@ -323,14 +332,6 @@
           "url": "https://blog.cloudflare.com/open-clairic/",
           "date": "2026-11-19",
           "matches": []
-        },
-        {
-          "title": "How Cloudflare WAF helps protect against Java4Shell (CVE-2026-114938)",
-          "url": "https://blog.cloudflare.com/java4shell-waf-protection/",
-          "date": "2026-11-18",
-          "matches": [
-            "security"
-          ]
         }
       ],
       "more": []
@@ -485,24 +486,24 @@
       "id": "simonw",
       "items": [
         {
+          "title": "Token fraud is here and it’s BAD (YouTube)",
+          "url": "https://simonwillison.net/2026/Nov/20/token-fraud-is-here-and-its-bad/",
+          "date": "2026-11-20",
+          "matches": []
+        },
+        {
+          "title": "PostgreSQL 19 Released",
+          "url": "https://simonwillison.net/2026/Nov/19/postgresql-19/",
+          "date": "2026-11-20",
+          "matches": []
+        },
+        {
           "title": "llm-gemini 0.38",
           "url": "https://simonwillison.net/2026/Nov/18/llm-gemini/",
           "date": "2026-11-19",
           "matches": [
             "ai"
           ]
-        },
-        {
-          "title": "datasette-arrows 0.1a0",
-          "url": "https://simonwillison.net/2026/Nov/18/datasette-arrows/",
-          "date": "2026-11-19",
-          "matches": []
-        },
-        {
-          "title": "Quoting Daniel Stenberg",
-          "url": "https://simonwillison.net/2026/Nov/18/daniel-stenberg/",
-          "date": "2026-11-18",
-          "matches": []
         }
       ],
       "more": []
@@ -519,15 +520,15 @@
           ]
         },
         {
-          "title": "The Silent Consensus",
-          "url": "https://openai.com/index/the-silent-consensus",
-          "date": "2026-11-18",
+          "title": "Deploying Daybreak Red",
+          "url": "https://openai.com/business/learn/deploying-daybreak-red",
+          "date": "2026-11-19",
           "matches": []
         },
         {
-          "title": "How Sumitomo Life’s leaders helped teams adopt ChatGPT Enterprise",
-          "url": "https://openai.com/business/customer-stories/sumitomo-life",
-          "date": "2026-11-18",
+          "title": "See PR scans in action",
+          "url": "https://openai.com/business/learn/pr-scans-demo",
+          "date": "2026-11-19",
           "matches": []
         }
       ],
@@ -561,31 +562,39 @@
       "id": "thehackernews",
       "items": [
         {
-          "title": "CISA Warns of 4 Exploited Flaws Linked to Ransomware, Cryptomining, and LLMjacking Attacks",
-          "url": "https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html",
+          "title": "ThreatsDay: GPT-6.2 Jailbreak Flaws, BubbleLoader PNG Malware, $500M Ransom Demands + 17 More Stories",
+          "url": "https://thehackernews.com/2026/11/threatsday-gpt-62-jailbreak-flaws.html",
+          "date": "2026-11-20",
+          "matches": [
+            "ai"
+          ]
+        },
+        {
+          "title": "Critical VMware vCenter Zero-Day Flaw Lets Network Attackers Bypass Authentication",
+          "url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
           "date": "2026-11-19",
           "matches": [
             "security"
           ]
         },
         {
-          "title": "Java4Shell Flaw (CVE-2026-114938) Enables Pre-Auth RCE in Jira, Jenkins, Keycloak and More",
-          "url": "https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html",
-          "date": "2026-11-18",
-          "matches": [
-            "security"
-          ]
-        },
-        {
-          "title": "Oracle to Patch 11 Java Flaws Today as Critical OpenJDK RCE (CVE-2026-114938) Report Emerges",
-          "url": "https://thehackernews.com/2026/11/oracle-to-patch-11-java-flaws-today-as.html",
-          "date": "2026-11-17",
+          "title": "CISA Warns of 4 Exploited Flaws Linked to Ransomware, Cryptomining, and LLMjacking Attacks",
+          "url": "https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html",
+          "date": "2026-11-19",
           "matches": [
             "security"
           ]
         }
       ],
       "more": [
+        {
+          "title": "ThreatsDay: GPT-6.2 Jailbreak Flaws, BubbleLoader PNG Malware, $500M Ransom Demands + 17 More Stories",
+          "url": "https://thehackernews.com/2026/11/threatsday-gpt-62-jailbreak-flaws.html",
+          "date": "2026-11-20",
+          "matches": [
+            "ai"
+          ]
+        },
         {
           "title": "phpAfterShell Explained: How Hackers Could Turn a PHP Session Flaw Into Code Execution",
           "url": "https://thehackernews.com/2026/11/phpaftershell-explained-how-hackers.html",
@@ -599,10 +608,12 @@
           "matches": []
         },
         {
-          "title": "Critical VMware vCenter Flaw (CVSS 9.8) Lets Network Attackers Bypass Authentication",
+          "title": "Critical VMware vCenter Zero-Day Flaw Lets Network Attackers Bypass Authentication",
           "url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
           "date": "2026-11-19",
-          "matches": []
+          "matches": [
+            "security"
+          ]
         },
         {
           "title": "Drupal Patches Critical Installer Flaw That Could Give Unauthenticated Attackers Control of Sites",
@@ -641,12 +652,6 @@
           "matches": [
             "security"
           ]
-        },
-        {
-          "title": "PHP Warns of Critical Security Flaws Affecting All Supported Versions, Fixes Coming November 19",
-          "url": "https://thehackernews.com/2026/11/php-warns-of-critical-security-flaws.html",
-          "date": "2026-11-19",
-          "matches": []
         }
       ]
     },
@@ -708,25 +713,25 @@
       "id": "ithome",
       "items": [
         {
-          "title": "美國警告群暉NAS、Apache Axis等4款應用系統的漏洞遭積極利用",
-          "url": "https://www.ithome.com.tw/news/180644",
-          "date": "2026-11-19",
+          "title": "Google跟進OpenAI、Anthropic，Gemini開始支援Mac電腦操作",
+          "url": "https://www.ithome.com.tw/news/180677",
+          "date": "2026-11-20",
+          "matches": [
+            "ai"
+          ]
+        },
+        {
+          "title": "VMware發布資安更新，修補重大等級的vCenter漏洞，警告只能升級沒有其他替代緩解方法",
+          "url": "https://www.ithome.com.tw/news/180673",
+          "date": "2026-11-20",
           "matches": [
             "security"
           ]
         },
         {
-          "title": "資安業者揭露ARTEX攻擊事件應變過程，AI代理程式取得API金鑰後幾分鐘內即發動攻擊，防守方也用AI加速調查",
-          "url": "https://www.ithome.com.tw/news/180647",
-          "date": "2026-11-19",
-          "matches": [
-            "security"
-          ]
-        },
-        {
-          "title": "N0n勒索軟體組織宣稱取得Visa、摩根大通等59家公司資料",
-          "url": "https://www.ithome.com.tw/news/180643",
-          "date": "2026-11-19",
+          "title": "中國駭客利用VMware vCenter零時差漏洞入侵，部署後門以竊取資料",
+          "url": "https://www.ithome.com.tw/news/180674",
+          "date": "2026-11-20",
           "matches": [
             "security"
           ]
@@ -734,73 +739,73 @@
       ],
       "more": [
         {
-          "title": "Apple多項雲端服務大規模中斷，內部軟體更新問題影響iCloud等服務逾6個小時",
-          "url": "https://www.ithome.com.tw/news/180645",
-          "date": "2026-11-19",
+          "title": "Google跟進OpenAI、Anthropic，Gemini開始支援Mac電腦操作",
+          "url": "https://www.ithome.com.tw/news/180677",
+          "date": "2026-11-20",
+          "matches": [
+            "ai"
+          ]
+        },
+        {
+          "title": "VMware發布資安更新，修補重大等級的vCenter漏洞，警告只能升級沒有其他替代緩解方法",
+          "url": "https://www.ithome.com.tw/news/180673",
+          "date": "2026-11-20",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "中國駭客利用VMware vCenter零時差漏洞入侵，部署後門以竊取資料",
+          "url": "https://www.ithome.com.tw/news/180674",
+          "date": "2026-11-20",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "歐盟執委會遭AI網攻，ARTEX開源工具成駭客利器",
+          "url": "https://www.ithome.com.tw/news/180672",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "日本藥妝業者DHC因第三方行銷分析平臺被駭，外洩用戶個資1,911萬筆",
-          "url": "https://www.ithome.com.tw/news/180648",
-          "date": "2026-11-19",
+          "title": "全球首家前沿AI公司Anthropic上市，首日上漲17%",
+          "url": "https://www.ithome.com.tw/news/180671",
+          "date": "2026-11-20",
+          "matches": [
+            "ai"
+          ]
+        },
+        {
+          "title": "VS Code 1.147讓AI代理操作Chrome與Edge，新增延後發送工作請求",
+          "url": "https://www.ithome.com.tw/news/180670",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "美國警告群暉NAS、Apache Axis等4款應用系統的漏洞遭積極利用",
-          "url": "https://www.ithome.com.tw/news/180644",
-          "date": "2026-11-19",
+          "title": "Ruby修補7項記憶體安全漏洞，5項可能導致遠端程式碼執行",
+          "url": "https://www.ithome.com.tw/news/180667",
+          "date": "2026-11-20",
           "matches": [
             "security"
           ]
         },
         {
-          "title": "資安業者揭露ARTEX攻擊事件應變過程，AI代理程式取得API金鑰後幾分鐘內即發動攻擊，防守方也用AI加速調查",
-          "url": "https://www.ithome.com.tw/news/180647",
-          "date": "2026-11-19",
-          "matches": [
-            "security"
-          ]
-        },
-        {
-          "title": "Google升級Gemini Tasks，新增AI代打電話、購物付款功能，首度開放免費使用",
-          "url": "https://www.ithome.com.tw/news/180641",
-          "date": "2026-11-19",
+          "title": "NIST完成量子位置驗證實驗，未來有望防範駭客從遠端冒用身分",
+          "url": "https://www.ithome.com.tw/news/180652",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "美國NSA機密通訊網路NSANet傳中斷，官方稱例行維護期間發生異常",
-          "url": "https://www.ithome.com.tw/news/180642",
-          "date": "2026-11-19",
+          "title": "API金鑰隨Docker Hub映像檔對外曝光，研究發現最快7.86秒就遭濫用",
+          "url": "https://www.ithome.com.tw/news/180635",
+          "date": "2026-11-20",
           "matches": []
         },
         {
-          "title": "N0n勒索軟體組織宣稱取得Visa、摩根大通等59家公司資料",
-          "url": "https://www.ithome.com.tw/news/180643",
-          "date": "2026-11-19",
-          "matches": [
-            "security"
-          ]
-        },
-        {
-          "title": "JINS、三菱UFJ銀行等數十家日本企業陸續發布資安事件公告，皆因第三方行銷科技業者PLAID旗下KARTE平臺遭駭",
-          "url": "https://www.ithome.com.tw/news/180640",
-          "date": "2026-11-19",
-          "matches": [
-            "security"
-          ]
-        },
-        {
-          "title": "Apache Roller反序列化漏洞已遭利用，開發團隊警告漏洞影響範圍涵蓋近20年的版本",
-          "url": "https://www.ithome.com.tw/news/180639",
-          "date": "2026-11-19",
-          "matches": [
-            "security"
-          ]
-        },
-        {
-          "title": "駭客利用AI代理框架ARTEX攻擊資安公司Barracuda，44小時入侵10個雲端帳戶搜刮憑證",
-          "url": "https://www.ithome.com.tw/news/180621",
-          "date": "2026-11-19",
+          "title": "資安AI新創Corma相隔3個月再募資1.25億美元，估值達10億美元",
+          "url": "https://www.ithome.com.tw/news/180568",
+          "date": "2026-11-20",
           "matches": [
             "security"
           ]
@@ -808,5 +813,5 @@
       ]
     }
   ],
-  "fetchedAt": "2026-11-19T17:48:39.286Z"
+  "fetchedAt": "2026-11-20T04:39:29.714Z"
 }
