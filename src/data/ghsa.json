@@ -5,181 +5,185 @@
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
   "items": [
     {
-      "ghsa": "GHSA-2m9m-6cr5-9x25",
-      "cve": "CVE-2026-63129",
+      "ghsa": "GHSA-24pw-rf5p-mgp7",
+      "cve": "CVE-2026-77318",
+      "severity": "high",
+      "cvss": 7.3,
+      "ecosystem": "pip",
+      "packages": [
+        "jupyter-mcp-server"
+      ],
+      "patched": [
+        "1.0.3"
+      ],
+      "summary": "Jupyter MCP Server: Unauthenticated management routes can hijack the Jupyter backend in standalone HTTP mode",
+      "published": "2026-11-20"
+    },
+    {
+      "ghsa": "GHSA-2mr3-rxrq-238c",
+      "cve": "CVE-2026-77315",
       "severity": "high",
       "cvss": null,
-      "ecosystem": "npm",
+      "ecosystem": "pip",
       "packages": [
-        "@connorbritain/mssql-mcp-core",
-        "@connorbritain/mssql-mcp-reader",
-        "@connorbritain/mssql-mcp-writer"
+        "flyto-core"
       ],
       "patched": [
-        "0.6.0",
-        "0.5.0"
+        "2.26.8"
       ],
-      "summary": "mssql-mcp-core: SQL injection in mssql-mcp write tools via unparameterized table names and WHERE clauses",
-      "published": "2026-11-19"
+      "summary": "Flyto2 Core: http.paginate follows server-supplied next-page URLs (Link header / cursor) without SSRF revalidation",
+      "published": "2026-11-20"
     },
     {
-      "ghsa": "GHSA-8fh7-7q4q-cq52",
-      "cve": "CVE-2026-75521",
-      "severity": "critical",
-      "cvss": 10,
-      "ecosystem": "go",
-      "packages": [
-        "miren.dev/runtime"
-      ],
-      "patched": [
-        "0.11.1"
-      ],
-      "summary": "Miren Runtime: Authentication bypass in RPC layer: unverified TLS client certificates grant cluster superuser access",
-      "published": "2026-11-19"
-    },
-    {
-      "ghsa": "GHSA-cvx8-9ff6-54xq",
-      "cve": "CVE-2026-76088",
-      "severity": "high",
-      "cvss": null,
-      "ecosystem": "maven",
-      "packages": [
-        "org.pgpainless:pgpainless-core"
-      ],
-      "patched": [
-        "1.7.8",
-        "2.0.4"
-      ],
-      "summary": "PGPainless: Unbounded Compressed Packet Descent in inline-detach and MessageInspector leads to Denial of Service (DoS)",
-      "published": "2026-11-19"
-    },
-    {
-      "ghsa": "GHSA-5hrj-7fc3-cmx9",
-      "cve": "CVE-2026-130001",
-      "severity": "critical",
-      "cvss": null,
-      "ecosystem": "rubygems",
-      "packages": [
-        "mustache"
-      ],
-      "patched": [
-        "1.1.3"
-      ],
-      "summary": "Mustache for Ruby: RCE using built-in method access",
-      "published": "2026-11-18"
-    },
-    {
-      "ghsa": "GHSA-82w8-65qw-gch6",
-      "cve": "CVE-2026-71481",
+      "ghsa": "GHSA-2pj4-v76f-wjvx",
+      "cve": "CVE-2026-62955",
       "severity": "high",
       "cvss": null,
       "ecosystem": "composer",
       "packages": [
-        "altcha-org/altcha"
+        "baserproject/baser-core"
       ],
       "patched": [
-        "2.0.3"
+        "5.3.0"
       ],
-      "summary": "ALTCHA PHP: verifySolution bypasses HMAC signature check when challenge signature is absent",
-      "published": "2026-11-18"
+      "summary": "baserCMS: Path Traversal Bypass via realpath() in BcThemeFileService (CVE-2026-30940 Patch Bypass)",
+      "published": "2026-11-20"
     },
     {
-      "ghsa": "GHSA-88q3-gch3-5396",
-      "cve": "CVE-2026-73864",
+      "ghsa": "GHSA-3fhm-p725-h3g3",
+      "cve": "CVE-2026-63345",
+      "severity": "critical",
+      "cvss": 9.3,
+      "ecosystem": "nuget",
+      "packages": [
+        "Refitter"
+      ],
+      "patched": [
+        "2.1.2"
+      ],
+      "summary": "Refitter allows arbitrary code execution through unescaped OpenAPI paths",
+      "published": "2026-11-20"
+    },
+    {
+      "ghsa": "GHSA-58x9-vjvp-6mx8",
+      "cve": "CVE-2026-63346",
+      "severity": "critical",
+      "cvss": 9.3,
+      "ecosystem": "nuget",
+      "packages": [
+        "Refitter"
+      ],
+      "patched": [
+        "2.1.2"
+      ],
+      "summary": "Refitter allows code execution through unescaped OpenAPI header parameter names",
+      "published": "2026-11-20"
+    },
+    {
+      "ghsa": "GHSA-6pm8-6f34-9v3g",
+      "cve": "CVE-2026-77316",
       "severity": "high",
+      "cvss": null,
+      "ecosystem": "pip",
+      "packages": [
+        "flyto-core"
+      ],
+      "patched": [
+        "2.26.8"
+      ],
+      "summary": "Flyto2 Core: SSRF guard bypass via DNS rebinding (validate_url_ssrf resolves-then-connects without pinning)",
+      "published": "2026-11-20"
+    },
+    {
+      "ghsa": "GHSA-7hvw-3c2q-45qg",
+      "cve": "CVE-2026-103025",
+      "severity": "high",
+      "cvss": 8.7,
+      "ecosystem": "go",
+      "packages": [
+        "github.com/bep/imagemeta"
+      ],
+      "patched": [
+        "0.17.3"
+      ],
+      "summary": "bep/imagemeta: Unbounded memory allocation decoding PNG `zTXt` \"Raw profile type iptc\" chunks",
+      "published": "2026-11-20"
+    },
+    {
+      "ghsa": "GHSA-86mf-q4h5-69gp",
+      "cve": "CVE-2026-59988",
+      "severity": "high",
+      "cvss": null,
+      "ecosystem": "pip",
+      "packages": [
+        "django-docutils"
+      ],
+      "patched": [
+        "0.30.0"
+      ],
+      "summary": "django-docutils unsafe Docutils defaults allow local file disclosure, SSRF, and stored XSS",
+      "published": "2026-11-20"
+    },
+    {
+      "ghsa": "GHSA-9x8x-crjq-g64h",
+      "cve": "CVE-2026-77359",
+      "severity": "critical",
+      "cvss": 9.3,
+      "ecosystem": "pip",
+      "packages": [
+        "jupyter-mcp-server"
+      ],
+      "patched": [
+        "1.0.3"
+      ],
+      "summary": "Jupyter MCP Server: Browser DNS rebinding can hijack the Jupyter backend through management routes",
+      "published": "2026-11-20"
+    },
+    {
+      "ghsa": "GHSA-c3cj-3p6p-j822",
+      "cve": "CVE-2026-63415",
+      "severity": "high",
+      "cvss": 7,
+      "ecosystem": "composer",
+      "packages": [
+        "jane-php/open-api-3"
+      ],
+      "patched": [
+        "7.12.0"
+      ],
+      "summary": "Jane: $ref resolution performs SSRF + LFI (path traversal) at code-generation time (jane-php)",
+      "published": "2026-11-20"
+    },
+    {
+      "ghsa": "GHSA-hq2p-f2vj-v3cm",
+      "cve": "CVE-2026-77367",
+      "severity": "critical",
+      "cvss": null,
+      "ecosystem": "go",
+      "packages": [
+        "github.com/daptin/daptin"
+      ],
+      "patched": [
+        "0.12.30"
+      ],
+      "summary": "Daptin: Unauthenticated SQL Injection via the `sort` query parameter on every entity list endpoint",
+      "published": "2026-11-20"
+    },
+    {
+      "ghsa": "GHSA-mc8w-wjhw-45x5",
+      "cve": "CVE-2026-114516",
+      "severity": "critical",
       "cvss": null,
       "ecosystem": "npm",
       "packages": [
-        "install-artifact-from-github"
+        "ep_etherpad-lite"
       ],
       "patched": [
-        "1.7.0"
+        "3.3.3"
       ],
-      "summary": "install-artifact-from-github loads downloaded native artifacts without integrity verification",
-      "published": "2026-11-18"
-    },
-    {
-      "ghsa": "GHSA-8vc4-8hjq-988p",
-      "cve": "CVE-2026-69156",
-      "severity": "high",
-      "cvss": null,
-      "ecosystem": "rust",
-      "packages": [
-        "atomic-server"
-      ],
-      "patched": [],
-      "summary": "Atomic Server: Arbitrary file read via user-controlled `internalId` in the `/download` handler (leaks root agent private key)",
-      "published": "2026-11-18"
-    },
-    {
-      "ghsa": "GHSA-ff87-73jp-f3v4",
-      "cve": "CVE-2026-69158",
-      "severity": "high",
-      "cvss": null,
-      "ecosystem": "rust",
-      "packages": [
-        "atomic-server"
-      ],
-      "patched": [],
-      "summary": "Atomic Server: Unauthenticated full-response SSRF in Atomic-Server /bookmark endpoint",
-      "published": "2026-11-18"
-    },
-    {
-      "ghsa": "GHSA-jw3m-8q7m-f35r",
-      "cve": "CVE-2026-68903",
-      "severity": "high",
-      "cvss": null,
-      "ecosystem": "go",
-      "packages": [
-        "github.com/defilantech/llmkube"
-      ],
-      "patched": [
-        "0.9.0"
-      ],
-      "summary": "LLMKube: Arbitrary Host File Read via Model.spec.source hostPath Injection",
-      "published": "2026-11-18"
-    },
-    {
-      "ghsa": "GHSA-pfwx-xjp4-qxcj",
-      "cve": "CVE-2026-69157",
-      "severity": "critical",
-      "cvss": null,
-      "ecosystem": "rust",
-      "packages": [
-        "atomic-server"
-      ],
-      "patched": [],
-      "summary": "Atomic Server: Unauthenticated `/setup` invite grants write access to the entire Drive",
-      "published": "2026-11-18"
-    },
-    {
-      "ghsa": "GHSA-wq26-3j2m-4hvv",
-      "cve": "CVE-2026-71861",
-      "severity": "high",
-      "cvss": null,
-      "ecosystem": "go",
-      "packages": [
-        "chainguard.dev/sdk"
-      ],
-      "patched": [
-        "0.1.107"
-      ],
-      "summary": "Chainguard SDK: AWS SigV4 token replay in auth/aws.VerifyToken — Chainguard-Audience/Chainguard-Identity binding headers not required in SignedHeaders",
-      "published": "2026-11-18"
-    },
-    {
-      "ghsa": "GHSA-x277-3wcg-g9r2",
-      "cve": "CVE-2026-69155",
-      "severity": "high",
-      "cvss": null,
-      "ecosystem": "rust",
-      "packages": [
-        "atomic-server"
-      ],
-      "patched": [],
-      "summary": "Atomic Server: Stored XSS via uploaded files served inline (same-origin) on `/download` → account takeover",
-      "published": "2026-11-18"
+      "summary": "Etherpad: Pre-auth arbitrary file read",
+      "published": "2026-11-20"
     }
   ],
-  "fetchedAt": "2026-11-19T04:54:51.469Z"
+  "fetchedAt": "2026-11-20T04:45:29.731Z"
 }
