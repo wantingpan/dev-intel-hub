@@ -7,6 +7,8 @@
     "node": ">=20.3.0"
   },
   "scripts": {
+    "start": "node scripts/fetch-all.mjs --continue-on-error && astro dev --open",
+    "fetch": "node scripts/fetch-all.mjs",
     "dev": "astro dev",
     "check:data": "node scripts/validate-data.mjs",
     "prebuild": "node scripts/validate-data.mjs",
