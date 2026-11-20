@@ -1,12 +1,5 @@
-// 首頁「需要行動」挑出的漏洞，以及它們的 CVE 編號：下面的資安與漏洞頁籤用來避免重複列出。
-// The vulnerabilities picked for "Act on this" and their CVE ids; the vulnerability tabs below use them to avoid listing the same CVE twice.
-import cves from '../data/cves.json';
-
-const rank = { exploited: 0, critical: 1, high: 2 } as const;
-export const ACTION_COUNT = 4;
-
-export const actionTop = [...cves]
-  .sort((a, b) => rank[a.severity as keyof typeof rank] - rank[b.severity as keyof typeof rank])
-  .slice(0, ACTION_COUNT);
-
-export const actionIds = new Set(actionTop.map((c) => c.cve));
+// 首頁頂端已改為「今日技術雷達」，不再重複抽離 cves.json 前 4 筆，讓下方「資安與漏洞」完整顯示所有項目。
+// The top of the home page is now the Daily Tech Radar, so we no longer hold back the top 4 CVEs from the vulnerability tabs below.
+export const ACTION_COUNT = 0;
+export const actionTop: never[] = [];
+export const actionIds = new Set<string>();
