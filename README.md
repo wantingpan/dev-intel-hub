@@ -19,7 +19,15 @@ A daily briefing for software engineers covering AI, languages and frameworks, c
 - **雙語介面**：`/zh-TW/` 與 `/en/`，首頁依瀏覽器語言自動導向。
 - 支援手機與電腦瀏覽、深色與淺色模式。
 
-### 本機使用（免排程、免部署、日常 0 Token）
+### 線上網址（每天自動更新）
+
+**https://wantingpan.github.io/dev-intel-hub/**
+
+- `.github/workflows/pages.yml` 每天台灣時間 07:30 自動抓取 CISA 漏洞、GitHub 套件漏洞、版本到期日與 19 個技術 RSS，建置後發佈到 GitHub Pages。免費、不耗 AI Token，也不會產生自動 commit。
+- 推送到 `main` 時也會重新發佈；想立刻更新，可到 GitHub → **Actions → Publish site → Run workflow**。
+- 首次設定：repo **Settings → Pages → Build and deployment → Source** 選 **GitHub Actions**。
+
+### 本機使用（選用）
 
 需要 Node.js 20.3.0 或 22 以上版本。第一次使用先安裝套件：
 
@@ -41,7 +49,7 @@ npm install
   npm run check:data  # 驗證資料格式與網址
   ```
 
-本專案已移除 GitHub Actions 排程與站台部署設定，所有更新都在 `main` 分支本機隨需進行，不消耗自動排程的 AI Token。
+本專案不使用 AI 自動排程；公開資料由每日的 GitHub Pages 流程免費更新，精選新聞需要時再手動請 AI 整理。
 
 ### 資料格式
 
