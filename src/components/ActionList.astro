@@ -1,48 +1,344 @@
 ---
-import { t, type Lang } from '../i18n/ui';
+// 首頁頂端「今日技術雷達」：每天自動從 feeds.json、ghsa.json、eol.json 挑出四大關注領域的最新情報（0 AI Token）。
+// Daily Tech Radar at the top of the home page: auto-curated from feeds.json, ghsa.json and eol.json across 4 focus areas (0 AI tokens).
+import config from '../data/feed-sources.json';
+import feeds from '../data/feeds.json';
+import ghsa from '../data/ghsa.json';
+import { endingSoon } from '../lib/eol';
+import { t, href, formatDate, type Lang } from '../i18n/ui';
 import { safeUrl } from '../lib/url';
-import { actionTop as top } from '../lib/vulns';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const s = t(lang);
+
+interface FeedEntry {
+  title: string;
+  url: string;
+  date: string | null;
+  matches: string[];
+  srcId: string;
+  srcName: string;
+  srcGroup: string;
+  srcLang: 'zh-TW' | 'en';
+}
+
+const srcMap = new Map(config.sources.map((x) => [x.id, x]));
+const allFeeds: FeedEntry[] = (feeds.sources ?? [])
+  .flatMap((src) => {
+    const meta = srcMap.get(src.id);
+    if (!meta) return [];
+    return (src.items ?? []).map((it) => ({
+      title: it.title,
+      url: it.url,
+      date: it.date ?? null,
+      matches: it.matches ?? [],
+      srcId: meta.id,
+      srcName: meta.name,
+      srcGroup: meta.group,
+      srcLang: (meta.lang === 'zh-TW' ? 'zh-TW' : 'en') as 'zh-TW' | 'en',
+    }));
+  })
+  .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''));
+
+const usedUrls = new Set<string>();
+function pickFeeds(predicate: (it: FeedEntry) => boolean, limit = 3): FeedEntry[] {
+  const picked: FeedEntry[] = [];
+  for (const it of allFeeds) {
+    if (usedUrls.has(it.url)) continue;
+    if (predicate(it)) {
+      usedUrls.add(it.url);
+      picked.push(it);
+      if (picked.length >= limit) break;
+    }
+  }
+  return picked;
+}
+
+// 1. AI 與 Agent
+const aiItems = pickFeeds((it) => it.matches.includes('ai') || it.srcGroup === 'ai', 3);
+
+// 2. 架構與工程實務
+const archItems = [
+  ...pickFeeds(
+    (it) =>
+      it.srcGroup === 'architecture' ||
+      it.matches.some((m) => m === 'architecture' || m === 'agile' || m === 'career'),
+    3
+  ),
+];
+if (archItems.length < 3) {
+  archItems.push(
+    ...pickFeeds((it) => it.srcGroup === 'engineering', 3 - archItems.length)
+  );
+}
+
+// 3. .NET・前端・雲端
+const stackItems = [
+  ...pickFeeds(
+    (it) =>
+      it.matches.some((m) => m === 'dotnet' || m === 'frontend') ||
+      ['dotnet-blog', 'css-tricks', 'github-blog', 'aws', 'cloudflare', 'ithome'].includes(it.srcId),
+    3
+  ),
+];
+if (stackItems.length < 3) {
+  stackItems.push(
+    ...pickFeeds((it) => it.srcGroup === 'engineering' || it.srcGroup === 'taiwan', 3 - stackItems.length)
+  );
+}
+
+// 4. 常用套件與環境警報（優先挑選 npm / nuget / pip / go 等常用生態系的高風險漏洞 + 90 天內到期版本）
+interface GhsaItem {
+  ghsa: string;
+  cve: string | null;
+  severity: 'critical' | 'high';
+  ecosystem: string;
+  packages: string[];
+  patched: string[];
+  summary: string;
+  published: string;
+}
+const ecoPriority: Record<string, number> = {
+  npm: 0,
+  nuget: 1,
+  pip: 2,
+  go: 3,
+  maven: 4,
+  rust: 5,
+};
+const soonEol = endingSoon(90).slice(0, 1);
+const pkgLimit = soonEol.length > 0 ? 2 : 3;
+const ghsaLink = (id: string) =>
+  /^GHSA(-[23456789cfghjmpqrvwx]{4}){3}$/.test(id) ? `https://github.com/advisories/${id}` : undefined;
+
+const pkgAlerts = [...((ghsa.items ?? []) as GhsaItem[])]
+  .sort((a, b) => {
+    const ea = ecoPriority[a.ecosystem] ?? 9;
+    const eb = ecoPriority[b.ecosystem] ?? 9;
+    if (ea !== eb) return ea - eb;
+    if (a.severity !== b.severity) return a.severity === 'critical' ? -1 : 1;
+    return b.published.localeCompare(a.published);
+  })
+  .slice(0, pkgLimit);
+
+const feedColumns = [
+  { id: 'ai', title: s.radarAi, cls: 'c-ai', items: aiItems },
+  { id: 'arch', title: s.radarArch, cls: 'c-arch', items: archItems },
+  { id: 'stack', title: s.radarStack, cls: 'c-stack', items: stackItems },
+];
 ---
-<section class="action" aria-labelledby="action-title">
-  <h2 id="action-title">{s.actionTitle}</h2>
-  <ol class="action-list" data-swipe-list>
-    {top.map((c) => (
-      <li class:list={['action-item', { exploited: c.severity === 'exploited' }]}>
-        <span class="sev">{s.sev[c.severity as keyof typeof s.sev]}</span>
-        <span class="what">{c.product[lang]}</span>
-        <span class="do">{c.action[lang]}</span>
-        {safeUrl(c.url)
-          ? <a class="cve num" href={safeUrl(c.url)} target="_blank" rel="noopener noreferrer">{c.cve}</a>
-          : <span class="cve num">{c.cve}</span>}
-      </li>
+<section class="radar" aria-labelledby="radar-title">
+  <div class="radar-head">
+    <h2 id="radar-title">{s.actionTitle}</h2>
+    <p class="radar-lede">{s.actionLede}</p>
+  </div>
+
+  <div class="radar-grid" data-swipe-list>
+    {feedColumns.map((col) => (
+      <article class:list={['radar-card', col.cls]}>
+        <header class="card-head">
+          <h3>{col.title}</h3>
+        </header>
+        <ul class="card-list">
+          {col.items.map((it) => {
+            const u = safeUrl(it.url);
+            return (
+              <li>
+                {u ? (
+                  <a class="item-title" href={u} target="_blank" rel="noopener noreferrer" lang={it.srcLang}>
+                    {it.title}
+                  </a>
+                ) : (
+                  <span class="item-title" lang={it.srcLang}>{it.title}</span>
+                )}
+                <span class="item-meta">
+                  <span>{it.srcName}</span>
+                  {it.date && <time datetime={it.date} class="num">{formatDate(it.date, lang)}</time>}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+        <a class="card-more" href={href(`${lang}/feeds/`)}>{s.radarFeedsLink}</a>
+      </article>
     ))}
-  </ol>
-  <a class="all" href="#patch-list">{s.cveTitle}</a>
+
+    <article class="radar-card c-pkg">
+      <header class="card-head">
+        <h3>{s.radarPkg}</h3>
+      </header>
+      <ul class="card-list">
+        {pkgAlerts.map((v) => {
+          const u = ghsaLink(v.ghsa);
+          const pkgName = v.packages.slice(0, 2).join(', ');
+          const patchVer = v.patched[0];
+          return (
+            <li>
+              <div class="pkg-line">
+                <span class:list={['sev-tag', v.severity]}>{s.sev[v.severity]}</span>
+                <span class="eco-tag">{v.ecosystem}</span>
+                {u ? (
+                  <a class="pkg-name num" href={u} target="_blank" rel="noopener noreferrer">
+                    {pkgName}
+                  </a>
+                ) : (
+                  <span class="pkg-name num">{pkgName}</span>
+                )}
+              </div>
+              <span class="item-meta">
+                <span>
+                  {patchVer ? `${s.radarPatchTo} ${patchVer}` : v.summary.slice(0, 48)}
+                </span>
+                <time datetime={v.published} class="num">{formatDate(v.published, lang)}</time>
+              </span>
+            </li>
+          );
+        })}
+        {soonEol.map((e) => (
+          <li>
+            <div class="pkg-line">
+              <span class="sev-tag high">{s.radarEolTag}</span>
+              <a class="pkg-name" href={href(`${lang}/versions/`)}>
+                {e.product} {e.cycle}
+              </a>
+            </div>
+            <span class="item-meta">
+              <span>{s.eolEnds}</span>
+              <time datetime={e.eol} class="num">{e.eol}</time>
+            </span>
+          </li>
+        ))}
+      </ul>
+      <a class="card-more" href="#vulns">{s.radarVulnsLink}</a>
+    </article>
+  </div>
 </section>
 
 <style>
-  .action { margin: .5rem 0 1.5rem; }
-  h2 { font-size: clamp(1.35rem, 3.5vw, 1.6rem); font-weight: 600; letter-spacing: -0.01em; margin-bottom: .75rem; }
-  .action-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; }
-  /* 平板：兩欄；手機：橫向滑動，露出下一張卡片的邊緣，暗示可以滑 / tablet: 2 columns; phone: swipe sideways, with the next card peeking in */
-  @media (max-width: 960px) { .action-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 560px) {
-    .action-list { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: .6rem; margin: 0 calc(-1 * clamp(1rem, 4vw, 2rem)); padding: 0 clamp(1rem, 4vw, 2rem) .5rem; scrollbar-width: none; }
-    .action-list::-webkit-scrollbar { display: none; }
-    .action-list { scroll-padding: 0 clamp(1rem, 4vw, 2rem); }
-    .action-item { flex: 0 0 82%; scroll-snap-align: start; }
-    .cve { display: inline-block; padding: .4rem 0; }
+  .radar { margin: .5rem 0 1.5rem; }
+  .radar-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem 1rem; margin-bottom: .75rem; }
+  h2 { font-size: clamp(1.35rem, 3.5vw, 1.6rem); font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+  .radar-lede { margin: 0; font-size: .9rem; color: var(--muted); }
+  .radar-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .85rem; }
+  @media (max-width: 1020px) {
+    .radar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
-  .action-item { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--muted); border-radius: var(--radius-sm); padding: .9rem 1rem; display: flex; flex-direction: column; gap: .2rem; }
-  .action-item.exploited { border-left-color: var(--alert); }
-  .sev { font-size: .8rem; font-weight: 600; color: var(--muted); }
-  .exploited .sev { color: var(--alert); }
-  .what { font-weight: 600; }
-  .do { font-size: .92rem; }
-  .cve { font-size: .82rem; color: var(--muted); margin-top: .25rem; }
-  .all { display: inline-block; margin-top: .5rem; font-size: .9rem; padding: .35rem 0; }
+  @media (max-width: 560px) {
+    .radar-grid {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: .65rem;
+      margin: 0 calc(-1 * clamp(1rem, 4vw, 2rem));
+      padding: 0 clamp(1rem, 4vw, 2rem) .5rem;
+      scrollbar-width: none;
+    }
+    .radar-grid::-webkit-scrollbar { display: none; }
+    .radar-card { flex: 0 0 84%; scroll-snap-align: start; }
+  }
+  .radar-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--accent);
+    border-radius: var(--radius-sm);
+    padding: .9rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: .5rem;
+  }
+  .radar-card.c-ai { border-top-color: var(--c-ai); }
+  .radar-card.c-arch { border-top-color: var(--c-industry); }
+  .radar-card.c-stack { border-top-color: var(--c-cloud); }
+  .radar-card.c-pkg { border-top-color: var(--c-security); }
+
+  .card-head h3 {
+    margin: 0;
+    font-size: .95rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .c-ai .card-head h3 { color: var(--c-ai); }
+  .c-arch .card-head h3 { color: var(--c-industry); }
+  .c-stack .card-head h3 { color: var(--c-cloud); }
+  .c-pkg .card-head h3 { color: var(--c-security); }
+
+  .card-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .55rem;
+    flex: 1;
+  }
+  .card-list li {
+    padding-top: .55rem;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: .18rem;
+  }
+  .card-list li:first-child {
+    padding-top: .25rem;
+    border-top: 0;
+  }
+  .item-title {
+    font-size: .9rem;
+    font-weight: 500;
+    line-height: 1.38;
+    overflow-wrap: anywhere;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .item-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .4rem;
+    font-size: .78rem;
+    color: var(--muted);
+  }
+  .pkg-line {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .3rem;
+  }
+  .pkg-name {
+    font-size: .9rem;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+  .sev-tag {
+    font-size: .74rem;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 0 .35rem;
+    border: 1px solid currentColor;
+    line-height: 1.45;
+  }
+  .sev-tag.critical { color: var(--c-security); background: var(--c-security-bg); }
+  .sev-tag.high { color: var(--warn); background: var(--warn-bg); }
+  .eco-tag {
+    font-size: .74rem;
+    font-weight: 500;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 0 .3rem;
+    line-height: 1.45;
+  }
+  .card-more {
+    font-size: .82rem;
+    font-weight: 500;
+    padding-top: .45rem;
+    border-top: 1px solid var(--line);
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .card-more:hover { text-decoration: underline; }
 </style>
