@@ -17,19 +17,13 @@
 
 門檻天數設定在 `src/data/meta.json` 的 `staleAfterDays`（一般內容）與 `developingStaleAfterDays`（發展中事件）。
 
-### 自動更新
+### 隨需更新（省 Token 模式）
 
-| 時間（台灣時間） | 執行者 | 做什麼 |
-|---|---|---|
-| 週一到週五 09:10 | 本機 Claude 排程 | 完整一輪：新聞、漏洞、事件，最多新增 5 則新聞，更新 `meta.json` |
-| 週一到週五 13:00 | 本機 Claude 排程 | 只確認「處理中」「觀察中」的事件，沒有新進展就不提交 |
+本專案已停用所有背景排程與自動部署，改為本機隨需更新：
 
-- 排程同樣遵守本文件的查證規則，`npm run check:data` 與 `npm run build` 都通過後，推到 **`data` 分支**（不開 Pull Request，也不直接推 `main`）。`publish-data` 流程每週一、三、五 17:30把 `data` 合併到 `main`，合併後才部署。
-- 每次自動更新是一個獨立提交，訊息為 `Content update YYYY-MM-DD HH:MM (auto)`。發現錯誤時用 `git revert` 撤回。
-- `kev.json`、`ghsa.json`、`eol.json`、`feeds.json` 由 GitHub Actions 同步，排程與手動更新都不要修改。
-- `feeds.json`（技術動態）是自動彙整、**未經查證**的標題與連結。09:10 的排程可以把它當成找新聞的候選清單，但收錄進 `news.json` 前，一定要打開文章確認內容，並照上面的查證規則處理，不能因為它出現在技術動態就當成已查證。
-- 想調整技術動態的來源或關注主題關鍵字，改 `src/data/feed-sources.json`。
-- 手動更新請走分支與 Pull Request；排程的資料在 `data` 分支，發佈到 `main` 後再 `git pull` 取得，避免衝突。
+- **日常 0 Token 更新**：雙擊 `start-hub.cmd` 或執行 `npm start`（或 `npm run fetch`），一鍵本機抓取 `kev.json`、`ghsa.json`、`eol.json`、`feeds.json` 並驗證格式，完全不消耗 AI Token。
+- **需要整理重點新聞／事件時**：先跑完 `npm run fetch` 讓 `feeds.json` 保持最新，再手動請 AI 從 `feeds.json` 挑選 2～3 則重要條目查證並寫入 `news.json` / `events.json`，可大幅減少 AI 搜尋與消耗的 Token。
+- 想調整技術動態的來源或關注主題關鍵字，直接修改 `src/data/feed-sources.json` 即可。
 
 ---
 
@@ -207,53 +201,40 @@
 
 ---
 
-## 四、提交流程
+## 四、本機驗證與保存流程
 
-建議用 Pull Request 更新內容，上線前先在預覽網址確認。
+因不需站台部署，直接在 `main` 分支修改並本機預覽即可：
 
 ```powershell
-# 1. 從 main 建立新分支
-git checkout main
-git pull
-git checkout -b content/2026-11-20
+# 1. 更新免 Token 公開資料並檢查格式
+npm run fetch
 
-# 2. 修改 src/data 裡的檔案後，檢查資料
+# 2. 若有手動／AI 更新 src/data 裡的檔案，執行格式檢查
 npm run check:data
 
-# 3. 建置並預覽
-npm run build
-npm run preview
+# 3. 本機啟動查看（或直接雙擊 start-hub.cmd）
+npm run dev
 
-# 4. 提交並推送分支
+# 4. 想備份到 Git 時再提交（選用）
 git add src/data
 git commit -m "Content update 2026-11-20"
-git push -u origin content/2026-11-20
 ```
-
-5. 到 GitHub 開 Pull Request，依照範本的檢查清單逐項確認。
-6. 等待 CI 檢查通過，並打開 Netlify 自動產生的預覽網址確認畫面。
-7. 確認無誤後合併，Netlify 會自動部署到正式網站（每次正式部署扣 15 點，免費版每月約 20 次），所以一個功能只合併一次。
 
 ---
 
-## 五、請 AI 協助更新時的提示範本
+## 五、請 AI 協助更新時的提示範本（省 Token 版）
 
-請 Claude 等 AI 工具協助查證與更新時，可以直接複製以下內容，確保它遵守同樣的規則：
+需要整理重點新聞時，先跑過 `npm run fetch` 更新 `src/data/feeds.json`，再把以下提示交給 AI（直接從候選清單挑選，最省 Token）：
 
 ```text
-請協助更新 dev-intel-hub 網站內容，日期是 [今天日期]。
+請幫我從 src/data/feeds.json 挑選今天（[今天日期]）對軟體工程師最重要的 3 則消息，
+查證原文後新增到 src/data/news.json，並更新 src/data/meta.json 的 verifiedOn。
 
-任務：
-- [例：查證 Microsoft 365 斷線事件的最新進展，更新時間軸與狀態]
-- [例：搜尋本週 AI、語言與框架、雲端、資安的重要新聞，各 3～5 則]
-
-請遵守 docs/UPDATING.md 的查證規則，特別是：
-1. 每則內容都要上網查證並附 https 出處，不可憑記憶或推測。
-2. 焦點新聞至少兩個獨立來源；只找到一個就標為單一來源、不列焦點。
-3. 說法矛盾時並列各方說法並寫出判斷依據。
-4. 市場資料標明收盤、盤中或盤後，不推論因果、不給投資建議。
-5. 摘要用自己的話改寫，中英文都要填寫。
-6. 輸出符合 src/data 現有格式的 JSON，並更新 verifiedOn。
+規則（簡版）：
+1. 只查證選出的這 3 則，不額外大海撈針搜尋。
+2. 每則附上 https:// 原文出處，摘要用自己的話改寫（中英文都要填）。
+3. 單一來源直接標記為非焦點（hot: false），不需硬找多個來源。
+4. 改完後執行 npm run check:data 確認格式通過。
 ```
 
 ---

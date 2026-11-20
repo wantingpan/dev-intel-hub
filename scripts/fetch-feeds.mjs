@@ -104,9 +104,9 @@ results.forEach((r, i) => {
 for (const f of failed) console.error(`FAILED ${f}`);
 console.log(`${sources.length} of ${CONFIG.sources.length} sources have data; ${failed.length} failed this run.`);
 
-// 沒有任何來源可用就不覆寫 / never overwrite with nothing
-if (sources.length === 0) {
-  console.error('Feed sync failed: no source returned usable data.');
+// 沒有任何來源可用（或全部失敗，例如離線）就不覆寫 / never overwrite when offline or nothing succeeded
+if (sources.length === 0 || failed.length === CONFIG.sources.length) {
+  console.error('Feed sync failed: no source succeeded; keeping existing feeds.json.');
   process.exit(1);
 }
 
