@@ -1,0 +1,61 @@
+# 每天自動抓取最新公開資料並發佈到 GitHub Pages（免費、不耗 AI Token）
+# Daily: fetch the latest public data and publish to GitHub Pages (free, no AI tokens)
+#
+# - 每天台灣時間 07:30 自動執行一次；也可在 GitHub → Actions → Publish site → Run workflow 手動執行
+# - 資料只在建置時抓取，不會提交回 repo，所以不會產生自動 commit
+# - Runs daily at 07:30 Taiwan time, or manually from Actions → Publish site → Run workflow
+# - Data is fetched at build time only and never committed back, so no automatic commits
+name: Publish site
+
+on:
+  schedule:
+    - cron: '30 23 * * *' # UTC 23:30 = 台灣時間 07:30 / 07:30 Taiwan time (UTC+8)
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # 部分來源失敗時保留 repo 內的資料，網站照樣發佈 / Keep the repo's data for any failed source and still publish
+      - name: Fetch latest public data
+        run: node scripts/fetch-all.mjs --continue-on-error
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build
+        run: npm run build
+        env:
+          DEPLOY_TARGET: github-pages
+          ASTRO_TELEMETRY_DISABLED: '1'
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
