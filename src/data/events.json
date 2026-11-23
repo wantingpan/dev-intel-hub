@@ -268,21 +268,29 @@
     "id": "nvidia-ceo-2026-11",
     "date": "2026-11-12",
     "title": {
-      "zh-TW": "黃仁勳辭任 Nvidia 執行長",
-      "en": "Jensen Huang resigns as Nvidia CEO"
+      "zh-TW": "黃仁勳辭任 Nvidia 執行長：董事會排除回鍋、財報首破千億美元後股價仍重挫",
+      "en": "Jensen Huang resigns as Nvidia CEO: board rules out return as stock slides despite $115.8B quarter"
     },
     "summary": {
-      "zh-TW": "AI 晶片龍頭最高領導人即刻離任。美股 Nvidia 收跌，台股隔天卻反彈，是觀察「同一事件、不同市場反應」的典型案例。",
-      "en": "The AI chip leader's chief executive left with immediate effect. Nvidia fell in the US, yet Taiwan stocks rebounded the next day: a clear case of one event drawing different market reactions."
+      "zh-TW": "AI 晶片龍頭最高領導人即刻離任。儘管 11/17 公布的第三季營收首度突破千億美元（1,158 億美元）且台積電高層親赴固樁，但董事會明確排除黃仁勳回鍋，加上治理與出口管制疑慮，Nvidia 股價在財報後連跌三日，11/20 單日重挫 14.01% 收 125.53 美元。",
+      "en": "The AI chip leader's chief executive left with immediate effect. Even after Q3 revenue topped $100B for the first time ($115.8B) on Nov 17 and TSMC's leadership visited Nvidia in person, the board explicitly ruled out reinstating Huang; combined with governance and export-control concerns, Nvidia shares fell for three straight sessions after earnings, plunging 14.01% on Nov 20 to $125.53."
     },
     "facts": [
       {
-        "zh-TW": "黃仁勳辭去總裁、執行長及董事職務，即刻生效；財務長 Colette Kress 出任臨時執行長。",
-        "en": "Huang stepped down as president, CEO and director, effective immediately; CFO Colette Kress became interim CEO."
+        "zh-TW": "黃仁勳於 11/12 辭去總裁、執行長及董事職務，即刻生效；資深財務長 Colette Kress 出任臨時執行長（同時兼任財務長）。",
+        "en": "Huang stepped down as president, CEO and director on Nov 12, effective immediately; longtime CFO Colette Kress became interim CEO while retaining her CFO duties."
       },
       {
-        "zh-TW": "Harvey C. Jones 出任 Nvidia 首任董事會主席，主導新執行長遴選，人選將考慮公司內外部。",
-        "en": "Harvey C. Jones became Nvidia's first board chair and will lead the search, weighing internal and external candidates."
+        "zh-TW": "Harvey C. Jones 出任 Nvidia 首任董事會主席，並委託獵頭顧問公司 Heidrick & Struggles 從公司內外部遴選正式執行長人選。針對黃仁勳曾表達若董事會需要願意回歸，Jones 在財報會議中明確表示「董事會一致接受辭呈，無意恢復其執行長職務」。",
+        "en": "Harvey C. Jones became Nvidia's first board chair and engaged executive search firm Heidrick & Struggles to evaluate internal and external CEO candidates. After Huang indicated he would return if asked, Jones stated on the earnings call that the board unanimously accepted his resignation and has no intention of reinstating him."
+      },
+      {
+        "zh-TW": "過渡期首份財報表現強勁：11/17 盤後公布 2027 會計年度第三季營收達 1,158 億美元（年增 103%），資料中心營收 1,076 億美元，新一代 Vera Rubin 平台首季即貢獻近 200 億美元；第四季營收預估 1,300 億美元（±3%），並將下年度成長預期由 70% 上調至 75%，同時宣布加碼 1,500 億美元庫藏股回購。",
+        "en": "First post-transition earnings beat expectations: on Nov 17 Nvidia reported FY27 Q3 revenue of $115.8B (+103% YoY) and Data Center revenue of $107.6B, with the new Vera Rubin platform contributing nearly $20B in its first quarter. Q4 revenue was guided to $130B (±3%), next fiscal year growth was raised from 70% to 75%, and the board added $150B in share buybacks."
+      },
+      {
+        "zh-TW": "供應鏈固樁：臨時執行長 Colette Kress 在法說會透露，台積電（TSMC）領導團隊於當週親赴輝達辦公室全力參與協助，並點名矽品（日月光旗下）、京元電、景碩、欣興與鴻海等核心台廠合作與出貨動能無虞。",
+        "en": "Supply-chain reassurance: interim CEO Colette Kress noted on the earnings call that TSMC's leadership team visited Nvidia's offices in person that week to support operations, and highlighted continued momentum with Taiwanese partners including SPIL (ASE), KYEC, Kinsus, Unimicron and Foxconn."
       },
       {
         "zh-TW": "辭任原因各媒體報導不一，本站不轉述未經證實的指控。",
@@ -291,12 +299,12 @@
     ],
     "work": [
       {
-        "zh-TW": "據自由財經報導，Nvidia 董事會表示公司營運、客戶承諾與產品路線圖預期不受影響。",
-        "en": "According to Liberty Times Finance, Nvidia's board said operations, customer commitments and the product roadmap are expected to be unaffected."
+        "zh-TW": "產品路線圖與開發工具維持不變：Vera Rubin 平台已進入量產出貨，CUDA 與相關軟體生態系、授權條款均無變更公告。",
+        "en": "Product roadmap and developer tools remain unchanged: Vera Rubin is shipping in volume, and no changes to CUDA, software ecosystems or licensing have been announced."
       },
       {
-        "zh-TW": "目前未見 CUDA 等開發工具或授權條款的變更公告；觀察重點是新任執行長人選與產品策略是否延續。",
-        "en": "No changes to CUDA or other developer tools or licensing have been announced. Worth watching: who the next CEO is and whether product strategy holds."
+        "zh-TW": "後續觀察重點是 Heidrick & Struggles 主導的新任執行長遴選結果，以及新領導層對下一代架構研發節奏與雲端客戶配貨策略是否延續。",
+        "en": "Key items to watch are the outcome of the Heidrick & Struggles CEO search and whether permanent leadership maintains the same architecture cadence and cloud allocation strategy."
       }
     ],
     "securityFacts": [],
@@ -310,8 +318,8 @@
       "us": [
         {
           "label": {
-            "zh-TW": "Nvidia（NVDA）",
-            "en": "Nvidia (NVDA)"
+            "zh-TW": "Nvidia（NVDA）辭任當日",
+            "en": "Nvidia (NVDA), resignation day"
           },
           "move": {
             "zh-TW": "-4.34%",
@@ -348,6 +356,63 @@
         },
         {
           "label": {
+            "zh-TW": "Nvidia（NVDA）財報隔日",
+            "en": "Nvidia (NVDA), day after earnings"
+          },
+          "move": {
+            "zh-TW": "-2.89%（收 150.96 美元）",
+            "en": "-2.89% (closed $150.96)"
+          },
+          "basis": {
+            "zh-TW": "11/18 收盤",
+            "en": "Nov 18 close"
+          },
+          "source": {
+            "name": "Morningstar",
+            "url": "https://www.morningstar.com/stocks/xnas/nvda/quote"
+          },
+          "pct": -2.89
+        },
+        {
+          "label": {
+            "zh-TW": "Nvidia（NVDA）",
+            "en": "Nvidia (NVDA)"
+          },
+          "move": {
+            "zh-TW": "-3.30%（收 145.98 美元）",
+            "en": "-3.30% (closed $145.98)"
+          },
+          "basis": {
+            "zh-TW": "11/19 收盤",
+            "en": "Nov 19 close"
+          },
+          "source": {
+            "name": "Morningstar",
+            "url": "https://www.morningstar.com/stocks/xnas/nvda/quote"
+          },
+          "pct": -3.3
+        },
+        {
+          "label": {
+            "zh-TW": "Nvidia（NVDA）",
+            "en": "Nvidia (NVDA)"
+          },
+          "move": {
+            "zh-TW": "-14.01%（收 125.53 美元）",
+            "en": "-14.01% (closed $125.53)"
+          },
+          "basis": {
+            "zh-TW": "11/20 收盤",
+            "en": "Nov 20 close"
+          },
+          "source": {
+            "name": "Morningstar",
+            "url": "https://www.morningstar.com/stocks/xnas/nvda/quote"
+          },
+          "pct": -14.01
+        },
+        {
+          "label": {
             "zh-TW": "AMD",
             "en": "AMD"
           },
@@ -364,25 +429,6 @@
             "url": "https://news.nextapple.com/finance/20261113/CE4D178FE850B69C528E3A092623122C"
           },
           "pct": 5.86
-        },
-        {
-          "label": {
-            "zh-TW": "Intel",
-            "en": "Intel"
-          },
-          "move": {
-            "zh-TW": "約 -2%",
-            "en": "about -2%"
-          },
-          "basis": {
-            "zh-TW": "11/12 收盤",
-            "en": "Nov 12 close"
-          },
-          "source": {
-            "name": "壹蘋新聞網",
-            "url": "https://news.nextapple.com/finance/20261113/CE4D178FE850B69C528E3A092623122C"
-          },
-          "pct": null
         },
         {
           "label": {
@@ -484,49 +530,57 @@
       ],
       "views": [
         {
-          "zh-TW": "中央社將台股 11/13 的走高描述為「短期利空出盡」的反應。",
-          "en": "CNA described Taiwan's Nov 13 rise as a reaction to the bad news being priced in."
+          "zh-TW": "中央社將台股 11/13 的走高描述為「短期利空出盡」的反應；但 11/17 財報發布後，儘管營收與財測雙超預期、盤後一度漲逾 3%，隔日（11/18）起仍出現「利多出盡（Sell the news）」賣壓。",
+          "en": "CNA described Taiwan's Nov 13 rise as bad news being priced in; however, after the Nov 17 earnings beat sent shares up over 3% after hours, a \"sell the news\" reversal took hold starting Nov 18."
         },
         {
-          "zh-TW": "自由財經報導，投資人資金轉向 AMD 與博通等 Nvidia 競爭對手，兩者皆上漲超過 5%。",
-          "en": "Liberty Times Finance reported investors moving into Nvidia rivals AMD and Broadcom, both up more than 5%."
+          "zh-TW": "中央社與風傳媒報導指出，董事會明確排除黃仁勳回鍋可能性，加上市場持續消化晶片出口管制擴大與相關監管調查等公司治理變數，使股價在財報後連跌三日（11/18 跌 2.89%、11/19 跌 3.30%、11/20 重挫 14.01%）。",
+          "en": "CNA and Storm Media reported that the board's refusal to reinstate Huang, alongside ongoing export-control and regulatory scrutiny, weighed on the stock for three consecutive sessions after earnings (-2.89% on Nov 18, -3.30% on Nov 19 and -14.01% on Nov 20)."
+        },
+        {
+          "zh-TW": "自由財經報導，部分投資人資金轉向 AMD 與博通等 Nvidia 競爭對手。",
+          "en": "Liberty Times Finance reported some investors rotating into Nvidia rivals AMD and Broadcom."
         }
       ],
       "caveats": [
         {
-          "zh-TW": "同一週美國消費者物價指數高於預期，市場也在等待生產者物價指數，這些總體因素同樣影響股價。",
-          "en": "US consumer prices came in above expectations that week and producer prices were still due; such macro factors also move stocks."
+          "zh-TW": "11 月中下旬美股科技股同時面臨聯準會鷹派利率預期與高估值修正壓力，Nvidia 財報後的跌幅並非單一由人事異動造成。",
+          "en": "US tech stocks also faced hawkish Fed rate expectations and valuation pullbacks in mid-to-late November, so Nvidia's post-earnings slide wasn't driven solely by the leadership change."
         },
         {
           "zh-TW": "台股 11/12 的下跌發生在正式宣布之前，當時市場已有相關人事傳聞，不能全部歸因於這次宣布。",
           "en": "Taiwan's Nov 12 drop came before the official announcement, while personnel rumors were already circulating, so it can't all be attributed to the announcement."
-        },
-        {
-          "zh-TW": "Nvidia 股價在宣布前一個月已下跌超過兩成。",
-          "en": "Nvidia's stock had already fallen more than 20% over the prior month."
         }
       ]
     },
     "sources": [
       {
-        "name": "Quartz",
-        "url": "https://qz.com/jensen-huang-resigns-nvidia-ceo-affairs-stock-sinks-111226"
+        "name": "Nvidia（FY27 Q3 財報公告）",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027"
+      },
+      {
+        "name": "中央社（董事會排除黃仁勳回鍋）",
+        "url": "https://www.cna.com.tw/news/aopl/202611180023.aspx"
+      },
+      {
+        "name": "中央社（財報上修展望與台積電親赴固樁）",
+        "url": "https://www.cna.com.tw/news/afe/202611180025.aspx"
+      },
+      {
+        "name": "經濟日報（Q3 營收破千億美元與 1,500 億庫藏股）",
+        "url": "https://money.udn.com/money/story/123398/9885456"
+      },
+      {
+        "name": "風傳媒（財報後治理與出口管制震盪）",
+        "url": "https://www.storm.mg/article/11184148"
+      },
+      {
+        "name": "Morningstar（NVDA 歷史收盤數據）",
+        "url": "https://www.morningstar.com/stocks/xnas/nvda/quote"
       },
       {
         "name": "CNBC",
         "url": "https://www.cnbc.com/2026/11/12/nvidia-nvda-jensen-huang-second-affair.html"
-      },
-      {
-        "name": "自由財經（美股收盤）",
-        "url": "https://ec.ltn.com.tw/article/breakingnews/5639091"
-      },
-      {
-        "name": "自由財經（台積電）",
-        "url": "https://ec.ltn.com.tw/article/breakingnews/5639195"
-      },
-      {
-        "name": "中央社",
-        "url": "https://www.cna.com.tw/news/afe/202611130036.aspx"
       }
     ],
     "status": "monitoring",
@@ -611,33 +665,93 @@
           "en": "Pacific afternoon (early Nov 18 Taiwan time)"
         },
         "text": {
-          "zh-TW": "Nvidia 公布 2027 會計年度第三季財報：營收 1,158 億美元，資料中心營收 1,076 億美元；財報仍稱 Colette Kress 為臨時執行長，尚未公布新任執行長人選。",
-          "en": "Nvidia reported fiscal 2027 third-quarter results: revenue of $115.8 billion, Data Center revenue of $107.6 billion. The release still calls Colette Kress interim CEO; no permanent CEO has been named."
+          "zh-TW": "Nvidia 公布 FY27 Q3 財報：營收 1,158 億美元（年增 103%）、資料中心營收 1,076 億美元（Vera Rubin 首季貢獻近 200 億美元），Q4 財測 1,300 億美元並加碼 1,500 億美元庫藏股；台積電領導團隊當週亦親赴輝達辦公室固樁。",
+          "en": "Nvidia reported FY27 Q3 revenue of $115.8B (+103% YoY) and Data Center revenue of $107.6B (Vera Rubin contributing nearly $20B), guided Q4 to $130B, added a $150B buyback, and noted TSMC's leadership visited Nvidia's offices in person that week."
         },
         "source": {
-          "name": "Nvidia",
-          "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027"
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611180025.aspx"
+        }
+      },
+      {
+        "date": "2026-11-17",
+        "time": {
+          "zh-TW": "財報電話會議",
+          "en": "Earnings call"
+        },
+        "text": {
+          "zh-TW": "針對黃仁勳曾表態若董事會需要願意回歸，董事會主席 Harvey C. Jones 明確表示董事會一致接受辭呈、無意恢復其執行長職務，正由獵頭公司 Heidrick & Struggles 協助尋覓正式執行長。",
+          "en": "In response to Huang's offer to return if needed, Board Chair Harvey C. Jones stated the board unanimously accepted his resignation and has no intention of reinstating him, with Heidrick & Struggles leading the permanent CEO search."
+        },
+        "source": {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611180023.aspx"
+        }
+      },
+      {
+        "date": "2026-11-18",
+        "time": {
+          "zh-TW": "美東收盤",
+          "en": "US close"
+        },
+        "text": {
+          "zh-TW": "儘管財報盤後一度漲逾 3%，但受黃仁勳確定不回鍋的治理疑慮與利多出盡賣壓影響，Nvidia 開高走低，收跌 2.89%（150.96 美元）。",
+          "en": "Reversing a 3%+ after-hours gain, Nvidia closed down 2.89% at $150.96 amid governance overhang and sell-the-news pressure after the board ruled out Huang's return."
+        },
+        "source": {
+          "name": "Morningstar",
+          "url": "https://www.morningstar.com/stocks/xnas/nvda/quote"
+        }
+      },
+      {
+        "date": "2026-11-19",
+        "time": {
+          "zh-TW": "美東收盤",
+          "en": "US close"
+        },
+        "text": {
+          "zh-TW": "Nvidia 續跌 3.30%，收在 145.98 美元。",
+          "en": "Nvidia fell another 3.30% to close at $145.98."
+        },
+        "source": {
+          "name": "Morningstar",
+          "url": "https://www.morningstar.com/stocks/xnas/nvda/quote"
+        }
+      },
+      {
+        "date": "2026-11-20",
+        "time": {
+          "zh-TW": "美東收盤",
+          "en": "US close"
+        },
+        "text": {
+          "zh-TW": "市場持續消化高層去職治理震盪、出口管制擴大與科技股修正，Nvidia 單日重挫 14.01%，收在 125.53 美元。",
+          "en": "Weighed down by leadership-transition fallout, export-control scrutiny and a broader tech pullback, Nvidia plunged 14.01% to close at $125.53."
+        },
+        "source": {
+          "name": "Morningstar",
+          "url": "https://www.morningstar.com/stocks/xnas/nvda/quote"
         }
       }
     ],
     "nextWatch": {
-      "zh-TW": "新任執行長人選，以及產品路線圖是否延續。",
-      "en": "Who becomes the next CEO, and whether the product roadmap holds."
+      "zh-TW": "Heidrick & Struggles 主導的正式執行長遴選進度、出口管制與治理調查後續，以及 Vera Rubin 量產出貨對 Q4 營收（財測 1,300 億美元）的實際貢獻。",
+      "en": "Progress on the Heidrick & Struggles CEO search, export-control and governance inquiries, and Vera Rubin volume shipments toward the $130B Q4 guidance."
     },
     "postmortem": null,
     "disputes": [],
     "brief": {
       "what": {
-        "zh-TW": "黃仁勳辭任 Nvidia 執行長，由財務長暫代。",
-        "en": "Jensen Huang resigned as Nvidia CEO; the CFO is interim CEO."
+        "zh-TW": "黃仁勳辭任後董事會明確排除回鍋；Q3 營收首破千億美元，但股價於財報後連跌三日（11/20 重挫 14.01% 收 125.53 美元）。",
+        "en": "After Huang's resignation, the board ruled out his return; Q3 revenue topped $115.8B, yet shares fell three straight days after earnings (-14.01% on Nov 20 to $125.53)."
       },
       "impact": {
-        "zh-TW": "目前沒有 CUDA 等開發工具或授權的變更公告。",
-        "en": "No changes to CUDA or other developer tools or licensing have been announced."
+        "zh-TW": "Vera Rubin 正常量產、台積電高層親赴固樁，CUDA 與開發工具路線圖不受影響。",
+        "en": "Vera Rubin is in volume production, TSMC leadership visited to back the supply chain, and CUDA/developer roadmaps are unchanged."
       },
       "action": {
-        "zh-TW": "留意新任執行長人選與產品路線圖。",
-        "en": "Watch for the next CEO and the product roadmap."
+        "zh-TW": "留意正式執行長人選與出口管制動向，技術選型無須調整。",
+        "en": "Watch for the permanent CEO appointment and export-control updates; no stack changes needed."
       }
     },
     "terms": []
