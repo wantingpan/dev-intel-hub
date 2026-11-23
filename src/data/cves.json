@@ -1,5 +1,20 @@
 [
   {
+    "cve": "CVE-2026-123890",
+    "severity": "exploited",
+    "cvss": 9.8,
+    "product": {
+      "zh-TW": "VMware vCenter（Directory Service 驗證繞過）",
+      "en": "VMware vCenter (Directory Service auth bypass)"
+    },
+    "action": {
+      "zh-TW": "依 Broadcom VMSA-2026-0009 升級 vCenter；無替代緩解措施",
+      "en": "Upgrade vCenter per Broadcom VMSA-2026-0009; no workaround"
+    },
+    "source": "iThome",
+    "url": "https://www.ithome.com.tw/news/180673"
+  },
+  {
     "cve": "CVE-2026-124194",
     "severity": "exploited",
     "cvss": 6.5,

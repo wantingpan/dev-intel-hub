@@ -1,8 +1,8 @@
 {
-  "verifiedOn": "2026-11-20",
+  "verifiedOn": "2026-11-23",
   "coverage": {
     "from": "2026-10-20",
-    "to": "2026-11-20"
+    "to": "2026-11-23"
   },
   "staleAfterDays": 14,
   "developingStaleAfterDays": 7,

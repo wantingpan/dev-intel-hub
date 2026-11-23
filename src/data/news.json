@@ -786,5 +786,60 @@
       "kev",
       "cve"
     ]
+  },
+  {
+    "id": "n34",
+    "date": "2026-11-19",
+    "category": "security",
+    "hot": true,
+    "title": {
+      "zh-TW": "VMware vCenter 重大驗證繞過漏洞 CVE-2026-123890 已遭中國駭客組織利用",
+      "en": "Critical VMware vCenter auth-bypass flaw CVE-2026-123890 exploited by Chinese threat group"
+    },
+    "summary": {
+      "zh-TW": "Broadcom 11/19 發布更新，修補 vCenter 的 VMware Directory Service 驗證繞過漏洞（CVSS 9.8），除升級外沒有替代緩解措施。Google 威脅情報團隊與 Mandiant 指出，Armory Castle（原 UNC5221）最早自 9 月初就已利用此漏洞，偽造 SAML 權杖並進一步控制 ESXi 主機。",
+      "en": "On Nov 19 Broadcom shipped fixes for an authentication bypass in the VMware Directory Service component of vCenter (CVSS 9.8); there is no mitigation other than upgrading. Google Threat Intelligence and Mandiant say the group Armory Castle (formerly UNC5221) has exploited it since early September, forging SAML tokens and then taking over ESXi hosts."
+    },
+    "originalTitle": null,
+    "source": "iThome",
+    "sourceLang": "zh",
+    "url": "https://www.ithome.com.tw/news/180674",
+    "sourceType": "media",
+    "corroboration": [
+      {
+        "name": "iThome（Broadcom 更新）",
+        "url": "https://www.ithome.com.tw/news/180673"
+      },
+      {
+        "name": "Rapid7",
+        "url": "https://www.rapid7.com/blog/post/etr-cve-2026-123890-critical-authentication-bypass-vmware-vcenter"
+      }
+    ],
+    "terms": [
+      "cve",
+      "cvss",
+      "zero-day"
+    ]
+  },
+  {
+    "id": "n35",
+    "date": "2026-11-19",
+    "category": "cloud",
+    "hot": false,
+    "title": {
+      "zh-TW": "PostgreSQL 19 釋出：新增 REPACK (CONCURRENTLY) 與備援端讀寫一致性",
+      "en": "PostgreSQL 19 released with REPACK (CONCURRENTLY) and standby read-your-writes"
+    },
+    "summary": {
+      "zh-TW": "PostgreSQL 全球開發團隊 11/19 發布 19 版，新增可在不中斷作業下整理資料表的 REPACK (CONCURRENTLY) 指令、控制查詢計畫穩定性的 pg_plan_advice 擴充，以及讓備援端能讀到剛寫入資料的 WAIT FOR LSN 等功能。",
+      "en": "The PostgreSQL Global Development Group released version 19 on Nov 19. It adds the REPACK (CONCURRENTLY) command to reorganize tables without disrupting workloads, the pg_plan_advice extension for plan stability, and read-your-writes consistency on standbys via WAIT FOR LSN."
+    },
+    "originalTitle": "PostgreSQL 19 Released!",
+    "source": "PostgreSQL.org",
+    "sourceLang": "en",
+    "url": "https://www.postgresql.org/about/news/postgresql-19-released-3449/",
+    "sourceType": "official",
+    "corroboration": [],
+    "terms": []
   }
 ]
