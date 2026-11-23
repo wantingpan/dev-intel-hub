@@ -786,5 +786,174 @@
       "kev",
       "cve"
     ]
+  },
+  {
+    "id": "n34",
+    "date": "2026-11-19",
+    "category": "security",
+    "hot": true,
+    "title": {
+      "zh-TW": "VMware vCenter 重大驗證繞過漏洞 CVE-2026-123890 已遭中國駭客組織利用",
+      "en": "Critical VMware vCenter auth-bypass flaw CVE-2026-123890 exploited by Chinese threat group"
+    },
+    "summary": {
+      "zh-TW": "Broadcom 11/19 發布更新，修補 vCenter 的 VMware Directory Service 驗證繞過漏洞（CVSS 9.8），除升級外沒有替代緩解措施。Google 威脅情報團隊與 Mandiant 指出，Armory Castle（原 UNC5221）最早自 9 月初就已利用此漏洞，偽造 SAML 權杖並進一步控制 ESXi 主機。",
+      "en": "On Nov 19 Broadcom shipped fixes for an authentication bypass in the VMware Directory Service component of vCenter (CVSS 9.8); there is no mitigation other than upgrading. Google Threat Intelligence and Mandiant say the group Armory Castle (formerly UNC5221) has exploited it since early September, forging SAML tokens and then taking over ESXi hosts."
+    },
+    "originalTitle": null,
+    "source": "iThome",
+    "sourceLang": "zh",
+    "url": "https://www.ithome.com.tw/news/180674",
+    "sourceType": "media",
+    "corroboration": [
+      {
+        "name": "iThome（Broadcom 更新）",
+        "url": "https://www.ithome.com.tw/news/180673"
+      },
+      {
+        "name": "Rapid7",
+        "url": "https://www.rapid7.com/blog/post/etr-cve-2026-123890-critical-authentication-bypass-vmware-vcenter"
+      }
+    ],
+    "terms": [
+      "cve",
+      "cvss",
+      "zero-day"
+    ]
+  },
+  {
+    "id": "n35",
+    "date": "2026-11-19",
+    "category": "cloud",
+    "hot": false,
+    "title": {
+      "zh-TW": "PostgreSQL 19 釋出：新增 REPACK (CONCURRENTLY) 與備援端讀寫一致性",
+      "en": "PostgreSQL 19 released with REPACK (CONCURRENTLY) and standby read-your-writes"
+    },
+    "summary": {
+      "zh-TW": "PostgreSQL 全球開發團隊 11/19 發布 19 版，新增可在不中斷作業下整理資料表的 REPACK (CONCURRENTLY) 指令、控制查詢計畫穩定性的 pg_plan_advice 擴充，以及讓備援端能讀到剛寫入資料的 WAIT FOR LSN 等功能。",
+      "en": "The PostgreSQL Global Development Group released version 19 on Nov 19. It adds the REPACK (CONCURRENTLY) command to reorganize tables without disrupting workloads, the pg_plan_advice extension for plan stability, and read-your-writes consistency on standbys via WAIT FOR LSN."
+    },
+    "originalTitle": "PostgreSQL 19 Released!",
+    "source": "PostgreSQL.org",
+    "sourceLang": "en",
+    "url": "https://www.postgresql.org/about/news/postgresql-19-released-3449/",
+    "sourceType": "official",
+    "corroboration": [],
+    "terms": []
+  },
+  {
+    "id": "n36",
+    "date": "2026-11-21",
+    "category": "security",
+    "hot": true,
+    "title": {
+      "zh-TW": "駭客利用自主 AI 代理框架 Cairn，11 分鐘內找出並利用醫療影像軟體零時差漏洞",
+      "en": "Attackers' autonomous AI agents find and exploit a zero-day in medical-imaging software in 11 minutes"
+    },
+    "summary": {
+      "zh-TW": "Amazon 威脅情報團隊揭露，攻擊者鎖定東亞多所大學，使用開源 AI 滲透測試框架 Cairn 自主發現開源醫療影像 AI 軟體 MONAI Label 的路徑穿越零時差漏洞，約 11 分鐘即透過檔案上傳取得伺服器 root 權限。",
+      "en": "Amazon Threat Intelligence reported that attackers targeting East Asian universities used Cairn, an open-source AI penetration-testing framework, to autonomously discover a path-traversal zero-day in the open-source medical-imaging AI app MONAI Label and gain root access via file upload in roughly 11 minutes."
+    },
+    "originalTitle": "Attackers' AI Agents Found a Zero-Day in Medical-Imaging Software and Gained Root Access",
+    "source": "The Hacker News",
+    "sourceLang": "en",
+    "url": "https://thehackernews.com/2026/11/attackers-ai-agents-found-zero-day-in.html",
+    "sourceType": "media",
+    "corroboration": [
+      {
+        "name": "iThome",
+        "url": "https://www.ithome.com.tw/news/180697"
+      }
+    ],
+    "terms": [
+      "zero-day"
+    ]
+  },
+  {
+    "id": "n37",
+    "date": "2026-11-22",
+    "category": "ai",
+    "hot": true,
+    "title": {
+      "zh-TW": "AI 推論供應鏈爆出長期竊取提示詞，OpenRouter 停用 3 家供應商並撤銷 125 個端點零留存認證",
+      "en": "OpenRouter drops three AI inference providers after researchers uncover months of prompt theft"
+    },
+    "summary": {
+      "zh-TW": "資安研究人員在 5 個月內送出約 200 萬筆含金絲雀憑證的推論請求，發現 3 家第三方推論供應商內部遭長期暗中攔截客戶提示詞，包含標示為零資料留存（ZDR）的請求。OpenRouter 本身未遭入侵，已移除該 3 家供應商並撤銷 125 個端點的 ZDR 資格。",
+      "en": "Researchers who seeded two million inference requests with canary credentials over five months found that customer prompts—including ones marked for Zero Data Retention (ZDR)—were being exfiltrated from inside three third-party inference providers. OpenRouter, which was not itself breached, removed the three providers and stripped 125 endpoints of ZDR eligibility."
+    },
+    "originalTitle": "OpenRouter Drops 3 Providers After Researchers Catch Months of Prompt Theft at AI Hosting Firms",
+    "source": "The Hacker News",
+    "sourceLang": "en",
+    "url": "https://thehackernews.com/2026/11/openrouter-drops-3-providers-after.html",
+    "sourceType": "media",
+    "corroboration": [
+      {
+        "name": "iThome",
+        "url": "https://www.ithome.com.tw/news/180695"
+      },
+      {
+        "name": "Ars Technica",
+        "url": "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/"
+      }
+    ],
+    "terms": [
+      "supply-chain"
+    ]
+  },
+  {
+    "id": "n38",
+    "date": "2026-11-23",
+    "category": "ai",
+    "hot": true,
+    "title": {
+      "zh-TW": "微軟揭露 AI 程式開發代理的 Device Code 驗證釣魚風險，恐遭植入惡意記憶或操控遠端工作階段",
+      "en": "Microsoft warns of device code phishing risks for AI coding agents such as GitHub Copilot CLI"
+    },
+    "summary": {
+      "zh-TW": "微軟資安團隊以 GitHub Copilot CLI 為例指出，攻擊者可透過社交工程誘騙開發者在合法驗證頁面輸入攻擊者的裝置碼（Device Code），取得 OAuth 權杖後不僅能存取私有專案，還可能污染 AI 代理的持久化記憶、讀取雲端同步對話紀錄或操控遠端開發工作階段。",
+      "en": "Using GitHub Copilot CLI as an example, Microsoft Security Research warned that attackers can trick developers into entering an attacker-generated OAuth device code on a legitimate verification page. With the resulting token, attackers could access private repositories, poison persistent agent memory, read cloud-synced session history or steer active remote sessions."
+    },
+    "originalTitle": "The risks of device code authentication for AI coding agents",
+    "source": "Microsoft Security Blog",
+    "sourceLang": "en",
+    "url": "https://www.microsoft.com/en-us/security/blog/2026/11/17/the-risks-of-device-code-authentication-for-ai-coding-agents/",
+    "sourceType": "official",
+    "corroboration": [
+      {
+        "name": "iThome",
+        "url": "https://www.ithome.com.tw/news/180676"
+      }
+    ],
+    "terms": []
+  },
+  {
+    "id": "n39",
+    "date": "2026-11-22",
+    "category": "security",
+    "hot": true,
+    "title": {
+      "zh-TW": "Ghostscript 沙箱逃逸漏洞 Upload2Shell（CVE-2026-125396）可透過圖片或 PDF 上傳達成遠端執行",
+      "en": "Ghostscript sandbox-escape flaw Upload2Shell (CVE-2026-125396) enables RCE via file uploads"
+    },
+    "summary": {
+      "zh-TW": "研究團隊 pwn.ai 揭露 Ghostscript 10.08.0 之前版本的字型處理程序未正確驗證型別，可繞過 -dSAFER 沙箱限制。將惡意 PostScript 偽裝成 PDF 或圖片上傳至使用 Ghostscript 轉檔或預覽的網站即可執行任意指令，請立即升級至 10.08.0 以上。",
+      "en": "Researchers at pwn.ai disclosed that a missing type check in Ghostscript's font loader before 10.08.0 allows attackers to bypass the -dSAFER sandbox. Uploading crafted PDFs or images to web apps that use Ghostscript for document conversion or thumbnails can lead to remote code execution; upgrade to 10.08.0 or later."
+    },
+    "originalTitle": "Researchers Demonstrate Ghostscript Sandbox-Escape RCE via Crafted File Uploads in Popular Apps",
+    "source": "The Hacker News",
+    "sourceLang": "en",
+    "url": "https://thehackernews.com/2026/11/researchers-demonstrate-ghostscript.html",
+    "sourceType": "media",
+    "corroboration": [
+      {
+        "name": "pwn.ai",
+        "url": "https://pwn.ai/upload2shell/research.html"
+      }
+    ],
+    "terms": [
+      "cve"
+    ]
   }
 ]

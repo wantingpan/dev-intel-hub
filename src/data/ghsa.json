@@ -20,6 +20,34 @@
       "published": "2026-11-20"
     },
     {
+      "ghsa": "GHSA-25qc-m4pw-2w8r",
+      "cve": "CVE-2026-122247",
+      "severity": "high",
+      "cvss": null,
+      "ecosystem": "npm",
+      "packages": [
+        "@budibase/server"
+      ],
+      "patched": [],
+      "summary": "Budibase: Unauthenticated global-admin & database creation via tenant-confusion bypass of the one-time init guard (`POST /api/global/users/init`)",
+      "published": "2026-11-20"
+    },
+    {
+      "ghsa": "GHSA-2hjf-7455-w946",
+      "cve": "CVE-2026-104199",
+      "severity": "high",
+      "cvss": 8.7,
+      "ecosystem": "pip",
+      "packages": [
+        "amqtt"
+      ],
+      "patched": [
+        "0.11.4"
+      ],
+      "summary": "aMQTT: Inefficient Regular Expression Complexity and Uncontrolled Resource Consumption and Improper Input Validation",
+      "published": "2026-11-20"
+    },
+    {
       "ghsa": "GHSA-2mr3-rxrq-238c",
       "cve": "CVE-2026-77315",
       "severity": "high",
@@ -65,6 +93,36 @@
       "published": "2026-11-20"
     },
     {
+      "ghsa": "GHSA-4hrh-34w3-5ww8",
+      "cve": "CVE-2026-104099",
+      "severity": "critical",
+      "cvss": null,
+      "ecosystem": "go",
+      "packages": [
+        "github.com/fabiolb/fabio"
+      ],
+      "patched": [
+        "1.7.3"
+      ],
+      "summary": "Fabio: Access-control bypass through unnormalized request paths",
+      "published": "2026-11-20"
+    },
+    {
+      "ghsa": "GHSA-555j-qj3j-c8jv",
+      "cve": "CVE-2026-132275",
+      "severity": "high",
+      "cvss": null,
+      "ecosystem": "pip",
+      "packages": [
+        "svglib"
+      ],
+      "patched": [
+        "2.3.1"
+      ],
+      "summary": "svglib: Exponential resource consumption via nested <use> references in svg2rlg",
+      "published": "2026-11-20"
+    },
+    {
       "ghsa": "GHSA-58x9-vjvp-6mx8",
       "cve": "CVE-2026-63346",
       "severity": "critical",
@@ -77,6 +135,21 @@
         "2.1.2"
       ],
       "summary": "Refitter allows code execution through unescaped OpenAPI header parameter names",
+      "published": "2026-11-20"
+    },
+    {
+      "ghsa": "GHSA-66q9-mxf2-xqw6",
+      "cve": "CVE-2026-103035",
+      "severity": "high",
+      "cvss": null,
+      "ecosystem": "composer",
+      "packages": [
+        "nilsteampassnet/TeamPass"
+      ],
+      "patched": [
+        "3.2.2.0"
+      ],
+      "summary": "TeamPass folder re-parenting authorization bypass",
       "published": "2026-11-20"
     },
     {
@@ -108,82 +181,7 @@
       ],
       "summary": "bep/imagemeta: Unbounded memory allocation decoding PNG `zTXt` \"Raw profile type iptc\" chunks",
       "published": "2026-11-20"
-    },
-    {
-      "ghsa": "GHSA-86mf-q4h5-69gp",
-      "cve": "CVE-2026-59988",
-      "severity": "high",
-      "cvss": null,
-      "ecosystem": "pip",
-      "packages": [
-        "django-docutils"
-      ],
-      "patched": [
-        "0.30.0"
-      ],
-      "summary": "django-docutils unsafe Docutils defaults allow local file disclosure, SSRF, and stored XSS",
-      "published": "2026-11-20"
-    },
-    {
-      "ghsa": "GHSA-9x8x-crjq-g64h",
-      "cve": "CVE-2026-77359",
-      "severity": "critical",
-      "cvss": 9.3,
-      "ecosystem": "pip",
-      "packages": [
-        "jupyter-mcp-server"
-      ],
-      "patched": [
-        "1.0.3"
-      ],
-      "summary": "Jupyter MCP Server: Browser DNS rebinding can hijack the Jupyter backend through management routes",
-      "published": "2026-11-20"
-    },
-    {
-      "ghsa": "GHSA-c3cj-3p6p-j822",
-      "cve": "CVE-2026-63415",
-      "severity": "high",
-      "cvss": 7,
-      "ecosystem": "composer",
-      "packages": [
-        "jane-php/open-api-3"
-      ],
-      "patched": [
-        "7.12.0"
-      ],
-      "summary": "Jane: $ref resolution performs SSRF + LFI (path traversal) at code-generation time (jane-php)",
-      "published": "2026-11-20"
-    },
-    {
-      "ghsa": "GHSA-hq2p-f2vj-v3cm",
-      "cve": "CVE-2026-77367",
-      "severity": "critical",
-      "cvss": null,
-      "ecosystem": "go",
-      "packages": [
-        "github.com/daptin/daptin"
-      ],
-      "patched": [
-        "0.12.30"
-      ],
-      "summary": "Daptin: Unauthenticated SQL Injection via the `sort` query parameter on every entity list endpoint",
-      "published": "2026-11-20"
-    },
-    {
-      "ghsa": "GHSA-mc8w-wjhw-45x5",
-      "cve": "CVE-2026-114516",
-      "severity": "critical",
-      "cvss": null,
-      "ecosystem": "npm",
-      "packages": [
-        "ep_etherpad-lite"
-      ],
-      "patched": [
-        "3.3.3"
-      ],
-      "summary": "Etherpad: Pre-auth arbitrary file read",
-      "published": "2026-11-20"
     }
   ],
-  "fetchedAt": "2026-11-20T04:45:29.731Z"
+  "fetchedAt": "2026-11-23T03:09:27.761Z"
 }

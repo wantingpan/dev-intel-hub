@@ -1,5 +1,35 @@
 [
   {
+    "cve": "CVE-2026-123890",
+    "severity": "exploited",
+    "cvss": 9.8,
+    "product": {
+      "zh-TW": "VMware vCenter（Directory Service 驗證繞過）",
+      "en": "VMware vCenter (Directory Service auth bypass)"
+    },
+    "action": {
+      "zh-TW": "依 Broadcom VMSA-2026-0009 升級 vCenter；無替代緩解措施",
+      "en": "Upgrade vCenter per Broadcom VMSA-2026-0009; no workaround"
+    },
+    "source": "iThome",
+    "url": "https://www.ithome.com.tw/news/180673"
+  },
+  {
+    "cve": "CVE-2026-125396",
+    "severity": "critical",
+    "cvss": null,
+    "product": {
+      "zh-TW": "Ghostscript（Upload2Shell 沙箱逃逸 RCE）",
+      "en": "Ghostscript (Upload2Shell sandbox-escape RCE)"
+    },
+    "action": {
+      "zh-TW": "升級至 Ghostscript 10.08.0 以上",
+      "en": "Upgrade to Ghostscript 10.08.0 or later"
+    },
+    "source": "pwn.ai",
+    "url": "https://pwn.ai/upload2shell/research.html"
+  },
+  {
     "cve": "CVE-2026-124194",
     "severity": "exploited",
     "cvss": 6.5,

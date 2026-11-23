@@ -4,25 +4,17 @@
       "id": "hn",
       "items": [
         {
-          "title": "OpenSSL: Buffer overflow in EVP_EncodeBlock() (CVE-2026-121481, CVSS 9.8)",
-          "url": "https://github.com/openssl/openssl/pull/33652",
-          "date": "2026-11-20",
-          "matches": [
-            "security"
-          ]
-        },
-        {
-          "title": "Claude solves two open problems in the physics of black holes",
-          "url": "https://www.anthropic.com/research/claude-black-hole-physics",
-          "date": "2026-11-20",
+          "title": "Localcode, open source agentic coding on your Mac with one command",
+          "url": "https://github.com/mjwsolo/localcode",
+          "date": "2026-11-23",
           "matches": [
             "ai"
           ]
         },
         {
-          "title": "Anthropic’s Nasdaq debut",
-          "url": "https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/",
-          "date": "2026-11-20",
+          "title": "Show HN: I built a game where you are an LLM's subagent",
+          "url": "https://github.com/gulivan/worker755",
+          "date": "2026-11-22",
           "matches": [
             "ai"
           ]
@@ -30,228 +22,206 @@
       ],
       "more": [
         {
-          "title": "Postgres 19 Repack: Faster, Built-In Table Bloat Cleanup",
-          "url": "https://www.snowflake.com/en/blog/engineering/postgres-19-repack-table-bloat/",
-          "date": "2026-11-20",
+          "title": "Advanced Character Physics (2001) [pdf]",
+          "url": "https://www.cs.cmu.edu/afs/cs/academic/class/15462-s13/www/lec_slides/Jakobsen.pdf",
+          "date": "2026-11-23",
           "matches": []
         },
         {
-          "title": "OpenSSL: Buffer overflow in EVP_EncodeBlock() (CVE-2026-121481, CVSS 9.8)",
-          "url": "https://github.com/openssl/openssl/pull/33652",
-          "date": "2026-11-20",
+          "title": "Free alternative TV network built from the Internet Archive's forgotten videos",
+          "url": "https://spelunkr.tv/",
+          "date": "2026-11-23",
+          "matches": []
+        },
+        {
+          "title": "What we learned operating auth for 1k APIs",
+          "url": "https://nango.dev/blog/lessons-from-operating-api-auth-for-900-apis/",
+          "date": "2026-11-23",
+          "matches": []
+        },
+        {
+          "title": "Nespresso's project to reduce grams of coffee per capsule",
+          "url": "https://alvinbunk.wordpress.com/2026/11/01/nespresso-project-olympus/",
+          "date": "2026-11-23",
+          "matches": []
+        },
+        {
+          "title": "0rwx – A simple model of AI usage, inspired by Unix permissions",
+          "url": "https://0rwx.com/",
+          "date": "2026-11-23",
+          "matches": []
+        },
+        {
+          "title": "Progress map for the Lean formalization of Alessandro Masullo's manuscript",
+          "url": "https://claude.ai/artifact/CtQyX8qfYAF822bgHJHHE3",
+          "date": "2026-11-23",
+          "matches": []
+        },
+        {
+          "title": "GL.iNet Security Notice 2026-11-20",
+          "url": "https://www.gl-inet.com/en-us/blogs/blog/glinet-security-notice-2026-11-20",
+          "date": "2026-11-23",
+          "matches": []
+        },
+        {
+          "title": "Localcode, open source agentic coding on your Mac with one command",
+          "url": "https://github.com/mjwsolo/localcode",
+          "date": "2026-11-23",
           "matches": [
-            "security"
+            "ai"
           ]
         },
         {
-          "title": "Vint Cerf on why TCP/IP was never patented",
-          "url": "https://seremot.com/p/vint-cerf-on-why-tcpip-was-never",
-          "date": "2026-11-20",
+          "title": "The Usefulness of Useless Knowledge [pdf] (1939)",
+          "url": "https://www.ias.edu/sites/default/files/library/UsefulnessHarpers.pdf",
+          "date": "2026-11-23",
           "matches": []
         },
         {
-          "title": "Postgres 19 is out, and it's available on Neon and Databricks Lakebase",
-          "url": "https://www.databricks.com/blog/postgresql-19-available-lakebase",
-          "date": "2026-11-20",
-          "matches": []
-        },
-        {
-          "title": "Gemini 4 Neon is the new #1 on the Models Engineering Index",
-          "url": "https://git-aarvin.github.io/mei/",
-          "date": "2026-11-20",
-          "matches": []
-        },
-        {
-          "title": "Visa, Mastercard and JPMorgan Customer Data Leaked by Hackers",
-          "url": "https://www.wsj.com/finance/banking/visa-mastercard-and-jpmorgan-customer-data-leaked-by-hackers-3b5a0f87",
-          "date": "2026-11-20",
-          "matches": []
-        },
-        {
-          "title": "RegExr: Temporarily Offline",
-          "url": "https://regexr.com/",
-          "date": "2026-11-20",
-          "matches": []
-        },
-        {
-          "title": "Synology Security Advisory",
-          "url": "https://www.synology.com/en-uk/security/advisory/Synology_SA_26_21",
-          "date": "2026-11-20",
-          "matches": []
-        },
-        {
-          "title": "Rebuilding my local voice assistant pipeline",
-          "url": "https://blog.platypush.tech/article/Rewriting-my-voice-assistant-pipeline",
-          "date": "2026-11-20",
-          "matches": []
-        },
-        {
-          "title": "Should governments slow frontier AI? Jacob Coxon and Robin Hanson debate [video]",
-          "url": "https://www.youtube.com/watch?v=lwfewYL7X0o",
-          "date": "2026-11-20",
+          "title": "The struggle for freedom: How BSD escaped AT&T licensing",
+          "url": "https://fosscomics.com/posts/16.%20BSD%20Unix%20Part%206%20-%20The%20Struggle%20for%20Freedom/",
+          "date": "2026-11-23",
           "matches": []
         }
       ]
     },
     {
       "id": "lobsters",
-      "items": [],
+      "items": [
+        {
+          "title": "GhostScript CVE 2026-125396: \"Upload2Shell\"",
+          "url": "https://pwn.ai/upload2shell/research.html",
+          "date": "2026-11-22",
+          "matches": [
+            "security"
+          ]
+        }
+      ],
       "more": [
         {
-          "title": "Persistent incrementality in Rust",
-          "url": "https://rust-glancer.github.io/blog/persistent-incrementality-in-rust/",
-          "date": "2026-11-20",
+          "title": "De-fanging dangerous triggers in GitHub Actions across an organization",
+          "url": "https://pyfound.blogspot.com/2026/11/de-fanging-dangerous-triggers-in-github.html",
+          "date": "2026-11-23",
           "matches": []
         },
         {
-          "title": "Jujutsu Primer",
-          "url": "https://ethanlowman.com/posts/jj-primer/",
-          "date": "2026-11-20",
+          "title": "GitHub Actions accepts invalid YAML",
+          "url": "https://yossarian.net/til/post/github-actions-accepts-invalid-yaml/",
+          "date": "2026-11-23",
           "matches": []
         },
         {
-          "title": "Garage Door Spam",
-          "url": "https://blog.harrison.page/garage-door-spam/",
-          "date": "2026-11-20",
+          "title": "Testing Terraform with AWS Emulator",
+          "url": "https://notes.hatedabamboo.me/terraform-tests-with-aws-emulator/",
+          "date": "2026-11-23",
           "matches": []
         },
         {
-          "title": "Farcall, a terminal-ready Rust PC+DOS emulator",
-          "url": "https://www.dialup.net/farcall/",
-          "date": "2026-11-20",
+          "title": "Gliver completes the Guix desktop",
+          "url": "https://dustycloud.org/blog/gliver-completes-the-guix-desktop/",
+          "date": "2026-11-23",
           "matches": []
         },
         {
-          "title": "Visualizing a Ledger with pgledger-ui",
-          "url": "https://www.pgrs.net/2026/11/19/visualizing-a-ledger-with-pgledger-ui/",
-          "date": "2026-11-20",
+          "title": "scriptura: a cozy corner for your scripts",
+          "url": "https://alanpearce.eu/post/scriptura/",
+          "date": "2026-11-23",
           "matches": []
         },
         {
-          "title": "Rebuilding my local voice assistant pipeline",
-          "url": "https://blog.platypush.tech/article/Rewriting-my-voice-assistant-pipeline",
-          "date": "2026-11-20",
+          "title": "Calculate radio link placement and node amount for your city's mesh network",
+          "url": "https://meshcoveragecalculator.lalala.ing/",
+          "date": "2026-11-23",
           "matches": []
         },
         {
-          "title": "Supporting FOSS projects to transition to memory safe tech",
-          "url": "https://tweedegolf.nl/en/blog/243/supporting-foss-projects-to-transition-to-memory-safe-tech/",
-          "date": "2026-11-20",
+          "title": "Falsehoods Programmers Believe About ATProto",
+          "url": "https://reiver.link/atproto/falsehoods-programmers-believe/",
+          "date": "2026-11-23",
           "matches": []
         },
         {
-          "title": "Mercurius — A Zero-Trust Network‑Native Window System",
-          "url": "https://mercurius.tebibyte.org/",
-          "date": "2026-11-20",
+          "title": "What If Netscape Did SSL the HTTP Way?",
+          "url": "https://owl.billpg.com/what-if-netscape-did-ssl-the-http-way/",
+          "date": "2026-11-22",
           "matches": []
         },
         {
-          "title": "Hiring a Systems Programmer for Boxem",
-          "url": "https://lobste.rs/s/pnfs5p/hiring_systems_programmer_for_boxem",
-          "date": "2026-11-20",
+          "title": "Fixing Google’s Feedburner problem, and caching that half works",
+          "url": "https://joshua.hu/fixing-google-feedburner-cache-problem-atom-rss",
+          "date": "2026-11-22",
           "matches": []
         },
         {
-          "title": "Postel Awardee Dave Täht Made Every Millisecond Count",
-          "url": "https://www.internetsociety.org/blog/2026/11/postel-awardee-dave-taht-made-every-millisecond-count/",
-          "date": "2026-11-20",
+          "title": "Researcher plants 2m canaries into the AI supply chain. A privacy disaster surfaced",
+          "url": "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/",
+          "date": "2026-11-22",
           "matches": []
         }
       ]
     },
     {
       "id": "devto",
-      "items": [
-        {
-          "title": "What Microsoft's Foundry IQ Knowledge Graph update and real-world MCP OAuth headaches tell us about building self-hosted RAG",
-          "url": "https://dev.to/contextual_layer_guy/what-microsofts-foundry-iq-knowledge-graph-update-and-real-world-mcp-oauth-headaches-tell-us-about-3pkc",
-          "date": "2026-11-20",
-          "matches": [
-            "ai"
-          ]
-        },
-        {
-          "title": "Running Claude Code and Codex from your phone: the official options, and the self-hosted app I built",
-          "url": "https://dev.to/cloveric/running-claude-code-and-codex-from-your-phone-the-official-options-and-the-self-hosted-app-i-built-38p4",
-          "date": "2026-11-20",
-          "matches": [
-            "ai"
-          ]
-        },
-        {
-          "title": "Prompt, Workflow, Agent or Agentic System: Which One Does Your Process Need?",
-          "url": "https://dev.to/rushabh_3f5acfe17e0cb07b7/prompt-workflow-agent-or-agentic-system-which-one-does-your-process-need-3l0k",
-          "date": "2026-11-20",
-          "matches": [
-            "ai"
-          ]
-        }
-      ],
+      "items": [],
       "more": [
         {
-          "title": "Eclipse Enclave 1.0 Puts Your AI Coding Agent in a Sandbox",
-          "url": "https://dev.to/paullovelace/eclipse-enclave-10-puts-your-ai-coding-agent-in-a-sandbox-4aah",
-          "date": "2026-11-20",
+          "title": "Kling Image 4.0 on Siray AI: Native 8K, Long Pages, Sets",
+          "url": "https://dev.to/sirayb96080876b90914/kling-image-40-on-siray-ai-native-8k-long-pages-sets-3hkj",
+          "date": "2026-11-23",
           "matches": []
         },
         {
-          "title": "How many days of article stock remain? Count bilingual pairs against platform slots",
-          "url": "https://dev.to/hirodeath/how-many-days-of-article-stock-remain-count-bilingual-pairs-against-platform-slots-1h80",
-          "date": "2026-11-20",
+          "title": "Ada Lovelace: Programmer Pertama di Dunia",
+          "url": "https://dev.to/zakariamp/ada-lovelace-programmer-pertama-di-dunia-579l",
+          "date": "2026-11-23",
           "matches": []
         },
         {
-          "title": "What Microsoft's Foundry IQ Knowledge Graph update and real-world MCP OAuth headaches tell us about building self-hosted RAG",
-          "url": "https://dev.to/contextual_layer_guy/what-microsofts-foundry-iq-knowledge-graph-update-and-real-world-mcp-oauth-headaches-tell-us-about-3pkc",
-          "date": "2026-11-20",
-          "matches": [
-            "ai"
-          ]
-        },
-        {
-          "title": "Unlocking Enhanced Visuals: Dlss5 Without Extra Load --An unofficial side-story version",
-          "url": "https://dev.to/techscienceenergy/unlocking-enhanced-visuals-dlss5-without-extra-load-an-unofficial-side-story-version-4jcc",
-          "date": "2026-11-20",
+          "title": "Run listmonk in Docker: Self-Hosted Newsletter Manager",
+          "url": "https://dev.to/gongkang/run-listmonk-in-docker-self-hosted-newsletter-manager-15n",
+          "date": "2026-11-23",
           "matches": []
         },
         {
-          "title": "Restarting Tailscale silently isolated a k3s node: fixing a flannel VXLAN bug upstream",
-          "url": "https://dev.to/ryan0215/restarting-tailscale-silently-isolated-a-k3s-node-fixing-a-flannel-vxlan-bug-upstream-1p0n",
-          "date": "2026-11-20",
+          "title": "Optimizing Web Vitals for Generative AI Widgets",
+          "url": "https://dev.to/veduis/optimizing-web-vitals-for-generative-ai-widgets-5d1h",
+          "date": "2026-11-23",
           "matches": []
         },
         {
-          "title": "nginx2root: AI Found Five Critical nginx Flaws — Patch to 1.30.7 or 1.31.9 Before Attackers Do",
-          "url": "https://dev.to/shakeelahmed/nginx2root-ai-found-five-critical-nginx-flaws-patch-to-1307-or-1319-before-attackers-do-5bkf",
-          "date": "2026-11-20",
+          "title": "Self-Host Audiobookshelf with Docker: A Production Guide",
+          "url": "https://dev.to/gongkang/self-host-audiobookshelf-with-docker-a-production-guide-41ei",
+          "date": "2026-11-23",
           "matches": []
         },
         {
-          "title": "Running Claude Code and Codex from your phone: the official options, and the self-hosted app I built",
-          "url": "https://dev.to/cloveric/running-claude-code-and-codex-from-your-phone-the-official-options-and-the-self-hosted-app-i-built-38p4",
-          "date": "2026-11-20",
-          "matches": [
-            "ai"
-          ]
-        },
-        {
-          "title": "Day 9: +376 downloads yesterday",
-          "url": "https://dev.to/parasraju/day-9-376-downloads-yesterday-4ol1",
-          "date": "2026-11-20",
+          "title": "I built a Facebook video downloader. Most people use it for the audio.",
+          "url": "https://dev.to/facebk/i-built-a-facebook-video-downloader-most-people-use-it-for-the-audio-g9a",
+          "date": "2026-11-23",
           "matches": []
         },
         {
-          "title": "Prompt, Workflow, Agent or Agentic System: Which One Does Your Process Need?",
-          "url": "https://dev.to/rushabh_3f5acfe17e0cb07b7/prompt-workflow-agent-or-agentic-system-which-one-does-your-process-need-3l0k",
-          "date": "2026-11-20",
-          "matches": [
-            "ai"
-          ]
+          "title": "67.3% of x402 Endpoints Require Caution Before Payment",
+          "url": "https://dev.to/book0feli/673-of-x402-endpoints-require-caution-before-payment-2733",
+          "date": "2026-11-23",
+          "matches": []
         },
         {
-          "title": "Process vs Thread in OS: PCB, States, fork()",
-          "url": "https://dev.to/codekairo/process-vs-thread-in-os-pcb-states-fork-1c63",
-          "date": "2026-11-20",
+          "title": "What broke when I tried using Reddit to find early users (so I built an AutoMod-aware radar instead)",
+          "url": "https://dev.to/haoyuefeiwu/what-broke-when-i-tried-using-reddit-to-find-early-users-so-i-built-an-automod-aware-radar-instead-pcp",
+          "date": "2026-11-23",
+          "matches": []
+        },
+        {
+          "title": "What a 50% prediction score leaves out",
+          "url": "https://dev.to/fonecc/what-a-50-prediction-score-leaves-out-48cf",
+          "date": "2026-11-23",
+          "matches": []
+        },
+        {
+          "title": "GetX vs BLoC in Flutter: Which State Management Wins?",
+          "url": "https://dev.to/uzairxdev/getx-vs-bloc-in-flutter-which-state-management-wins-o1p",
+          "date": "2026-11-23",
           "matches": []
         }
       ]
@@ -284,6 +254,12 @@
       "id": "dotnet-blog",
       "items": [
         {
+          "title": "AI is Changing the Cross-Platform Decision Matrix",
+          "url": "https://devblogs.microsoft.com/dotnet/ai-cross-platform-decision-matrix/",
+          "date": "2026-11-21",
+          "matches": []
+        },
+        {
           "title": "Introducing staged publishing on NuGet.org",
           "url": "https://devblogs.microsoft.com/dotnet/nuget-staged-publishing/",
           "date": "2026-11-18",
@@ -298,14 +274,6 @@
           "matches": [
             "dotnet"
           ]
-        },
-        {
-          "title": ".NET and .NET Framework November 2026 servicing updates",
-          "url": "https://devblogs.microsoft.com/dotnet/dotnet-and-dotnet-framework-november-2026-servicing-updates/",
-          "date": "2026-11-11",
-          "matches": [
-            "dotnet"
-          ]
         }
       ],
       "more": []
@@ -314,24 +282,26 @@
       "id": "cloudflare",
       "items": [
         {
+          "title": "How Cloudflare WAF protects against ruby2shell (CVE-2026-132825)",
+          "url": "https://blog.cloudflare.com/ruby2shell-waf-protection/",
+          "date": "2026-11-21",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "How Cloudflare WAF helps protect against phpAfterShell and other critical PHP flaws",
+          "url": "https://blog.cloudflare.com/phpaftershell-waf-protection/",
+          "date": "2026-11-21",
+          "matches": []
+        },
+        {
           "title": "nginx2root: Five new nginx vulnerabilities, and how Cloudflare protects origins from the worst of them",
           "url": "https://blog.cloudflare.com/nginx2root/",
           "date": "2026-11-20",
           "matches": [
             "security"
           ]
-        },
-        {
-          "title": "Internet traffic and attacks during the 2026 U.S. midterm elections",
-          "url": "https://blog.cloudflare.com/internet-traffic-2026-us-election/",
-          "date": "2026-11-19",
-          "matches": []
-        },
-        {
-          "title": "An updated Clairic and Clairic-flash are now open-weight, from the new Workers AI Superintelligence team",
-          "url": "https://blog.cloudflare.com/open-clairic/",
-          "date": "2026-11-19",
-          "matches": []
         }
       ],
       "more": []
@@ -388,6 +358,12 @@
       "id": "css-tricks",
       "items": [
         {
+          "title": "Andy Clarke answers six questions about Standout Designs for the Web",
+          "url": "https://css-tricks.com/andy-clarke-standout-designs-for-the-web-interview/",
+          "date": "2026-11-20",
+          "matches": []
+        },
+        {
           "title": "scroll-state()",
           "url": "https://css-tricks.com/almanac/functions/s/scroll-state/",
           "date": "2026-11-19",
@@ -397,12 +373,6 @@
           "title": "When Everything Has Changed, What Do We Do Next?",
           "url": "https://css-tricks.com/when-everything-has-changed/",
           "date": "2026-11-18",
-          "matches": []
-        },
-        {
-          "title": "Staggering Scroll-Driven Animations with animation-range-start",
-          "url": "https://css-tricks.com/staggering-scroll-driven-animations-with-animation-range-start/",
-          "date": "2026-11-17",
           "matches": []
         }
       ],
@@ -436,6 +406,12 @@
       "id": "bytebytego",
       "items": [
         {
+          "title": "EP234: Docker vs Kubernetes",
+          "url": "https://blog.bytebytego.com/p/ep234-docker-vs-kubernetes",
+          "date": "2026-11-22",
+          "matches": []
+        },
+        {
           "title": "The Invisible Systems: What Happens Between Services",
           "url": "https://blog.bytebytego.com/p/the-invisible-systems-what-happens",
           "date": "2026-11-20",
@@ -446,14 +422,6 @@
           "url": "https://blog.bytebytego.com/p/evals-for-ai-engineers",
           "date": "2026-11-19",
           "matches": []
-        },
-        {
-          "title": "Why Thinking More Can Make an LLM Dumb",
-          "url": "https://blog.bytebytego.com/p/why-thinking-more-can-make-an-llm",
-          "date": "2026-11-18",
-          "matches": [
-            "ai"
-          ]
         }
       ],
       "more": []
@@ -461,6 +429,12 @@
     {
       "id": "fowler",
       "items": [
+        {
+          "title": "Fragments: November 20",
+          "url": "https://martinfowler.com/fragments/2026-11-20.html",
+          "date": "2026-11-21",
+          "matches": []
+        },
         {
           "title": "Data Contracts",
           "url": "https://martinfowler.com/articles/data-contracts.html",
@@ -472,12 +446,6 @@
           "url": "https://martinfowler.com/articles/deterministic-simulation-testing.html",
           "date": "2026-11-17",
           "matches": []
-        },
-        {
-          "title": "Bliki: Generated Glossary",
-          "url": "https://martinfowler.com/bliki/GeneratedGlossary.html",
-          "date": "2026-11-12",
-          "matches": []
         }
       ],
       "more": []
@@ -486,24 +454,22 @@
       "id": "simonw",
       "items": [
         {
-          "title": "Token fraud is here and it’s BAD (YouTube)",
-          "url": "https://simonwillison.net/2026/Nov/20/token-fraud-is-here-and-its-bad/",
-          "date": "2026-11-20",
+          "title": "Select Styling Specimens",
+          "url": "https://simonwillison.net/2026/Nov/22/select-styling/",
+          "date": "2026-11-23",
           "matches": []
         },
         {
-          "title": "PostgreSQL 19 Released",
-          "url": "https://simonwillison.net/2026/Nov/19/postgresql-19/",
-          "date": "2026-11-20",
+          "title": "Muru",
+          "url": "https://simonwillison.net/2026/Nov/21/muru/",
+          "date": "2026-11-22",
           "matches": []
         },
         {
-          "title": "llm-gemini 0.38",
-          "url": "https://simonwillison.net/2026/Nov/18/llm-gemini/",
-          "date": "2026-11-19",
-          "matches": [
-            "ai"
-          ]
+          "title": "Quoting Ravi Vakil",
+          "url": "https://simonwillison.net/2026/Nov/20/ravi-vakil/",
+          "date": "2026-11-21",
+          "matches": []
         }
       ],
       "more": []
@@ -512,24 +478,24 @@
       "id": "openai",
       "items": [
         {
-          "title": "How OpenAI’s Performance Factory keeps ChatGPT fast",
-          "url": "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast",
-          "date": "2026-11-19",
+          "title": "Perplexity and Intelligence",
+          "url": "https://openai.com/index/perplexity-and-intelligence",
+          "date": "2026-11-22",
+          "matches": []
+        },
+        {
+          "title": "Combatting adversarial distillation",
+          "url": "https://openai.com/index/combatting-adversarial-distillation",
+          "date": "2026-11-20",
+          "matches": []
+        },
+        {
+          "title": "Hebbia sees improvements in financial research with GPT-6 Astra",
+          "url": "https://openai.com/business/customer-stories/hebbia",
+          "date": "2026-11-20",
           "matches": [
             "ai"
           ]
-        },
-        {
-          "title": "Deploying Daybreak Red",
-          "url": "https://openai.com/business/learn/deploying-daybreak-red",
-          "date": "2026-11-19",
-          "matches": []
-        },
-        {
-          "title": "See PR scans in action",
-          "url": "https://openai.com/business/learn/pr-scans-demo",
-          "date": "2026-11-19",
-          "matches": []
         }
       ],
       "more": []
@@ -538,21 +504,21 @@
       "id": "huggingface",
       "items": [
         {
+          "title": "Welcome Inkling 2 Mini, Cutting-edge Performance for your Local Setup",
+          "url": "https://huggingface.co/blog/inkling2mini",
+          "date": "2026-11-20",
+          "matches": []
+        },
+        {
+          "title": "Introducing harness adapters: adapt your favorite model to your harness to improve performance and cost",
+          "url": "https://huggingface.co/blog/harness-adapters-at-scale",
+          "date": "2026-11-20",
+          "matches": []
+        },
+        {
           "title": "DaisyRose-27B: Pushing the Frontier of Post-Training Efficiency",
           "url": "https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-frontier-of-post-trainin",
           "date": "2026-11-19",
-          "matches": []
-        },
-        {
-          "title": "Why your fine-tuning job takes longer than the FLOPs say",
-          "url": "https://huggingface.co/blog/Dharma-AI/predicting-fine-tuning-time",
-          "date": "2026-11-19",
-          "matches": []
-        },
-        {
-          "title": "Time-Series Models in the Streamhouse: A New Frontier and Use Cases",
-          "url": "https://huggingface.co/blog/ibm-research/time-series-powered-streamhouse",
-          "date": "2026-11-18",
           "matches": []
         }
       ],
@@ -562,25 +528,25 @@
       "id": "thehackernews",
       "items": [
         {
-          "title": "ThreatsDay: GPT-6.2 Jailbreak Flaws, BubbleLoader PNG Malware, $500M Ransom Demands + 17 More Stories",
-          "url": "https://thehackernews.com/2026/11/threatsday-gpt-62-jailbreak-flaws.html",
-          "date": "2026-11-20",
-          "matches": [
-            "ai"
-          ]
-        },
-        {
-          "title": "Critical VMware vCenter Zero-Day Flaw Lets Network Attackers Bypass Authentication",
-          "url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
-          "date": "2026-11-19",
+          "title": "Attackers' AI Agents Found a Zero-Day in Medical-Imaging Software and Gained Root Access",
+          "url": "https://thehackernews.com/2026/11/attackers-ai-agents-found-zero-day-in.html",
+          "date": "2026-11-21",
           "matches": [
             "security"
           ]
         },
         {
-          "title": "CISA Warns of 4 Exploited Flaws Linked to Ransomware, Cryptomining, and LLMjacking Attacks",
-          "url": "https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html",
-          "date": "2026-11-19",
+          "title": "Hackers Exploit Critical VMware, Cisco, and Apache Flaws as Espionage Attacks Emerge",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html",
+          "date": "2026-11-21",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "Linux KVM Flaw CVE-2026-99312 Lets Guest VMs Access Host Memory on AMD Hosts",
+          "url": "https://thehackernews.com/2026/11/new-linux-kvm-flaw-cve-2026-99312-lets.html",
+          "date": "2026-11-20",
           "matches": [
             "security"
           ]
@@ -588,67 +554,67 @@
       ],
       "more": [
         {
-          "title": "ThreatsDay: GPT-6.2 Jailbreak Flaws, BubbleLoader PNG Malware, $500M Ransom Demands + 17 More Stories",
-          "url": "https://thehackernews.com/2026/11/threatsday-gpt-62-jailbreak-flaws.html",
-          "date": "2026-11-20",
-          "matches": [
-            "ai"
-          ]
-        },
-        {
-          "title": "phpAfterShell Explained: How Hackers Could Turn a PHP Session Flaw Into Code Execution",
-          "url": "https://thehackernews.com/2026/11/phpaftershell-explained-how-hackers.html",
-          "date": "2026-11-20",
+          "title": "OpenRouter Drops 3 Providers After Researchers Catch Months of Prompt Theft at AI Hosting Firms",
+          "url": "https://thehackernews.com/2026/11/openrouter-drops-3-providers-after.html",
+          "date": "2026-11-22",
           "matches": []
         },
         {
-          "title": "PHP Fixes 7 Critical Flaws, Including Bugs That Could Allow Remote Code Execution",
-          "url": "https://thehackernews.com/2026/11/php-fixes-7-critical-flaws-including.html",
-          "date": "2026-11-19",
+          "title": "Researchers Demonstrate Ghostscript Sandbox-Escape RCE via Crafted File Uploads in Popular Apps",
+          "url": "https://thehackernews.com/2026/11/researchers-demonstrate-ghostscript.html",
+          "date": "2026-11-22",
           "matches": []
         },
         {
-          "title": "Critical VMware vCenter Zero-Day Flaw Lets Network Attackers Bypass Authentication",
-          "url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
-          "date": "2026-11-19",
+          "title": "A Single Malicious Webpage Let Researchers Hijack Meta Muse and Access Private Chats",
+          "url": "https://thehackernews.com/2026/11/a-single-malicious-webpage-let.html",
+          "date": "2026-11-21",
+          "matches": []
+        },
+        {
+          "title": "GnuPG Warns Critical GPGME Flaw Could Expose App Data via Malicious OpenPGP Keys",
+          "url": "https://thehackernews.com/2026/11/gnupg-warns-critical-gpgme-flaw-could.html",
+          "date": "2026-11-21",
+          "matches": []
+        },
+        {
+          "title": "Attackers' AI Agents Found a Zero-Day in Medical-Imaging Software and Gained Root Access",
+          "url": "https://thehackernews.com/2026/11/attackers-ai-agents-found-zero-day-in.html",
+          "date": "2026-11-21",
           "matches": [
             "security"
           ]
         },
         {
-          "title": "Drupal Patches Critical Installer Flaw That Could Give Unauthenticated Attackers Control of Sites",
-          "url": "https://thehackernews.com/2026/11/drupal-patches-critical-installer-flaw.html",
-          "date": "2026-11-19",
+          "title": "Signal Blocks AI Agents From Reading Private Chats via Screenshots on Android and iOS",
+          "url": "https://thehackernews.com/2026/11/signal-blocks-ai-agents-from-reading.html",
+          "date": "2026-11-21",
           "matches": []
         },
         {
-          "title": "Everything Is a Web Application, Including Your Firewall",
-          "url": "https://thehackernews.com/2026/11/everything-is-web-application-including.html",
-          "date": "2026-11-19",
+          "title": "Hackers Exploit Critical VMware, Cisco, and Apache Flaws as Espionage Attacks Emerge",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html",
+          "date": "2026-11-21",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "WhatsApp Patches 3 Security Flaws, Including Android Bug Suspected of Use in Scams",
+          "url": "https://thehackernews.com/2026/11/whatsapp-patches-3-security-flaws.html",
+          "date": "2026-11-21",
           "matches": []
         },
         {
-          "title": "Hackers Breach N-able Cloud Server, Disrupting Email Security Management Across 3 Regions",
-          "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html",
-          "date": "2026-11-19",
+          "title": "Bazuka Android Malware Uses Fake Screen Overlays to Hide Credential Theft and Device Control",
+          "url": "https://thehackernews.com/2026/11/bazuka-android-malware-uses-fake-screen.html",
+          "date": "2026-11-21",
           "matches": []
         },
         {
-          "title": "Ruby Releases Fixes for 7 Regex and String Flaws, Warns 5 Have Proof-of-Concept RCE",
-          "url": "https://thehackernews.com/2026/11/ruby-releases-fixes-for-7-regex-and.html",
-          "date": "2026-11-19",
-          "matches": []
-        },
-        {
-          "title": "Researcher Demonstrates Database RCE Exploits Affecting PostgreSQL, MySQL and Oracle",
-          "url": "https://thehackernews.com/2026/11/researcher-demonstrates-database-rce.html",
-          "date": "2026-11-19",
-          "matches": []
-        },
-        {
-          "title": "CISA Warns of 4 Exploited Flaws Linked to Ransomware, Cryptomining, and LLMjacking Attacks",
-          "url": "https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html",
-          "date": "2026-11-19",
+          "title": "Linux KVM Flaw CVE-2026-99312 Lets Guest VMs Access Host Memory on AMD Hosts",
+          "url": "https://thehackernews.com/2026/11/new-linux-kvm-flaw-cve-2026-99312-lets.html",
+          "date": "2026-11-20",
           "matches": [
             "security"
           ]
@@ -658,6 +624,12 @@
     {
       "id": "krebs",
       "items": [
+        {
+          "title": "CTO of ‘RansomwareHelp’ Indicted for Wire Fraud",
+          "url": "https://krebsonsecurity.com/2026/11/cto-of-ransomwarehelp-indicted-for-wire-fraud/",
+          "date": "2026-11-21",
+          "matches": []
+        },
         {
           "title": "Attackers Used Optimizely to A/B Test Malware on Top Websites",
           "url": "https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/",
@@ -671,14 +643,6 @@
           "matches": [
             "security"
           ]
-        },
-        {
-          "title": "Microsoft Fixes Nearly 1,100 Security Vulnerabilities",
-          "url": "https://krebsonsecurity.com/2026/11/microsoft-fixes-nearly-1100-security-vulnerabilities/",
-          "date": "2026-11-11",
-          "matches": [
-            "security"
-          ]
         }
       ],
       "more": []
@@ -686,6 +650,12 @@
     {
       "id": "mssecurity",
       "items": [
+        {
+          "title": "Microsoft named a Leader in the 2026 Gartner® Magic Quadrant™ for SIEM",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/20/microsoft-named-a-leader-in-the-2026-gartner-magic-quadrant-for-siem/",
+          "date": "2026-11-21",
+          "matches": []
+        },
         {
           "title": "Security for the agentic era, powered by Microsoft Perception",
           "url": "https://www.microsoft.com/en-us/security/blog/2026/11/17/security-for-the-agentic-era-powered-by-microsoft-perception/",
@@ -699,12 +669,6 @@
           "url": "https://www.microsoft.com/en-us/security/blog/2026/11/17/the-risks-of-device-code-authentication-for-ai-coding-agents/",
           "date": "2026-11-17",
           "matches": []
-        },
-        {
-          "title": "High volume phishing campaign uses Microsoft 365 outage lures to target multiple industry sectors",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2/",
-          "date": "2026-11-17",
-          "matches": []
         }
       ],
       "more": []
@@ -713,105 +677,101 @@
       "id": "ithome",
       "items": [
         {
-          "title": "Google跟進OpenAI、Anthropic，Gemini開始支援Mac電腦操作",
-          "url": "https://www.ithome.com.tw/news/180677",
-          "date": "2026-11-20",
+          "title": "東亞多所大學遭鎖定，中國駭客用AI攻擊框架Cairn發動攻擊，11分鐘內發現並利用醫療影像AI軟體零時差漏洞",
+          "url": "https://www.ithome.com.tw/news/180697",
+          "date": "2026-11-23",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "Anthropic數學家攜手Claude破解黎曼猜想，Lean正式確認證明正確",
+          "url": "https://www.ithome.com.tw/news/180696",
+          "date": "2026-11-23",
           "matches": [
             "ai"
           ]
         },
         {
-          "title": "VMware發布資安更新，修補重大等級的vCenter漏洞，警告只能升級沒有其他替代緩解方法",
-          "url": "https://www.ithome.com.tw/news/180673",
-          "date": "2026-11-20",
+          "title": "微軟揭露GitHub Copilot CLI釣魚攻擊風險，駭客恐藉合法登入程序操控AI代理",
+          "url": "https://www.ithome.com.tw/news/180676",
+          "date": "2026-11-23",
           "matches": [
-            "security"
-          ]
-        },
-        {
-          "title": "中國駭客利用VMware vCenter零時差漏洞入侵，部署後門以竊取資料",
-          "url": "https://www.ithome.com.tw/news/180674",
-          "date": "2026-11-20",
-          "matches": [
-            "security"
+            "ai"
           ]
         }
       ],
       "more": [
         {
-          "title": "Google跟進OpenAI、Anthropic，Gemini開始支援Mac電腦操作",
-          "url": "https://www.ithome.com.tw/news/180677",
-          "date": "2026-11-20",
+          "title": "東亞多所大學遭鎖定，中國駭客用AI攻擊框架Cairn發動攻擊，11分鐘內發現並利用醫療影像AI軟體零時差漏洞",
+          "url": "https://www.ithome.com.tw/news/180697",
+          "date": "2026-11-23",
+          "matches": [
+            "security"
+          ]
+        },
+        {
+          "title": "Signal將封鎖手機版Siri、Gemini螢幕截圖",
+          "url": "https://www.ithome.com.tw/news/180698",
+          "date": "2026-11-23",
+          "matches": []
+        },
+        {
+          "title": "Anthropic數學家攜手Claude破解黎曼猜想，Lean正式確認證明正確",
+          "url": "https://www.ithome.com.tw/news/180696",
+          "date": "2026-11-23",
           "matches": [
             "ai"
           ]
         },
         {
-          "title": "VMware發布資安更新，修補重大等級的vCenter漏洞，警告只能升級沒有其他替代緩解方法",
-          "url": "https://www.ithome.com.tw/news/180673",
-          "date": "2026-11-20",
-          "matches": [
-            "security"
-          ]
-        },
-        {
-          "title": "中國駭客利用VMware vCenter零時差漏洞入侵，部署後門以竊取資料",
-          "url": "https://www.ithome.com.tw/news/180674",
-          "date": "2026-11-20",
-          "matches": [
-            "security"
-          ]
-        },
-        {
-          "title": "歐盟執委會遭AI網攻，ARTEX開源工具成駭客利器",
-          "url": "https://www.ithome.com.tw/news/180672",
-          "date": "2026-11-20",
+          "title": "AI推論供應鏈傳出提示詞外洩，OpenRouter停用3家供應商的服務",
+          "url": "https://www.ithome.com.tw/news/180695",
+          "date": "2026-11-23",
           "matches": []
         },
         {
-          "title": "全球首家前沿AI公司Anthropic上市，首日上漲17%",
-          "url": "https://www.ithome.com.tw/news/180671",
-          "date": "2026-11-20",
+          "title": "Fortinet警告AI代理恐成駭客攻擊新目標，提示詞注入可誘使越權操作、誤導SOC事件判斷",
+          "url": "https://www.ithome.com.tw/news/180689",
+          "date": "2026-11-23",
+          "matches": []
+        },
+        {
+          "title": "PHP 8.6新增I/O輪詢API改善大量連線監控，並導入部分函式套用",
+          "url": "https://www.ithome.com.tw/news/180690",
+          "date": "2026-11-23",
+          "matches": []
+        },
+        {
+          "title": "微軟揭露GitHub Copilot CLI釣魚攻擊風險，駭客恐藉合法登入程序操控AI代理",
+          "url": "https://www.ithome.com.tw/news/180676",
+          "date": "2026-11-23",
           "matches": [
             "ai"
           ]
         },
         {
-          "title": "VS Code 1.147讓AI代理操作Chrome與Edge，新增延後發送工作請求",
-          "url": "https://www.ithome.com.tw/news/180670",
-          "date": "2026-11-20",
+          "title": "俄羅斯駭客Cold Relic竊取企業資料後，冒充受害組織員工發動網釣攻擊",
+          "url": "https://www.ithome.com.tw/news/180668",
+          "date": "2026-11-23",
           "matches": []
         },
         {
-          "title": "Ruby修補7項記憶體安全漏洞，5項可能導致遠端程式碼執行",
-          "url": "https://www.ithome.com.tw/news/180667",
-          "date": "2026-11-20",
+          "title": "網擎策略投資微智安聯，臺灣資安業者攜手擴大產品布局、拓展海外市場",
+          "url": "https://www.ithome.com.tw/news/180692",
+          "date": "2026-11-22",
           "matches": [
             "security"
           ]
         },
         {
-          "title": "NIST完成量子位置驗證實驗，未來有望防範駭客從遠端冒用身分",
-          "url": "https://www.ithome.com.tw/news/180652",
-          "date": "2026-11-20",
+          "title": "尼泊爾揭19家公立醫院開源電子病歷導入經驗，採6階段流程、中央統一開發與更新",
+          "url": "https://www.ithome.com.tw/news/180691",
+          "date": "2026-11-21",
           "matches": []
-        },
-        {
-          "title": "API金鑰隨Docker Hub映像檔對外曝光，研究發現最快7.86秒就遭濫用",
-          "url": "https://www.ithome.com.tw/news/180635",
-          "date": "2026-11-20",
-          "matches": []
-        },
-        {
-          "title": "資安AI新創Corma相隔3個月再募資1.25億美元，估值達10億美元",
-          "url": "https://www.ithome.com.tw/news/180568",
-          "date": "2026-11-20",
-          "matches": [
-            "security"
-          ]
         }
       ]
     }
   ],
-  "fetchedAt": "2026-11-20T04:39:29.714Z"
+  "fetchedAt": "2026-11-23T03:09:27.752Z"
 }
