@@ -1,5 +1,270 @@
 [
   {
+    "id": "tw-bank-transfers-2026-11",
+    "date": "2026-11-19",
+    "title": {
+      "zh-TW": "台灣多家銀行爆發網銀異常轉帳：從永豐「中台」供應商漏洞到 4 銀行深夜通過雙重驗證盜轉爭議",
+      "en": "Taiwan online banking transfer incidents: from Bank SinoPac's middle-office vendor flaw to overnight 2FA transfer disputes at four banks"
+    },
+    "summary": {
+      "zh-TW": "11 月台灣金融圈接連發生兩波網銀異常轉帳事件：月初永豐銀行因新版網銀供應商「中台」漏洞遭轉出 4,176 萬元；月中旬北富銀、華南、玉山、中信又傳出民眾熟睡時遭連續轉帳，但後端顯示皆正常通過雙重驗證（2FA/OTP）。同期美國摩根大通也因內部軟體漏洞導致跨行與 Zelle 轉帳延遲。這一系列事件直指金融軟體架構的兩大痛點：中台供應鏈資安與端點遭控下的驗證信任邊界。",
+      "en": "Two waves of abnormal online-banking transfers hit Taiwan in November: early in the month, hackers exploited a third-party middle-office flaw at Bank SinoPac to move NT$41.76M; mid-month, customers at four major banks reported overnight transfers while asleep that nevertheless passed device binding and 2FA/OTP checks. Around the same time, a software bug at JPMorgan Chase delayed online banking and Zelle transfers in the US. Together they spotlight two critical engineering challenges: middle-office supply-chain security and authentication trust when user endpoints are compromised."
+    },
+    "facts": [
+      {
+        "zh-TW": "第一波（系統中台漏洞）：11/3 永豐銀行爆發大規模異常轉帳，共 418 名客戶、427 筆交易遭不明轉出，總金額 4,176 萬元，全數匯入台北富邦銀行同一指定帳戶（隨即遭凍結）。永豐證實為外部駭客利用「新網銀交易系統」國外供應商的安全設定原生瑕疵發動隨機試誤攻擊，當日即下架新版 App 並全額代墊退還客戶款項與手續費。",
+        "en": "Wave 1 (middle-office vendor flaw): On Nov 3, 418 Bank SinoPac customers saw 427 unauthorized transfers totaling NT$41.76M routed to a single Taipei Fubon Bank account, which was frozen. SinoPac confirmed hackers exploited a security configuration flaw in a foreign vendor's new online-banking system, took down the new app, and refunded all affected customers the same day."
+      },
+      {
+        "zh-TW": "金管會指出，過去銀行資安多重兵防守「前台」與「後台（核心帳務）」，永豐案漏洞卻出在介於兩者之間的「中台」，已通令全體金融機構針對中台與委外供應鏈展開全面資安清查。",
+        "en": "Taiwan's Financial Supervisory Commission (FSC) noted that banks traditionally focus defenses on front-end interfaces and back-end core ledgers, whereas the SinoPac flaw sat in the middle office; it ordered all financial institutions to audit middle-office and third-party supply-chain security."
+      },
+      {
+        "zh-TW": "第二波（通過雙重驗證的深夜轉帳）：11 月中旬起，多位民眾反映在半夜熟睡時遭連續轉出款項至電子支付或電商平台（如北富銀有客戶遭連轉 17 筆共約 23 萬元）。金管會 11/19 公布，共中信、玉山、北富銀、華南 4 家銀行通報「重大偶發事件」，合計 5 件、5 名客戶，金額共 56 萬 6,512 元。",
+        "en": "Wave 2 (overnight transfers passing 2FA): In mid-November, depositors reported consecutive overnight transfers to e-payment platforms while asleep (including 17 transfers totaling about NT$230,000 from one Taipei Fubon account). On Nov 19 the FSC confirmed four banks—CTBC, E.SUN, Taipei Fubon and Hua Nan—reported five major incidental events affecting five customers for a total of NT$566,512."
+      },
+      {
+        "zh-TW": "金管會與 4 家銀行盤查後強調，第二波個案的銀行端系統並未遭駭、亦無資安漏洞，所有爭議交易均由客戶原綁定行動裝置發起，並完整通過雙重身分驗證（含 OTP 或生物辨識），研判可能與用戶手機（多為 Android）遭植入惡意程式或釣魚攔截有關，已交由檢警數位鑑識。",
+        "en": "The FSC and the four banks stated that in the second wave, bank servers were not breached: every disputed transaction originated from the customer's bound mobile device and passed two-factor authentication (including OTP or biometrics), pointing to possible malware or phishing on user devices (mostly Android); police forensics are underway."
+      },
+      {
+        "zh-TW": "國際對照：美東時間 11/16，美國最大銀行摩根大通（JPMorgan Chase）亦因本地端硬體系統的軟體錯誤（非網路攻擊）導致網銀交易處理緩慢，並外溢影響美國銀行、富國銀行及 Zelle 跨行即時轉帳延遲，於當晚修復。",
+        "en": "International parallel: On Nov 16 ET, a software bug in an on-premises hardware system at JPMorgan Chase (not a cyberattack) slowed transaction processing and caused spillover delays across Bank of America, Wells Fargo and Zelle transfers before being fixed that evening."
+      }
+    ],
+    "work": [
+      {
+        "zh-TW": "中台與微服務邊界防護：金融與企業系統導入第三方中台或 API 閘道時，不能假設「內部中介層已受前台保護」，須對中台服務實施零信任驗證、參數校驗與速率限制（Rate Limiting），防止如永豐案針對身分證字號首碼的批次試誤攻擊。",
+        "en": "Middle-office and API boundary hardening: When integrating third-party middle-office components or API gateways, teams cannot assume the middle layer is protected by the front end; enforce zero-trust auth, strict input validation and rate limiting against enumeration attacks."
+      },
+      {
+        "zh-TW": "從「認證通過即放行」轉向「交易行為風控」：當用戶端手機遭惡意程式控制時，傳統簡訊 OTP 與裝置綁定可能被本機木馬直接讀取或代填。支付與轉帳系統應在驗證之外加入行為風控（例如：深夜時段短時間內連續多筆轉入電子支付帳戶時，觸發冷卻期、降額或要求額外人臉／FIDO 硬體金鑰驗證）。",
+        "en": "Move beyond \"2FA passed\" to behavioral risk controls: When a user's phone is compromised by local malware, SMS OTPs and device tokens can be intercepted on-device. Payment systems should layer behavioral velocity checks—such as throttling or requiring FIDO/biometric step-up when rapid consecutive transfers to e-wallets occur overnight."
+      },
+      {
+        "zh-TW": "高流量時段的交易韌性：永豐銀行於 11/6 台股交割與現增繳款高峰日亦曾出現短暫跨行轉帳壅塞；設計帳務與轉帳系統時，應針對交割日尖峰配置佇列削峰與退避重試機制。",
+        "en": "Peak-load resilience: Bank SinoPac also saw brief transfer congestion on Nov 6 during heavy stock-settlement traffic; payment pipelines should use queue leveling and backoff retries for settlement spikes."
+      }
+    ],
+    "securityFacts": [
+      {
+        "zh-TW": "金管會要求全體銀行於通報重大偶發後 7 個營業日內提交詳細調查報告，並召集數十家金融機構資安長檢討中台架構與委外供應商盡職調查。",
+        "en": "The FSC required detailed investigation reports within seven business days of major-incident filings and convened CISOs across Taiwanese financial institutions to review middle-office security and vendor due diligence."
+      },
+      {
+        "zh-TW": "金管會提醒民眾，切勿點擊不明簡訊連結或安裝來路不明的應用程式（如部分偽裝成 AI 短影音、短劇或工具的側載 APK），避免手機簡訊與螢幕權限遭惡意程式接管。",
+        "en": "The FSC advised users not to click unknown SMS links or sideload untrusted apps (such as fake AI short-video or drama APKs) that request SMS or accessibility permissions."
+      }
+    ],
+    "securityPatterns": [
+      {
+        "zh-TW": "Android 銀行木馬常濫用「無障礙服務（Accessibility Service）」與簡訊讀取權限，在使用者睡眠或螢幕變暗時自動點擊網銀 App 並讀取 OTP 簡訊完成轉帳。",
+        "en": "Android banking trojans frequently abuse Accessibility Services and SMS permissions to automate banking app taps and read OTP messages while the user is asleep."
+      },
+      {
+        "zh-TW": "轉帳異常新聞發酵期間，常出現假冒銀行客服或金管會名義的釣魚簡訊，宣稱「您的帳戶疑似遭異常轉帳，請點此解除綁定或重設安全密碼」。",
+        "en": "During high-profile transfer incidents, phishing SMS messages often impersonate bank support claiming \"suspicious transfers detected on your account—click here to reset your security code.\""
+      }
+    ],
+    "market": {
+      "us": [],
+      "tw": [
+        {
+          "label": {
+            "zh-TW": "永豐金（2890）",
+            "en": "SinoPac Holdings (2890)"
+          },
+          "move": {
+            "zh-TW": "-7.93%（收 36.00 元）",
+            "en": "-7.93% (closed NT$36.00)"
+          },
+          "basis": {
+            "zh-TW": "11/20 收盤",
+            "en": "Nov 20 close"
+          },
+          "source": {
+            "name": "經濟日報",
+            "url": "https://money.udn.com/money/story/5612/9871378"
+          },
+          "pct": -7.93
+        },
+        {
+          "label": {
+            "zh-TW": "富邦金（2881）",
+            "en": "Fubon Financial (2881)"
+          },
+          "move": {
+            "zh-TW": "-7.77%（收 136.50 元）",
+            "en": "-7.77% (closed NT$136.50)"
+          },
+          "basis": {
+            "zh-TW": "11/20 收盤",
+            "en": "Nov 20 close"
+          },
+          "source": {
+            "name": "聯合新聞網",
+            "url": "https://udn.com/news/story/6839/9891454"
+          },
+          "pct": -7.77
+        }
+      ],
+      "views": [
+        {
+          "zh-TW": "媒體關注焦點集中在金管會對銀行「中台」與委外供應鏈的全面清查要求，以及雙重驗證通過下銀行與存戶之間的舉證責任分攤。",
+          "en": "Media coverage focused on the FSC's industry-wide audit of bank middle-office systems and vendor supply chains, as well as the burden of proof between banks and depositors when disputed transfers pass 2FA."
+        }
+      ],
+      "caveats": [
+        {
+          "zh-TW": "金融股 11 月中下旬的股價波動同時受台股大盤修正、美國利率政策預期與外資部位調整影響，未有報導將單日股價跌幅直接歸因於上述網銀轉帳個案。",
+          "en": "Taiwan financial stocks in mid-to-late November were also moved by broader market pullbacks, US rate expectations and foreign-investor flows; no reporting attributed the single-day stock drops directly to these transfer cases."
+        }
+      ]
+    },
+    "sources": [
+      {
+        "name": "鉅亨網（金管會說明 4 銀行通報重大偶發）",
+        "url": "https://news.cnyes.com/news/id/6667481"
+      },
+      {
+        "name": "聯合新聞網（4 銀行 5 件異常轉帳均通過雙重驗證）",
+        "url": "https://udn.com/news/story/6839/9891454"
+      },
+      {
+        "name": "經濟日報（永豐銀 418 人 4,176 萬元異常轉帳與中台漏洞）",
+        "url": "https://money.udn.com/money/story/5612/9871378"
+      },
+      {
+        "name": "自由財經（金管會令清查金融機構中台資安）",
+        "url": "https://ec.ltn.com.tw/article/breakingnews/5638871"
+      },
+      {
+        "name": "風傳媒（永豐銀行網銀事件始末）",
+        "url": "https://www.storm.mg/lifestyle/11178850"
+      },
+      {
+        "name": "風傳媒（摩根大通系統故障影響網銀與 Zelle 轉帳）",
+        "url": "https://www.storm.mg/article/11182230"
+      }
+    ],
+    "status": "monitoring",
+    "verifiedOn": "2026-11-23",
+    "updates": [
+      {
+        "date": "2026-11-03",
+        "time": null,
+        "text": {
+          "zh-TW": "永豐銀行新版網銀爆發異常轉帳，418 名客戶共 427 筆款項（合計 4,176 萬元）遭轉入北富銀同一帳戶；永豐緊急下架新版 App 並於當日全額代墊退還客戶。",
+          "en": "Bank SinoPac's new online banking system suffered 427 unauthorized transfers across 418 accounts (NT$41.76M total) into a single Taipei Fubon account; SinoPac pulled the new app and refunded all customers the same day."
+        },
+        "source": {
+          "name": "風傳媒",
+          "url": "https://www.storm.mg/lifestyle/11178850"
+        }
+      },
+      {
+        "date": "2026-11-04",
+        "time": null,
+        "text": {
+          "zh-TW": "永豐銀行董事長與總經理召開記者會致歉，證實為外部駭客利用國外供應商新網銀系統「中台」安全設定瑕疵發動攻擊；金管會通令全體金融機構全面檢視中台與供應鏈資安。",
+          "en": "Bank SinoPac's chairman and president apologized at a press conference, confirming hackers exploited a middle-office configuration flaw in a foreign vendor's system; the FSC ordered all financial institutions to audit middle-office security."
+        },
+        "source": {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5612/9871378"
+        }
+      },
+      {
+        "date": "2026-11-16",
+        "time": {
+          "zh-TW": "美東下午",
+          "en": "US Eastern afternoon"
+        },
+        "text": {
+          "zh-TW": "美國最大銀行摩根大通因內部硬體系統的軟體錯誤爆發網銀登入與交易延遲，並外溢導致 Zelle 跨行轉帳受阻，於當晚修復。",
+          "en": "A software bug in an on-premises system at JPMorgan Chase caused online banking and Zelle transfer delays across the US before being resolved that evening."
+        },
+        "source": {
+          "name": "風傳媒",
+          "url": "https://www.storm.mg/article/11182230"
+        }
+      },
+      {
+        "date": "2026-11-19",
+        "time": null,
+        "text": {
+          "zh-TW": "針對社群接連爆出民眾半夜遭連續轉帳，金管會證實共有中信、玉山、北富銀、華南 4 家銀行通報重大偶發事件（共 5 件、56 萬 6,512 元），初步清查銀行系統未遭駭且交易皆通過雙重驗證，交由檢警進行手機數位鑑識。",
+          "en": "Following social-media reports of overnight transfers while depositors slept, the FSC confirmed four banks (CTBC, E.SUN, Taipei Fubon and Hua Nan) reported five major incidental events totaling NT$566,512; initial checks found no bank breach and confirmed all transactions passed 2FA, with police forensics ongoing."
+        },
+        "source": {
+          "name": "鉅亨網",
+          "url": "https://news.cnyes.com/news/id/6667481"
+        }
+      }
+    ],
+    "nextWatch": {
+      "zh-TW": "檢警對 4 家銀行個案的手機數位鑑識結果、金管會「中台」資安清查後續規範，以及各銀行是否針對深夜連續轉入電子支付加強風控機制。",
+      "en": "Police digital-forensics findings on the five mobile devices, the FSC's follow-up rules from the middle-office security audit, and whether banks tighten velocity controls on overnight transfers to e-wallets."
+    },
+    "postmortem": null,
+    "disputes": [
+      {
+        "topic": {
+          "zh-TW": "深夜異常轉帳在「雙重驗證通過」下的原因與責任",
+          "en": "Cause and responsibility when overnight transfers pass 2FA"
+        },
+        "claims": [
+          {
+            "who": "受影響存戶",
+            "claim": {
+              "zh-TW": "半夜熟睡期間並未操作手機，也未收到或輸入 OTP 驗證碼，帳戶卻遭連續多筆轉出至電子支付平台，質疑網銀防護失靈。",
+              "en": "Depositors say they were asleep, never touched their phones, and never received or entered an OTP code while multiple transfers drained funds into e-payment platforms."
+            },
+            "source": {
+              "name": "聯合新聞網",
+              "url": "https://udn.com/news/story/6839/9891454"
+            }
+          },
+          {
+            "who": "金管會與通報銀行",
+            "claim": {
+              "zh-TW": "後端紀錄顯示 5 起交易均由客戶原綁定行動裝置發起，並完整走完登入認證與雙重身分驗證（OTP 等）程序，銀行系統無漏洞或入侵跡象，不排除是用戶端手機遭惡意程式植入或釣魚攔截。",
+              "en": "The FSC and banks say backend logs show all five cases originated from the customer's bound device and completed login and 2FA/OTP verification, with no bank breach, pointing to possible malware or phishing on user phones."
+            },
+            "source": {
+              "name": "鉅亨網",
+              "url": "https://news.cnyes.com/news/id/6667481"
+            }
+          }
+        ],
+        "verdict": {
+          "zh-TW": "必須區分兩波不同事件：11/3 永豐案已確認為銀行端「中台供應商系統漏洞」並全額退還；11 月中旬 4 銀行共 5 件個案在伺服器端確實具備完整雙重驗證紀錄，真因需待檢警對受害者手機完成數位鑑識才能確認是否為端點木馬攔截簡訊與自動操作。",
+          "en": "The two waves are distinct: the Nov 3 SinoPac incident was a confirmed bank-side middle-office vendor flaw and was refunded in full, whereas the mid-November five cases across four banks carry valid device and 2FA logs on the server side and await police mobile forensics to determine whether endpoint malware hijacked SMS and UI actions."
+        }
+      }
+    ],
+    "brief": {
+      "what": {
+        "zh-TW": "永豐銀因中台供應商漏洞遭轉出 4,176 萬元；另 4 銀行通報 5 件深夜異常轉帳共 56.6 萬元（均通過雙重驗證）。",
+        "en": "Bank SinoPac lost NT$41.76M to a middle-office vendor flaw (refunded); four other banks reported five overnight transfer cases totaling NT$566K that all passed 2FA."
+      },
+      "impact": {
+        "zh-TW": "凸顯銀行「中台」供應鏈防護缺口，以及用戶端手機若中毒、傳統簡訊 OTP 無法阻止自動轉帳的風險。",
+        "en": "Exposes gaps in middle-office vendor security and shows that SMS OTP alone cannot stop automated transfers if a user's phone is compromised."
+      },
+      "action": {
+        "zh-TW": "系統設計應補強中台驗證與深夜連續轉帳風控；個人應關閉非必要大額約定或調降非約定轉帳限額、不側載不明 App。",
+        "en": "Engineers should harden middle-office APIs and add velocity controls for overnight transfers; users should lower non-designated transfer limits and avoid sideloaded apps."
+      }
+    },
+    "terms": [
+      "mfa",
+      "supply-chain",
+      "zero-trust",
+      "incident-response"
+    ]
+  },
+  {
     "id": "nvidia-ceo-2026-11",
     "date": "2026-11-12",
     "title": {

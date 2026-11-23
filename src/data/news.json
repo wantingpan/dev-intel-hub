@@ -955,5 +955,38 @@
     "terms": [
       "cve"
     ]
+  },
+  {
+    "id": "n40",
+    "date": "2026-11-19",
+    "category": "security",
+    "hot": true,
+    "title": {
+      "zh-TW": "台灣 4 家銀行通報 5 起網銀異常轉帳重大偶發事件；金管會同步下令全面清查銀行「中台」資安",
+      "en": "Four Taiwanese banks report five abnormal transfer incidents; FSC orders industry-wide middle-office security audit"
+    },
+    "summary": {
+      "zh-TW": "繼 11 月初永豐銀行因新版網銀供應商「中台」設定漏洞遭轉出 4,176 萬元（已全數退還）後，11 月中旬中信、玉山、北富銀、華南等 4 家銀行再通報 5 起民眾深夜遭異常轉帳案件（合計 56.6 萬元）。金管會指出後 5 案銀行系統未遭駭且皆通過綁定裝置與雙重驗證，已交由檢警鑑識手機是否遭植入惡意程式，並通令金融業全面清查中台與供應鏈資安。",
+      "en": "Following an early-November middle-office vendor flaw at Bank SinoPac that led to NT$41.76M in unauthorized transfers (fully refunded), four banks—CTBC, E.SUN, Taipei Fubon and Hua Nan—reported five overnight transfer incidents totaling NT$566,512. The FSC said the five mid-November cases passed device binding and 2FA with no bank server breach, referred the user phones for police forensics, and ordered all banks to audit middle-office and vendor security."
+    },
+    "originalTitle": null,
+    "source": "鉅亨網",
+    "sourceLang": "zh",
+    "url": "https://news.cnyes.com/news/id/6667481",
+    "sourceType": "media",
+    "corroboration": [
+      {
+        "name": "聯合新聞網",
+        "url": "https://udn.com/news/story/6839/9891454"
+      },
+      {
+        "name": "經濟日報（永豐案中台漏洞）",
+        "url": "https://money.udn.com/money/story/5612/9871378"
+      }
+    ],
+    "terms": [
+      "mfa",
+      "supply-chain"
+    ]
   }
 ]
